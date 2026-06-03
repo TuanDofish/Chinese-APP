@@ -1,0 +1,44 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam ArrowColor #6E6E6E
+skinparam activity {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+  DiamondBackgroundColor #FCFCFC
+  DiamondBorderColor #8F8F8F
+  StartColor #6AA84F
+  EndColor #C0504D
+  BarColor #8F8F8F
+}
+
+|Người học|
+start
+:Mở màn hình thống kê;
+
+|Ứng dụng mobile|
+:Tải streak, số từ đã học,\nsổ tay, mục tiêu ngày;
+:Hiển thị bảng thống kê;
+
+|Người học|
+if (Muốn đổi mục tiêu?) then (Có)
+  :Mở hộp thoại chỉnh mục tiêu;
+  :Chọn số từ và số phút mới;
+
+  |Ứng dụng mobile|
+  :Lưu mục tiêu mới;
+  :Tải lại dữ liệu thống kê;
+  :Hiển thị tiến độ cập nhật;
+else (Không)
+endif
+
+|Người học|
+if (Muốn làm mới dữ liệu?) then (Có)
+  |Ứng dụng mobile|
+  :Refresh thống kê;
+endif
+
+|Người học|
+stop
+@enduml

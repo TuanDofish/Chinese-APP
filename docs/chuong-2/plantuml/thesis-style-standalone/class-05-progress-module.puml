@@ -1,0 +1,86 @@
+﻿@startuml
+hide circle
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam linetype ortho
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam roundcorner 14
+skinparam ArrowColor #4A4A4A
+skinparam package {
+  BorderColor #8F8F8F
+  FontColor #222222
+  BackgroundColor white
+}
+skinparam class {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+}
+left to right direction
+title Biểu đồ lớp phân hệ Thống kê và mục tiêu học tập
+
+package "Giao diện mobile" {
+  class StatsScreen <<boundary>> {
+    +loadStats()
+    +saveGoals()
+    +refreshSummary()
+  }
+}
+
+package "Điều khiển và dịch vụ" {
+  class ProgressService <<control>> {
+    +getStudySummary()
+    +saveDailyGoal()
+    +incrementStudyMinutes()
+    +markAsLearned(word)
+  }
+
+  class StreakCalculator <<control>> {
+    +calculateStreak(stats)
+  }
+}
+
+package "Miền dữ liệu" {
+  class DailyGoal <<entity>> {
+    +goalWords: int
+    +goalMinutes: int
+  }
+
+  class DailyLearningStat <<entity>> {
+    +studyDate: Date
+    +learnedWordsCount: int
+    +studyMinutes: int
+    +streakSnapshot: int
+  }
+
+  class UserWordProgress <<entity>> {
+    +isFavorite: bool
+    +isLearned: bool
+    +bestPronunciationScore: decimal
+  }
+
+  class StudySummary <<entity>> {
+    +totalLearnedWords: int
+    +currentStreak: int
+    +todayMinutes: int
+  }
+}
+
+package "Hạ tầng ngoài" {
+  class SharedPreferences <<external>>
+}
+
+StatsScreen --> ProgressService
+ProgressService --> StreakCalculator
+ProgressService ..> SharedPreferences
+
+ProgressService --> DailyGoal
+ProgressService --> DailyLearningStat
+ProgressService --> UserWordProgress
+ProgressService --> StudySummary
+StreakCalculator --> DailyLearningStat
+
+@enduml
+
+

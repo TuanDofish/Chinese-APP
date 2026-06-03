@@ -1,0 +1,68 @@
+{
+  "id": "animals",
+  "name": "Động vật",
+  "nameCn": "动物",
+  "color": "#4CAF50",
+  "words": [
+    {
+      "word": "猫",
+      "pinyin": "māo",
+      "meaning": "mèo",
+      "image": "b655de688e.jpg"
+    },
+    {
+      "word": "狗",
+      "pinyin": "gǒu",
+      "meaning": "chó",
+      "image": "5090e44ef9.jpg"
+    },
+    {
+      "word": "鸟",
+      "pinyin": "niǎo",
+      "meaning": "chim",
+      "image": "cdd7ce48a9.jpg"
+    },
+    {
+      "word": "鱼",
+      "pinyin": "yú",
+      "meaning": "cá",
+      "image": "0857fa4e34.jpg"
+    },
+    {
+      "word": "马",
+      "pinyin": "mǎ",
+      "meaning": "ngựa",
+      "image": "4e2572e0c7.jpg"
+    },
+    {
+      "word": "牛",
+      "pinyin": "niú",
+      "meaning": "bò",
+      "image": "a933ef6a9b.jpg"
+    },
+    {
+      "word": "羊",
+      "pinyin": "yáng",
+      "meaning": "cừu",
+      "image": "a136f339af.jpg"
+    },
+    {
+      "word": "兔",
+      "pinyin": "tù",
+      "meaning": "thỏ",
+      "image": "ff5e0a155e.jpg"
+    },
+    {
+      "word": "熊猫",
+      "pinyin": "xióngmāo",
+      "meaning": "gấu trúc",
+      "image": "b1a6effdd5.jpg"
+    },
+    {
+      "word": "老虎",
+      "pinyin": "lǎohǔ",
+      "meaning": "hổ",
+      "image": "38a3d1ca0b.jpg"
+    }
+  ]
+}

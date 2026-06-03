@@ -1,0 +1,68 @@
+﻿@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+skinparam maxMessageSize 80
+skinparam ParticipantPadding 26
+skinparam BoxPadding 12
+skinparam ArrowColor #4A4A4A
+skinparam NoteBorderColor #9A9A9A
+skinparam NoteBackgroundColor #FAFAFA
+skinparam RoundCorner 18
+skinparam ActorBorderColor #8F8F8F
+skinparam ActorBackgroundColor #FBFBFB
+skinparam ParticipantBorderColor #8F8F8F
+skinparam ParticipantBackgroundColor #F7F7F7
+skinparam BoundaryBorderColor #8F8F8F
+skinparam BoundaryBackgroundColor #F7F7F7
+skinparam ControlBorderColor #8F8F8F
+skinparam ControlBackgroundColor #F7F7F7
+skinparam EntityBorderColor #8F8F8F
+skinparam EntityBackgroundColor #F7F7F7
+skinparam DatabaseBorderColor #8F8F8F
+skinparam DatabaseBackgroundColor white
+skinparam LifeLineBorderColor #BDBDBD
+skinparam LifeLineBackgroundColor white
+skinparam sequence {
+  MessageFontColor #222222
+  ParticipantFontColor #222222
+  ParticipantBorderThickness 1
+  ArrowThickness 1.1
+}
+hide footbox
+title Biểu đồ tuần tự chức năng Quản lý học liệu
+
+actor "Quản trị viên" as Admin
+boundary "ContentEditorScreen" as EditorUI
+control "ValidationService" as ValidationService
+control "ContentManagementService" as ContentService
+database "PostgreSQL" as Database
+
+Admin -> EditorUI: Chọn loại học liệu và nhập dữ liệu
+EditorUI -> ValidationService: validateRequiredFields(data)
+
+alt Dữ liệu hợp lệ
+  ValidationService --> EditorUI: Kết quả hợp lệ
+  EditorUI -> ContentService: createOrUpdateContent(data)
+  ContentService -> Database: INSERT / UPDATE học liệu
+  Database --> ContentService: Thành công
+  ContentService --> EditorUI: Trả kết quả lưu
+  EditorUI --> Admin: Thông báo cập nhật thành công
+else Dữ liệu không hợp lệ
+  ValidationService --> EditorUI: Danh sách lỗi validation
+  EditorUI --> Admin: Hiển thị lỗi bắt buộc
+end
+
+opt Ẩn nội dung
+  Admin -> EditorUI: Chọn ẩn học liệu
+  EditorUI -> ContentService: toggleActiveStatus(itemId, false)
+  ContentService -> Database: Cập nhật active = false
+  Database --> ContentService: Thành công
+  ContentService --> EditorUI: Xác nhận thay đổi
+  EditorUI --> Admin: Thông báo ẩn nội dung thành công
+end
+
+@enduml
+

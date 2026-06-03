@@ -1,0 +1,31 @@
+@startuml
+!include style-sequence.puml
+hide footbox
+title Biểu đồ tuần tự chức năng Xem thống kê và đặt mục tiêu
+
+actor "Người học" as User
+boundary "StatsScreen" as StatsUI
+control "ProgressService" as ProgressService
+control "StreakCalculator" as StreakCalculator
+database "SharedPreferences" as LocalStore
+
+User -> StatsUI: Mở màn hình thống kê
+StatsUI -> ProgressService: getStudySummary()
+ProgressService -> LocalStore: Đọc dữ liệu tiến độ
+LocalStore --> ProgressService: Nhật ký học tập
+ProgressService -> StreakCalculator: calculateStreak(stats)
+StreakCalculator --> ProgressService: Chuỗi học hiện tại
+ProgressService --> StatsUI: Tổng từ đã học,\nstreak, thời gian học
+StatsUI --> User: Hiển thị thống kê học tập
+
+opt Cập nhật mục tiêu
+  User -> StatsUI: Nhập mục tiêu từ hoặc phút học
+  StatsUI -> ProgressService: saveDailyGoal(goalWords, goalMinutes)
+  ProgressService -> LocalStore: Lưu mục tiêu mới
+  LocalStore --> ProgressService: Thành công
+  ProgressService --> StatsUI: Xác nhận cập nhật
+  StatsUI --> User: Thông báo lưu mục tiêu thành công
+end
+
+@enduml
+

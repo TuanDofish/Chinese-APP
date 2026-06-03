@@ -1,0 +1,26 @@
+@startuml
+!include style-sequence.puml
+hide footbox
+title Biểu đồ tuần tự chức năng Kiểm tra ngữ pháp bằng AI
+
+actor "Người học" as User
+boundary "GrammarCheckerScreen" as GrammarUI
+control "GrammarAiService" as GrammarAiService
+entity "Gemini API" as GeminiAPI
+
+User -> GrammarUI: Nhập câu tiếng Trung cần kiểm tra
+GrammarUI -> GrammarUI: Kiểm tra dữ liệu đầu vào
+
+alt Câu nhập hợp lệ
+  User -> GrammarUI: Nhấn Phân tích ngữ pháp
+  GrammarUI -> GrammarAiService: checkGrammar(text)
+  GrammarAiService -> GeminiAPI: Gửi prompt phân tích câu
+  GeminiAPI --> GrammarAiService: Câu sửa, lỗi và gợi ý
+  GrammarAiService --> GrammarUI: Kết quả phân tích
+  GrammarUI --> User: Hiển thị lỗi, giải thích, câu sửa
+else Câu nhập rỗng hoặc quá ngắn
+  GrammarUI --> User: Hiển thị thông báo validation
+end
+
+@enduml
+

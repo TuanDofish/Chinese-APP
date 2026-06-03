@@ -1,0 +1,26 @@
+@startuml
+start
+:Chọn nguồn tin RSS;
+:Tải danh sách bài báo;
+
+if (Tải thành công?) then (Có)
+  :Chọn bài báo;
+  :Hiển thị nội dung bài;
+
+  while (Tiếp tục đọc?) is (Có)
+    if (Chạm vào từ?) then (Có)
+      :Tra nghĩa từ;
+
+      if (Lưu sổ tay?) then (Có)
+        :Lưu từ vào notebook;
+      endif
+    endif
+  endwhile (Không)
+
+  :Cập nhật phiên đọc;
+else (Không)
+  :Hiển thị thông báo lỗi tải tin;
+endif
+
+stop
+@enduml

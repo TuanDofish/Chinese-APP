@@ -1,0 +1,42 @@
+@startuml
+autonumber
+skinparam shadowing false
+
+actor "Người học" as User
+participant "VocabularyListScreen" as TopicUI
+database "Asset JSON\nhsk_complete.json" as AssetData
+participant "VocabularyLearningFlow" as FlowUI
+participant "VocabularyDetailScreen" as DetailUI
+participant "ProgressService" as Progress
+database "Local Storage" as LocalStore
+
+User -> TopicUI: Chọn cấp HSK và chủ đề
+TopicUI -> AssetData: Load danh sách từ
+AssetData --> TopicUI: Trả danh sách từ theo chủ đề
+TopicUI -> FlowUI: Mở luồng học từ vựng
+
+loop Mỗi từ trong chủ đề
+  FlowUI -> DetailUI: Hiển thị từ hiện tại
+  User -> DetailUI: Bấm "Xem dịch nghĩa"
+  DetailUI -> DetailUI: Reveal meaning + phát âm mẫu
+
+  opt Lưu sổ tay
+    User -> DetailUI: Bấm bookmark
+    DetailUI -> Progress: toggleFavorite(word)
+    Progress -> LocalStore: Lưu favorite_words
+    LocalStore --> Progress: Thành công
+    Progress --> DetailUI: Cập nhật trạng thái favorite
+  end
+
+  User -> DetailUI: Bấm "Tiếp tục"
+  DetailUI -> Progress: markAsLearned(word)
+  Progress -> LocalStore: Cập nhật learned_words
+  Progress -> LocalStore: Tăng today_words_count
+  LocalStore --> Progress: Thành công
+  Progress --> DetailUI: Xác nhận đã học
+  DetailUI -> FlowUI: Chuyển sang từ kế tiếp
+end
+
+FlowUI --> User: Thông báo hoàn thành chủ đề
+
+@enduml

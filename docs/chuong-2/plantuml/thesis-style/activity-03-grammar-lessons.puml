@@ -1,0 +1,27 @@
+@startuml
+!include style-activity.puml
+title Biểu đồ hoạt động chức năng Xem bài học ngữ pháp
+
+start
+:Người học mở mục ngữ pháp;
+:Chọn cấp độ HSK hoặc bài học cụ thể;
+:Tải danh sách bài học ngữ pháp;
+
+if (Tải dữ liệu thành công?) then (Có)
+  :Hiển thị danh sách bài học;
+else (Không)
+  :Hiển thị thông báo lỗi tải dữ liệu;
+  stop
+endif
+
+:Người học chọn một bài học;
+:Hiển thị cấu trúc, giải thích và ví dụ;
+
+if (Xem ví dụ chi tiết?) then (Có)
+  :Mở phần ví dụ minh họa;
+endif
+
+:Kết thúc thao tác xem bài học;
+stop
+@enduml
+

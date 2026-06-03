@@ -1,0 +1,80 @@
+@startuml
+!include style-class.puml
+left to right direction
+title Biểu đồ lớp phân hệ Ngữ pháp
+
+package "Giao diện mobile" {
+  class GrammarCheckerScreen <<boundary>> {
+    +loadGrammarLessons()
+    +analyzeText()
+    +selectLevel()
+  }
+}
+
+package "Điều khiển và dịch vụ" {
+  class GrammarController <<control>> {
+    +getAllGrammar()
+    +getGrammarByLevel(level)
+  }
+
+  class GrammarAiService <<control>> {
+    +checkGrammar(text)
+    +mockCheck(text)
+  }
+}
+
+package "Miền dữ liệu" {
+  class GrammarLesson <<entity>> {
+    +id: bigint
+    +level: String
+    +title: String
+    +patternText: String
+    +explanation: String
+  }
+
+  class GrammarExample <<entity>> {
+    +id: bigint
+    +exampleCn: String
+    +examplePinyin: String
+    +exampleVi: String
+  }
+
+  class GrammarCheckSession <<entity>> {
+    +id: bigint
+    +inputText: String
+    +score: decimal
+    +correctionCn: String
+    +styleTips: String
+  }
+
+  class GrammarIssue <<entity>> {
+    +id: bigint
+    +type: String
+    +explanation: String
+  }
+
+  class GrammarSuggestion <<entity>> {
+    +id: bigint
+    +suggestionCn: String
+    +suggestionVi: String
+  }
+}
+
+package "Hạ tầng ngoài" {
+  class GeminiAPI <<external>>
+  class HttpClient <<external>>
+}
+
+GrammarCheckerScreen ..> GrammarController : tải bài học
+GrammarCheckerScreen --> GrammarAiService : phân tích câu
+GrammarCheckerScreen ..> HttpClient : gọi REST API
+GrammarController --> GrammarLesson
+GrammarLesson "1" -- "0..*" GrammarExample : chứa ví dụ
+
+GrammarAiService ..> GeminiAPI
+GrammarAiService --> GrammarCheckSession : tạo phiên kiểm tra
+GrammarCheckSession "1" -- "0..*" GrammarIssue : ghi nhận lỗi
+GrammarCheckSession "1" -- "0..*" GrammarSuggestion : sinh gợi ý
+
+@enduml
+

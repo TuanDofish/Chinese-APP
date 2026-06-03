@@ -1,0 +1,100 @@
+﻿@startuml
+hide circle
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam linetype ortho
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam roundcorner 14
+skinparam ArrowColor #4A4A4A
+skinparam package {
+  BorderColor #8F8F8F
+  FontColor #222222
+  BackgroundColor white
+}
+skinparam class {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+}
+left to right direction
+title Biểu đồ lớp phân hệ Đọc báo tiếng Trung
+
+package "Giao diện mobile" {
+  class NewsReaderScreen <<boundary>> {
+    +fetchRssFeed()
+    +openArticle()
+    +lookupWord()
+    +toggleFavoriteArticle()
+  }
+
+  class ArticleLookupPopup <<boundary>> {
+    +showWordMeaning()
+  }
+}
+
+package "Điều khiển và dịch vụ" {
+  class NewsFeedService <<control>> {
+    +fetchArticles()
+    +parseFeed()
+  }
+
+  class VocabDataHelper <<control>> {
+    +getData(word)
+  }
+
+  class ProgressService <<control>> {
+    +saveFavoriteArticle(articleId)
+    +saveLookupHistory(word)
+  }
+}
+
+package "Miền dữ liệu" {
+  class ArticleSource <<entity>> {
+    +id: bigint
+    +name: String
+    +rssUrl: String
+  }
+
+  class Article <<entity>> {
+    +id: bigint
+    +title: String
+    +summary: String
+    +content: String
+    +publishedAt: DateTime
+  }
+
+  class ReadingSession <<entity>> {
+    +id: bigint
+    +timeSpentSeconds: int
+    +lookedUpWordsCount: int
+  }
+
+  class WordLookupLog <<entity>> {
+    +id: bigint
+    +word: String
+    +savedToNotebook: bool
+  }
+}
+
+package "Hạ tầng ngoài" {
+  class RssFeed <<external>>
+  class TranslationAPI <<external>>
+}
+
+NewsReaderScreen --> NewsFeedService
+NewsReaderScreen --> VocabDataHelper
+NewsReaderScreen --> ProgressService
+NewsReaderScreen --> ArticleLookupPopup : mở popup tra từ
+
+NewsFeedService ..> RssFeed
+VocabDataHelper ..> TranslationAPI
+
+ArticleSource "1" -- "0..*" Article : cung cấp
+Article "1" -- "0..*" ReadingSession : được đọc
+ReadingSession "1" -- "0..*" WordLookupLog : ghi nhận tra cứu
+ArticleLookupPopup ..> WordLookupLog
+
+@enduml
+
+

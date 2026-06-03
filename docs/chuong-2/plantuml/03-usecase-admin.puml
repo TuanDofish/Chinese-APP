@@ -1,0 +1,64 @@
+@startuml
+left to right direction
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam ArrowColor #6E6E6E
+skinparam ArrowThickness 1.1
+skinparam actorStyle awesome
+skinparam actor {
+  BorderColor #9A9A9A
+  FontColor #333333
+  FontSize 13
+}
+skinparam rectangle {
+  BorderColor #6E6E6E
+  FontColor #222222
+  FontStyle bold
+  FontSize 15
+  RoundCorner 8
+}
+skinparam usecase {
+  BackgroundColor #F7F7F7
+  BorderColor #9E9E9E
+  FontColor #222222
+  FontSize 13
+}
+
+actor "Quản trị viên\n(Admin)" as Admin
+
+rectangle "Hệ thống Quản trị Nội dung (Admin Web CMS)" {
+  usecase "Quản lý từ vựng" as A1
+  usecase "Quản lý chủ đề HSK" as A2
+  usecase "Quản lý bài học ngữ pháp" as A3
+  usecase "Quản lý câu luyện phát âm" as A4
+  usecase "Quản lý nguồn tin\nvà bài đọc" as A5
+
+  usecase "Tạo/Sửa/Xóa\nhọc liệu" as A6
+  usecase "Phân loại theo cấp HSK,\nchủ đề, thứ tự hiển thị" as A7
+  usecase "Kích hoạt / Ẩn\nnội dung" as A8
+
+  A1 -[hidden]down-> A2
+  A2 -[hidden]down-> A3
+  A3 -[hidden]down-> A4
+  A4 -[hidden]down-> A5
+}
+
+Admin --> A1
+Admin --> A2
+Admin --> A3
+Admin --> A4
+Admin --> A5
+
+A1 ..> A6 : <<include>>
+A2 ..> A7 : <<include>>
+A3 ..> A6 : <<include>>
+A4 ..> A6 : <<include>>
+A5 ..> A6 : <<include>>
+
+A1 ..> A8 : <<extend>>
+A3 ..> A8 : <<extend>>
+A4 ..> A8 : <<extend>>
+A5 ..> A8 : <<extend>>
+
+@enduml

@@ -1,0 +1,92 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam linetype ortho
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam class {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+}
+
+package "Mobile UI" {
+  class GrammarCheckerScreen <<boundary>> {
+    -textController: TextEditingController
+    -selectedLevel: String
+    -result: Map
+    +loadGrammarLessons()
+    +analyzeText()
+  }
+}
+
+package "Application Service" {
+  class GrammarAiService <<service>> {
+    +checkGrammar(text)
+    +mockCheck(text)
+  }
+}
+
+package "Backend API" {
+  class GrammarController <<controller>> {
+    +getAllGrammar()
+    +getGrammarByLevel(level)
+  }
+}
+
+package "Domain / Data" {
+  class GrammarLesson <<entity>> {
+    +id: bigint
+    +level: String
+    +title: String
+    +patternText: String
+    +explanation: String
+  }
+
+  class GrammarExample <<entity>> {
+    +id: bigint
+    +exampleCn: String
+    +examplePinyin: String
+    +exampleVi: String
+  }
+
+  class GrammarCheckSession <<entity>> {
+    +id: bigint
+    +inputText: String
+    +score: decimal
+    +correctionCn: String
+    +styleTips: String
+    +engine: String
+  }
+
+  class GrammarIssue <<entity>> {
+    +id: bigint
+    +type: String
+    +explanation: String
+  }
+
+  class GrammarSuggestion <<entity>> {
+    +id: bigint
+    +suggestionCn: String
+    +suggestionVi: String
+  }
+}
+
+package "External" {
+  class GeminiAPI <<external>>
+  class HttpClient <<external>>
+}
+
+GrammarCheckerScreen ..> GrammarController : tải bài học
+GrammarCheckerScreen --> GrammarAiService : kiểm tra câu
+GrammarCheckerScreen ..> HttpClient : gọi REST /grammar
+
+GrammarController --> GrammarLesson
+GrammarLesson "1" -- "0..*" GrammarExample : có ví dụ
+
+GrammarAiService ..> GeminiAPI
+GrammarAiService --> GrammarCheckSession
+GrammarCheckSession "1" -- "0..*" GrammarIssue : chứa lỗi
+GrammarCheckSession "1" -- "0..*" GrammarSuggestion : chứa gợi ý
+
+@enduml

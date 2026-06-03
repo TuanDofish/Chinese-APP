@@ -1,0 +1,38 @@
+@startuml
+!include style-sequence.puml
+hide footbox
+title Biểu đồ tuần tự chức năng Đọc báo tiếng Trung và tra từ trong bài
+
+actor "Người học" as User
+boundary "NewsReaderScreen" as NewsUI
+control "NewsFeedService" as NewsFeedService
+entity "RSS Feed" as RssFeed
+control "VocabDataHelper" as VocabHelper
+database "Kho dữ liệu\nTừ vựng cục bộ" as LocalData
+entity "Translation API" as TranslateAPI
+
+User -> NewsUI: Mở chức năng đọc báo
+NewsUI -> NewsFeedService: fetchArticles()
+NewsFeedService -> RssFeed: Đọc nguồn RSS
+RssFeed --> NewsFeedService: Danh sách bài báo
+NewsFeedService --> NewsUI: Trả danh sách bài viết
+NewsUI --> User: Hiển thị tiêu đề và phần tóm tắt
+
+User -> NewsUI: Chọn bài báo cần đọc
+NewsUI --> User: Hiển thị nội dung bài báo
+
+User -> NewsUI: Nhấn vào từ cần tra cứu
+NewsUI -> VocabHelper: getData(word)
+VocabHelper -> LocalData: Tìm dữ liệu từ vựng
+
+alt Có dữ liệu cục bộ
+  LocalData --> VocabHelper: Pinyin, nghĩa, ví dụ
+else Không có dữ liệu
+  VocabHelper -> TranslateAPI: Dịch Trung -> Việt
+  TranslateAPI --> VocabHelper: Nghĩa tiếng Việt
+end
+
+VocabHelper --> NewsUI: Trả kết quả tra cứu
+NewsUI --> User: Hiển thị popup nghĩa của từ
+
+@enduml

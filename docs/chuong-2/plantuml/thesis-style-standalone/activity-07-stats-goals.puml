@@ -1,0 +1,45 @@
+﻿@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam ArrowColor #4A4A4A
+skinparam defaultTextAlignment center
+skinparam activity {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+  DiamondBackgroundColor white
+  DiamondBorderColor #8F8F8F
+  DiamondFontColor #222222
+  StartColor black
+  EndColor black
+  BarColor #8F8F8F
+}
+title Biểu đồ hoạt động chức năng Xem thống kê và đặt mục tiêu
+
+start
+:Người học mở màn hình thống kê;
+:Tải dữ liệu tiến độ học tập;
+
+if (Có dữ liệu thống kê?) then (Có)
+  :Hiển thị số từ đã học,\nstreak và thời gian học;
+else (Không)
+  :Hiển thị trạng thái khởi tạo ban đầu;
+endif
+
+if (Người học cập nhật mục tiêu?) then (Có)
+  :Nhập số từ hoặc số phút mục tiêu;
+  :Kiểm tra dữ liệu mục tiêu;
+  if (Dữ liệu hợp lệ?) then (Có)
+    :Lưu mục tiêu mới;
+    :Thông báo cập nhật thành công;
+  else (Không)
+    :Hiển thị lỗi validation;
+    stop
+  endif
+endif
+
+:Kết thúc thao tác theo dõi tiến độ;
+stop
+@enduml
+
+

@@ -1,0 +1,49 @@
+@startuml
+autonumber
+skinparam shadowing false
+
+actor "Người học" as User
+participant "DictionarySearchTab" as SearchUI
+participant "VocabDataHelper" as VocabHelper
+database "Asset/Cache\nTừ vựng" as LocalData
+participant "Translation API" as TranslateAPI
+participant "VocabularyDetailScreen" as DetailUI
+participant "ProgressService" as Progress
+database "Local Storage" as LocalStore
+
+User -> SearchUI: Nhập từ khóa và bấm Tra từ
+SearchUI -> SearchUI: Kiểm tra truy vấn có chữ Hán?
+
+alt Không có chữ Hán
+  SearchUI -> VocabHelper: translateViToZhAsync(query)
+  VocabHelper -> TranslateAPI: Dịch vi -> zh
+  TranslateAPI --> VocabHelper: Hanzi tương ứng
+  VocabHelper --> SearchUI: Trả từ khóa đã chuẩn hóa
+else Có chữ Hán
+  SearchUI -> SearchUI: Giữ nguyên từ khóa
+end
+
+SearchUI -> DetailUI: Mở màn hình chi tiết từ
+DetailUI -> VocabHelper: getData(word)
+VocabHelper -> LocalData: Tìm pinyin, nghĩa, ví dụ
+
+alt Có dữ liệu cục bộ
+  LocalData --> VocabHelper: Trả dữ liệu từ vựng
+else Thiếu dữ liệu
+  VocabHelper -> TranslateAPI: Dịch zh -> vi
+  TranslateAPI --> VocabHelper: Nghĩa tiếng Việt
+end
+
+VocabHelper --> DetailUI: Trả dữ liệu đã tổng hợp
+DetailUI --> User: Hiển thị nghĩa, pinyin, ví dụ
+
+opt Người học lưu vào sổ tay
+  User -> DetailUI: Bấm bookmark
+  DetailUI -> Progress: toggleFavorite(word)
+  Progress -> LocalStore: Cập nhật favorite_words
+  LocalStore --> Progress: Thành công
+  Progress --> DetailUI: Trạng thái mới
+  DetailUI --> User: Thông báo lưu thành công
+end
+
+@enduml

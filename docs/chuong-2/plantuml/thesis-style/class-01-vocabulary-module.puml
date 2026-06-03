@@ -1,0 +1,112 @@
+@startuml
+!include style-class.puml
+left to right direction
+title Biểu đồ lớp phân hệ Từ vựng
+
+package "Giao diện mobile" {
+  class MagicVocabScreen <<boundary>> {
+    +build()
+  }
+
+  class DictionarySearchTab <<boundary>> {
+    +performSearch()
+    +clearQuery()
+  }
+
+  class VocabularyListScreen <<boundary>> {
+    +loadData()
+    +filterByTopic()
+  }
+
+  class VocabularyLearningFlow <<boundary>> {
+    +nextPage()
+    +previousPage()
+  }
+
+  class VocabularyDetailScreen <<boundary>> {
+    +revealMeaning()
+    +toggleFavorite()
+    +playAudio()
+  }
+}
+
+package "Điều khiển và dịch vụ" {
+  class VocabDataHelper <<control>> {
+    +getData(word)
+    +getDataAsync(word)
+    +translateViToZhAsync(query)
+  }
+
+  class VocabularyService <<control>> {
+    +loadHskVocabulary(level, topic)
+    +getTopicWords(topic)
+  }
+
+  class ProgressService <<control>> {
+    +markAsLearned(word)
+    +toggleFavorite(word)
+    +getFavoriteWords()
+  }
+
+  class SpeechService <<control>> {
+    +speak(text)
+  }
+}
+
+package "Miền dữ liệu" {
+  class Topic <<entity>> {
+    +id: bigint
+    +name: String
+    +hskLevel: String
+  }
+
+  class Vocabulary <<entity>> {
+    +id: bigint
+    +simplified: String
+    +traditional: String
+    +pinyin: String
+    +meaningVi: String
+    +hskLevel: String
+  }
+
+  class VocabularyExample <<entity>> {
+    +id: bigint
+    +exampleCn: String
+    +exampleVi: String
+  }
+
+  class UserWordProgress <<entity>> {
+    +isFavorite: bool
+    +isLearned: bool
+    +bestPronunciationScore: decimal
+  }
+}
+
+package "Hạ tầng ngoài" {
+  class SharedPreferences <<external>>
+  class TranslationAPI <<external>>
+  class FlutterTts <<external>>
+}
+
+MagicVocabScreen o-- DictionarySearchTab
+MagicVocabScreen o-- VocabularyListScreen
+VocabularyListScreen --> VocabularyLearningFlow : bắt đầu học
+VocabularyLearningFlow --> VocabularyDetailScreen : hiển thị từ hiện tại
+DictionarySearchTab --> VocabularyDetailScreen : mở chi tiết từ
+
+DictionarySearchTab --> VocabDataHelper
+VocabularyListScreen --> VocabularyService
+VocabularyDetailScreen --> VocabDataHelper
+VocabularyDetailScreen --> ProgressService
+VocabularyDetailScreen --> SpeechService
+
+VocabDataHelper ..> TranslationAPI
+SpeechService ..> FlutterTts
+ProgressService ..> SharedPreferences
+
+Topic "1" -- "0..*" Vocabulary : phân loại
+Vocabulary "1" -- "0..*" VocabularyExample : có ví dụ
+Vocabulary "1" -- "0..*" UserWordProgress : theo dõi
+
+@enduml
+

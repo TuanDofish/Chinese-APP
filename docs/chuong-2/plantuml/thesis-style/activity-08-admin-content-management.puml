@@ -1,0 +1,21 @@
+@startuml
+!include style-activity.puml
+title Biểu đồ hoạt động chức năng Quản lý học liệu
+
+start
+:Quản trị viên chọn loại học liệu;
+:Nhập mới hoặc chỉnh sửa dữ liệu;
+:Kiểm tra trường bắt buộc;
+
+if (Dữ liệu hợp lệ?) then (Có)
+  :Lưu vào cơ sở dữ liệu;
+  if (Ẩn nội dung?) then (Có)
+    :Đặt active = false;
+  endif
+  :Thông báo thành công;
+else (Không)
+  :Hiển thị lỗi validation;
+endif
+
+stop
+@enduml

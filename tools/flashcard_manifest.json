@@ -1,0 +1,105 @@
+{
+  "version": "1.0",
+  "topics": [
+    {
+      "id": "animals",
+      "name": "Động vật",
+      "nameCn": "动物",
+      "color": "#4CAF50",
+      "words": [
+        {"word": "猫", "pinyin": "māo", "meaning": "mèo", "query": "cat animal cute"},
+        {"word": "狗", "pinyin": "gǒu", "meaning": "chó", "query": "dog animal cute"},
+        {"word": "鸟", "pinyin": "niǎo", "meaning": "chim", "query": "bird colorful"},
+        {"word": "鱼", "pinyin": "yú", "meaning": "cá", "query": "fish underwater"},
+        {"word": "马", "pinyin": "mǎ", "meaning": "ngựa", "query": "horse running"},
+        {"word": "牛", "pinyin": "niú", "meaning": "bò", "query": "cow farm"},
+        {"word": "羊", "pinyin": "yáng", "meaning": "cừu", "query": "sheep wool"},
+        {"word": "兔", "pinyin": "tù", "meaning": "thỏ", "query": "rabbit cute"},
+        {"word": "熊猫", "pinyin": "xióngmāo", "meaning": "gấu trúc", "query": "panda bear bamboo"},
+        {"word": "老虎", "pinyin": "lǎohǔ", "meaning": "hổ", "query": "tiger wild"}
+      ]
+    },
+    {
+      "id": "food",
+      "name": "Đồ ăn",
+      "nameCn": "食物",
+      "color": "#FF5722",
+      "words": [
+        {"word": "米饭", "pinyin": "mǐfàn", "meaning": "cơm", "query": "rice bowl steamed"},
+        {"word": "面条", "pinyin": "miàntiáo", "meaning": "mì", "query": "noodles chinese food"},
+        {"word": "饺子", "pinyin": "jiǎozi", "meaning": "há cảo", "query": "dumplings chinese"},
+        {"word": "包子", "pinyin": "bāozi", "meaning": "bánh bao", "query": "steamed bun chinese"},
+        {"word": "水果", "pinyin": "shuǐguǒ", "meaning": "hoa quả", "query": "fresh fruit colorful"},
+        {"word": "蔬菜", "pinyin": "shūcài", "meaning": "rau củ", "query": "vegetables fresh"},
+        {"word": "苹果", "pinyin": "píngguǒ", "meaning": "táo", "query": "apple red fruit"},
+        {"word": "香蕉", "pinyin": "xiāngjiāo", "meaning": "chuối", "query": "banana yellow fruit"},
+        {"word": "茶", "pinyin": "chá", "meaning": "trà", "query": "tea cup chinese"},
+        {"word": "汤", "pinyin": "tāng", "meaning": "canh", "query": "soup bowl hot"}
+      ]
+    },
+    {
+      "id": "colors",
+      "name": "Màu sắc",
+      "nameCn": "颜色",
+      "color": "#9C27B0",
+      "words": [
+        {"word": "红色", "pinyin": "hóngsè", "meaning": "màu đỏ", "query": "red color abstract"},
+        {"word": "蓝色", "pinyin": "lánsè", "meaning": "màu xanh dương", "query": "blue color sky"},
+        {"word": "绿色", "pinyin": "lǜsè", "meaning": "màu xanh lá", "query": "green color nature"},
+        {"word": "黄色", "pinyin": "huángsè", "meaning": "màu vàng", "query": "yellow color sunshine"},
+        {"word": "白色", "pinyin": "báisè", "meaning": "màu trắng", "query": "white color snow pure"},
+        {"word": "黑色", "pinyin": "hēisè", "meaning": "màu đen", "query": "black color dark"},
+        {"word": "粉色", "pinyin": "fěnsè", "meaning": "màu hồng", "query": "pink color flower"},
+        {"word": "橙色", "pinyin": "chéngsè", "meaning": "màu cam", "query": "orange color fruit"}
+      ]
+    },
+    {
+      "id": "family",
+      "name": "Gia đình",
+      "nameCn": "家庭",
+      "color": "#2196F3",
+      "words": [
+        {"word": "爸爸", "pinyin": "bàba", "meaning": "bố", "query": "father family man"},
+        {"word": "妈妈", "pinyin": "māma", "meaning": "mẹ", "query": "mother family woman"},
+        {"word": "哥哥", "pinyin": "gēgē", "meaning": "anh trai", "query": "brother boy teenager"},
+        {"word": "姐姐", "pinyin": "jiějie", "meaning": "chị gái", "query": "sister girl teenager"},
+        {"word": "弟弟", "pinyin": "dìdi", "meaning": "em trai", "query": "little brother boy child"},
+        {"word": "妹妹", "pinyin": "mèimei", "meaning": "em gái", "query": "little sister girl child"},
+        {"word": "爷爷", "pinyin": "yéye", "meaning": "ông nội", "query": "grandfather old man smiling"},
+        {"word": "奶奶", "pinyin": "nǎinai", "meaning": "bà nội", "query": "grandmother old woman smiling"}
+      ]
+    },
+    {
+      "id": "body",
+      "name": "Cơ thể",
+      "nameCn": "身体",
+      "color": "#009688",
+      "words": [
+        {"word": "眼睛", "pinyin": "yǎnjing", "meaning": "mắt", "query": "eye closeup"},
+        {"word": "耳朵", "pinyin": "ěrduo", "meaning": "tai", "query": "ear closeup"},
+        {"word": "鼻子", "pinyin": "bízi", "meaning": "mũi", "query": "nose face closeup"},
+        {"word": "嘴", "pinyin": "zuǐ", "meaning": "miệng", "query": "mouth smile lips"},
+        {"word": "手", "pinyin": "shǒu", "meaning": "tay", "query": "hand fingers"},
+        {"word": "脚", "pinyin": "jiǎo", "meaning": "chân", "query": "foot barefoot"},
+        {"word": "头", "pinyin": "tóu", "meaning": "đầu", "query": "head silhouette"},
+        {"word": "心", "pinyin": "xīn", "meaning": "tim", "query": "heart love"}
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "Phương tiện",
+      "nameCn": "交通工具",
+      "color": "#FF9800",
+      "words": [
+        {"word": "汽车", "pinyin": "qìchē", "meaning": "ô tô", "query": "car automobile"},
+        {"word": "公共汽车", "pinyin": "gōnggòng qìchē", "meaning": "xe buýt", "query": "bus city transport"},
+        {"word": "地铁", "pinyin": "dìtiě", "meaning": "tàu điện ngầm", "query": "subway metro train"},
+        {"word": "火车", "pinyin": "huǒchē", "meaning": "tàu hỏa", "query": "train railway"},
+        {"word": "飞机", "pinyin": "fēijī", "meaning": "máy bay", "query": "airplane sky flying"},
+        {"word": "自行车", "pinyin": "zìxíngchē", "meaning": "xe đạp", "query": "bicycle cycling"},
+        {"word": "摩托车", "pinyin": "mótuōchē", "meaning": "xe máy", "query": "motorcycle"},
+        {"word": "船", "pinyin": "chuán", "meaning": "thuyền", "query": "boat ship water"}
+      ]
+    }
+  ]
+}

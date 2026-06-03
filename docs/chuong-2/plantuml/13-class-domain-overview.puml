@@ -1,0 +1,180 @@
+@startuml
+hide circle
+skinparam shadowing false
+skinparam linetype ortho
+skinparam classAttributeIconSize 0
+
+class User <<entity>> {
+  +id: bigint
+  +displayName: string
+  +role: UserRole
+  +targetHskLevel: HskLevel
+}
+
+class Learner <<entity>>
+class Admin <<entity>>
+User <|-- Learner
+User <|-- Admin
+
+class Topic <<entity>> {
+  +id: bigint
+  +name: string
+  +hskLevel: HskLevel
+}
+
+class Vocabulary <<entity>> {
+  +id: bigint
+  +simplified: string
+  +pinyin: string
+  +meaningVi: text
+  +hskLevel: HskLevel
+}
+
+class VocabularyExample <<entity>> {
+  +id: bigint
+  +exampleCn: text
+  +exampleVi: text
+}
+
+class UserWordProgress <<entity>> {
+  +isFavorite: bool
+  +isLearned: bool
+  +bestPronunciationScore: decimal
+}
+
+class GrammarLesson <<entity>> {
+  +id: bigint
+  +title: string
+  +patternText: string
+  +explanation: text
+  +hskLevel: HskLevel
+}
+
+class GrammarExample <<entity>> {
+  +id: bigint
+  +exampleCn: text
+  +exampleVi: text
+}
+
+class GrammarCheckSession <<entity>> {
+  +id: bigint
+  +inputText: text
+  +score: decimal
+  +styleTips: text
+}
+
+class GrammarIssue <<entity>> {
+  +id: bigint
+  +issueType: string
+  +explanation: text
+}
+
+class GrammarSuggestion <<entity>> {
+  +id: bigint
+  +suggestionCn: text
+  +suggestionVi: text
+}
+
+class PronunciationLesson <<entity>> {
+  +id: bigint
+  +title: string
+  +hskLevel: HskLevel
+}
+
+class PronunciationSentence <<entity>> {
+  +id: bigint
+  +sentenceCn: text
+  +sentenceVi: text
+}
+
+class PronunciationAttempt <<entity>> {
+  +id: bigint
+  +targetType: string
+  +recognizedText: text
+  +score: decimal
+}
+
+class ArticleSource <<entity>> {
+  +id: bigint
+  +name: string
+  +rssUrl: text
+}
+
+class Article <<entity>> {
+  +id: bigint
+  +title: text
+  +content: text
+  +publishedAt: timestamptz
+}
+
+class ReadingSession <<entity>> {
+  +id: bigint
+  +timeSpentSeconds: int
+  +lookedUpWordsCount: int
+}
+
+class WordLookupLog <<entity>> {
+  +id: bigint
+  +word: string
+  +savedToNotebook: bool
+}
+
+class DailyGoal <<entity>> {
+  +goalWords: int
+  +goalMinutes: int
+}
+
+class DailyLearningStat <<entity>> {
+  +studyDate: date
+  +learnedWordsCount: int
+  +studyMinutes: int
+  +streakSnapshot: int
+}
+
+class VocabularyService <<service>>
+class GrammarService <<service>>
+class PronunciationService <<service>>
+class ReadingService <<service>>
+class ProgressService <<service>>
+class ContentManagementService <<service>>
+
+Topic "1" -- "0..*" Vocabulary : groups >
+Vocabulary "1" -- "0..*" VocabularyExample
+Learner "1" -- "0..*" UserWordProgress
+Vocabulary "1" -- "0..*" UserWordProgress
+
+GrammarLesson "1" -- "0..*" GrammarExample
+Learner "1" -- "0..*" GrammarCheckSession
+GrammarCheckSession "1" -- "0..*" GrammarIssue
+GrammarCheckSession "1" -- "0..*" GrammarSuggestion
+
+PronunciationLesson "1" -- "0..*" PronunciationSentence
+Learner "1" -- "0..*" PronunciationAttempt
+Vocabulary "0..1" -- "0..*" PronunciationAttempt
+PronunciationSentence "0..1" -- "0..*" PronunciationAttempt
+
+ArticleSource "1" -- "0..*" Article
+Learner "1" -- "0..*" ReadingSession
+Article "1" -- "0..*" ReadingSession
+ReadingSession "1" -- "0..*" WordLookupLog
+
+Learner "1" -- "1" DailyGoal
+Learner "1" -- "0..*" DailyLearningStat
+
+VocabularyService ..> Vocabulary
+VocabularyService ..> Topic
+VocabularyService ..> UserWordProgress
+GrammarService ..> GrammarLesson
+GrammarService ..> GrammarCheckSession
+PronunciationService ..> PronunciationSentence
+PronunciationService ..> PronunciationAttempt
+ReadingService ..> Article
+ReadingService ..> WordLookupLog
+ProgressService ..> DailyGoal
+ProgressService ..> DailyLearningStat
+ContentManagementService ..> Vocabulary
+ContentManagementService ..> GrammarLesson
+ContentManagementService ..> PronunciationSentence
+ContentManagementService ..> Article
+
+@enduml

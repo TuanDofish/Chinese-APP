@@ -1,0 +1,55 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam ArrowColor #6E6E6E
+skinparam activity {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+  DiamondBackgroundColor #FCFCFC
+  DiamondBorderColor #8F8F8F
+  StartColor #6AA84F
+  EndColor #C0504D
+  BarColor #8F8F8F
+}
+
+|Người học|
+start
+:Mở tab ngữ pháp;
+:Chọn cấp HSK;
+
+|Ứng dụng mobile|
+:Gửi yêu cầu lấy danh sách bài học;
+
+|API ngữ pháp|
+:Truy vấn dữ liệu bài học theo cấp;
+if (Có dữ liệu trên API?) then (Có)
+  :Trả danh sách bài học;
+  |Ứng dụng mobile|
+  :Hiển thị danh sách bài học;
+else (Không)
+  |Ứng dụng mobile|
+  :Chuyển sang dữ liệu fallback cục bộ;
+  if (Có dữ liệu fallback?) then (Có)
+    :Hiển thị danh sách bài học dự phòng;
+  else (Không)
+    :Thông báo không tải được dữ liệu ngữ pháp;
+    stop
+  endif
+endif
+
+|Người học|
+:Chọn một bài học;
+
+|Ứng dụng mobile|
+:Hiển thị mẫu câu, giải thích, ví dụ;
+
+|Người học|
+if (Đổi cấp hoặc chọn bài khác?) then (Có)
+  |Ứng dụng mobile|
+  :Tải lại dữ liệu tương ứng;
+endif
+
+|Người học|
+stop
+@enduml

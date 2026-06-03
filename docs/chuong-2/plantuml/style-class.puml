@@ -1,0 +1,18 @@
+hide circle
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam linetype ortho
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam roundcorner 14
+skinparam ArrowColor #4A4A4A
+skinparam package {
+  BorderColor #8F8F8F
+  FontColor #222222
+  BackgroundColor white
+}
+skinparam class {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+}

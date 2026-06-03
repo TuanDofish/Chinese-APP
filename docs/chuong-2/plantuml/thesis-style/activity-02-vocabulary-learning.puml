@@ -1,0 +1,36 @@
+@startuml
+!include style-activity.puml
+title Biểu đồ hoạt động chức năng Học từ vựng theo chủ đề HSK
+
+start
+:Người học mở mục học từ vựng HSK;
+:Chọn cấp độ và chủ đề;
+:Tải danh sách từ vựng theo bộ lọc;
+
+if (Danh sách có dữ liệu?) then (Có)
+  :Hiển thị từ đầu tiên;
+else (Không)
+  :Thông báo chưa có học liệu phù hợp;
+  stop
+endif
+
+while (Còn từ cần học?) is (Có)
+  :Hiển thị mặt trước của thẻ từ;
+  :Người học nhấn xem đáp án;
+  :Hiển thị pinyin, nghĩa, ví dụ;
+
+  if (Đánh dấu đã học?) then (Có)
+    :Lưu tiến độ học từ vựng;
+  endif
+
+  if (Nghe phát âm mẫu?) then (Có)
+    :Phát âm từ bằng TTS;
+  endif
+
+  :Chuyển sang từ tiếp theo;
+endwhile (Không)
+
+:Hiển thị tổng kết buổi học;
+stop
+@enduml
+

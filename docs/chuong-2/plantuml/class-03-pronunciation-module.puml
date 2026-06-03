@@ -1,0 +1,82 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam linetype ortho
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam class {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+}
+
+package "Mobile UI" {
+  class VocabularyDetailScreen <<boundary>> {
+    +checkPronunciation()
+    +toggleFavorite()
+  }
+
+  class NewsReaderScreen <<boundary>> {
+    +speakExample()
+    +startListening()
+    +stopListening()
+    +analyzePronunciation()
+  }
+}
+
+package "Core Data / Service" {
+  class PronunciationData <<service>> {
+    +sentences: Map<String, List<HskSentence>>
+  }
+
+  class HskSentence <<entity>> {
+    +chinese: String
+    +pinyin: String
+    +vietnamese: String
+  }
+
+  class SpeechService <<service>> {
+    +listen()
+    +calculateScore()
+    +playLastRecording()
+  }
+
+  class ProgressService <<service>> {
+    +addStudyMinutes()
+    +toggleFavorite()
+  }
+
+  class PronunciationAttempt <<entity>> {
+    +id: bigint
+    +targetType: String
+    +targetText: String
+    +recognizedText: String
+    +score: decimal
+  }
+
+  class UserWordProgress <<entity>> {
+    +bestPronunciationScore: decimal
+  }
+}
+
+package "External" {
+  class FlutterTts <<external>>
+  class SpeechToText <<external>>
+  class AudioPlayer <<external>>
+}
+
+NewsReaderScreen --> PronunciationData
+PronunciationData "1" -- "0..*" HskSentence : cung cấp câu mẫu
+
+VocabularyDetailScreen --> SpeechService
+VocabularyDetailScreen --> ProgressService
+NewsReaderScreen --> ProgressService
+
+NewsReaderScreen --> FlutterTts
+NewsReaderScreen --> SpeechToText
+SpeechService --> AudioPlayer
+
+SpeechService --> PronunciationAttempt : sinh kết quả
+PronunciationAttempt --> UserWordProgress : cập nhật điểm tốt nhất
+
+@enduml

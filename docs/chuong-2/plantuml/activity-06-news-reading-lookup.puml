@@ -1,0 +1,67 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam ArrowColor #6E6E6E
+skinparam activity {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+  DiamondBackgroundColor #FCFCFC
+  DiamondBorderColor #8F8F8F
+  StartColor #6AA84F
+  EndColor #C0504D
+  BarColor #8F8F8F
+}
+
+|Người học|
+start
+:Chọn nguồn tin RSS;
+
+|Ứng dụng mobile|
+:Gửi yêu cầu tải RSS;
+
+|Nguồn RSS|
+:Trả về XML / feed bài báo;
+
+|Ứng dụng mobile|
+if (Tải thành công?) then (Có)
+  :Phân tích danh sách bài báo;
+  :Hiển thị danh sách bài đọc;
+else (Không)
+  :Thông báo lỗi tải tin tức;
+  stop
+endif
+
+|Người học|
+:Chọn một bài báo;
+
+|Ứng dụng mobile|
+:Hiển thị nội dung bài báo;
+
+|Người học|
+if (Chạm vào từ trong bài?) then (Có)
+  |Ứng dụng mobile|
+  :Tra dữ liệu từ cục bộ;
+  if (Thiếu dữ liệu?) then (Có)
+    |Dịch vụ từ điển|
+    :Dịch nghĩa trực tuyến;
+    |Ứng dụng mobile|
+  endif
+  :Hiển thị panel nghĩa từ;
+
+  |Người học|
+  if (Lưu vào sổ tay?) then (Có)
+    |Ứng dụng mobile|
+    :Cập nhật từ yêu thích;
+  endif
+endif
+
+|Người học|
+if (Nghe toàn bài?) then (Có)
+  |Ứng dụng mobile|
+  :Phát âm nội dung bài báo bằng TTS;
+endif
+
+|Người học|
+stop
+@enduml

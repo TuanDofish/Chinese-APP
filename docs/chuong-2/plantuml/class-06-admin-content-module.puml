@@ -1,0 +1,97 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam linetype ortho
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam class {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+}
+
+package "Admin Web CMS" {
+  class AdminContentScreen <<boundary>> {
+    +createContent()
+    +updateContent()
+    +hideContent()
+  }
+
+  class ContentManagementController <<controller>> {
+    +createVocabulary()
+    +updateGrammarLesson()
+    +updatePronunciationSentence()
+    +updateArticleSource()
+  }
+
+  class ContentManagementService <<service>> {
+    +saveVocabulary()
+    +saveTopic()
+    +saveGrammarLesson()
+    +savePronunciationSentence()
+    +saveArticleSource()
+    +publishContent()
+  }
+}
+
+package "Domain / Content" {
+  class Topic <<entity>> {
+    +code: String
+    +name: String
+    +hskLevel: String
+  }
+
+  class Vocabulary <<entity>> {
+    +simplified: String
+    +pinyin: String
+    +meaningVi: String
+    +active: bool
+  }
+
+  class GrammarLesson <<entity>> {
+    +title: String
+    +patternText: String
+    +explanation: String
+    +active: bool
+  }
+
+  class PronunciationSentence <<entity>> {
+    +sentenceCn: String
+    +sentencePinyin: String
+    +sentenceVi: String
+    +active: bool
+  }
+
+  class ArticleSource <<entity>> {
+    +name: String
+    +rssUrl: String
+    +active: bool
+  }
+
+  class Article <<entity>> {
+    +title: String
+    +content: String
+    +hskLevel: String
+    +active: bool
+  }
+}
+
+package "Persistence" {
+  class PostgreSQL <<external>>
+}
+
+AdminContentScreen --> ContentManagementController
+ContentManagementController --> ContentManagementService
+ContentManagementService ..> PostgreSQL
+
+ContentManagementService --> Topic
+ContentManagementService --> Vocabulary
+ContentManagementService --> GrammarLesson
+ContentManagementService --> PronunciationSentence
+ContentManagementService --> ArticleSource
+ContentManagementService --> Article
+
+ArticleSource "1" -- "0..*" Article : quản lý bài đọc
+Topic "1" -- "0..*" Vocabulary : nhóm từ vựng
+
+@enduml

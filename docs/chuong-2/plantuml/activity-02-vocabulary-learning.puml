@@ -1,0 +1,65 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam ArrowColor #6E6E6E
+skinparam activity {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+  DiamondBackgroundColor #FCFCFC
+  DiamondBorderColor #8F8F8F
+  StartColor #6AA84F
+  EndColor #C0504D
+  BarColor #8F8F8F
+}
+
+|Người học|
+start
+:Chọn cấp HSK;
+:Chọn chủ đề học;
+
+|Ứng dụng mobile|
+:Tải danh sách từ theo chủ đề;
+if (Danh sách rỗng?) then (Có)
+  :Thông báo chưa có dữ liệu;
+  stop
+else (Không)
+endif
+
+while (Còn từ chưa học?) is (Có)
+  :Hiển thị mặt trước của từ;
+
+  |Người học|
+  :Bấm "Xem dịch nghĩa";
+
+  |Ứng dụng mobile|
+  :Hiển thị pinyin, nghĩa, ví dụ;
+  :Phát âm mẫu nếu người học yêu cầu;
+
+  |Người học|
+  if (Muốn kiểm tra phát âm?) then (Có)
+    |Ứng dụng mobile|
+    :Ghi âm và nhận dạng giọng nói;
+    :Tính điểm phát âm;
+    :Hiển thị điểm và phản hồi;
+  endif
+
+  if (Muốn lưu sổ tay?) then (Có)
+    |Ứng dụng mobile|
+    :Đánh dấu từ yêu thích;
+  endif
+
+  |Người học|
+  :Bấm "Tiếp tục";
+
+  |Ứng dụng mobile|
+  :Đánh dấu từ đã học;
+  :Tăng số từ đã học trong ngày;
+endwhile (Hết)
+
+:Cập nhật tiến độ chủ đề;
+:Thông báo hoàn thành chủ đề;
+
+|Người học|
+stop
+@enduml

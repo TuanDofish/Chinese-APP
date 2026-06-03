@@ -1,0 +1,49 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam ArrowColor #6E6E6E
+skinparam activity {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+  DiamondBackgroundColor #FCFCFC
+  DiamondBorderColor #8F8F8F
+  StartColor #6AA84F
+  EndColor #C0504D
+  BarColor #8F8F8F
+}
+
+|Người học|
+start
+:Chọn từ hoặc câu cần luyện;
+:Nghe phát âm mẫu;
+
+|Ứng dụng mobile|
+:Phát âm mẫu bằng TTS;
+
+|Người học|
+:Bấm micro và đọc lại;
+
+|Dịch vụ giọng nói|
+:Thu âm / nhận dạng tiếng nói tiếng Trung;
+
+|Ứng dụng mobile|
+if (Nhận dạng được văn bản?) then (Có)
+  :So sánh văn bản nhận dạng với nội dung mục tiêu;
+  :Tính điểm phát âm;
+  :Sinh phản hồi và mẹo cải thiện;
+  :Cập nhật thời gian học hoặc điểm tốt nhất;
+else (Không)
+  :Thông báo không nhận diện được giọng nói;
+endif
+
+|Người học|
+if (Muốn luyện lại?) then (Có)
+  :Đọc lại lần nữa;
+  |Ứng dụng mobile|
+  :Xóa kết quả tạm và lặp lại;
+endif
+
+|Người học|
+stop
+@enduml

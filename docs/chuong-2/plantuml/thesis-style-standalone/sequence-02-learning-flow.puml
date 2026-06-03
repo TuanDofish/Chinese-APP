@@ -1,0 +1,74 @@
+﻿@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+skinparam maxMessageSize 80
+skinparam ParticipantPadding 26
+skinparam BoxPadding 12
+skinparam ArrowColor #4A4A4A
+skinparam NoteBorderColor #9A9A9A
+skinparam NoteBackgroundColor #FAFAFA
+skinparam RoundCorner 18
+skinparam ActorBorderColor #8F8F8F
+skinparam ActorBackgroundColor #FBFBFB
+skinparam ParticipantBorderColor #8F8F8F
+skinparam ParticipantBackgroundColor #F7F7F7
+skinparam BoundaryBorderColor #8F8F8F
+skinparam BoundaryBackgroundColor #F7F7F7
+skinparam ControlBorderColor #8F8F8F
+skinparam ControlBackgroundColor #F7F7F7
+skinparam EntityBorderColor #8F8F8F
+skinparam EntityBackgroundColor #F7F7F7
+skinparam DatabaseBorderColor #8F8F8F
+skinparam DatabaseBackgroundColor white
+skinparam LifeLineBorderColor #BDBDBD
+skinparam LifeLineBackgroundColor white
+skinparam sequence {
+  MessageFontColor #222222
+  ParticipantFontColor #222222
+  ParticipantBorderThickness 1
+  ArrowThickness 1.1
+}
+hide footbox
+title Biểu đồ tuần tự chức năng Học từ vựng theo chủ đề HSK
+
+actor "Người học" as User
+boundary "VocabularyListScreen" as ListUI
+control "VocabularyService" as VocabularyService
+database "HSK JSON\nAssets" as HskAssets
+boundary "VocabularyLearningFlow" as LearningFlow
+boundary "VocabularyDetailScreen" as DetailUI
+control "ProgressService" as ProgressService
+database "SharedPreferences" as LocalStore
+
+User -> ListUI: Chọn cấp độ HSK và chủ đề
+ListUI -> VocabularyService: loadHskVocabulary(level, topic)
+VocabularyService -> HskAssets: Đọc dữ liệu từ assets
+HskAssets --> VocabularyService: Danh sách từ vựng
+VocabularyService --> ListUI: Trả danh sách từ phù hợp
+ListUI --> User: Hiển thị danh sách bài học
+
+User -> ListUI: Bắt đầu học
+ListUI -> LearningFlow: Mở luồng học từ vựng
+LearningFlow -> DetailUI: Hiển thị từ hiện tại
+DetailUI --> User: Ẩn nghĩa, hiển thị mặt trước thẻ
+
+User -> DetailUI: Nhấn Xem đáp án
+DetailUI --> User: Hiển thị pinyin, nghĩa, ví dụ
+
+opt Đánh dấu đã học
+  User -> DetailUI: Nhấn Đã học
+  DetailUI -> ProgressService: markAsLearned(word)
+  ProgressService -> LocalStore: Cập nhật learned_words
+  LocalStore --> ProgressService: Thành công
+  ProgressService --> DetailUI: Xác nhận lưu tiến độ
+end
+
+User -> LearningFlow: Nhấn Từ tiếp theo
+LearningFlow --> User: Hiển thị thẻ kế tiếp hoặc tổng kết bài học
+
+@enduml
+
+

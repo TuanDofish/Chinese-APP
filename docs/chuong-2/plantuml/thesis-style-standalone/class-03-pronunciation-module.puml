@@ -1,0 +1,97 @@
+﻿@startuml
+hide circle
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam linetype ortho
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam roundcorner 14
+skinparam ArrowColor #4A4A4A
+skinparam package {
+  BorderColor #8F8F8F
+  FontColor #222222
+  BackgroundColor white
+}
+skinparam class {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+}
+left to right direction
+title Biểu đồ lớp phân hệ Luyện phát âm
+
+package "Giao diện mobile" {
+  class VocabularyDetailScreen <<boundary>> {
+    +checkPronunciation()
+    +playWordAudio()
+  }
+
+  class NewsReaderScreen <<boundary>> {
+    +speakExample()
+    +startListening()
+    +stopListening()
+    +analyzePronunciation()
+  }
+}
+
+package "Điều khiển và dịch vụ" {
+  class PronunciationData <<control>> {
+    +getSentencesByLevel(level)
+  }
+
+  class SpeechService <<control>> {
+    +listen()
+    +calculateScore()
+    +playLastRecording()
+  }
+
+  class ProgressService <<control>> {
+    +addStudyMinutes()
+    +updatePronunciationScore()
+  }
+}
+
+package "Miền dữ liệu" {
+  class HskSentence <<entity>> {
+    +chinese: String
+    +pinyin: String
+    +vietnamese: String
+  }
+
+  class PronunciationAttempt <<entity>> {
+    +id: bigint
+    +targetType: String
+    +targetText: String
+    +recognizedText: String
+    +score: decimal
+  }
+
+  class UserWordProgress <<entity>> {
+    +bestPronunciationScore: decimal
+  }
+}
+
+package "Hạ tầng ngoài" {
+  class FlutterTts <<external>>
+  class SpeechToText <<external>>
+  class AudioPlayer <<external>>
+}
+
+NewsReaderScreen --> PronunciationData
+PronunciationData "1" -- "0..*" HskSentence : cung cấp câu mẫu
+
+VocabularyDetailScreen --> SpeechService
+NewsReaderScreen --> SpeechService
+VocabularyDetailScreen --> ProgressService
+NewsReaderScreen --> ProgressService
+
+NewsReaderScreen ..> FlutterTts
+SpeechService ..> SpeechToText
+SpeechService ..> AudioPlayer
+
+SpeechService --> PronunciationAttempt : sinh kết quả
+PronunciationAttempt --> UserWordProgress : cập nhật điểm tốt nhất
+
+@enduml
+
+

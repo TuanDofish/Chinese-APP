@@ -1,0 +1,75 @@
+@startuml
+left to right direction
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam ArrowColor #6E6E6E
+skinparam ArrowThickness 1.1
+skinparam actorStyle awesome
+skinparam actor {
+  BorderColor #9A9A9A
+  FontColor #333333
+  FontSize 13
+}
+skinparam rectangle {
+  BorderColor #6E6E6E
+  FontColor #222222
+  FontStyle bold
+  FontSize 15
+  RoundCorner 8
+}
+skinparam usecase {
+  BackgroundColor #F7F7F7
+  BorderColor #9E9E9E
+  FontColor #222222
+  FontSize 13
+}
+
+actor "Người học" as Learner
+actor "Quản trị viên\nnội dung" as Admin
+actor "Gemini AI" as Gemini
+actor "Dịch vụ dịch /\nTừ điển" as TranslateAPI
+actor "Nguồn RSS" as RSS
+actor "Speech/TTS\nService" as Speech
+
+rectangle "Hệ thống App Tiếng Trung" {
+  usecase "Tra cứu từ vựng" as UC_Search
+  usecase "Học từ vựng theo\nchủ đề HSK" as UC_LearnVocab
+  usecase "Kiểm tra ngữ pháp\nbằng AI" as UC_GrammarAI
+  usecase "Luyện phát âm câu\nvà từ vựng" as UC_Pronunciation
+  usecase "Đọc báo tiếng Trung\nvà tra từ" as UC_ReadNews
+  usecase "Xem thống kê học tập\nvà đặt mục tiêu" as UC_Stats
+  usecase "Quản lý học liệu" as UC_Content
+  usecase "Quản lý nguồn tin\nvà bài đọc" as UC_NewsSource
+  usecase "Cập nhật tiến độ học" as UC_UpdateProgress
+
+  UC_Search -[hidden]down-> UC_LearnVocab
+  UC_LearnVocab -[hidden]down-> UC_GrammarAI
+  UC_GrammarAI -[hidden]down-> UC_Pronunciation
+  UC_Pronunciation -[hidden]down-> UC_ReadNews
+  UC_ReadNews -[hidden]down-> UC_Stats
+  UC_Content -[hidden]down-> UC_NewsSource
+}
+
+Learner --> UC_Search
+Learner --> UC_LearnVocab
+Learner --> UC_GrammarAI
+Learner --> UC_Pronunciation
+Learner --> UC_ReadNews
+Learner --> UC_Stats
+
+Admin --> UC_Content
+Admin --> UC_NewsSource
+
+UC_LearnVocab ..> UC_UpdateProgress : <<include>>
+UC_Pronunciation ..> UC_UpdateProgress : <<include>>
+UC_ReadNews ..> UC_UpdateProgress : <<include>>
+
+Gemini --> UC_GrammarAI
+TranslateAPI --> UC_Search
+TranslateAPI --> UC_ReadNews
+RSS --> UC_ReadNews
+Speech --> UC_Pronunciation
+Speech --> UC_ReadNews
+
+@enduml

@@ -1,0 +1,56 @@
+{
+  "id": "colors",
+  "name": "Màu sắc",
+  "nameCn": "颜色",
+  "color": "#9C27B0",
+  "words": [
+    {
+      "word": "红色",
+      "pinyin": "hóngsè",
+      "meaning": "màu đỏ",
+      "image": "5263651186.jpg"
+    },
+    {
+      "word": "蓝色",
+      "pinyin": "lánsè",
+      "meaning": "màu xanh dương",
+      "image": "9c9aabab3f.jpg"
+    },
+    {
+      "word": "绿色",
+      "pinyin": "lǜsè",
+      "meaning": "màu xanh lá",
+      "image": "b2c712c788.jpg"
+    },
+    {
+      "word": "黄色",
+      "pinyin": "huángsè",
+      "meaning": "màu vàng",
+      "image": "ddb86dd31c.jpg"
+    },
+    {
+      "word": "白色",
+      "pinyin": "báisè",
+      "meaning": "màu trắng",
+      "image": "2fc96b2704.jpg"
+    },
+    {
+      "word": "黑色",
+      "pinyin": "hēisè",
+      "meaning": "màu đen",
+      "image": "9d2d1f62ae.jpg"
+    },
+    {
+      "word": "粉色",
+      "pinyin": "fěnsè",
+      "meaning": "màu hồng",
+      "image": "97542386a9.jpg"
+    },
+    {
+      "word": "橙色",
+      "pinyin": "chéngsè",
+      "meaning": "màu cam",
+      "image": "d9bbeb4427.jpg"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+@startuml
+start
+:Chọn cấp HSK và chủ đề;
+:Nạp danh sách từ;
+
+if (Có dữ liệu?) then (Có)
+  while (Còn từ chưa học?) is (Có)
+    :Hiển thị mặt trước của từ;
+    :Người học bấm Xem nghĩa;
+    :Hiển thị nghĩa, pinyin, ví dụ;
+
+    if (Lưu sổ tay?) then (Có)
+      :Cập nhật trạng thái favorite;
+    endif
+
+    if (Kiểm tra phát âm?) then (Có)
+      :Ghi âm và chấm điểm phát âm;
+    endif
+
+    :Đánh dấu đã học;
+    :Cập nhật thống kê ngày;
+  endwhile (Hết)
+
+  :Thông báo hoàn thành chủ đề;
+else (Không)
+  :Thông báo thiếu dữ liệu;
+endif
+
+stop
+@enduml

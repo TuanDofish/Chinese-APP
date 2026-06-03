@@ -1,0 +1,28 @@
+@startuml
+!include style-activity.puml
+title Biểu đồ hoạt động chức năng Kiểm tra ngữ pháp bằng AI
+
+start
+:Người học mở chức năng kiểm tra ngữ pháp;
+:Nhập câu tiếng Trung cần phân tích;
+:Kiểm tra dữ liệu đầu vào;
+
+if (Câu nhập hợp lệ?) then (Có)
+  :Gửi yêu cầu đến dịch vụ AI;
+else (Không)
+  :Hiển thị lỗi validation;
+  stop
+endif
+
+:AI phân tích lỗi,\nđề xuất câu sửa và giải thích;
+if (Nhận được kết quả?) then (Có)
+  :Hiển thị câu sửa,\nlỗi và gợi ý diễn đạt;
+else (Không)
+  :Thông báo không thể phân tích lúc này;
+  stop
+endif
+
+:Người học xem và đối chiếu kết quả;
+stop
+@enduml
+

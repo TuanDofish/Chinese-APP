@@ -1,0 +1,56 @@
+{
+  "id": "transport",
+  "name": "Phương tiện",
+  "nameCn": "交通工具",
+  "color": "#FF9800",
+  "words": [
+    {
+      "word": "汽车",
+      "pinyin": "qìchē",
+      "meaning": "ô tô",
+      "image": "b64c412083.jpg"
+    },
+    {
+      "word": "公共汽车",
+      "pinyin": "gōnggòng qìchē",
+      "meaning": "xe buýt",
+      "image": "b24186f7c7.jpg"
+    },
+    {
+      "word": "地铁",
+      "pinyin": "dìtiě",
+      "meaning": "tàu điện ngầm",
+      "image": "9266202469.jpg"
+    },
+    {
+      "word": "火车",
+      "pinyin": "huǒchē",
+      "meaning": "tàu hỏa",
+      "image": "e7e95e6813.jpg"
+    },
+    {
+      "word": "飞机",
+      "pinyin": "fēijī",
+      "meaning": "máy bay",
+      "image": "16678800cf.jpg"
+    },
+    {
+      "word": "自行车",
+      "pinyin": "zìxíngchē",
+      "meaning": "xe đạp",
+      "image": "b73c6e34a1.jpg"
+    },
+    {
+      "word": "摩托车",
+      "pinyin": "mótuōchē",
+      "meaning": "xe máy",
+      "image": "fed19a817b.jpg"
+    },
+    {
+      "word": "船",
+      "pinyin": "chuán",
+      "meaning": "thuyền",
+      "image": "7def9ee0ca.jpg"
+    }
+  ]
+}

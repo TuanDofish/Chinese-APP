@@ -1,0 +1,64 @@
+﻿@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam ArrowColor #4A4A4A
+skinparam defaultTextAlignment center
+skinparam activity {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+  DiamondBackgroundColor white
+  DiamondBorderColor #8F8F8F
+  DiamondFontColor #222222
+  StartColor black
+  EndColor black
+  BarColor #8F8F8F
+}
+title Biểu đồ hoạt động chức năng Tra cứu từ vựng
+
+start
+:Người học mở chức năng tra cứu từ;
+:Nhập từ khóa cần tra;
+:Kiểm tra dữ liệu đầu vào;
+
+if (Từ khóa rỗng?) then (Có)
+  :Hiển thị thông báo\nvui lòng nhập từ khóa;
+  stop
+else (Không)
+endif
+
+if (Từ khóa là chữ Hán?) then (Có)
+  :Giữ nguyên truy vấn;
+else (Không)
+  :Dịch từ khóa Việt -> Trung;
+  if (Dịch thành công?) then (Có)
+    :Chuẩn hóa truy vấn;
+  else (Không)
+    :Hiển thị thông báo\nkhông tìm thấy từ phù hợp;
+    stop
+  endif
+endif
+
+:Tra cứu dữ liệu từ vựng;
+if (Có dữ liệu cục bộ?) then (Có)
+  :Lấy pinyin, nghĩa, ví dụ;
+else (Không)
+  :Yêu cầu dịch nghĩa Trung -> Việt;
+  if (Có kết quả?) then (Có)
+    :Tạo dữ liệu hiển thị tạm thời;
+  else (Không)
+    :Hiển thị thông báo\nkhông tra được nghĩa;
+    stop
+  endif
+endif
+
+:Hiển thị màn hình chi tiết từ;
+if (Lưu vào sổ tay?) then (Có)
+  :Cập nhật trạng thái yêu thích;
+endif
+
+:Trả kết quả cho người học;
+stop
+@enduml
+
+

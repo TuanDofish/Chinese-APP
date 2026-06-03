@@ -1,0 +1,56 @@
+{
+  "id": "family",
+  "name": "Gia đình",
+  "nameCn": "家庭",
+  "color": "#2196F3",
+  "words": [
+    {
+      "word": "爸爸",
+      "pinyin": "bàba",
+      "meaning": "bố",
+      "image": "0d00c80f61.jpg"
+    },
+    {
+      "word": "妈妈",
+      "pinyin": "māma",
+      "meaning": "mẹ",
+      "image": "e6c7ee6003.jpg"
+    },
+    {
+      "word": "哥哥",
+      "pinyin": "gēgē",
+      "meaning": "anh trai",
+      "image": "39af35e7b7.jpg"
+    },
+    {
+      "word": "姐姐",
+      "pinyin": "jiějie",
+      "meaning": "chị gái",
+      "image": "033e1fb01c.jpg"
+    },
+    {
+      "word": "弟弟",
+      "pinyin": "dìdi",
+      "meaning": "em trai",
+      "image": "427034659a.jpg"
+    },
+    {
+      "word": "妹妹",
+      "pinyin": "mèimei",
+      "meaning": "em gái",
+      "image": "1c097b12de.jpg"
+    },
+    {
+      "word": "爷爷",
+      "pinyin": "yéye",
+      "meaning": "ông nội",
+      "image": "e571dca2d0.jpg"
+    },
+    {
+      "word": "奶奶",
+      "pinyin": "nǎinai",
+      "meaning": "bà nội",
+      "image": "2144381ade.jpg"
+    }
+  ]
+}

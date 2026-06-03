@@ -1,0 +1,85 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam linetype ortho
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam class {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+}
+
+package "Mobile UI" {
+  class StatsScreen <<boundary>> {
+    +loadStats()
+    +showGoalDialog()
+  }
+
+  class MagicVocabScreen <<boundary>> {
+    +loadData()
+  }
+
+  class VocabularyDetailScreen <<boundary>> {
+    +handleNext()
+    +toggleFavorite()
+  }
+
+  class NewsReaderScreen <<boundary>> {
+    +buildScoreCard()
+  }
+}
+
+package "Service" {
+  class ProgressService <<service>> {
+    +getLearnedWords()
+    +markAsLearned()
+    +getFavoriteWords()
+    +toggleFavorite()
+    +getDailyGoalWords()
+    +getDailyGoalMinutes()
+    +setDailyGoal()
+    +addStudyMinutes()
+    +getTodayWordsCount()
+    +getTodayMinutes()
+    +getStreak()
+  }
+}
+
+package "Domain / Data" {
+  class DailyGoal <<entity>> {
+    +goalWords: int
+    +goalMinutes: int
+  }
+
+  class DailyLearningStat <<entity>> {
+    +studyDate: date
+    +learnedWordsCount: int
+    +studyMinutes: int
+    +streakSnapshot: int
+  }
+
+  class UserWordProgress <<entity>> {
+    +isFavorite: bool
+    +isLearned: bool
+    +reviewCount: int
+  }
+}
+
+package "Persistence" {
+  class SharedPreferences <<external>>
+}
+
+StatsScreen --> ProgressService
+MagicVocabScreen --> ProgressService
+VocabularyDetailScreen --> ProgressService
+NewsReaderScreen --> ProgressService
+
+ProgressService ..> SharedPreferences
+ProgressService --> DailyGoal
+ProgressService --> DailyLearningStat
+ProgressService --> UserWordProgress
+
+DailyLearningStat --> DailyGoal : so sánh với mục tiêu ngày
+
+@enduml

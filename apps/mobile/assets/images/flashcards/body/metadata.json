@@ -1,0 +1,56 @@
+{
+  "id": "body",
+  "name": "Cơ thể",
+  "nameCn": "身体",
+  "color": "#009688",
+  "words": [
+    {
+      "word": "眼睛",
+      "pinyin": "yǎnjing",
+      "meaning": "mắt",
+      "image": "946f5c8c69.jpg"
+    },
+    {
+      "word": "耳朵",
+      "pinyin": "ěrduo",
+      "meaning": "tai",
+      "image": "62507462c9.jpg"
+    },
+    {
+      "word": "鼻子",
+      "pinyin": "bízi",
+      "meaning": "mũi",
+      "image": "e6134a2993.jpg"
+    },
+    {
+      "word": "嘴",
+      "pinyin": "zuǐ",
+      "meaning": "miệng",
+      "image": "3697bfcf41.jpg"
+    },
+    {
+      "word": "手",
+      "pinyin": "shǒu",
+      "meaning": "tay",
+      "image": "3c7d183f1b.jpg"
+    },
+    {
+      "word": "脚",
+      "pinyin": "jiǎo",
+      "meaning": "chân",
+      "image": "5297c01727.jpg"
+    },
+    {
+      "word": "头",
+      "pinyin": "tóu",
+      "meaning": "đầu",
+      "image": "4be2abbcf7.jpg"
+    },
+    {
+      "word": "心",
+      "pinyin": "xīn",
+      "meaning": "tim",
+      "image": "bf08c05e00.jpg"
+    }
+  ]
+}

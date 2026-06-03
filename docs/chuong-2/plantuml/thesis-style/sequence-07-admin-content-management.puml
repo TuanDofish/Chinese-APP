@@ -1,0 +1,36 @@
+@startuml
+!include style-sequence.puml
+hide footbox
+title Biểu đồ tuần tự chức năng Quản lý học liệu
+
+actor "Quản trị viên" as Admin
+boundary "ContentEditorScreen" as EditorUI
+control "ValidationService" as ValidationService
+control "ContentManagementService" as ContentService
+database "PostgreSQL" as Database
+
+Admin -> EditorUI: Chọn loại học liệu và nhập dữ liệu
+EditorUI -> ValidationService: validateRequiredFields(data)
+
+alt Dữ liệu hợp lệ
+  ValidationService --> EditorUI: Kết quả hợp lệ
+  EditorUI -> ContentService: createOrUpdateContent(data)
+  ContentService -> Database: INSERT / UPDATE học liệu
+  Database --> ContentService: Thành công
+  ContentService --> EditorUI: Trả kết quả lưu
+  EditorUI --> Admin: Thông báo cập nhật thành công
+else Dữ liệu không hợp lệ
+  ValidationService --> EditorUI: Danh sách lỗi validation
+  EditorUI --> Admin: Hiển thị lỗi bắt buộc
+end
+
+opt Ẩn nội dung
+  Admin -> EditorUI: Chọn ẩn học liệu
+  EditorUI -> ContentService: toggleActiveStatus(itemId, false)
+  ContentService -> Database: Cập nhật active = false
+  Database --> ContentService: Thành công
+  ContentService --> EditorUI: Xác nhận thay đổi
+  EditorUI --> Admin: Thông báo ẩn nội dung thành công
+end
+
+@enduml

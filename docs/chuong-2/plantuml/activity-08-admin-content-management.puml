@@ -1,0 +1,44 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam ArrowColor #6E6E6E
+skinparam activity {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+  DiamondBackgroundColor #FCFCFC
+  DiamondBorderColor #8F8F8F
+  StartColor #6AA84F
+  EndColor #C0504D
+  BarColor #8F8F8F
+}
+
+|Quản trị viên|
+start
+:Đăng nhập hệ quản trị;
+:Chọn loại học liệu\n(từ vựng / ngữ pháp / phát âm / bài đọc);
+
+|Hệ thống quản trị|
+:Mở biểu mẫu nhập liệu;
+
+|Quản trị viên|
+:Tạo mới hoặc chỉnh sửa nội dung;
+:Nhấn lưu;
+
+|Hệ thống quản trị|
+:Kiểm tra dữ liệu bắt buộc;
+if (Dữ liệu hợp lệ?) then (Có)
+  :Lưu vào cơ sở dữ liệu;
+  if (Ẩn nội dung?) then (Có)
+    :Đặt trạng thái active = false;
+  else (Không)
+    :Giữ trạng thái active = true;
+  endif
+  :Thông báo lưu thành công;
+else (Không)
+  :Hiển thị lỗi validation;
+endif
+
+|Quản trị viên|
+stop
+@enduml

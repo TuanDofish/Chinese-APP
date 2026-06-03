@@ -1,0 +1,29 @@
+@startuml
+autonumber
+skinparam shadowing false
+
+actor "Người học" as User
+participant "GrammarCheckerScreen" as GrammarUI
+participant "GrammarAiService" as GrammarAI
+participant "Gemini AI" as Gemini
+
+User -> GrammarUI: Nhập câu tiếng Trung và bấm Kiểm tra
+GrammarUI -> GrammarUI: Kiểm tra dữ liệu đầu vào
+
+alt Câu rỗng
+  GrammarUI --> User: Yêu cầu nhập câu hợp lệ
+else Câu hợp lệ
+  GrammarUI -> GrammarAI: checkGrammar(text)
+  GrammarAI -> Gemini: generateContent(prompt + text)
+  Gemini --> GrammarAI: JSON score/errors/correction
+
+  alt AI phản hồi hợp lệ
+    GrammarAI --> GrammarUI: Map kết quả kiểm tra
+    GrammarUI --> User: Hiển thị điểm, lỗi, câu sửa, gợi ý
+  else Timeout hoặc lỗi định dạng
+    GrammarAI --> GrammarUI: Kết quả lỗi / mock fallback
+    GrammarUI --> User: Hiển thị thông báo thử lại
+  end
+end
+
+@enduml

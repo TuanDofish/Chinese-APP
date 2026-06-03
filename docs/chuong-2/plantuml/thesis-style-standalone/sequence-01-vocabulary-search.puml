@@ -1,0 +1,83 @@
+﻿@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+skinparam maxMessageSize 80
+skinparam ParticipantPadding 26
+skinparam BoxPadding 12
+skinparam ArrowColor #4A4A4A
+skinparam NoteBorderColor #9A9A9A
+skinparam NoteBackgroundColor #FAFAFA
+skinparam RoundCorner 18
+skinparam ActorBorderColor #8F8F8F
+skinparam ActorBackgroundColor #FBFBFB
+skinparam ParticipantBorderColor #8F8F8F
+skinparam ParticipantBackgroundColor #F7F7F7
+skinparam BoundaryBorderColor #8F8F8F
+skinparam BoundaryBackgroundColor #F7F7F7
+skinparam ControlBorderColor #8F8F8F
+skinparam ControlBackgroundColor #F7F7F7
+skinparam EntityBorderColor #8F8F8F
+skinparam EntityBackgroundColor #F7F7F7
+skinparam DatabaseBorderColor #8F8F8F
+skinparam DatabaseBackgroundColor white
+skinparam LifeLineBorderColor #BDBDBD
+skinparam LifeLineBackgroundColor white
+skinparam sequence {
+  MessageFontColor #222222
+  ParticipantFontColor #222222
+  ParticipantBorderThickness 1
+  ArrowThickness 1.1
+}
+hide footbox
+title Biểu đồ tuần tự chức năng Tra cứu từ vựng
+
+actor "Người học" as User
+boundary "DictionarySearchTab" as SearchUI
+control "VocabDataHelper" as VocabHelper
+database "Kho dữ liệu\nTừ vựng cục bộ" as LocalData
+entity "Translation API" as TranslateAPI
+boundary "VocabularyDetailScreen" as DetailUI
+control "ProgressService" as ProgressService
+database "SharedPreferences" as LocalStore
+
+User -> SearchUI: Nhập từ khóa và nhấn Tra từ
+SearchUI -> SearchUI: Kiểm tra dữ liệu đầu vào
+
+alt Từ khóa không chứa chữ Hán
+  SearchUI -> VocabHelper: translateViToZhAsync(query)
+  VocabHelper -> TranslateAPI: Dịch Việt -> Trung
+  TranslateAPI --> VocabHelper: Từ khóa chữ Hán
+  VocabHelper --> SearchUI: Trả truy vấn đã chuẩn hóa
+else Từ khóa đã là chữ Hán
+  SearchUI -> SearchUI: Giữ nguyên truy vấn
+end
+
+SearchUI -> DetailUI: Mở màn hình chi tiết từ
+DetailUI -> VocabHelper: getData(word)
+VocabHelper -> LocalData: Tra pinyin, nghĩa, ví dụ
+
+alt Có dữ liệu cục bộ
+  LocalData --> VocabHelper: Trả dữ liệu từ vựng
+else Thiếu dữ liệu
+  VocabHelper -> TranslateAPI: Dịch Trung -> Việt
+  TranslateAPI --> VocabHelper: Nghĩa tiếng Việt
+end
+
+VocabHelper --> DetailUI: Trả dữ liệu tổng hợp
+DetailUI --> User: Hiển thị nghĩa, pinyin, ví dụ
+
+opt Lưu vào sổ tay từ vựng
+  User -> DetailUI: Nhấn Bookmark
+  DetailUI -> ProgressService: toggleFavorite(word)
+  ProgressService -> LocalStore: Cập nhật favorite_words
+  LocalStore --> ProgressService: Thành công
+  ProgressService --> DetailUI: Trạng thái mới
+  DetailUI --> User: Thông báo lưu thành công
+end
+
+@enduml
+
+

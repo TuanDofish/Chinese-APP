@@ -1,0 +1,63 @@
+﻿@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+skinparam maxMessageSize 80
+skinparam ParticipantPadding 26
+skinparam BoxPadding 12
+skinparam ArrowColor #4A4A4A
+skinparam NoteBorderColor #9A9A9A
+skinparam NoteBackgroundColor #FAFAFA
+skinparam RoundCorner 18
+skinparam ActorBorderColor #8F8F8F
+skinparam ActorBackgroundColor #FBFBFB
+skinparam ParticipantBorderColor #8F8F8F
+skinparam ParticipantBackgroundColor #F7F7F7
+skinparam BoundaryBorderColor #8F8F8F
+skinparam BoundaryBackgroundColor #F7F7F7
+skinparam ControlBorderColor #8F8F8F
+skinparam ControlBackgroundColor #F7F7F7
+skinparam EntityBorderColor #8F8F8F
+skinparam EntityBackgroundColor #F7F7F7
+skinparam DatabaseBorderColor #8F8F8F
+skinparam DatabaseBackgroundColor white
+skinparam LifeLineBorderColor #BDBDBD
+skinparam LifeLineBackgroundColor white
+skinparam sequence {
+  MessageFontColor #222222
+  ParticipantFontColor #222222
+  ParticipantBorderThickness 1
+  ArrowThickness 1.1
+}
+hide footbox
+title Biểu đồ tuần tự chức năng Xem thống kê và đặt mục tiêu
+
+actor "Người học" as User
+boundary "StatsScreen" as StatsUI
+control "ProgressService" as ProgressService
+control "StreakCalculator" as StreakCalculator
+database "SharedPreferences" as LocalStore
+
+User -> StatsUI: Mở màn hình thống kê
+StatsUI -> ProgressService: getStudySummary()
+ProgressService -> LocalStore: Đọc dữ liệu tiến độ
+LocalStore --> ProgressService: Nhật ký học tập
+ProgressService -> StreakCalculator: calculateStreak(stats)
+StreakCalculator --> ProgressService: Chuỗi học hiện tại
+ProgressService --> StatsUI: Tổng từ đã học,\nstreak, thời gian học
+StatsUI --> User: Hiển thị thống kê học tập
+
+opt Cập nhật mục tiêu
+  User -> StatsUI: Nhập mục tiêu từ hoặc phút học
+  StatsUI -> ProgressService: saveDailyGoal(goalWords, goalMinutes)
+  ProgressService -> LocalStore: Lưu mục tiêu mới
+  LocalStore --> ProgressService: Thành công
+  ProgressService --> StatsUI: Xác nhận cập nhật
+  StatsUI --> User: Thông báo lưu mục tiêu thành công
+end
+
+@enduml
+
+

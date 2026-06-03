@@ -1,0 +1,51 @@
+@startuml
+!include style-sequence.puml
+hide footbox
+title Biểu đồ tuần tự chức năng Tra cứu từ vựng
+
+actor "Người học" as User
+boundary "DictionarySearchTab" as SearchUI
+control "VocabDataHelper" as VocabHelper
+database "Kho dữ liệu\nTừ vựng cục bộ" as LocalData
+entity "Translation API" as TranslateAPI
+boundary "VocabularyDetailScreen" as DetailUI
+control "ProgressService" as ProgressService
+database "SharedPreferences" as LocalStore
+
+User -> SearchUI: Nhập từ khóa và nhấn Tra từ
+SearchUI -> SearchUI: Kiểm tra dữ liệu đầu vào
+
+alt Từ khóa không chứa chữ Hán
+  SearchUI -> VocabHelper: translateViToZhAsync(query)
+  VocabHelper -> TranslateAPI: Dịch Việt -> Trung
+  TranslateAPI --> VocabHelper: Từ khóa chữ Hán
+  VocabHelper --> SearchUI: Trả truy vấn đã chuẩn hóa
+else Từ khóa đã là chữ Hán
+  SearchUI -> SearchUI: Giữ nguyên truy vấn
+end
+
+SearchUI -> DetailUI: Mở màn hình chi tiết từ
+DetailUI -> VocabHelper: getData(word)
+VocabHelper -> LocalData: Tra pinyin, nghĩa, ví dụ
+
+alt Có dữ liệu cục bộ
+  LocalData --> VocabHelper: Trả dữ liệu từ vựng
+else Thiếu dữ liệu
+  VocabHelper -> TranslateAPI: Dịch Trung -> Việt
+  TranslateAPI --> VocabHelper: Nghĩa tiếng Việt
+end
+
+VocabHelper --> DetailUI: Trả dữ liệu tổng hợp
+DetailUI --> User: Hiển thị nghĩa, pinyin, ví dụ
+
+opt Lưu vào sổ tay từ vựng
+  User -> DetailUI: Nhấn Bookmark
+  DetailUI -> ProgressService: toggleFavorite(word)
+  ProgressService -> LocalStore: Cập nhật favorite_words
+  LocalStore --> ProgressService: Thành công
+  ProgressService --> DetailUI: Trạng thái mới
+  DetailUI --> User: Thông báo lưu thành công
+end
+
+@enduml
+

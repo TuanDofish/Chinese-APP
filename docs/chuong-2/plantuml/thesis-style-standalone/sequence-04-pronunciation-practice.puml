@@ -1,0 +1,65 @@
+﻿@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+skinparam maxMessageSize 80
+skinparam ParticipantPadding 26
+skinparam BoxPadding 12
+skinparam ArrowColor #4A4A4A
+skinparam NoteBorderColor #9A9A9A
+skinparam NoteBackgroundColor #FAFAFA
+skinparam RoundCorner 18
+skinparam ActorBorderColor #8F8F8F
+skinparam ActorBackgroundColor #FBFBFB
+skinparam ParticipantBorderColor #8F8F8F
+skinparam ParticipantBackgroundColor #F7F7F7
+skinparam BoundaryBorderColor #8F8F8F
+skinparam BoundaryBackgroundColor #F7F7F7
+skinparam ControlBorderColor #8F8F8F
+skinparam ControlBackgroundColor #F7F7F7
+skinparam EntityBorderColor #8F8F8F
+skinparam EntityBackgroundColor #F7F7F7
+skinparam DatabaseBorderColor #8F8F8F
+skinparam DatabaseBackgroundColor white
+skinparam LifeLineBorderColor #BDBDBD
+skinparam LifeLineBackgroundColor white
+skinparam sequence {
+  MessageFontColor #222222
+  ParticipantFontColor #222222
+  ParticipantBorderThickness 1
+  ArrowThickness 1.1
+}
+hide footbox
+title Biểu đồ tuần tự chức năng Luyện phát âm câu
+
+actor "Người học" as User
+boundary "NewsReaderScreen" as PracticeUI
+control "SpeechService" as SpeechService
+entity "FlutterTts" as FlutterTts
+entity "SpeechToText" as SpeechToText
+database "SharedPreferences" as LocalStore
+
+User -> PracticeUI: Chọn câu mẫu cần luyện
+PracticeUI --> User: Hiển thị chữ Hán, pinyin, nghĩa
+
+opt Nghe phát âm mẫu
+  User -> PracticeUI: Nhấn Nghe mẫu
+  PracticeUI -> FlutterTts: speak(sentence)
+  FlutterTts --> PracticeUI: Hoàn tất phát âm
+end
+
+User -> PracticeUI: Nhấn Bắt đầu ghi âm
+PracticeUI -> SpeechService: listen(targetSentence)
+SpeechService -> SpeechToText: Thu âm và nhận diện giọng nói
+SpeechToText --> SpeechService: Văn bản nhận diện
+SpeechService -> SpeechService: Tính điểm phát âm
+SpeechService -> LocalStore: Lưu kết quả gần nhất
+LocalStore --> SpeechService: Thành công
+SpeechService --> PracticeUI: Câu nhận diện và điểm số
+PracticeUI --> User: Hiển thị kết quả luyện phát âm
+
+@enduml
+
+

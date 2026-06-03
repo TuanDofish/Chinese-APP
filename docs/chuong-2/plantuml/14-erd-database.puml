@@ -1,0 +1,202 @@
+@startuml
+hide circle
+skinparam shadowing false
+skinparam linetype ortho
+
+entity users {
+  *id : bigserial <<PK>>
+  --
+  email : varchar(150)
+  display_name : varchar(100)
+  role : user_role
+  login_mode : login_mode
+}
+
+entity topics {
+  *id : bigserial <<PK>>
+  --
+  code : varchar(50)
+  name : varchar(150)
+  hsk_level : hsk_level
+}
+
+entity vocabularies {
+  *id : bigserial <<PK>>
+  --
+  simplified : varchar(50)
+  pinyin : varchar(255)
+  meaning_vi : text
+  hsk_level : hsk_level
+}
+
+entity topic_vocabularies {
+  *topic_id : bigint <<FK>>
+  *vocabulary_id : bigint <<FK>>
+  --
+  display_order : int
+}
+
+entity vocabulary_examples {
+  *id : bigserial <<PK>>
+  --
+  vocabulary_id : bigint <<FK>>
+  example_cn : text
+  example_vi : text
+}
+
+entity grammar_lessons {
+  *id : bigserial <<PK>>
+  --
+  hsk_level : hsk_level
+  title : varchar(255)
+  pattern_text : varchar(255)
+}
+
+entity grammar_examples {
+  *id : bigserial <<PK>>
+  --
+  lesson_id : bigint <<FK>>
+  example_cn : text
+  example_vi : text
+}
+
+entity pronunciation_lessons {
+  *id : bigserial <<PK>>
+  --
+  code : varchar(50)
+  title : varchar(255)
+  hsk_level : hsk_level
+}
+
+entity pronunciation_sentences {
+  *id : bigserial <<PK>>
+  --
+  lesson_id : bigint <<FK>>
+  sentence_cn : text
+  sentence_vi : text
+}
+
+entity article_sources {
+  *id : bigserial <<PK>>
+  --
+  name : varchar(150)
+  rss_url : text
+  source_type : article_source_type
+}
+
+entity articles {
+  *id : bigserial <<PK>>
+  --
+  source_id : bigint <<FK>>
+  title : text
+  link : text
+  hsk_level : hsk_level
+}
+
+entity user_word_progress {
+  *id : bigserial <<PK>>
+  --
+  user_id : bigint <<FK>>
+  vocabulary_id : bigint <<FK>>
+  is_favorite : boolean
+  is_learned : boolean
+}
+
+entity grammar_check_sessions {
+  *id : bigserial <<PK>>
+  --
+  user_id : bigint <<FK>>
+  input_text : text
+  score : numeric(5,2)
+  engine : grammar_engine
+}
+
+entity grammar_check_issues {
+  *id : bigserial <<PK>>
+  --
+  session_id : bigint <<FK>>
+  issue_type : varchar(100)
+}
+
+entity grammar_check_suggestions {
+  *id : bigserial <<PK>>
+  --
+  session_id : bigint <<FK>>
+  suggestion_cn : text
+  suggestion_vi : text
+}
+
+entity pronunciation_attempts {
+  *id : bigserial <<PK>>
+  --
+  user_id : bigint <<FK>>
+  vocabulary_id : bigint <<FK>>
+  sentence_id : bigint <<FK>>
+  target_type : pronunciation_target_type
+  score : numeric(5,2)
+}
+
+entity reading_sessions {
+  *id : bigserial <<PK>>
+  --
+  user_id : bigint <<FK>>
+  article_id : bigint <<FK>>
+  time_spent_seconds : int
+}
+
+entity reading_word_lookups {
+  *id : bigserial <<PK>>
+  --
+  session_id : bigint <<FK>>
+  vocabulary_id : bigint <<FK>>
+  word : varchar(50)
+  saved_to_notebook : boolean
+}
+
+entity daily_goals {
+  *id : bigserial <<PK>>
+  --
+  user_id : bigint <<FK>>
+  goal_words : int
+  goal_minutes : int
+}
+
+entity daily_learning_stats {
+  *id : bigserial <<PK>>
+  --
+  user_id : bigint <<FK>>
+  study_date : date
+  learned_words_count : int
+  study_minutes : int
+}
+
+users ||--o{ user_word_progress : has
+vocabularies ||--o{ user_word_progress : tracked_in
+
+topics ||--o{ topic_vocabularies : contains
+vocabularies ||--o{ topic_vocabularies : belongs_to
+vocabularies ||--o{ vocabulary_examples : has
+
+grammar_lessons ||--o{ grammar_examples : has
+
+pronunciation_lessons ||--o{ pronunciation_sentences : has
+
+article_sources ||--o{ articles : publishes
+
+users ||--o{ grammar_check_sessions : performs
+grammar_check_sessions ||--o{ grammar_check_issues : contains
+grammar_check_sessions ||--o{ grammar_check_suggestions : contains
+
+users ||--o{ pronunciation_attempts : performs
+vocabularies ||--o{ pronunciation_attempts : target_word
+pronunciation_sentences ||--o{ pronunciation_attempts : target_sentence
+
+users ||--o{ reading_sessions : reads
+articles ||--o{ reading_sessions : opened_in
+reading_sessions ||--o{ reading_word_lookups : includes
+vocabularies ||--o{ reading_word_lookups : matched_to
+
+users ||--o{ daily_goals : sets
+users ||--o{ daily_learning_stats : owns
+
+@enduml

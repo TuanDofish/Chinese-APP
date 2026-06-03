@@ -1,0 +1,50 @@
+﻿@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam ArrowColor #4A4A4A
+skinparam defaultTextAlignment center
+skinparam activity {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+  DiamondBackgroundColor white
+  DiamondBorderColor #8F8F8F
+  DiamondFontColor #222222
+  StartColor black
+  EndColor black
+  BarColor #8F8F8F
+}
+title Biểu đồ hoạt động chức năng Đọc báo và tra từ trong bài
+
+start
+:Người học mở chức năng đọc báo tiếng Trung;
+:Tải danh sách bài báo từ RSS;
+
+if (Có bài báo?) then (Có)
+  :Hiển thị danh sách bài viết;
+else (Không)
+  :Thông báo không tải được dữ liệu;
+  stop
+endif
+
+:Người học chọn bài báo;
+:Hiển thị nội dung bài viết;
+
+if (Người học nhấn vào từ cần tra?) then (Có)
+  :Gửi yêu cầu tra cứu từ vựng;
+  if (Có dữ liệu nghĩa?) then (Có)
+    :Hiển thị popup nghĩa,\npinyin và ví dụ;
+  else (Không)
+    :Hiển thị thông báo\nkhông tra được từ này;
+  endif
+endif
+
+if (Lưu bài báo yêu thích?) then (Có)
+  :Cập nhật trạng thái bài báo;
+endif
+
+:Kết thúc phiên đọc báo;
+stop
+@enduml
+
+

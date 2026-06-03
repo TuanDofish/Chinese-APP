@@ -1,0 +1,77 @@
+@startuml
+!include style-class.puml
+left to right direction
+title Biểu đồ lớp phân hệ Quản lý học liệu
+
+package "Giao diện quản trị" {
+  class AdminDashboardScreen <<boundary>> {
+    +openContentList()
+    +openEditor()
+  }
+
+  class ContentEditorScreen <<boundary>> {
+    +createItem()
+    +updateItem()
+    +toggleActive()
+  }
+}
+
+package "Điều khiển và dịch vụ" {
+  class ContentManagementService <<control>> {
+    +createVocabulary()
+    +updateGrammarLesson()
+    +updateArticle()
+    +toggleActiveStatus()
+  }
+
+  class ValidationService <<control>> {
+    +validateRequiredFields(data)
+  }
+}
+
+package "Miền dữ liệu" {
+  class Vocabulary <<entity>> {
+    +id: bigint
+    +simplified: String
+    +meaningVi: String
+    +active: bool
+  }
+
+  class GrammarLesson <<entity>> {
+    +id: bigint
+    +title: String
+    +level: String
+    +active: bool
+  }
+
+  class PronunciationSentence <<entity>> {
+    +id: bigint
+    +sentenceCn: String
+    +sentenceVi: String
+    +active: bool
+  }
+
+  class Article <<entity>> {
+    +id: bigint
+    +title: String
+    +content: String
+    +active: bool
+  }
+}
+
+package "Hạ tầng ngoài" {
+  class PostgreSQL <<external>>
+}
+
+AdminDashboardScreen --> ContentEditorScreen
+ContentEditorScreen --> ValidationService
+ContentEditorScreen --> ContentManagementService
+ContentManagementService ..> PostgreSQL
+
+ContentManagementService --> Vocabulary
+ContentManagementService --> GrammarLesson
+ContentManagementService --> PronunciationSentence
+ContentManagementService --> Article
+
+@enduml
+

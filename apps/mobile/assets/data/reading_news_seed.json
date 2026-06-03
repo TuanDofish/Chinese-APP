@@ -1,0 +1,78 @@
+[
+  {
+    "id": "seed_hsk1_school_day_long",
+    "level": "HSK 1",
+    "source": "VNChinese Easy News",
+    "title": "学校今天有中文活动",
+    "titleVi": "Hôm nay trường có hoạt động tiếng Trung",
+    "summaryVi": "Bài đọc dài HSK 1 về lớp học, giáo viên và hoạt động nói tiếng Trung.",
+    "sentences": [
+      {"cn": "今天学校有中文活动。", "py": "Jīntiān xuéxiào yǒu Zhōngwén huódòng.", "vi": "Hôm nay trường có hoạt động tiếng Trung."},
+      {"cn": "早上八点，学生们来到教室。", "py": "Zǎoshang bā diǎn, xuéshengmen lái dào jiàoshì.", "vi": "Tám giờ sáng, học sinh đến lớp học."},
+      {"cn": "老师先教大家读新词。", "py": "Lǎoshī xiān jiāo dàjiā dú xīn cí.", "vi": "Giáo viên trước tiên dạy mọi người đọc từ mới."},
+      {"cn": "每个学生说一句中文。", "py": "Měi ge xuésheng shuō yí jù Zhōngwén.", "vi": "Mỗi học sinh nói một câu tiếng Trung."},
+      {"cn": "有的学生读得很慢。", "py": "Yǒu de xuésheng dú de hěn màn.", "vi": "Có học sinh đọc khá chậm."},
+      {"cn": "老师说，慢慢读没有关系。", "py": "Lǎoshī shuō, màn man dú méiyǒu guānxi.", "vi": "Giáo viên nói đọc chậm cũng không sao."},
+      {"cn": "下课以后，大家一起唱中文歌。", "py": "Xiàkè yǐhòu, dàjiā yìqǐ chàng Zhōngwén gē.", "vi": "Sau giờ học, mọi người cùng hát bài tiếng Trung."},
+      {"cn": "这个活动让学生更喜欢学习中文。", "py": "Zhège huódòng ràng xuésheng gèng xǐhuan xuéxí Zhōngwén.", "vi": "Hoạt động này khiến học sinh thích học tiếng Trung hơn."}
+    ],
+    "content": "今天学校有中文活动。早上八点，学生们来到教室。老师先教大家读新词。每个学生说一句中文。有的学生读得很慢。老师说，慢慢读没有关系。下课以后，大家一起唱中文歌。这个活动让学生更喜欢学习中文。"
+  },
+  {
+    "id": "seed_hsk2_city_life_long",
+    "level": "HSK 2",
+    "source": "VNChinese Life",
+    "title": "周末市场和公园都很热闹",
+    "titleVi": "Cuối tuần chợ và công viên đều nhộn nhịp",
+    "summaryVi": "Bài đọc HSK 2 về sinh hoạt cuối tuần, mua sắm, thời tiết và gia đình.",
+    "sentences": [
+      {"cn": "这个周末天气很好。", "py": "Zhège zhōumò tiānqì hěn hǎo.", "vi": "Cuối tuần này thời tiết rất đẹp."},
+      {"cn": "很多人早上去市场买东西。", "py": "Hěn duō rén zǎoshang qù shìchǎng mǎi dōngxi.", "vi": "Nhiều người buổi sáng đi chợ mua đồ."},
+      {"cn": "水果比平时便宜一点。", "py": "Shuǐguǒ bǐ píngshí piányi yìdiǎn.", "vi": "Trái cây rẻ hơn bình thường một chút."},
+      {"cn": "一位妈妈买了苹果和蔬菜。", "py": "Yí wèi māma mǎi le píngguǒ hé shūcài.", "vi": "Một người mẹ đã mua táo và rau."},
+      {"cn": "她说晚上要给家人做饭。", "py": "Tā shuō wǎnshang yào gěi jiārén zuò fàn.", "vi": "Cô ấy nói tối sẽ nấu cơm cho gia đình."},
+      {"cn": "下午，孩子们在公园跑步。", "py": "Xiàwǔ, háizimen zài gōngyuán pǎobù.", "vi": "Buổi chiều, trẻ em chạy bộ trong công viên."},
+      {"cn": "老人坐在树下喝茶聊天。", "py": "Lǎorén zuò zài shù xià hē chá liáotiān.", "vi": "Người lớn tuổi ngồi dưới cây uống trà nói chuyện."},
+      {"cn": "大家觉得这样的周末很舒服。", "py": "Dàjiā juéde zhèyàng de zhōumò hěn shūfu.", "vi": "Mọi người thấy cuối tuần như vậy rất dễ chịu."}
+    ],
+    "content": "这个周末天气很好。很多人早上去市场买东西。水果比平时便宜一点。一位妈妈买了苹果和蔬菜。她说晚上要给家人做饭。下午，孩子们在公园跑步。老人坐在树下喝茶聊天。大家觉得这样的周末很舒服。"
+  },
+  {
+    "id": "seed_hsk3_library_speaking_long",
+    "level": "HSK 3",
+    "source": "VNChinese Culture",
+    "title": "城市图书馆开设中文角",
+    "titleVi": "Thư viện thành phố mở góc tiếng Trung",
+    "summaryVi": "Bài đọc HSK 3 về góc tiếng Trung, luyện nói, tình nguyện viên và cộng đồng học tập.",
+    "sentences": [
+      {"cn": "城市图书馆最近开设了一个中文角。", "py": "Chéngshì túshūguǎn zuìjìn kāishè le yí ge Zhōngwén jiǎo.", "vi": "Thư viện thành phố gần đây đã mở một góc tiếng Trung."},
+      {"cn": "这个活动每个周六下午举行。", "py": "Zhège huódòng měi ge Zhōuliù xiàwǔ jǔxíng.", "vi": "Hoạt động này diễn ra vào chiều thứ Bảy hằng tuần."},
+      {"cn": "参加的人有学生，也有上班族。", "py": "Cānjiā de rén yǒu xuésheng, yě yǒu shàngbānzú.", "vi": "Người tham gia có học sinh và cả người đi làm."},
+      {"cn": "大家先听一段短新闻。", "py": "Dàjiā xiān tīng yí duàn duǎn xīnwén.", "vi": "Mọi người trước tiên nghe một đoạn tin ngắn."},
+      {"cn": "然后老师带大家一句一句地读。", "py": "Ránhòu lǎoshī dài dàjiā yí jù yí jù de dú.", "vi": "Sau đó giáo viên dẫn mọi người đọc từng câu một."},
+      {"cn": "志愿者会帮助学习者改正发音。", "py": "Zhìyuànzhě huì bāngzhù xuéxízhě gǎizhèng fāyīn.", "vi": "Tình nguyện viên sẽ giúp người học sửa phát âm."},
+      {"cn": "很多人说，跟别人一起练习更有动力。", "py": "Hěn duō rén shuō, gēn biérén yìqǐ liànxí gèng yǒu dònglì.", "vi": "Nhiều người nói luyện cùng người khác có động lực hơn."},
+      {"cn": "图书馆希望以后增加更多语言活动。", "py": "Túshūguǎn xīwàng yǐhòu zēngjiā gèng duō yǔyán huódòng.", "vi": "Thư viện hy vọng sau này tăng thêm nhiều hoạt động ngôn ngữ."}
+    ],
+    "content": "城市图书馆最近开设了一个中文角。这个活动每个周六下午举行。参加的人有学生，也有上班族。大家先听一段短新闻。然后老师带大家一句一句地读。志愿者会帮助学习者改正发音。很多人说，跟别人一起练习更有动力。图书馆希望以后增加更多语言活动。"
+  },
+  {
+    "id": "seed_hsk4_online_learning_long",
+    "level": "HSK 4",
+    "source": "VNChinese Focus",
+    "title": "网络课程改变学生的学习方式",
+    "titleVi": "Khóa học trực tuyến thay đổi cách học của học sinh",
+    "summaryVi": "Bài đọc HSK 4 dài hơn về giáo dục trực tuyến, tự giác, giáo viên và hiệu quả học tập.",
+    "sentences": [
+      {"cn": "近年来，网络课程正在改变学生获得知识的方式。", "py": "Jìnnián lái, wǎngluò kèchéng zhèngzài gǎibiàn xuésheng huòdé zhīshi de fāngshì.", "vi": "Những năm gần đây, khóa học trực tuyến đang thay đổi cách học sinh tiếp nhận kiến thức."},
+      {"cn": "学生可以根据自己的时间安排学习计划。", "py": "Xuésheng kěyǐ gēnjù zìjǐ de shíjiān ānpái xuéxí jìhuà.", "vi": "Học sinh có thể sắp xếp kế hoạch học theo thời gian của mình."},
+      {"cn": "有些课程还提供视频、练习题和自动评分。", "py": "Yǒuxiē kèchéng hái tígōng shìpín, liànxítí hé zìdòng píngfēn.", "vi": "Một số khóa còn cung cấp video, bài tập và chấm điểm tự động."},
+      {"cn": "老师认为，这种方式可以帮助学生反复复习。", "py": "Lǎoshī rènwéi, zhè zhǒng fāngshì kěyǐ bāngzhù xuésheng fǎnfù fùxí.", "vi": "Giáo viên cho rằng cách này có thể giúp học sinh ôn tập nhiều lần."},
+      {"cn": "不过，网络学习也需要更强的自律。", "py": "Búguò, wǎngluò xuéxí yě xūyào gèng qiáng de zìlǜ.", "vi": "Tuy vậy, học trực tuyến cũng cần tính tự giác cao hơn."},
+      {"cn": "如果没有计划，学生容易被手机和游戏影响。", "py": "Rúguǒ méiyǒu jìhuà, xuésheng róngyì bèi shǒujī hé yóuxì yǐngxiǎng.", "vi": "Nếu không có kế hoạch, học sinh dễ bị điện thoại và trò chơi ảnh hưởng."},
+      {"cn": "专家建议每天固定一个时间学习。", "py": "Zhuānjiā jiànyì měitiān gùdìng yí ge shíjiān xuéxí.", "vi": "Chuyên gia khuyên mỗi ngày cố định một thời gian để học."},
+      {"cn": "只要坚持使用正确的方法，学习效果会越来越好。", "py": "Zhǐyào jiānchí shǐyòng zhèngquè de fāngfǎ, xuéxí xiàoguǒ huì yuè lái yuè hǎo.", "vi": "Chỉ cần kiên trì dùng phương pháp đúng, hiệu quả học tập sẽ ngày càng tốt."}
+    ],
+    "content": "近年来，网络课程正在改变学生获得知识的方式。学生可以根据自己的时间安排学习计划。有些课程还提供视频、练习题和自动评分。老师认为，这种方式可以帮助学生反复复习。不过，网络学习也需要更强的自律。如果没有计划，学生容易被手机和游戏影响。专家建议每天固定一个时间学习。只要坚持使用正确的方法，学习效果会越来越好。"
+  }
+]

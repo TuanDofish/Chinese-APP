@@ -1,0 +1,69 @@
+@startuml
+left to right direction
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam ArrowColor #6E6E6E
+skinparam ArrowThickness 1.1
+skinparam actorStyle awesome
+skinparam actor {
+  BorderColor #9A9A9A
+  FontColor #333333
+  FontSize 13
+}
+skinparam rectangle {
+  BorderColor #6E6E6E
+  FontColor #222222
+  FontStyle bold
+  FontSize 15
+  RoundCorner 8
+}
+skinparam usecase {
+  BackgroundColor #F7F7F7
+  BorderColor #9E9E9E
+  FontColor #222222
+  FontSize 13
+}
+
+actor "Người học\n(Learner)" as Learner
+
+rectangle "Hệ thống Học tiếng Trung (Mobile App)" {
+  usecase "Tra cứu từ vựng" as U1
+  usecase "Học từ vựng theo\nchủ đề HSK" as U2
+  usecase "Xem bài học\nngữ pháp" as U3
+  usecase "Kiểm tra ngữ pháp\nbằng AI" as U4
+  usecase "Luyện phát âm câu\nvà từ vựng" as U5
+  usecase "Đọc báo tiếng Trung" as U6
+  usecase "Xem thống kê\nhọc tập" as U7
+
+  usecase "Xem chi tiết từ" as U8
+  usecase "Lưu từ vào sổ tay" as U9
+  usecase "Nghe phát âm" as U10
+  usecase "Đánh dấu từ đã học" as U11
+  usecase "Tra từ trong bài báo" as U12
+  usecase "Đặt mục tiêu ngày" as U13
+
+  U1 -[hidden]down-> U2
+  U2 -[hidden]down-> U3
+  U3 -[hidden]down-> U4
+  U4 -[hidden]down-> U5
+  U5 -[hidden]down-> U6
+  U6 -[hidden]down-> U7
+}
+
+Learner --> U1
+Learner --> U2
+Learner --> U3
+Learner --> U4
+Learner --> U5
+Learner --> U6
+Learner --> U7
+
+U1 ..> U8 : <<include>>
+U8 ..> U9 : <<extend>>
+U8 ..> U10 : <<extend>>
+U2 ..> U11 : <<include>>
+U6 ..> U12 : <<extend>>
+U7 ..> U13 : <<extend>>
+
+@enduml

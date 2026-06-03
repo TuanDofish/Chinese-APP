@@ -1,0 +1,16 @@
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam ArrowColor #4A4A4A
+skinparam defaultTextAlignment center
+skinparam activity {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+  DiamondBackgroundColor white
+  DiamondBorderColor #8F8F8F
+  DiamondFontColor #222222
+  StartColor black
+  EndColor black
+  BarColor #8F8F8F
+}
+

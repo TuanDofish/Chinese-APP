@@ -1,0 +1,562 @@
+[
+  {
+    "id": "h1_1",
+    "level": "HSK 1",
+    "cn": "你好！",
+    "py": "Nǐ hǎo!",
+    "vi": "Xin chào!"
+  },
+  {
+    "id": "h1_2",
+    "level": "HSK 1",
+    "cn": "谢谢你。",
+    "py": "Xièxie nǐ.",
+    "vi": "Cảm ơn bạn."
+  },
+  {
+    "id": "h1_3",
+    "level": "HSK 1",
+    "cn": "不客气。",
+    "py": "Bú kèqi.",
+    "vi": "Không có gì."
+  },
+  {
+    "id": "h1_4",
+    "level": "HSK 1",
+    "cn": "你叫什么名字？",
+    "py": "Nǐ jiào shénme míngzi?",
+    "vi": "Bạn tên là gì?"
+  },
+  {
+    "id": "h1_5",
+    "level": "HSK 1",
+    "cn": "我叫小明。",
+    "py": "Wǒ jiào Xiǎomíng.",
+    "vi": "Tôi tên là Tiểu Minh."
+  },
+  {
+    "id": "h1_6",
+    "level": "HSK 1",
+    "cn": "我是学生。",
+    "py": "Wǒ shì xuésheng.",
+    "vi": "Tôi là học sinh."
+  },
+  {
+    "id": "h1_7",
+    "level": "HSK 1",
+    "cn": "她是我的朋友。",
+    "py": "Tā shì wǒ de péngyou.",
+    "vi": "Cô ấy là bạn của tôi."
+  },
+  {
+    "id": "h1_8",
+    "level": "HSK 1",
+    "cn": "你是哪国人？",
+    "py": "Nǐ shì nǎ guó rén?",
+    "vi": "Bạn là người nước nào?"
+  },
+  {
+    "id": "h1_9",
+    "level": "HSK 1",
+    "cn": "我会说汉语。",
+    "py": "Wǒ huì shuō Hànyǔ.",
+    "vi": "Tôi biết nói tiếng Trung."
+  },
+  {
+    "id": "h1_10",
+    "level": "HSK 1",
+    "cn": "今天星期几？",
+    "py": "Jīntiān xīngqī jǐ?",
+    "vi": "Hôm nay là thứ mấy?"
+  },
+  {
+    "id": "h1_11",
+    "level": "HSK 1",
+    "cn": "现在几点？",
+    "py": "Xiànzài jǐ diǎn?",
+    "vi": "Bây giờ là mấy giờ?"
+  },
+  {
+    "id": "h1_12",
+    "level": "HSK 1",
+    "cn": "我想喝茶。",
+    "py": "Wǒ xiǎng hē chá.",
+    "vi": "Tôi muốn uống trà."
+  },
+  {
+    "id": "h1_13",
+    "level": "HSK 1",
+    "cn": "这个杯子多少钱？",
+    "py": "Zhège bēizi duōshao qián?",
+    "vi": "Cái cốc này bao nhiêu tiền?"
+  },
+  {
+    "id": "h1_14",
+    "level": "HSK 1",
+    "cn": "桌子上有一本书。",
+    "py": "Zhuōzi shang yǒu yì běn shū.",
+    "vi": "Trên bàn có một quyển sách."
+  },
+  {
+    "id": "h1_15",
+    "level": "HSK 1",
+    "cn": "我妈妈在医院工作。",
+    "py": "Wǒ māma zài yīyuàn gōngzuò.",
+    "vi": "Mẹ tôi làm việc ở bệnh viện."
+  },
+  {
+    "id": "h1_16",
+    "level": "HSK 1",
+    "cn": "我喜欢吃米饭。",
+    "py": "Wǒ xǐhuan chī mǐfàn.",
+    "vi": "Tôi thích ăn cơm."
+  },
+  {
+    "id": "h1_17",
+    "level": "HSK 1",
+    "cn": "小猫在椅子下面。",
+    "py": "Xiǎomāo zài yǐzi xiàmiàn.",
+    "vi": "Con mèo nhỏ ở dưới ghế."
+  },
+  {
+    "id": "h1_18",
+    "level": "HSK 1",
+    "cn": "明天我去学校。",
+    "py": "Míngtiān wǒ qù xuéxiào.",
+    "vi": "Ngày mai tôi đi học."
+  },
+  {
+    "id": "h1_19",
+    "level": "HSK 1",
+    "cn": "请你再说一遍。",
+    "py": "Qǐng nǐ zài shuō yí biàn.",
+    "vi": "Bạn vui lòng nói lại một lần nữa."
+  },
+  {
+    "id": "h1_20",
+    "level": "HSK 1",
+    "cn": "再见，明天见！",
+    "py": "Zàijiàn, míngtiān jiàn!",
+    "vi": "Tạm biệt, mai gặp lại!"
+  },
+  {
+    "id": "h2_21",
+    "level": "HSK 2",
+    "cn": "我正在学习汉语。",
+    "py": "Wǒ zhèngzài xuéxí Hànyǔ.",
+    "vi": "Tôi đang học tiếng Trung."
+  },
+  {
+    "id": "h2_22",
+    "level": "HSK 2",
+    "cn": "今天比昨天热。",
+    "py": "Jīntiān bǐ zuótiān rè.",
+    "vi": "Hôm nay nóng hơn hôm qua."
+  },
+  {
+    "id": "h2_23",
+    "level": "HSK 2",
+    "cn": "我坐飞机去北京。",
+    "py": "Wǒ zuò fēijī qù Běijīng.",
+    "vi": "Tôi đi máy bay đến Bắc Kinh."
+  },
+  {
+    "id": "h2_24",
+    "level": "HSK 2",
+    "cn": "这个苹果太贵了。",
+    "py": "Zhège píngguǒ tài guì le.",
+    "vi": "Quả táo này đắt quá."
+  },
+  {
+    "id": "h2_25",
+    "level": "HSK 2",
+    "cn": "你能便宜一点吗？",
+    "py": "Nǐ néng piányí yìdiǎn ma?",
+    "vi": "Bạn có thể bớt một chút không?"
+  },
+  {
+    "id": "h2_26",
+    "level": "HSK 2",
+    "cn": "我每天早上跑步。",
+    "py": "Wǒ měitiān zǎoshang pǎobù.",
+    "vi": "Mỗi sáng tôi chạy bộ."
+  },
+  {
+    "id": "h2_27",
+    "level": "HSK 2",
+    "cn": "他已经回家了。",
+    "py": "Tā yǐjīng huí jiā le.",
+    "vi": "Anh ấy đã về nhà rồi."
+  },
+  {
+    "id": "h2_28",
+    "level": "HSK 2",
+    "cn": "请把门打开。",
+    "py": "Qǐng bǎ mén dǎkāi.",
+    "vi": "Xin hãy mở cửa ra."
+  },
+  {
+    "id": "h2_29",
+    "level": "HSK 2",
+    "cn": "我觉得这个电影很好看。",
+    "py": "Wǒ juéde zhège diànyǐng hěn hǎokàn.",
+    "vi": "Tôi thấy bộ phim này rất hay."
+  },
+  {
+    "id": "h2_30",
+    "level": "HSK 2",
+    "cn": "外面下雨了，别忘了带伞。",
+    "py": "Wàimiàn xià yǔ le, bié wàng le dài sǎn.",
+    "vi": "Ngoài trời mưa rồi, đừng quên mang ô."
+  },
+  {
+    "id": "h2_31",
+    "level": "HSK 2",
+    "cn": "我想给妈妈买一件衣服。",
+    "py": "Wǒ xiǎng gěi māma mǎi yí jiàn yīfu.",
+    "vi": "Tôi muốn mua cho mẹ một bộ quần áo."
+  },
+  {
+    "id": "h2_32",
+    "level": "HSK 2",
+    "cn": "你为什么学习中文？",
+    "py": "Nǐ wèishénme xuéxí Zhōngwén?",
+    "vi": "Tại sao bạn học tiếng Trung?"
+  },
+  {
+    "id": "h2_33",
+    "level": "HSK 2",
+    "cn": "因为我想去中国旅游。",
+    "py": "Yīnwèi wǒ xiǎng qù Zhōngguó lǚyóu.",
+    "vi": "Vì tôi muốn đi du lịch Trung Quốc."
+  },
+  {
+    "id": "h2_34",
+    "level": "HSK 2",
+    "cn": "这家饭馆的菜很好吃。",
+    "py": "Zhè jiā fànguǎn de cài hěn hǎochī.",
+    "vi": "Món ăn của nhà hàng này rất ngon."
+  },
+  {
+    "id": "h2_35",
+    "level": "HSK 2",
+    "cn": "我到公司以后给你打电话。",
+    "py": "Wǒ dào gōngsī yǐhòu gěi nǐ dǎ diànhuà.",
+    "vi": "Sau khi đến công ty tôi gọi điện cho bạn."
+  },
+  {
+    "id": "h2_36",
+    "level": "HSK 2",
+    "cn": "他一边听音乐一边做作业。",
+    "py": "Tā yìbiān tīng yīnyuè yìbiān zuò zuòyè.",
+    "vi": "Anh ấy vừa nghe nhạc vừa làm bài tập."
+  },
+  {
+    "id": "h2_37",
+    "level": "HSK 2",
+    "cn": "你准备什么时候出发？",
+    "py": "Nǐ zhǔnbèi shénme shíhou chūfā?",
+    "vi": "Bạn chuẩn bị khi nào xuất phát?"
+  },
+  {
+    "id": "h2_38",
+    "level": "HSK 2",
+    "cn": "我从学校走到地铁站。",
+    "py": "Wǒ cóng xuéxiào zǒu dào dìtiě zhàn.",
+    "vi": "Tôi đi bộ từ trường đến ga tàu điện ngầm."
+  },
+  {
+    "id": "h2_39",
+    "level": "HSK 2",
+    "cn": "这件事让我很高兴。",
+    "py": "Zhè jiàn shì ràng wǒ hěn gāoxìng.",
+    "vi": "Việc này làm tôi rất vui."
+  },
+  {
+    "id": "h2_40",
+    "level": "HSK 2",
+    "cn": "考试以前我会复习。",
+    "py": "Kǎoshì yǐqián wǒ huì fùxí.",
+    "vi": "Trước khi thi tôi sẽ ôn tập."
+  },
+  {
+    "id": "h3_41",
+    "level": "HSK 3",
+    "cn": "我的汉语越来越好了。",
+    "py": "Wǒ de Hànyǔ yuèláiyuè hǎo le.",
+    "vi": "Tiếng Trung của tôi ngày càng tốt hơn."
+  },
+  {
+    "id": "h3_42",
+    "level": "HSK 3",
+    "cn": "请把你的想法告诉我。",
+    "py": "Qǐng bǎ nǐ de xiǎngfǎ gàosu wǒ.",
+    "vi": "Hãy nói cho tôi biết suy nghĩ của bạn."
+  },
+  {
+    "id": "h3_43",
+    "level": "HSK 3",
+    "cn": "如果明天下雨，我们就不去公园。",
+    "py": "Rúguǒ míngtiān xià yǔ, wǒmen jiù bú qù gōngyuán.",
+    "vi": "Nếu ngày mai mưa, chúng tôi sẽ không đi công viên."
+  },
+  {
+    "id": "h3_44",
+    "level": "HSK 3",
+    "cn": "我对中国文化很感兴趣。",
+    "py": "Wǒ duì Zhōngguó wénhuà hěn gǎn xìngqù.",
+    "vi": "Tôi rất hứng thú với văn hóa Trung Quốc."
+  },
+  {
+    "id": "h3_45",
+    "level": "HSK 3",
+    "cn": "这次会议非常重要。",
+    "py": "Zhè cì huìyì fēicháng zhòngyào.",
+    "vi": "Cuộc họp lần này rất quan trọng."
+  },
+  {
+    "id": "h3_46",
+    "level": "HSK 3",
+    "cn": "经理让我们下午三点开会。",
+    "py": "Jīnglǐ ràng wǒmen xiàwǔ sān diǎn kāihuì.",
+    "vi": "Quản lý bảo chúng tôi họp lúc ba giờ chiều."
+  },
+  {
+    "id": "h3_47",
+    "level": "HSK 3",
+    "cn": "我突然想起了一个问题。",
+    "py": "Wǒ tūrán xiǎngqǐ le yí ge wèntí.",
+    "vi": "Tôi đột nhiên nhớ ra một vấn đề."
+  },
+  {
+    "id": "h3_48",
+    "level": "HSK 3",
+    "cn": "这条路又长又安静。",
+    "py": "Zhè tiáo lù yòu cháng yòu ānjìng.",
+    "vi": "Con đường này vừa dài vừa yên tĩnh."
+  },
+  {
+    "id": "h3_49",
+    "level": "HSK 3",
+    "cn": "他把手机放在桌子上了。",
+    "py": "Tā bǎ shǒujī fàng zài zhuōzi shang le.",
+    "vi": "Anh ấy đặt điện thoại lên bàn rồi."
+  },
+  {
+    "id": "h3_50",
+    "level": "HSK 3",
+    "cn": "我们先吃饭，然后去看电影。",
+    "py": "Wǒmen xiān chīfàn, ránhòu qù kàn diànyǐng.",
+    "vi": "Chúng ta ăn cơm trước, sau đó đi xem phim."
+  },
+  {
+    "id": "h3_51",
+    "level": "HSK 3",
+    "cn": "这本书我已经看完了。",
+    "py": "Zhè běn shū wǒ yǐjīng kàn wán le.",
+    "vi": "Quyển sách này tôi đã đọc xong rồi."
+  },
+  {
+    "id": "h3_52",
+    "level": "HSK 3",
+    "cn": "他唱歌唱得很好。",
+    "py": "Tā chànggē chàng de hěn hǎo.",
+    "vi": "Anh ấy hát rất hay."
+  },
+  {
+    "id": "h3_53",
+    "level": "HSK 3",
+    "cn": "我希望以后能在中国工作。",
+    "py": "Wǒ xīwàng yǐhòu néng zài Zhōngguó gōngzuò.",
+    "vi": "Tôi hy vọng sau này có thể làm việc ở Trung Quốc."
+  },
+  {
+    "id": "h3_54",
+    "level": "HSK 3",
+    "cn": "这件衣服虽然便宜，但是质量不错。",
+    "py": "Zhè jiàn yīfu suīrán piányí, dànshì zhìliàng búcuò.",
+    "vi": "Bộ quần áo này tuy rẻ nhưng chất lượng không tệ."
+  },
+  {
+    "id": "h3_55",
+    "level": "HSK 3",
+    "cn": "你应该多听多说。",
+    "py": "Nǐ yīnggāi duō tīng duō shuō.",
+    "vi": "Bạn nên nghe nhiều và nói nhiều."
+  },
+  {
+    "id": "h3_56",
+    "level": "HSK 3",
+    "cn": "我正在准备下周的考试。",
+    "py": "Wǒ zhèngzài zhǔnbèi xià zhōu de kǎoshì.",
+    "vi": "Tôi đang chuẩn bị cho kỳ thi tuần sau."
+  },
+  {
+    "id": "h3_57",
+    "level": "HSK 3",
+    "cn": "请你帮我检查一下。",
+    "py": "Qǐng nǐ bāng wǒ jiǎnchá yíxià.",
+    "vi": "Bạn vui lòng giúp tôi kiểm tra một chút."
+  },
+  {
+    "id": "h3_58",
+    "level": "HSK 3",
+    "cn": "这座城市的交通很方便。",
+    "py": "Zhè zuò chéngshì de jiāotōng hěn fāngbiàn.",
+    "vi": "Giao thông của thành phố này rất tiện lợi."
+  },
+  {
+    "id": "h3_59",
+    "level": "HSK 3",
+    "cn": "我跟同事一起完成了任务。",
+    "py": "Wǒ gēn tóngshì yìqǐ wánchéng le rènwu.",
+    "vi": "Tôi đã cùng đồng nghiệp hoàn thành nhiệm vụ."
+  },
+  {
+    "id": "h3_60",
+    "level": "HSK 3",
+    "cn": "这张照片拍得很清楚。",
+    "py": "Zhè zhāng zhàopiàn pāi de hěn qīngchu.",
+    "vi": "Bức ảnh này chụp rất rõ."
+  },
+  {
+    "id": "h4_61",
+    "level": "HSK 4",
+    "cn": "虽然汉语很难，但是我很喜欢。",
+    "py": "Suīrán Hànyǔ hěn nán, dànshì wǒ hěn xǐhuan.",
+    "vi": "Mặc dù tiếng Trung khó, nhưng tôi rất thích."
+  },
+  {
+    "id": "h4_62",
+    "level": "HSK 4",
+    "cn": "他不但会说汉语，而且会写汉字。",
+    "py": "Tā búdàn huì shuō Hànyǔ, érqiě huì xiě Hànzì.",
+    "vi": "Anh ấy không những biết nói tiếng Trung mà còn biết viết chữ Hán."
+  },
+  {
+    "id": "h4_63",
+    "level": "HSK 4",
+    "cn": "只要你每天练习，发音就会越来越标准。",
+    "py": "Zhǐyào nǐ měitiān liànxí, fāyīn jiù huì yuèláiyuè biāozhǔn.",
+    "vi": "Chỉ cần bạn luyện mỗi ngày, phát âm sẽ ngày càng chuẩn."
+  },
+  {
+    "id": "h4_64",
+    "level": "HSK 4",
+    "cn": "无论遇到什么问题，我们都要冷静地解决。",
+    "py": "Wúlùn yùdào shénme wèntí, wǒmen dōu yào lěngjìng de jiějué.",
+    "vi": "Dù gặp vấn đề gì, chúng ta đều phải bình tĩnh giải quyết."
+  },
+  {
+    "id": "h4_65",
+    "level": "HSK 4",
+    "cn": "这篇文章介绍了中国经济的发展。",
+    "py": "Zhè piān wénzhāng jièshào le Zhōngguó jīngjì de fāzhǎn.",
+    "vi": "Bài viết này giới thiệu sự phát triển kinh tế Trung Quốc."
+  },
+  {
+    "id": "h4_66",
+    "level": "HSK 4",
+    "cn": "我认为学习语言最重要的是坚持。",
+    "py": "Wǒ rènwéi xuéxí yǔyán zuì zhòngyào de shì jiānchí.",
+    "vi": "Tôi cho rằng điều quan trọng nhất khi học ngôn ngữ là kiên trì."
+  },
+  {
+    "id": "h4_67",
+    "level": "HSK 4",
+    "cn": "这个方法既简单又有效。",
+    "py": "Zhège fāngfǎ jì jiǎndān yòu yǒuxiào.",
+    "vi": "Phương pháp này vừa đơn giản vừa hiệu quả."
+  },
+  {
+    "id": "h4_68",
+    "level": "HSK 4",
+    "cn": "由于天气原因，航班可能会推迟。",
+    "py": "Yóuyú tiānqì yuányīn, hángbān kěnéng huì tuīchí.",
+    "vi": "Do nguyên nhân thời tiết, chuyến bay có thể bị hoãn."
+  },
+  {
+    "id": "h4_69",
+    "level": "HSK 4",
+    "cn": "这次经历给我留下了很深的印象。",
+    "py": "Zhè cì jīnglì gěi wǒ liúxià le hěn shēn de yìnxiàng.",
+    "vi": "Trải nghiệm lần này để lại cho tôi ấn tượng rất sâu sắc."
+  },
+  {
+    "id": "h4_70",
+    "level": "HSK 4",
+    "cn": "我们应该尊重不同的文化和习惯。",
+    "py": "Wǒmen yīnggāi zūnzhòng bùtóng de wénhuà hé xíguàn.",
+    "vi": "Chúng ta nên tôn trọng các văn hóa và thói quen khác nhau."
+  },
+  {
+    "id": "h4_71",
+    "level": "HSK 4",
+    "cn": "这个计划需要大家共同努力。",
+    "py": "Zhège jìhuà xūyào dàjiā gòngtóng nǔlì.",
+    "vi": "Kế hoạch này cần mọi người cùng nỗ lực."
+  },
+  {
+    "id": "h4_72",
+    "level": "HSK 4",
+    "cn": "如果有机会，我想参加中文比赛。",
+    "py": "Rúguǒ yǒu jīhuì, wǒ xiǎng cānjiā Zhōngwén bǐsài.",
+    "vi": "Nếu có cơ hội, tôi muốn tham gia cuộc thi tiếng Trung."
+  },
+  {
+    "id": "h4_73",
+    "level": "HSK 4",
+    "cn": "这家公司的服务态度很好。",
+    "py": "Zhè jiā gōngsī de fúwù tàidu hěn hǎo.",
+    "vi": "Thái độ phục vụ của công ty này rất tốt."
+  },
+  {
+    "id": "h4_74",
+    "level": "HSK 4",
+    "cn": "他把自己的观点解释得很清楚。",
+    "py": "Tā bǎ zìjǐ de guāndiǎn jiěshì de hěn qīngchu.",
+    "vi": "Anh ấy giải thích quan điểm của mình rất rõ ràng."
+  },
+  {
+    "id": "h4_75",
+    "level": "HSK 4",
+    "cn": "网络改变了人们获得信息的方式。",
+    "py": "Wǎngluò gǎibiàn le rénmen huòdé xìnxī de fāngshì.",
+    "vi": "Internet đã thay đổi cách con người nhận thông tin."
+  },
+  {
+    "id": "h4_76",
+    "level": "HSK 4",
+    "cn": "学习的时候不要害怕犯错误。",
+    "py": "Xuéxí de shíhou búyào hàipà fàn cuòwù.",
+    "vi": "Khi học đừng sợ mắc lỗi."
+  },
+  {
+    "id": "h4_77",
+    "level": "HSK 4",
+    "cn": "这件事情比我想象的复杂。",
+    "py": "Zhè jiàn shìqing bǐ wǒ xiǎngxiàng de fùzá.",
+    "vi": "Việc này phức tạp hơn tôi tưởng tượng."
+  },
+  {
+    "id": "h4_78",
+    "level": "HSK 4",
+    "cn": "为了提高听力，我每天听中文新闻。",
+    "py": "Wèile tígāo tīnglì, wǒ měitiān tīng Zhōngwén xīnwén.",
+    "vi": "Để nâng cao nghe hiểu, mỗi ngày tôi nghe tin tức tiếng Trung."
+  },
+  {
+    "id": "h4_79",
+    "level": "HSK 4",
+    "cn": "他通过努力获得了成功。",
+    "py": "Tā tōngguò nǔlì huòdé le chénggōng.",
+    "vi": "Anh ấy đạt được thành công nhờ nỗ lực."
+  },
+  {
+    "id": "h4_80",
+    "level": "HSK 4",
+    "cn": "请根据实际情况做出选择。",
+    "py": "Qǐng gēnjù shíjì qíngkuàng zuòchū xuǎnzé.",
+    "vi": "Hãy đưa ra lựa chọn dựa trên tình hình thực tế."
+  }
+]

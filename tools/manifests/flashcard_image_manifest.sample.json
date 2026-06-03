@@ -1,0 +1,39 @@
+﻿{
+  "version": 1,
+  "base_output": "apps/mobile/assets/images/flashcards",
+  "items": [
+    {
+      "id": "topic_food",
+      "scope": "topic",
+      "key": "food",
+      "target": "topics/food.png",
+      "source_url": "",
+      "local_path": "",
+      "license": "TBD",
+      "author": "TBD",
+      "source": "manual"
+    },
+    {
+      "id": "word_buy",
+      "scope": "word",
+      "key": "买",
+      "target": "words/buy.png",
+      "source_url": "",
+      "local_path": "",
+      "license": "TBD",
+      "author": "TBD",
+      "source": "manual"
+    },
+    {
+      "id": "scene_hsk1_lesson1",
+      "scope": "scene",
+      "key": "hsk1_lesson1",
+      "target": "scenes/hsk1_lesson1.png",
+      "source_url": "",
+      "local_path": "",
+      "license": "TBD",
+      "author": "TBD",
+      "source": "manual"
+    }
+  ]
+}

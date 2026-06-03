@@ -1,0 +1,590 @@
+[
+  {
+    "id": "lf_hsk1_hello",
+    "title": "Hello Song",
+    "titleCn": "你好歌",
+    "level": "HSK 1",
+    "youtubeId": "m_rDIzj6DRE",
+    "source": "Little Fox Chinese",
+    "subtitles": [
+      {
+        "cn": "你好，你好。",
+        "py": "Nǐ hǎo, nǐ hǎo.",
+        "vi": "Xin chào, xin chào."
+      },
+      {
+        "cn": "大家一起说你好。",
+        "py": "Dàjiā yìqǐ shuō nǐ hǎo.",
+        "vi": "Mọi người cùng nói xin chào."
+      },
+      {
+        "cn": "一二三四五。",
+        "py": "Yī èr sān sì wǔ.",
+        "vi": "Một, hai, ba, bốn, năm."
+      },
+      {
+        "cn": "我们一起唱歌。",
+        "py": "Wǒmen yìqǐ chànggē.",
+        "vi": "Chúng ta cùng hát."
+      }
+    ]
+  },
+  {
+    "id": "lf_hsk1_my_day",
+    "title": "My Day",
+    "titleCn": "我的一天",
+    "level": "HSK 1",
+    "youtubeId": "NjKooVPp8-s",
+    "source": "Little Fox Chinese",
+    "subtitles": [
+      {
+        "cn": "早上我起床。",
+        "py": "Zǎoshang wǒ qǐchuáng.",
+        "vi": "Buổi sáng tôi thức dậy."
+      },
+      {
+        "cn": "我吃早饭。",
+        "py": "Wǒ chī zǎofàn.",
+        "vi": "Tôi ăn sáng."
+      },
+      {
+        "cn": "我去学校。",
+        "py": "Wǒ qù xuéxiào.",
+        "vi": "Tôi đi học."
+      },
+      {
+        "cn": "晚上我睡觉。",
+        "py": "Wǎnshang wǒ shuìjiào.",
+        "vi": "Buổi tối tôi đi ngủ."
+      }
+    ]
+  },
+  {
+    "id": "lf_hsk1_name",
+    "title": "What's Your Name?",
+    "titleCn": "你叫什么名字？",
+    "level": "HSK 1",
+    "youtubeId": "6VR4bW2nX_4",
+    "source": "Little Fox Chinese",
+    "subtitles": [
+      {
+        "cn": "你叫什么名字？",
+        "py": "Nǐ jiào shénme míngzi?",
+        "vi": "Bạn tên là gì?"
+      },
+      {
+        "cn": "我叫小美。",
+        "py": "Wǒ jiào Xiǎoměi.",
+        "vi": "Tôi tên là Tiểu Mỹ."
+      },
+      {
+        "cn": "很高兴认识你。",
+        "py": "Hěn gāoxìng rènshi nǐ.",
+        "vi": "Rất vui được gặp bạn."
+      },
+      {
+        "cn": "我们是朋友。",
+        "py": "Wǒmen shì péngyou.",
+        "vi": "Chúng ta là bạn."
+      }
+    ]
+  },
+  {
+    "id": "lf_hsk2_job",
+    "title": "What Does He Do?",
+    "titleCn": "他做什么工作？",
+    "level": "HSK 2",
+    "youtubeId": "YmTB_nQxJQj",
+    "source": "Little Fox Chinese",
+    "subtitles": [
+      {
+        "cn": "他做什么工作？",
+        "py": "Tā zuò shénme gōngzuò?",
+        "vi": "Anh ấy làm nghề gì?"
+      },
+      {
+        "cn": "他是老师。",
+        "py": "Tā shì lǎoshī.",
+        "vi": "Anh ấy là giáo viên."
+      },
+      {
+        "cn": "她做什么工作？",
+        "py": "Tā zuò shénme gōngzuò?",
+        "vi": "Cô ấy làm nghề gì?"
+      },
+      {
+        "cn": "她是医生。",
+        "py": "Tā shì yīshēng.",
+        "vi": "Cô ấy là bác sĩ."
+      }
+    ]
+  },
+  {
+    "id": "lf_hsk2_doing",
+    "title": "What Are You Doing?",
+    "titleCn": "你在做什么？",
+    "level": "HSK 2",
+    "youtubeId": "Aqs0VrMEeXQ",
+    "source": "Little Fox Chinese",
+    "subtitles": [
+      {
+        "cn": "你在做什么？",
+        "py": "Nǐ zài zuò shénme?",
+        "vi": "Bạn đang làm gì?"
+      },
+      {
+        "cn": "我在看书。",
+        "py": "Wǒ zài kàn shū.",
+        "vi": "Tôi đang đọc sách."
+      },
+      {
+        "cn": "他在听音乐。",
+        "py": "Tā zài tīng yīnyuè.",
+        "vi": "Anh ấy đang nghe nhạc."
+      },
+      {
+        "cn": "我们在学习中文。",
+        "py": "Wǒmen zài xuéxí Zhōngwén.",
+        "vi": "Chúng tôi đang học tiếng Trung."
+      }
+    ]
+  },
+  {
+    "id": "lf_hsk2_market",
+    "title": "Shopping at the Market",
+    "titleCn": "在市场买东西",
+    "level": "HSK 2",
+    "youtubeId": "jMEW0KcwBdY",
+    "source": "Little Fox Chinese",
+    "subtitles": [
+      {
+        "cn": "这个苹果多少钱？",
+        "py": "Zhège píngguǒ duōshao qián?",
+        "vi": "Táo này bao nhiêu tiền?"
+      },
+      {
+        "cn": "一斤五块钱。",
+        "py": "Yì jīn wǔ kuài qián.",
+        "vi": "Một cân năm đồng."
+      },
+      {
+        "cn": "太贵了！",
+        "py": "Tài guì le!",
+        "vi": "Đắt quá!"
+      },
+      {
+        "cn": "我买两斤。",
+        "py": "Wǒ mǎi liǎng jīn.",
+        "vi": "Tôi mua hai cân."
+      }
+    ]
+  },
+  {
+    "id": "lf_hsk3_guitar",
+    "title": "Who Am I? 4: This Is My Guitar",
+    "titleCn": "这是谁的吉他？",
+    "level": "HSK 3",
+    "youtubeId": "MPuvcZCu5f9",
+    "source": "Little Fox Chinese",
+    "subtitles": [
+      {
+        "cn": "这是谁的吉他？",
+        "py": "Zhè shì shéi de jítā?",
+        "vi": "Đây là đàn guitar của ai?"
+      },
+      {
+        "cn": "这是我的吉他。",
+        "py": "Zhè shì wǒ de jítā.",
+        "vi": "Đây là đàn guitar của tôi."
+      },
+      {
+        "cn": "我喜欢弹吉他。",
+        "py": "Wǒ xǐhuan tán jítā.",
+        "vi": "Tôi thích chơi guitar."
+      },
+      {
+        "cn": "音乐让我很开心。",
+        "py": "Yīnyuè ràng wǒ hěn kāixīn.",
+        "vi": "Âm nhạc làm tôi rất vui."
+      }
+    ]
+  },
+  {
+    "id": "lf_hsk3_family",
+    "title": "Family Life",
+    "titleCn": "家庭生活",
+    "level": "HSK 3",
+    "youtubeId": "8K7BNGGjGiA",
+    "source": "Little Fox Chinese",
+    "subtitles": [
+      {
+        "cn": "我家有四口人。",
+        "py": "Wǒ jiā yǒu sì kǒu rén.",
+        "vi": "Nhà tôi có bốn người."
+      },
+      {
+        "cn": "爸爸是工程师。",
+        "py": "Bàba shì gōngchéngshī.",
+        "vi": "Ba tôi là kỹ sư."
+      },
+      {
+        "cn": "妈妈是护士。",
+        "py": "Māma shì hùshi.",
+        "vi": "Mẹ tôi là y tá."
+      },
+      {
+        "cn": "我们家很幸福。",
+        "py": "Wǒmen jiā hěn xìngfú.",
+        "vi": "Gia đình chúng tôi rất hạnh phúc."
+      }
+    ]
+  },
+  {
+    "id": "lf_hsk3_weather",
+    "title": "Weather and Seasons",
+    "titleCn": "天气和季节",
+    "level": "HSK 3",
+    "youtubeId": "hYM-F05V02A",
+    "source": "Little Fox Chinese",
+    "subtitles": [
+      {
+        "cn": "中国有四个季节。",
+        "py": "Zhōngguó yǒu sì gè jìjié.",
+        "vi": "Trung Quốc có bốn mùa."
+      },
+      {
+        "cn": "春天气候温暖。",
+        "py": "Chūntiān qìhòu wēnnuǎn.",
+        "vi": "Mùa xuân khí hậu ấm áp."
+      },
+      {
+        "cn": "夏天经常下雨。",
+        "py": "Xiàtiān jīngcháng xià yǔ.",
+        "vi": "Mùa hè thường mưa."
+      },
+      {
+        "cn": "秋天的风景很漂亮。",
+        "py": "Qiūtiān de fēngjǐng hěn piàoliang.",
+        "vi": "Phong cảnh mùa thu rất đẹp."
+      }
+    ]
+  },
+  {
+    "id": "lf_hsk4_kids_central_12",
+    "title": "Fun at Kids Central 12",
+    "titleCn": "趣味儿童中心 12",
+    "level": "HSK 4",
+    "youtubeId": "5S97IE7qtYs",
+    "source": "Little Fox Chinese",
+    "subtitles": [
+      {
+        "cn": "今天我们参加一个有趣的活动。",
+        "py": "Jīntiān wǒmen cānjiā yí ge yǒuqù de huódòng.",
+        "vi": "Hôm nay chúng tôi tham gia một hoạt động thú vị."
+      },
+      {
+        "cn": "老师先介绍了活动规则。",
+        "py": "Lǎoshī xiān jièshào le huódòng guīzé.",
+        "vi": "Cô giáo giới thiệu luật hoạt động trước."
+      },
+      {
+        "cn": "大家需要互相帮助。",
+        "py": "Dàjiā xūyào hùxiāng bāngzhù.",
+        "vi": "Mọi người cần giúp đỡ lẫn nhau."
+      },
+      {
+        "cn": "最后我们完成了任务。",
+        "py": "Zuìhòu wǒmen wánchéng le rènwu.",
+        "vi": "Cuối cùng chúng tôi hoàn thành nhiệm vụ."
+      }
+    ]
+  },
+  {
+    "id": "lf_hsk4_kids_central_25",
+    "title": "Fun at Kids Central 25",
+    "titleCn": "趣味儿童中心 25",
+    "level": "HSK 4",
+    "youtubeId": "F1waw1gUNt4",
+    "source": "Little Fox Chinese",
+    "subtitles": [
+      {
+        "cn": "这个实验看起来很简单。",
+        "py": "Zhège shíyàn kàn qǐlái hěn jiǎndān.",
+        "vi": "Thí nghiệm này trông rất đơn giản."
+      },
+      {
+        "cn": "可是我们必须认真准备。",
+        "py": "Kěshì wǒmen bìxū rènzhēn zhǔnbèi.",
+        "vi": "Nhưng chúng tôi phải chuẩn bị nghiêm túc."
+      },
+      {
+        "cn": "如果步骤错了，结果就不一样。",
+        "py": "Rúguǒ bùzhòu cuò le, jiéguǒ jiù bù yíyàng.",
+        "vi": "Nếu bước làm sai, kết quả sẽ khác."
+      },
+      {
+        "cn": "这个过程非常有意思。",
+        "py": "Zhège guòchéng fēicháng yǒuyìsi.",
+        "vi": "Quá trình này rất thú vị."
+      }
+    ]
+  },
+  {
+    "id": "lf_hsk4_kids_central_29",
+    "title": "Fun at Kids Central 29",
+    "titleCn": "趣味儿童中心 29",
+    "level": "HSK 4",
+    "youtubeId": "Os-NLk9FJ_0",
+    "source": "Little Fox Chinese",
+    "subtitles": [
+      {
+        "cn": "我们决定一起做一个项目。",
+        "py": "Wǒmen juédìng yìqǐ zuò yí ge xiàngmù.",
+        "vi": "Chúng tôi quyết định cùng làm một dự án."
+      },
+      {
+        "cn": "每个人都有自己的任务。",
+        "py": "Měi ge rén dōu yǒu zìjǐ de rènwu.",
+        "vi": "Mỗi người đều có nhiệm vụ riêng."
+      },
+      {
+        "cn": "合作可以让事情变得更容易。",
+        "py": "Hézuò kěyǐ ràng shìqing biàn de gèng róngyì.",
+        "vi": "Hợp tác có thể làm mọi việc dễ hơn."
+      },
+      {
+        "cn": "我们对结果很满意。",
+        "py": "Wǒmen duì jiéguǒ hěn mǎnyì.",
+        "vi": "Chúng tôi rất hài lòng với kết quả."
+      }
+    ]
+  },
+  {
+    "id": "new_vid_1",
+    "title": "Everyday Chinese Conversation",
+    "titleCn": "日常中文对话",
+    "level": "HSK 2",
+    "youtubeId": "rYeGfLwkK08",
+    "source": "Mandarin Corner",
+    "subtitles": [
+      {
+        "cn": "你好，最近怎么样？",
+        "py": "Nǐ hǎo, zuìjìn zěnmeyàng?",
+        "vi": "Xin chào, dạo này thế nào?",
+        "start": 0,
+        "end": 3
+      },
+      {
+        "cn": "我很好，谢谢。",
+        "py": "Wǒ hěn hǎo, xièxie.",
+        "vi": "Tôi rất khỏe, cảm ơn.",
+        "start": 3,
+        "end": 5
+      }
+    ]
+  },
+  {
+    "id": "new_vid_2",
+    "title": "Chinese Listening Practice",
+    "titleCn": "中文听力练习",
+    "level": "HSK 3",
+    "youtubeId": "TlW4x4ExAws",
+    "source": "Everyday Chinese",
+    "subtitles": [
+      {
+        "cn": "今天天气真不错。",
+        "py": "Jīntiān tiānqì zhēn bùcuò.",
+        "vi": "Hôm nay thời tiết thật đẹp.",
+        "start": 0,
+        "end": 4
+      },
+      {
+        "cn": "我们去爬山吧。",
+        "py": "Wǒmen qù páshān ba.",
+        "vi": "Chúng ta đi leo núi đi.",
+        "start": 4,
+        "end": 7
+      }
+    ]
+  },
+  {
+    "id": "vn_hsk1_classroom_shadowing",
+    "title": "Classroom Shadowing",
+    "titleCn": "课堂跟读",
+    "level": "HSK 1",
+    "youtubeId": "Aqs0VrMEeXQ",
+    "source": "VNChinese Practice Set",
+    "subtitles": [
+      {
+        "cn": "老师好。",
+        "py": "Lǎoshī hǎo.",
+        "vi": "Em chào cô/thầy.",
+        "start": 0,
+        "end": 2.8
+      },
+      {
+        "cn": "今天我们学习汉字。",
+        "py": "Jīntiān wǒmen xuéxí Hànzì.",
+        "vi": "Hôm nay chúng ta học chữ Hán.",
+        "start": 2.8,
+        "end": 6.2
+      },
+      {
+        "cn": "请你读第一句。",
+        "py": "Qǐng nǐ dú dì yī jù.",
+        "vi": "Mời bạn đọc câu thứ nhất.",
+        "start": 6.2,
+        "end": 9.5
+      },
+      {
+        "cn": "我读得不快。",
+        "py": "Wǒ dú de bú kuài.",
+        "vi": "Tôi đọc không nhanh.",
+        "start": 9.5,
+        "end": 12.6
+      },
+      {
+        "cn": "我们再读一遍。",
+        "py": "Wǒmen zài dú yí biàn.",
+        "vi": "Chúng ta đọc lại một lần nữa.",
+        "start": 12.6,
+        "end": 16.1
+      }
+    ]
+  },
+  {
+    "id": "vn_hsk2_food_dialogue",
+    "title": "Ordering Food",
+    "titleCn": "点菜对话",
+    "level": "HSK 2",
+    "youtubeId": "jMEW0KcwBdY",
+    "source": "VNChinese Practice Set",
+    "subtitles": [
+      {
+        "cn": "你想吃什么？",
+        "py": "Nǐ xiǎng chī shénme?",
+        "vi": "Bạn muốn ăn gì?",
+        "start": 0,
+        "end": 2.8
+      },
+      {
+        "cn": "我想吃米饭和鱼。",
+        "py": "Wǒ xiǎng chī mǐfàn hé yú.",
+        "vi": "Tôi muốn ăn cơm và cá.",
+        "start": 2.8,
+        "end": 6.4
+      },
+      {
+        "cn": "这个菜有点儿辣。",
+        "py": "Zhège cài yǒudiǎnr là.",
+        "vi": "Món này hơi cay.",
+        "start": 6.4,
+        "end": 9.8
+      },
+      {
+        "cn": "请给我一杯茶。",
+        "py": "Qǐng gěi wǒ yì bēi chá.",
+        "vi": "Làm ơn cho tôi một cốc trà.",
+        "start": 9.8,
+        "end": 13.4
+      },
+      {
+        "cn": "一共多少钱？",
+        "py": "Yígòng duōshao qián?",
+        "vi": "Tổng cộng bao nhiêu tiền?",
+        "start": 13.4,
+        "end": 16.5
+      }
+    ]
+  },
+  {
+    "id": "vn_hsk3_work_meeting",
+    "title": "Work Meeting",
+    "titleCn": "工作会议",
+    "level": "HSK 3",
+    "youtubeId": "rYeGfLwkK08",
+    "source": "VNChinese Practice Set",
+    "subtitles": [
+      {
+        "cn": "明天上午我们有一个会议。",
+        "py": "Míngtiān shàngwǔ wǒmen yǒu yí ge huìyì.",
+        "vi": "Sáng mai chúng ta có một cuộc họp.",
+        "start": 0,
+        "end": 4
+      },
+      {
+        "cn": "请你准备一下资料。",
+        "py": "Qǐng nǐ zhǔnbèi yíxià zīliào.",
+        "vi": "Bạn hãy chuẩn bị tài liệu một chút.",
+        "start": 4,
+        "end": 7.8
+      },
+      {
+        "cn": "这个问题需要大家讨论。",
+        "py": "Zhège wèntí xūyào dàjiā tǎolùn.",
+        "vi": "Vấn đề này cần mọi người thảo luận.",
+        "start": 7.8,
+        "end": 12
+      },
+      {
+        "cn": "如果有新的想法，请告诉我。",
+        "py": "Rúguǒ yǒu xīn de xiǎngfǎ, qǐng gàosu wǒ.",
+        "vi": "Nếu có ý tưởng mới, hãy nói với tôi.",
+        "start": 12,
+        "end": 17
+      },
+      {
+        "cn": "我们一起把计划做好。",
+        "py": "Wǒmen yìqǐ bǎ jìhuà zuò hǎo.",
+        "vi": "Chúng ta cùng làm tốt kế hoạch.",
+        "start": 17,
+        "end": 21
+      }
+    ]
+  },
+  {
+    "id": "vn_hsk4_news_shadowing",
+    "title": "Easy News Shadowing",
+    "titleCn": "简明新闻跟读",
+    "level": "HSK 4",
+    "youtubeId": "5S97IE7qtYs",
+    "source": "VNChinese Practice Set",
+    "subtitles": [
+      {
+        "cn": "最近，很多学生开始使用网络课程。",
+        "py": "Zuìjìn, hěn duō xuésheng kāishǐ shǐyòng wǎngluò kèchéng.",
+        "vi": "Gần đây, nhiều học sinh bắt đầu dùng khóa học trực tuyến.",
+        "start": 0,
+        "end": 5
+      },
+      {
+        "cn": "这种方式让学习更加方便。",
+        "py": "Zhè zhǒng fāngshì ràng xuéxí gèngjiā fāngbiàn.",
+        "vi": "Cách này khiến việc học thuận tiện hơn.",
+        "start": 5,
+        "end": 9.4
+      },
+      {
+        "cn": "老师可以根据学生的水平安排内容。",
+        "py": "Lǎoshī kěyǐ gēnjù xuésheng de shuǐpíng ānpái nèiróng.",
+        "vi": "Giáo viên có thể sắp xếp nội dung theo trình độ học sinh.",
+        "start": 9.4,
+        "end": 15
+      },
+      {
+        "cn": "不过，学生也需要更强的自律。",
+        "py": "Búguò, xuésheng yě xūyào gèng qiáng de zìlǜ.",
+        "vi": "Tuy vậy, học sinh cũng cần tính tự giác cao hơn.",
+        "start": 15,
+        "end": 20
+      },
+      {
+        "cn": "每天坚持练习，效果会更好。",
+        "py": "Měitiān jiānchí liànxí, xiàoguǒ huì gèng hǎo.",
+        "vi": "Kiên trì luyện mỗi ngày thì hiệu quả sẽ tốt hơn.",
+        "start": 20,
+        "end": 24.8
+      }
+    ]
+  }
+]

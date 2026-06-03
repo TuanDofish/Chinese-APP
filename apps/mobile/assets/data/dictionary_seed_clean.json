@@ -1,0 +1,3749 @@
+[
+  {
+    "simplified": "你好",
+    "traditional": "你好",
+    "pinyin": "nǐ hǎo",
+    "meaningVi": "Xin chào",
+    "meaningEn": "Hello",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "你好！很高兴认识你。",
+        "py": "Nǐ hǎo! Hěn gāoxìng rènshi nǐ.",
+        "vi": "Xin chào! Rất vui được gặp bạn."
+      }
+    ]
+  },
+  {
+    "simplified": "谢谢",
+    "traditional": "謝謝",
+    "pinyin": "xiè xie",
+    "meaningVi": "Cảm ơn",
+    "meaningEn": "Thank you",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "谢谢你帮助我。",
+        "py": "Xièxiè nǐ bāngzhù wǒ.",
+        "vi": "Cảm ơn bạn đã giúp tôi."
+      }
+    ]
+  },
+  {
+    "simplified": "再见",
+    "traditional": "再見",
+    "pinyin": "zài jiàn",
+    "meaningVi": "Tạm biệt",
+    "meaningEn": "Goodbye",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "再见，明天见！",
+        "py": "Zàijiàn, míngtiān jiàn!",
+        "vi": "Tạm biệt, ngày mai gặp lại!"
+      }
+    ]
+  },
+  {
+    "simplified": "对不起",
+    "traditional": "對不起",
+    "pinyin": "duì bu qǐ",
+    "meaningVi": "Xin lỗi",
+    "meaningEn": "Sorry",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "对不起，我来晚了。",
+        "py": "Duìbuqǐ, wǒ lái wǎn le.",
+        "vi": "Xin lỗi, tôi đến muộn."
+      }
+    ]
+  },
+  {
+    "simplified": "没关系",
+    "traditional": "沒關係",
+    "pinyin": "méi guān xi",
+    "meaningVi": "Không sao",
+    "meaningEn": "It is okay",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "没关系，不用担心。",
+        "py": "Méiguānxi, bùyòng dānxīn.",
+        "vi": "Không sao, đừng lo."
+      }
+    ]
+  },
+  {
+    "simplified": "我",
+    "traditional": "我",
+    "pinyin": "wǒ",
+    "meaningVi": "Tôi",
+    "meaningEn": "I / Me",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我是越南人。",
+        "py": "Wǒ shì Yuènán rén.",
+        "vi": "Tôi là người Việt Nam."
+      }
+    ]
+  },
+  {
+    "simplified": "你",
+    "traditional": "你",
+    "pinyin": "nǐ",
+    "meaningVi": "Bạn",
+    "meaningEn": "You",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "你叫什么名字？",
+        "py": "Nǐ jiào shénme míngzì?",
+        "vi": "Bạn tên là gì?"
+      }
+    ]
+  },
+  {
+    "simplified": "他",
+    "traditional": "他",
+    "pinyin": "tā",
+    "meaningVi": "Anh ấy",
+    "meaningEn": "He",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "他是我的老师。",
+        "py": "Tā shì wǒ de lǎoshī.",
+        "vi": "Anh ấy là giáo viên của tôi."
+      }
+    ]
+  },
+  {
+    "simplified": "她",
+    "traditional": "她",
+    "pinyin": "tā",
+    "meaningVi": "Cô ấy",
+    "meaningEn": "She",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "她很漂亮。",
+        "py": "Tā hěn piàoliang.",
+        "vi": "Cô ấy rất đẹp."
+      }
+    ]
+  },
+  {
+    "simplified": "我们",
+    "traditional": "我們",
+    "pinyin": "wǒ men",
+    "meaningVi": "Chúng tôi",
+    "meaningEn": "We",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我们一起去吃饭吧。",
+        "py": "Wǒmen yīqǐ qù chīfàn ba.",
+        "vi": "Chúng ta cùng đi ăn cơm nhé."
+      }
+    ]
+  },
+  {
+    "simplified": "是",
+    "traditional": "是",
+    "pinyin": "shì",
+    "meaningVi": "Là",
+    "meaningEn": "To be",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我是学生。",
+        "py": "Wǒ shì xuéshēng.",
+        "vi": "Tôi là học sinh."
+      }
+    ]
+  },
+  {
+    "simplified": "不",
+    "traditional": "不",
+    "pinyin": "bù",
+    "meaningVi": "Không",
+    "meaningEn": "No / Not",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我不喜欢吃辣。",
+        "py": "Wǒ bù xǐhuān chī là.",
+        "vi": "Tôi không thích ăn cay."
+      }
+    ]
+  },
+  {
+    "simplified": "有",
+    "traditional": "有",
+    "pinyin": "yǒu",
+    "meaningVi": "Có",
+    "meaningEn": "To have",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我有两个妹妹。",
+        "py": "Wǒ yǒu liǎng gè mèimei.",
+        "vi": "Tôi có hai em gái."
+      }
+    ]
+  },
+  {
+    "simplified": "在",
+    "traditional": "在",
+    "pinyin": "zài",
+    "meaningVi": "Ở, đang",
+    "meaningEn": "To be at",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我在家学习。",
+        "py": "Wǒ zài jiā xuéxí.",
+        "vi": "Tôi đang học ở nhà."
+      }
+    ]
+  },
+  {
+    "simplified": "好",
+    "traditional": "好",
+    "pinyin": "hǎo",
+    "meaningVi": "Tốt, khỏe",
+    "meaningEn": "Good",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "今天天气很好。",
+        "py": "Jīntiān tiānqì hěn hǎo.",
+        "vi": "Hôm nay thời tiết rất đẹp."
+      }
+    ]
+  },
+  {
+    "simplified": "大",
+    "traditional": "大",
+    "pinyin": "dà",
+    "meaningVi": "To, lớn",
+    "meaningEn": "Big",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "北京是一个很大的城市。",
+        "py": "Běijīng shì yīgè hěn dà de chéngshì.",
+        "vi": "Bắc Kinh là một thành phố rất lớn."
+      }
+    ]
+  },
+  {
+    "simplified": "小",
+    "traditional": "小",
+    "pinyin": "xiǎo",
+    "meaningVi": "Nhỏ",
+    "meaningEn": "Small",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "这只猫很小。",
+        "py": "Zhè zhī māo hěn xiǎo.",
+        "vi": "Con mèo này rất nhỏ."
+      }
+    ]
+  },
+  {
+    "simplified": "多",
+    "traditional": "多",
+    "pinyin": "duō",
+    "meaningVi": "Nhiều",
+    "meaningEn": "Many",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "今天有很多人。",
+        "py": "Jīntiān yǒu hěn duō rén.",
+        "vi": "Hôm nay có rất nhiều người."
+      }
+    ]
+  },
+  {
+    "simplified": "少",
+    "traditional": "少",
+    "pinyin": "shǎo",
+    "meaningVi": "Ít",
+    "meaningEn": "Few",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "这里的人很少。",
+        "py": "Zhèlǐ de rén hěn shǎo.",
+        "vi": "Ở đây có rất ít người."
+      }
+    ]
+  },
+  {
+    "simplified": "很",
+    "traditional": "很",
+    "pinyin": "hěn",
+    "meaningVi": "Rất",
+    "meaningEn": "Very",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "这道菜很好吃。",
+        "py": "Zhè dào cài hěn hǎochī.",
+        "vi": "Món ăn này rất ngon."
+      }
+    ]
+  },
+  {
+    "simplified": "人",
+    "traditional": "人",
+    "pinyin": "rén",
+    "meaningVi": "Người",
+    "meaningEn": "Person",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "他是一个好人。",
+        "py": "Tā shì yīgè hǎo rén.",
+        "vi": "Anh ấy là người tốt."
+      }
+    ]
+  },
+  {
+    "simplified": "学生",
+    "traditional": "學生",
+    "pinyin": "xué shēng",
+    "meaningVi": "Học sinh",
+    "meaningEn": "Student",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我是大学生。",
+        "py": "Wǒ shì dàxuéshēng.",
+        "vi": "Tôi là sinh viên đại học."
+      }
+    ]
+  },
+  {
+    "simplified": "老师",
+    "traditional": "老師",
+    "pinyin": "lǎo shī",
+    "meaningVi": "Giáo viên",
+    "meaningEn": "Teacher",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我的老师很亲切。",
+        "py": "Wǒ de lǎoshī hěn qīnqiè.",
+        "vi": "Giáo viên của tôi rất thân thiện."
+      }
+    ]
+  },
+  {
+    "simplified": "朋友",
+    "traditional": "朋友",
+    "pinyin": "péng yǒu",
+    "meaningVi": "Bạn bè",
+    "meaningEn": "Friend",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "他是我的好朋友。",
+        "py": "Tā shì wǒ de hǎo péngyǒu.",
+        "vi": "Anh ấy là bạn tốt của tôi."
+      }
+    ]
+  },
+  {
+    "simplified": "爸爸",
+    "traditional": "爸爸",
+    "pinyin": "bà ba",
+    "meaningVi": "Bố, Ba",
+    "meaningEn": "Father",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我爸爸每天早起。",
+        "py": "Wǒ bàba měitiān zǎoqǐ.",
+        "vi": "Bố tôi dậy sớm mỗi ngày."
+      }
+    ]
+  },
+  {
+    "simplified": "妈妈",
+    "traditional": "媽媽",
+    "pinyin": "mā ma",
+    "meaningVi": "Mẹ",
+    "meaningEn": "Mother",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "妈妈做的饭最好吃。",
+        "py": "Māma zuò de fàn zuì hǎochī.",
+        "vi": "Cơm mẹ nấu ngon nhất."
+      }
+    ]
+  },
+  {
+    "simplified": "哥哥",
+    "traditional": "哥哥",
+    "pinyin": "gē ge",
+    "meaningVi": "Anh trai",
+    "meaningEn": "Older brother",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我哥哥比我大三岁。",
+        "py": "Wǒ gēge bǐ wǒ dà sān suì.",
+        "vi": "Anh trai tôi hơn tôi ba tuổi."
+      }
+    ]
+  },
+  {
+    "simplified": "姐姐",
+    "traditional": "姐姐",
+    "pinyin": "jiě jie",
+    "meaningVi": "Chị gái",
+    "meaningEn": "Older sister",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我姐姐在北京工作。",
+        "py": "Wǒ jiějie zài Běijīng gōngzuò.",
+        "vi": "Chị gái tôi làm việc tại Bắc Kinh."
+      }
+    ]
+  },
+  {
+    "simplified": "妹妹",
+    "traditional": "妹妹",
+    "pinyin": "mèi mèi",
+    "meaningVi": "Em gái",
+    "meaningEn": "Younger sister",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我妹妹喜欢画画。",
+        "py": "Wǒ mèimei xǐhuān huàhuà.",
+        "vi": "Em gái tôi thích vẽ."
+      }
+    ]
+  },
+  {
+    "simplified": "弟弟",
+    "traditional": "弟弟",
+    "pinyin": "dì di",
+    "meaningVi": "Em trai",
+    "meaningEn": "Younger brother",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "弟弟在上小学。",
+        "py": "Dìdi zài shàng xiǎoxué.",
+        "vi": "Em trai đang học tiểu học."
+      }
+    ]
+  },
+  {
+    "simplified": "家",
+    "traditional": "家",
+    "pinyin": "jiā",
+    "meaningVi": "Nhà, gia đình",
+    "meaningEn": "Home / Family",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我爱我的家。",
+        "py": "Wǒ ài wǒ de jiā.",
+        "vi": "Tôi yêu gia đình tôi."
+      }
+    ]
+  },
+  {
+    "simplified": "学校",
+    "traditional": "學校",
+    "pinyin": "xué xiào",
+    "meaningVi": "Trường học",
+    "meaningEn": "School",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "学校明天放假。",
+        "py": "Xuéxiào míngtiān fàngjià.",
+        "vi": "Ngày mai trường nghỉ."
+      }
+    ]
+  },
+  {
+    "simplified": "中国",
+    "traditional": "中國",
+    "pinyin": "zhōng guó",
+    "meaningVi": "Trung Quốc",
+    "meaningEn": "China",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我想去中国旅游。",
+        "py": "Wǒ xiǎng qù Zhōngguó lǚyóu.",
+        "vi": "Tôi muốn đi du lịch Trung Quốc."
+      }
+    ]
+  },
+  {
+    "simplified": "北京",
+    "traditional": "北京",
+    "pinyin": "běi jīng",
+    "meaningVi": "Bắc Kinh",
+    "meaningEn": "Beijing",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "北京是中国的首都。",
+        "py": "Běijīng shì Zhōngguó de shǒudū.",
+        "vi": "Bắc Kinh là thủ đô của Trung Quốc."
+      }
+    ]
+  },
+  {
+    "simplified": "吃",
+    "traditional": "吃",
+    "pinyin": "chī",
+    "meaningVi": "Ăn",
+    "meaningEn": "To eat",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我每天早上吃包子。",
+        "py": "Wǒ měitiān zǎoshàng chī bāozi.",
+        "vi": "Tôi ăn bánh bao mỗi sáng."
+      }
+    ]
+  },
+  {
+    "simplified": "喝",
+    "traditional": "喝",
+    "pinyin": "hē",
+    "meaningVi": "Uống",
+    "meaningEn": "To drink",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我喜欢喝茶。",
+        "py": "Wǒ xǐhuān hē chá.",
+        "vi": "Tôi thích uống trà."
+      }
+    ]
+  },
+  {
+    "simplified": "看",
+    "traditional": "看",
+    "pinyin": "kàn",
+    "meaningVi": "Nhìn, xem",
+    "meaningEn": "To look / watch",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我们去看电影吧。",
+        "py": "Wǒmen qù kàn diànyǐng ba.",
+        "vi": "Chúng ta đi xem phim nhé."
+      }
+    ]
+  },
+  {
+    "simplified": "听",
+    "traditional": "聽",
+    "pinyin": "tīng",
+    "meaningVi": "Nghe",
+    "meaningEn": "To listen",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我喜欢听音乐。",
+        "py": "Wǒ xǐhuān tīng yīnyuè.",
+        "vi": "Tôi thích nghe nhạc."
+      }
+    ]
+  },
+  {
+    "simplified": "说",
+    "traditional": "說",
+    "pinyin": "shuō",
+    "meaningVi": "Nói",
+    "meaningEn": "To speak",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "请慢点说。",
+        "py": "Qǐng màn diǎn shuō.",
+        "vi": "Xin hãy nói chậm thôi."
+      }
+    ]
+  },
+  {
+    "simplified": "来",
+    "traditional": "來",
+    "pinyin": "lái",
+    "meaningVi": "Đến, lại",
+    "meaningEn": "To come",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "请进来坐。",
+        "py": "Qǐng jìnlái zuò.",
+        "vi": "Mời vào ngồi."
+      }
+    ]
+  },
+  {
+    "simplified": "去",
+    "traditional": "去",
+    "pinyin": "qù",
+    "meaningVi": "Đi",
+    "meaningEn": "To go",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我们明天去公园。",
+        "py": "Wǒmen míngtiān qù gōngyuán.",
+        "vi": "Ngày mai chúng ta đi công viên."
+      }
+    ]
+  },
+  {
+    "simplified": "上",
+    "traditional": "上",
+    "pinyin": "shàng",
+    "meaningVi": "Lên, trên",
+    "meaningEn": "Up / On",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "请上车。",
+        "py": "Qǐng shàng chē.",
+        "vi": "Xin mời lên xe."
+      }
+    ]
+  },
+  {
+    "simplified": "下",
+    "traditional": "下",
+    "pinyin": "xià",
+    "meaningVi": "Xuống, dưới",
+    "meaningEn": "Down / Under",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "雨下得很大。",
+        "py": "Yǔ xià dé hěn dà.",
+        "vi": "Mưa to lắm."
+      }
+    ]
+  },
+  {
+    "simplified": "今天",
+    "traditional": "今天",
+    "pinyin": "jīn tiān",
+    "meaningVi": "Hôm nay",
+    "meaningEn": "Today",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "今天是我的生日。",
+        "py": "Jīntiān shì wǒ de shēngrì.",
+        "vi": "Hôm nay là sinh nhật của tôi."
+      }
+    ]
+  },
+  {
+    "simplified": "明天",
+    "traditional": "明天",
+    "pinyin": "míng tiān",
+    "meaningVi": "Ngày mai",
+    "meaningEn": "Tomorrow",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "明天我会打电话给你。",
+        "py": "Míngtiān wǒ huì dǎ diànhuà gěi nǐ.",
+        "vi": "Ngày mai tôi sẽ gọi điện cho bạn."
+      }
+    ]
+  },
+  {
+    "simplified": "昨天",
+    "traditional": "昨天",
+    "pinyin": "zuó tiān",
+    "meaningVi": "Hôm qua",
+    "meaningEn": "Yesterday",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "昨天我去了图书馆。",
+        "py": "Zuótiān wǒ qùle túshūguǎn.",
+        "vi": "Hôm qua tôi đã đến thư viện."
+      }
+    ]
+  },
+  {
+    "simplified": "年",
+    "traditional": "年",
+    "pinyin": "nián",
+    "meaningVi": "Năm",
+    "meaningEn": "Year",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "今年是二〇二六年。",
+        "py": "Jīnnián shì èr líng èr liù nián.",
+        "vi": "Năm nay là năm 2026."
+      }
+    ]
+  },
+  {
+    "simplified": "月",
+    "traditional": "月",
+    "pinyin": "yuè",
+    "meaningVi": "Tháng, Mặt trăng",
+    "meaningEn": "Month / Moon",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我喜欢五月的天气。",
+        "py": "Wǒ xǐhuān wǔyuè de tiānqì.",
+        "vi": "Tôi thích thời tiết tháng năm."
+      }
+    ]
+  },
+  {
+    "simplified": "日",
+    "traditional": "日",
+    "pinyin": "rì",
+    "meaningVi": "Ngày",
+    "meaningEn": "Day / Sun",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "八月九日是我的生日。",
+        "py": "Bā yuè jiǔ rì shì wǒ de shēngrì.",
+        "vi": "Ngày 9/8 là sinh nhật của tôi."
+      }
+    ]
+  },
+  {
+    "simplified": "一",
+    "traditional": "一",
+    "pinyin": "yī",
+    "meaningVi": "Một",
+    "meaningEn": "One",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我想要一杯茶。",
+        "py": "Wǒ xiǎng yào yī bēi chá.",
+        "vi": "Tôi muốn một tách trà."
+      }
+    ]
+  },
+  {
+    "simplified": "二",
+    "traditional": "二",
+    "pinyin": "èr",
+    "meaningVi": "Hai",
+    "meaningEn": "Two",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我买了二斤苹果。",
+        "py": "Wǒ mǎile èr jīn píngguǒ.",
+        "vi": "Tôi mua hai cân táo."
+      }
+    ]
+  },
+  {
+    "simplified": "三",
+    "traditional": "三",
+    "pinyin": "sān",
+    "meaningVi": "Ba",
+    "meaningEn": "Three",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我家有三个人。",
+        "py": "Wǒjiā yǒu sān gè rén.",
+        "vi": "Nhà tôi có ba người."
+      }
+    ]
+  },
+  {
+    "simplified": "四",
+    "traditional": "四",
+    "pinyin": "sì",
+    "meaningVi": "Bốn",
+    "meaningEn": "Four",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "他有四个孩子。",
+        "py": "Tā yǒu sì gè háizi.",
+        "vi": "Anh ấy có bốn đứa con."
+      }
+    ]
+  },
+  {
+    "simplified": "五",
+    "traditional": "五",
+    "pinyin": "wǔ",
+    "meaningVi": "Năm (số)",
+    "meaningEn": "Five",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我每天学习五个小时。",
+        "py": "Wǒ měitiān xuéxí wǔ gè xiǎoshí.",
+        "vi": "Tôi học tập năm tiếng mỗi ngày."
+      }
+    ]
+  },
+  {
+    "simplified": "六",
+    "traditional": "六",
+    "pinyin": "liù",
+    "meaningVi": "Sáu",
+    "meaningEn": "Six",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我有六本书。",
+        "py": "Wǒ yǒu liù běn shū.",
+        "vi": "Tôi có sáu quyển sách."
+      }
+    ]
+  },
+  {
+    "simplified": "七",
+    "traditional": "七",
+    "pinyin": "qī",
+    "meaningVi": "Bảy",
+    "meaningEn": "Seven",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "他跑了七圈。",
+        "py": "Tā pǎole qī quān.",
+        "vi": "Anh ấy chạy bảy vòng."
+      }
+    ]
+  },
+  {
+    "simplified": "八",
+    "traditional": "八",
+    "pinyin": "bā",
+    "meaningVi": "Tám",
+    "meaningEn": "Eight",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "八月非常热。",
+        "py": "Bā yuè fēicháng rè.",
+        "vi": "Tháng tám rất nóng."
+      }
+    ]
+  },
+  {
+    "simplified": "九",
+    "traditional": "九",
+    "pinyin": "jiǔ",
+    "meaningVi": "Chín",
+    "meaningEn": "Nine",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "九月开学。",
+        "py": "Jiǔ yuè kāixué.",
+        "vi": "Tháng chín khai trường."
+      }
+    ]
+  },
+  {
+    "simplified": "十",
+    "traditional": "十",
+    "pinyin": "shí",
+    "meaningVi": "Mười",
+    "meaningEn": "Ten",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我等了十分钟。",
+        "py": "Wǒ děngle shí fēnzhōng.",
+        "vi": "Tôi chờ mười phút rồi."
+      }
+    ]
+  },
+  {
+    "simplified": "水",
+    "traditional": "水",
+    "pinyin": "shuǐ",
+    "meaningVi": "Nước",
+    "meaningEn": "Water",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "每天要多喝水。",
+        "py": "Měitiān yào duō hē shuǐ.",
+        "vi": "Hàng ngày cần uống nhiều nước."
+      }
+    ]
+  },
+  {
+    "simplified": "茶",
+    "traditional": "茶",
+    "pinyin": "chá",
+    "meaningVi": "Trà",
+    "meaningEn": "Tea",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "中国茶很有名。",
+        "py": "Zhōngguó chá hěn yǒumíng.",
+        "vi": "Trà Trung Quốc rất nổi tiếng."
+      }
+    ]
+  },
+  {
+    "simplified": "饭",
+    "traditional": "飯",
+    "pinyin": "fàn",
+    "meaningVi": "Cơm, bữa ăn",
+    "meaningEn": "Rice / Meal",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我们一起吃晚饭吧。",
+        "py": "Wǒmen yīqǐ chī wǎnfàn ba.",
+        "vi": "Chúng ta cùng ăn tối nhé."
+      }
+    ]
+  },
+  {
+    "simplified": "面条",
+    "traditional": "麵條",
+    "pinyin": "miàn tiáo",
+    "meaningVi": "Mì sợi",
+    "meaningEn": "Noodles",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我午饭吃了一碗面条。",
+        "py": "Wǒ wǔfàn chīle yī wǎn miàntiáo.",
+        "vi": "Bữa trưa tôi ăn một bát mì."
+      }
+    ]
+  },
+  {
+    "simplified": "苹果",
+    "traditional": "蘋果",
+    "pinyin": "píng guǒ",
+    "meaningVi": "Quả táo",
+    "meaningEn": "Apple",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "吃苹果对身体好。",
+        "py": "Chī píngguǒ duì shēntǐ hǎo.",
+        "vi": "Ăn táo tốt cho sức khoẻ."
+      }
+    ]
+  },
+  {
+    "simplified": "猫",
+    "traditional": "貓",
+    "pinyin": "māo",
+    "meaningVi": "Con mèo",
+    "meaningEn": "Cat",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我家有一只猫。",
+        "py": "Wǒjiā yǒu yī zhī māo.",
+        "vi": "Nhà tôi có một con mèo."
+      }
+    ]
+  },
+  {
+    "simplified": "狗",
+    "traditional": "狗",
+    "pinyin": "gǒu",
+    "meaningVi": "Con chó",
+    "meaningEn": "Dog",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "他们家有一只大狗。",
+        "py": "Tāmen jiā yǒu yī zhī dà gǒu.",
+        "vi": "Nhà họ có một con chó lớn."
+      }
+    ]
+  },
+  {
+    "simplified": "书",
+    "traditional": "書",
+    "pinyin": "shū",
+    "meaningVi": "Sách",
+    "meaningEn": "Book",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我每天晚上读一小时的书。",
+        "py": "Wǒ měitiān wǎnshàng dú yī xiǎoshí de shū.",
+        "vi": "Tôi đọc sách một tiếng vào mỗi tối."
+      }
+    ]
+  },
+  {
+    "simplified": "电视",
+    "traditional": "電視",
+    "pinyin": "diàn shì",
+    "meaningVi": "Tivi",
+    "meaningEn": "Television",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "他们正在看电视。",
+        "py": "Tāmen zhèngzài kàn diànshì.",
+        "vi": "Họ đang xem tivi."
+      }
+    ]
+  },
+  {
+    "simplified": "电脑",
+    "traditional": "電腦",
+    "pinyin": "diàn nǎo",
+    "meaningVi": "Máy tính",
+    "meaningEn": "Computer",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我用电脑工作。",
+        "py": "Wǒ yòng diànnǎo gōngzuò.",
+        "vi": "Tôi dùng máy tính để làm việc."
+      }
+    ]
+  },
+  {
+    "simplified": "手机",
+    "traditional": "手機",
+    "pinyin": "shǒu jī",
+    "meaningVi": "Điện thoại di động",
+    "meaningEn": "Mobile phone",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我忘记带手机了。",
+        "py": "Wǒ wàngjì dài shǒujī le.",
+        "vi": "Tôi quên mang điện thoại rồi."
+      }
+    ]
+  },
+  {
+    "simplified": "飞机",
+    "traditional": "飛機",
+    "pinyin": "fēi jī",
+    "meaningVi": "Máy bay",
+    "meaningEn": "Airplane",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我们坐飞机去上海。",
+        "py": "Wǒmen zuò fēijī qù Shànghǎi.",
+        "vi": "Chúng tôi đi máy bay tới Thượng Hải."
+      }
+    ]
+  },
+  {
+    "simplified": "出租车",
+    "traditional": "出租車",
+    "pinyin": "chū zū chē",
+    "meaningVi": "Xe taxi",
+    "meaningEn": "Taxi",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我叫了一辆出租车。",
+        "py": "Wǒ jiàole yī liàng chūzūchē.",
+        "vi": "Tôi gọi một chiếc taxi."
+      }
+    ]
+  },
+  {
+    "simplified": "钱",
+    "traditional": "錢",
+    "pinyin": "qián",
+    "meaningVi": "Tiền",
+    "meaningEn": "Money",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "这件衣服要多少钱？",
+        "py": "Zhè jiàn yīfú yào duōshǎo qián?",
+        "vi": "Bộ quần áo này bao nhiêu tiền?"
+      }
+    ]
+  },
+  {
+    "simplified": "高兴",
+    "traditional": "高興",
+    "pinyin": "gāo xìng",
+    "meaningVi": "Vui mừng",
+    "meaningEn": "Happy",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "见到你我很高兴。",
+        "py": "Jiàndào nǐ wǒ hěn gāoxìng.",
+        "vi": "Tôi rất vui khi gặp bạn."
+      },
+      {
+        "cn": "她今天看起来不高兴。",
+        "py": "Tā jīntiān kàn qǐlái bù gāoxìng.",
+        "vi": "Hôm nay trông cô ấy có vẻ không vui."
+      }
+    ]
+  },
+  {
+    "simplified": "学习",
+    "traditional": "學習",
+    "pinyin": "xué xí",
+    "meaningVi": "Học tập",
+    "meaningEn": "To study",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "你每天学习几个小时？",
+        "py": "Nǐ měitiān xuéxí jǐ gè xiǎoshí?",
+        "vi": "Mỗi ngày bạn học bao nhiêu tiếng?"
+      },
+      {
+        "cn": "学习中文需要耐心。",
+        "py": "Xuéxí Zhōngwén xūyào nàixīn.",
+        "vi": "Học tiếng Trung cần sự kiên nhẫn."
+      }
+    ]
+  },
+  {
+    "simplified": "工作",
+    "traditional": "工作",
+    "pinyin": "gōng zuò",
+    "meaningVi": "Làm việc, công việc",
+    "meaningEn": "Work / Job",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我在一家公司工作。",
+        "py": "Wǒ zài yījiā gōngsī gōngzuò.",
+        "vi": "Tôi làm việc tại một công ty."
+      },
+      {
+        "cn": "你是做什么工作的？",
+        "py": "Nǐ shì zuò shénme gōngzuò de?",
+        "vi": "Bạn làm nghề gì?"
+      }
+    ]
+  },
+  {
+    "simplified": "身体",
+    "traditional": "身體",
+    "pinyin": "shēn tǐ",
+    "meaningVi": "Sức khoẻ, thân thể",
+    "meaningEn": "Body / Health",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "你要注意身体。",
+        "py": "Nǐ yào zhùyì shēntǐ.",
+        "vi": "Bạn cần chú ý giữ gìn sức khoẻ."
+      },
+      {
+        "cn": "运动对身体很好。",
+        "py": "Yùndòng duì shēntǐ hěn hǎo.",
+        "vi": "Tập thể dục rất tốt cho sức khoẻ."
+      }
+    ]
+  },
+  {
+    "simplified": "时候",
+    "traditional": "時候",
+    "pinyin": "shí hòu",
+    "meaningVi": "Lúc, khi",
+    "meaningEn": "Time (when)",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "吃饭的时候不要玩手机。",
+        "py": "Chīfàn de shíhòu bùyào wán shǒujī.",
+        "vi": "Đừng chơi điện thoại khi ăn cơm."
+      },
+      {
+        "cn": "你什么时候有空？",
+        "py": "Nǐ shénme shíhòu yǒu kòng?",
+        "vi": "Bạn rảnh vào lúc nào?"
+      }
+    ]
+  },
+  {
+    "simplified": "地方",
+    "traditional": "地方",
+    "pinyin": "dì fāng",
+    "meaningVi": "Địa điểm, nơi chốn",
+    "meaningEn": "Place",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "这个地方很美。",
+        "py": "Zhège dìfāng hěn měi.",
+        "vi": "Nơi này rất đẹp."
+      },
+      {
+        "cn": "你去过哪些地方？",
+        "py": "Nǐ qùguò nǎxiē dìfāng?",
+        "vi": "Bạn đã đến những nơi nào?"
+      }
+    ]
+  },
+  {
+    "simplified": "问题",
+    "traditional": "問題",
+    "pinyin": "wèn tí",
+    "meaningVi": "Vấn đề, câu hỏi",
+    "meaningEn": "Problem / Question",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "这个问题很难。",
+        "py": "Zhège wèntí hěn nán.",
+        "vi": "Câu hỏi này rất khó."
+      },
+      {
+        "cn": "有什么问题可以问我。",
+        "py": "Yǒu shénme wèntí kěyǐ wèn wǒ.",
+        "vi": "Có câu hỏi gì thì có thể hỏi tôi."
+      }
+    ]
+  },
+  {
+    "simplified": "知道",
+    "traditional": "知道",
+    "pinyin": "zhī dào",
+    "meaningVi": "Biết",
+    "meaningEn": "To know",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我不知道他住在哪里。",
+        "py": "Wǒ bù zhīdào tā zhù zài nǎlǐ.",
+        "vi": "Tôi không biết anh ấy ở đâu."
+      },
+      {
+        "cn": "你知道这个字怎么读吗？",
+        "py": "Nǐ zhīdào zhège zì zěnme dú ma?",
+        "vi": "Bạn có biết chữ này đọc thế nào không?"
+      }
+    ]
+  },
+  {
+    "simplified": "觉得",
+    "traditional": "覺得",
+    "pinyin": "jué de",
+    "meaningVi": "Cảm thấy, cho rằng",
+    "meaningEn": "To feel / think",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我觉得这道菜很好吃。",
+        "py": "Wǒ juéde zhè dào cài hěn hǎochī.",
+        "vi": "Tôi thấy món này ngon lắm."
+      },
+      {
+        "cn": "你觉得怎么样？",
+        "py": "Nǐ juéde zěnme yàng?",
+        "vi": "Bạn thấy thế nào?"
+      }
+    ]
+  },
+  {
+    "simplified": "喜欢",
+    "traditional": "喜歡",
+    "pinyin": "xǐ huān",
+    "meaningVi": "Thích",
+    "meaningEn": "To like",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我很喜欢中国文化。",
+        "py": "Wǒ hěn xǐhuān Zhōngguó wénhuà.",
+        "vi": "Tôi rất thích văn hoá Trung Quốc."
+      },
+      {
+        "cn": "你喜欢什么运动？",
+        "py": "Nǐ xǐhuān shénme yùndòng?",
+        "vi": "Bạn thích môn thể thao gì?"
+      }
+    ]
+  },
+  {
+    "simplified": "认为",
+    "traditional": "認為",
+    "pinyin": "rèn wéi",
+    "meaningVi": "Cho rằng, cho là",
+    "meaningEn": "To think / believe",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我认为这个方法不对。",
+        "py": "Wǒ rènwéi zhège fāngfǎ bù duì.",
+        "vi": "Tôi cho rằng phương pháp này không đúng."
+      }
+    ]
+  },
+  {
+    "simplified": "可以",
+    "traditional": "可以",
+    "pinyin": "kě yǐ",
+    "meaningVi": "Có thể, được phép",
+    "meaningEn": "Can / May",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我可以帮你吗？",
+        "py": "Wǒ kěyǐ bāng nǐ ma?",
+        "vi": "Tôi có thể giúp bạn không?"
+      },
+      {
+        "cn": "你可以随时来找我。",
+        "py": "Nǐ kěyǐ suíshí lái zhǎo wǒ.",
+        "vi": "Bạn có thể đến gặp tôi bất cứ lúc nào."
+      }
+    ]
+  },
+  {
+    "simplified": "因为",
+    "traditional": "因為",
+    "pinyin": "yīn wèi",
+    "meaningVi": "Vì, bởi vì",
+    "meaningEn": "Because",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "因为下雨，我没去。",
+        "py": "Yīnwèi xià yǔ, wǒ méi qù.",
+        "vi": "Vì trời mưa nên tôi không đi."
+      }
+    ]
+  },
+  {
+    "simplified": "所以",
+    "traditional": "所以",
+    "pinyin": "suǒ yǐ",
+    "meaningVi": "Cho nên, vì vậy",
+    "meaningEn": "Therefore",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "他努力学习，所以考得很好。",
+        "py": "Tā nǔlì xuéxí, suǒyǐ kǎo dé hěn hǎo.",
+        "vi": "Anh ấy học chăm chỉ nên thi tốt."
+      }
+    ]
+  },
+  {
+    "simplified": "但是",
+    "traditional": "但是",
+    "pinyin": "dàn shì",
+    "meaningVi": "Nhưng",
+    "meaningEn": "But / However",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我想去，但是没有时间。",
+        "py": "Wǒ xiǎng qù, dànshì méiyǒu shíjiān.",
+        "vi": "Tôi muốn đi nhưng không có thời gian."
+      }
+    ]
+  },
+  {
+    "simplified": "如果",
+    "traditional": "如果",
+    "pinyin": "rú guǒ",
+    "meaningVi": "Nếu",
+    "meaningEn": "If",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "如果明天不下雨，我们就去。",
+        "py": "Rúguǒ míngtiān bù xià yǔ, wǒmen jiù qù.",
+        "vi": "Nếu ngày mai không mưa thì chúng ta sẽ đi."
+      }
+    ]
+  },
+  {
+    "simplified": "一起",
+    "traditional": "一起",
+    "pinyin": "yī qǐ",
+    "meaningVi": "Cùng nhau",
+    "meaningEn": "Together",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我们一起去看电影吧。",
+        "py": "Wǒmen yīqǐ qù kàn diànyǐng ba.",
+        "vi": "Chúng ta cùng đi xem phim nhé."
+      }
+    ]
+  },
+  {
+    "simplified": "非常",
+    "traditional": "非常",
+    "pinyin": "fēi cháng",
+    "meaningVi": "Rất, vô cùng",
+    "meaningEn": "Extremely",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我非常感谢你的帮助。",
+        "py": "Wǒ fēicháng gǎnxiè nǐ de bāngzhù.",
+        "vi": "Tôi vô cùng biết ơn sự giúp đỡ của bạn."
+      }
+    ]
+  },
+  {
+    "simplified": "已经",
+    "traditional": "已經",
+    "pinyin": "yǐ jīng",
+    "meaningVi": "Đã, rồi",
+    "meaningEn": "Already",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我已经吃过了。",
+        "py": "Wǒ yǐjīng chīguò le.",
+        "vi": "Tôi đã ăn rồi."
+      }
+    ]
+  },
+  {
+    "simplified": "还是",
+    "traditional": "還是",
+    "pinyin": "hái shì",
+    "meaningVi": "Hay là (hỏi), vẫn là",
+    "meaningEn": "Or / Still",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "你喝茶还是咖啡？",
+        "py": "Nǐ hē chá háishi kāfēi?",
+        "vi": "Bạn uống trà hay cà phê?"
+      }
+    ]
+  },
+  {
+    "simplified": "比较",
+    "traditional": "比較",
+    "pinyin": "bǐ jiào",
+    "meaningVi": "Tương đối, so sánh",
+    "meaningEn": "Comparatively",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "这家餐厅比较贵。",
+        "py": "Zhè jiā cāntīng bǐjiào guì.",
+        "vi": "Nhà hàng này tương đối đắt."
+      }
+    ]
+  },
+  {
+    "simplified": "同时",
+    "traditional": "同時",
+    "pinyin": "tóng shí",
+    "meaningVi": "Đồng thời, cùng lúc",
+    "meaningEn": "At the same time",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "他同时学习两门语言。",
+        "py": "Tā tóngshí xuéxí liǎng mén yǔyán.",
+        "vi": "Anh ấy cùng lúc học hai ngôn ngữ."
+      }
+    ]
+  },
+  {
+    "simplified": "帮助",
+    "traditional": "幫助",
+    "pinyin": "bāng zhù",
+    "meaningVi": "Giúp đỡ",
+    "meaningEn": "To help",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "谢谢你帮助我。",
+        "py": "Xièxiè nǐ bāngzhù wǒ.",
+        "vi": "Cảm ơn bạn đã giúp tôi."
+      }
+    ]
+  },
+  {
+    "simplified": "告诉",
+    "traditional": "告訴",
+    "pinyin": "gào sù",
+    "meaningVi": "Nói cho biết, thông báo",
+    "meaningEn": "To tell",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "请告诉我怎么去火车站。",
+        "py": "Qǐng gàosù wǒ zěnme qù huǒchēzhàn.",
+        "vi": "Xin hãy chỉ cho tôi đường đến ga tàu."
+      }
+    ]
+  },
+  {
+    "simplified": "希望",
+    "traditional": "希望",
+    "pinyin": "xī wàng",
+    "meaningVi": "Hy vọng, mong muốn",
+    "meaningEn": "Hope / Wish",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我希望你能来参加。",
+        "py": "Wǒ xīwàng nǐ néng lái cānjiā.",
+        "vi": "Tôi mong bạn có thể đến tham dự."
+      }
+    ]
+  },
+  {
+    "simplified": "准备",
+    "traditional": "準備",
+    "pinyin": "zhǔn bèi",
+    "meaningVi": "Chuẩn bị",
+    "meaningEn": "To prepare",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我在准备明天的考试。",
+        "py": "Wǒ zài zhǔnbèi míngtiān de kǎoshì.",
+        "vi": "Tôi đang chuẩn bị cho kỳ thi ngày mai."
+      }
+    ]
+  },
+  {
+    "simplified": "开始",
+    "traditional": "開始",
+    "pinyin": "kāi shǐ",
+    "meaningVi": "Bắt đầu",
+    "meaningEn": "To start",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "电影八点开始。",
+        "py": "Diànyǐng bā diǎn kāishǐ.",
+        "vi": "Phim bắt đầu lúc tám giờ."
+      }
+    ]
+  },
+  {
+    "simplified": "结束",
+    "traditional": "結束",
+    "pinyin": "jié shù",
+    "meaningVi": "Kết thúc",
+    "meaningEn": "To end",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "会议几点结束？",
+        "py": "Huìyì jǐ diǎn jiéshù?",
+        "vi": "Cuộc họp kết thúc lúc mấy giờ?"
+      }
+    ]
+  },
+  {
+    "simplified": "需要",
+    "traditional": "需要",
+    "pinyin": "xū yào",
+    "meaningVi": "Cần, cần thiết",
+    "meaningEn": "To need",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "你需要帮忙吗？",
+        "py": "Nǐ xūyào bāngmáng ma?",
+        "vi": "Bạn có cần giúp đỡ không?"
+      }
+    ]
+  },
+  {
+    "simplified": "认识",
+    "traditional": "認識",
+    "pinyin": "rèn shi",
+    "meaningVi": "Quen biết, nhận ra",
+    "meaningEn": "To know / recognize",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "很高兴认识你。",
+        "py": "Hěn gāoxìng rènshi nǐ.",
+        "vi": "Rất vui được quen biết bạn."
+      }
+    ]
+  },
+  {
+    "simplified": "等",
+    "traditional": "等",
+    "pinyin": "děng",
+    "meaningVi": "Chờ, đợi",
+    "meaningEn": "To wait",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我在等公共汽车。",
+        "py": "Wǒ zài děng gōnggòng qìchē.",
+        "vi": "Tôi đang chờ xe buýt."
+      }
+    ]
+  },
+  {
+    "simplified": "想",
+    "traditional": "想",
+    "pinyin": "xiǎng",
+    "meaningVi": "Muốn, nghĩ",
+    "meaningEn": "To want / think",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我想去中国旅游。",
+        "py": "Wǒ xiǎng qù Zhōngguó lǚyóu.",
+        "vi": "Tôi muốn đi du lịch Trung Quốc."
+      }
+    ]
+  },
+  {
+    "simplified": "可能",
+    "traditional": "可能",
+    "pinyin": "kě néng",
+    "meaningVi": "Có thể, có khả năng",
+    "meaningEn": "Possible / Maybe",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "他可能今天不来了。",
+        "py": "Tā kěnéng jīntiān bù lái le.",
+        "vi": "Có thể anh ấy hôm nay không đến."
+      }
+    ]
+  },
+  {
+    "simplified": "当然",
+    "traditional": "當然",
+    "pinyin": "dāng rán",
+    "meaningVi": "Đương nhiên, tất nhiên",
+    "meaningEn": "Of course",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "当然可以，请坐吧。",
+        "py": "Dāngrán kěyǐ, qǐng zuò ba.",
+        "vi": "Tất nhiên được, xin mời ngồi."
+      }
+    ]
+  },
+  {
+    "simplified": "关系",
+    "traditional": "關係",
+    "pinyin": "guān xi",
+    "meaningVi": "Quan hệ, liên quan",
+    "meaningEn": "Relationship",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我们关系很好。",
+        "py": "Wǒmen guānxi hěn hǎo.",
+        "vi": "Chúng tôi có mối quan hệ rất tốt."
+      }
+    ]
+  },
+  {
+    "simplified": "游戏",
+    "traditional": "遊戲",
+    "pinyin": "yóu xì",
+    "meaningVi": "Trò chơi, game",
+    "meaningEn": "Game",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "他非常喜欢玩游戏。",
+        "py": "Tā fēicháng xǐhuān wán yóuxì.",
+        "vi": "Anh ấy rất thích chơi game."
+      },
+      {
+        "cn": "游戏可以帮助孩子学习。",
+        "py": "Yóuxì kěyǐ bāngzhù háizi xuéxí.",
+        "vi": "Trò chơi có thể giúp trẻ em học tập."
+      }
+    ]
+  },
+  {
+    "simplified": "汉语",
+    "traditional": "漢語",
+    "pinyin": "hàn yǔ",
+    "meaningVi": "Tiếng Hán, tiếng Trung",
+    "meaningEn": "Chinese language",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我在学习汉语。",
+        "py": "Wǒ zài xuéxí Hànyǔ.",
+        "vi": "Tôi đang học tiếng Trung."
+      },
+      {
+        "cn": "汉语是世界上使用人数最多的语言。",
+        "py": "Hànyǔ shì shìjiè shàng shǐyòng rénshù zuì duō de yǔyán.",
+        "vi": "Tiếng Trung là ngôn ngữ có nhiều người sử dụng nhất thế giới."
+      }
+    ]
+  },
+  {
+    "simplified": "普通话",
+    "traditional": "普通話",
+    "pinyin": "pǔ tōng huà",
+    "meaningVi": "Tiếng phổ thông",
+    "meaningEn": "Mandarin",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "学普通话对我来说很重要。",
+        "py": "Xué Pǔtōnghuà duì wǒ lái shuō hěn zhòngyào.",
+        "vi": "Việc học tiếng phổ thông rất quan trọng với tôi."
+      }
+    ]
+  },
+  {
+    "simplified": "意思",
+    "traditional": "意思",
+    "pinyin": "yì si",
+    "meaningVi": "Ý nghĩa, ý tứ",
+    "meaningEn": "Meaning",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "这个词是什么意思？",
+        "py": "Zhège cí shì shénme yìsi?",
+        "vi": "Từ này có nghĩa là gì?"
+      }
+    ]
+  },
+  {
+    "simplified": "方便",
+    "traditional": "方便",
+    "pinyin": "fāng biàn",
+    "meaningVi": "Tiện lợi, thuận tiện",
+    "meaningEn": "Convenient",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "住在这里很方便。",
+        "py": "Zhù zài zhèlǐ hěn fāngbiàn.",
+        "vi": "Sống ở đây rất tiện lợi."
+      }
+    ]
+  },
+  {
+    "simplified": "小时",
+    "traditional": "小時",
+    "pinyin": "xiǎo shí",
+    "meaningVi": "Giờ (đơn vị thời gian)",
+    "meaningEn": "Hour",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我每天工作八个小时。",
+        "py": "Wǒ měitiān gōngzuò bā gè xiǎoshí.",
+        "vi": "Mỗi ngày tôi làm việc tám tiếng."
+      }
+    ]
+  },
+  {
+    "simplified": "分钟",
+    "traditional": "分鐘",
+    "pinyin": "fēn zhōng",
+    "meaningVi": "Phút",
+    "meaningEn": "Minute",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我只需要五分钟。",
+        "py": "Wǒ zhǐ xūyào wǔ fēnzhōng.",
+        "vi": "Tôi chỉ cần năm phút thôi."
+      }
+    ]
+  },
+  {
+    "simplified": "医院",
+    "traditional": "醫院",
+    "pinyin": "yī yuàn",
+    "meaningVi": "Bệnh viện",
+    "meaningEn": "Hospital",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我要去医院看病。",
+        "py": "Wǒ yào qù yīyuàn kànbìng.",
+        "vi": "Tôi phải đến bệnh viện khám."
+      }
+    ]
+  },
+  {
+    "simplified": "药",
+    "traditional": "藥",
+    "pinyin": "yào",
+    "meaningVi": "Thuốc",
+    "meaningEn": "Medicine",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "你每天要按时吃药。",
+        "py": "Nǐ měitiān yào ànshí chī yào.",
+        "vi": "Bạn phải uống thuốc đúng giờ mỗi ngày."
+      }
+    ]
+  },
+  {
+    "simplified": "超市",
+    "traditional": "超市",
+    "pinyin": "chāo shì",
+    "meaningVi": "Siêu thị",
+    "meaningEn": "Supermarket",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我去超市买东西。",
+        "py": "Wǒ qù chāoshì mǎi dōngxi.",
+        "vi": "Tôi đến siêu thị mua đồ."
+      }
+    ]
+  },
+  {
+    "simplified": "公司",
+    "traditional": "公司",
+    "pinyin": "gōng sī",
+    "meaningVi": "Công ty",
+    "meaningEn": "Company",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我在一家大公司上班。",
+        "py": "Wǒ zài yījiā dà gōngsī shàngbān.",
+        "vi": "Tôi làm ở một công ty lớn."
+      }
+    ]
+  },
+  {
+    "simplified": "成功",
+    "traditional": "成功",
+    "pinyin": "chéng gōng",
+    "meaningVi": "Thành công",
+    "meaningEn": "Success",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "他终于成功了。",
+        "py": "Tā zhōngyú chénggōng le.",
+        "vi": "Cuối cùng anh ấy đã thành công."
+      },
+      {
+        "cn": "成功需要努力和坚持。",
+        "py": "Chénggōng xūyào nǔlì hé jiānchí.",
+        "vi": "Thành công cần sự nỗ lực và kiên trì."
+      }
+    ]
+  },
+  {
+    "simplified": "努力",
+    "traditional": "努力",
+    "pinyin": "nǔ lì",
+    "meaningVi": "Nỗ lực, cố gắng",
+    "meaningEn": "To work hard",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "他很努力，成绩很好。",
+        "py": "Tā hěn nǔlì, chéngjì hěn hǎo.",
+        "vi": "Anh ấy rất cố gắng nên thành tích rất tốt."
+      }
+    ]
+  },
+  {
+    "simplified": "经验",
+    "traditional": "經驗",
+    "pinyin": "jīng yàn",
+    "meaningVi": "Kinh nghiệm",
+    "meaningEn": "Experience",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "他有丰富的工作经验。",
+        "py": "Tā yǒu fēngfù de gōngzuò jīngyàn.",
+        "vi": "Anh ấy có kinh nghiệm làm việc phong phú."
+      }
+    ]
+  },
+  {
+    "simplified": "文化",
+    "traditional": "文化",
+    "pinyin": "wén huà",
+    "meaningVi": "Văn hóa",
+    "meaningEn": "Culture",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "中国文化历史悠久。",
+        "py": "Zhōngguó wénhuà lìshǐ yōujiǔ.",
+        "vi": "Văn hóa Trung Quốc có lịch sử lâu đời."
+      }
+    ]
+  },
+  {
+    "simplified": "社会",
+    "traditional": "社會",
+    "pinyin": "shè huì",
+    "meaningVi": "Xã hội",
+    "meaningEn": "Society",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "读大学对进入社会有很大帮助。",
+        "py": "Dú dàxué duì jìnrù shèhuì yǒu hěn dà bāngzhù.",
+        "vi": "Học đại học rất có ích cho việc bước vào xã hội."
+      }
+    ]
+  },
+  {
+    "simplified": "发展",
+    "traditional": "發展",
+    "pinyin": "fā zhǎn",
+    "meaningVi": "Phát triển",
+    "meaningEn": "Development",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "中国经济发展非常快。",
+        "py": "Zhōngguó jīngjì fāzhǎn fēicháng kuài.",
+        "vi": "Kinh tế Trung Quốc phát triển rất nhanh."
+      }
+    ]
+  },
+  {
+    "simplified": "环境",
+    "traditional": "環境",
+    "pinyin": "huán jìng",
+    "meaningVi": "Môi trường, hoàn cảnh",
+    "meaningEn": "Environment",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "保护环境是每个人的责任。",
+        "py": "Bǎohù huánjìng shì měi gè rén de zérèn.",
+        "vi": "Bảo vệ môi trường là trách nhiệm của mỗi người."
+      }
+    ]
+  },
+  {
+    "simplified": "教育",
+    "traditional": "教育",
+    "pinyin": "jiào yù",
+    "meaningVi": "Giáo dục",
+    "meaningEn": "Education",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "父母非常重视孩子的教育。",
+        "py": "Fùmǔ fēicháng zhòngshì háizi de jiàoyù.",
+        "vi": "Cha mẹ rất coi trọng việc giáo dục con cái."
+      }
+    ]
+  },
+  {
+    "simplified": "健康",
+    "traditional": "健康",
+    "pinyin": "jiàn kāng",
+    "meaningVi": "Sức khoẻ; khoẻ mạnh",
+    "meaningEn": "Health / Healthy",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "健康比什么都重要。",
+        "py": "Jiànkāng bǐ shénme dōu zhòngyào.",
+        "vi": "Sức khoẻ quan trọng hơn bất cứ điều gì."
+      },
+      {
+        "cn": "保持健康的生活方式很重要。",
+        "py": "Bǎochí jiànkāng de shēnghuó fāngshì hěn zhòngyào.",
+        "vi": "Duy trì lối sống lành mạnh rất quan trọng."
+      }
+    ]
+  },
+  {
+    "simplified": "科技",
+    "traditional": "科技",
+    "pinyin": "kē jì",
+    "meaningVi": "Khoa học công nghệ",
+    "meaningEn": "Science and technology",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "科技改变了我们的生活。",
+        "py": "Kējì gǎibiànle wǒmen de shēnghuó.",
+        "vi": "Khoa học công nghệ đã thay đổi cuộc sống của chúng ta."
+      }
+    ]
+  },
+  {
+    "simplified": "互联网",
+    "traditional": "互聯網",
+    "pinyin": "hù lián wǎng",
+    "meaningVi": "Internet",
+    "meaningEn": "Internet",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "互联网让世界变得更小。",
+        "py": "Hùliánwǎng ràng shìjiè biàn dé gèng xiǎo.",
+        "vi": "Internet làm cho thế giới trở nên nhỏ hơn."
+      }
+    ]
+  },
+  {
+    "simplified": "旅游",
+    "traditional": "旅遊",
+    "pinyin": "lǚ yóu",
+    "meaningVi": "Du lịch",
+    "meaningEn": "Tourism / Travel",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "暑假我们去欧洲旅游。",
+        "py": "Shǔjià wǒmen qù Ōuzhōu lǚyóu.",
+        "vi": "Kỳ nghỉ hè chúng tôi đi du lịch châu Âu."
+      }
+    ]
+  },
+  {
+    "simplified": "机会",
+    "traditional": "機會",
+    "pinyin": "jī huì",
+    "meaningVi": "Cơ hội",
+    "meaningEn": "Opportunity",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "要抓住每一个机会。",
+        "py": "Yào zhuāzhù měi yīgè jīhuì.",
+        "vi": "Phải nắm bắt từng cơ hội."
+      }
+    ]
+  },
+  {
+    "simplified": "计划",
+    "traditional": "計劃",
+    "pinyin": "jì huà",
+    "meaningVi": "Kế hoạch",
+    "meaningEn": "Plan",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "你有什么假期计划？",
+        "py": "Nǐ yǒu shénme jiàqī jìhuà?",
+        "vi": "Bạn có kế hoạch nghỉ lễ gì không?"
+      }
+    ]
+  },
+  {
+    "simplified": "决定",
+    "traditional": "決定",
+    "pinyin": "jué dìng",
+    "meaningVi": "Quyết định",
+    "meaningEn": "Decision / To decide",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我决定去中国留学。",
+        "py": "Wǒ juédìng qù Zhōngguó liúxué.",
+        "vi": "Tôi quyết định đi du học ở Trung Quốc."
+      }
+    ]
+  },
+  {
+    "simplified": "影响",
+    "traditional": "影響",
+    "pinyin": "yǐng xiǎng",
+    "meaningVi": "Ảnh hưởng",
+    "meaningEn": "Influence",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "天气影响了我们的心情。",
+        "py": "Tiānqì yǐngxiǎngle wǒmen de xīnqíng.",
+        "vi": "Thời tiết ảnh hưởng đến tâm trạng của chúng ta."
+      }
+    ]
+  },
+  {
+    "simplified": "表达",
+    "traditional": "表達",
+    "pinyin": "biǎo dá",
+    "meaningVi": "Biểu đạt, thể hiện",
+    "meaningEn": "To express",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "他很善于表达自己的想法。",
+        "py": "Tā hěn shànyú biǎodá zìjǐ de xiǎngfǎ.",
+        "vi": "Anh ấy rất giỏi thể hiện suy nghĩ của mình."
+      }
+    ]
+  },
+  {
+    "simplified": "理解",
+    "traditional": "理解",
+    "pinyin": "lǐ jiě",
+    "meaningVi": "Hiểu, lý giải",
+    "meaningEn": "To understand",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我不太理解这道题。",
+        "py": "Wǒ bù tài lǐjiě zhè dào tí.",
+        "vi": "Tôi không hiểu lắm bài toán này."
+      }
+    ]
+  },
+  {
+    "simplified": "联系",
+    "traditional": "聯繫",
+    "pinyin": "lián xì",
+    "meaningVi": "Liên lạc, liên hệ",
+    "meaningEn": "To contact",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "请保持联系。",
+        "py": "Qǐng bǎochí liánxì.",
+        "vi": "Hãy giữ liên lạc nhé."
+      }
+    ]
+  },
+  {
+    "simplified": "提高",
+    "traditional": "提高",
+    "pinyin": "tí gāo",
+    "meaningVi": "Nâng cao, cải thiện",
+    "meaningEn": "To improve",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我想提高我的汉语水平。",
+        "py": "Wǒ xiǎng tígāo wǒ de Hànyǔ shuǐpíng.",
+        "vi": "Tôi muốn nâng cao trình độ tiếng Trung của mình."
+      }
+    ]
+  },
+  {
+    "simplified": "参加",
+    "traditional": "參加",
+    "pinyin": "cān jiā",
+    "meaningVi": "Tham gia",
+    "meaningEn": "To participate",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "你愿意参加这个活动吗？",
+        "py": "Nǐ yuànyì cānjiā zhège huódòng ma?",
+        "vi": "Bạn có muốn tham gia hoạt động này không?"
+      }
+    ]
+  },
+  {
+    "simplified": "考试",
+    "traditional": "考試",
+    "pinyin": "kǎo shì",
+    "meaningVi": "Kỳ thi, kiểm tra",
+    "meaningEn": "Exam / Test",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "下周我有一次重要的考试。",
+        "py": "Xià zhōu wǒ yǒu yīcì zhòngyào de kǎoshì.",
+        "vi": "Tuần tới tôi có một kỳ thi quan trọng."
+      }
+    ]
+  },
+  {
+    "simplified": "结果",
+    "traditional": "結果",
+    "pinyin": "jié guǒ",
+    "meaningVi": "Kết quả",
+    "meaningEn": "Result",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "考试结果什么时候公布？",
+        "py": "Kǎoshì jiéguǒ shénme shíhòu gōngbù?",
+        "vi": "Khi nào công bố kết quả thi?"
+      }
+    ]
+  },
+  {
+    "simplified": "方法",
+    "traditional": "方法",
+    "pinyin": "fāng fǎ",
+    "meaningVi": "Phương pháp, cách thức",
+    "meaningEn": "Method",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "你有什么好的学习方法？",
+        "py": "Nǐ yǒu shénme hǎo de xuéxí fāngfǎ?",
+        "vi": "Bạn có phương pháp học tập tốt nào không?"
+      }
+    ]
+  },
+  {
+    "simplified": "感觉",
+    "traditional": "感覺",
+    "pinyin": "gǎn jué",
+    "meaningVi": "Cảm giác, cảm thấy",
+    "meaningEn": "Feeling",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我有一种奇怪的感觉。",
+        "py": "Wǒ yǒu yī zhǒng qíguài de gǎnjué.",
+        "vi": "Tôi có một cảm giác kỳ lạ."
+      }
+    ]
+  },
+  {
+    "simplified": "情况",
+    "traditional": "情況",
+    "pinyin": "qíng kuàng",
+    "meaningVi": "Tình huống, tình hình",
+    "meaningEn": "Situation",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "你的情况怎么样？",
+        "py": "Nǐ de qíngkuàng zěnme yàng?",
+        "vi": "Tình hình của bạn thế nào?"
+      }
+    ]
+  },
+  {
+    "simplified": "注意",
+    "traditional": "注意",
+    "pinyin": "zhù yì",
+    "meaningVi": "Chú ý, để ý",
+    "meaningEn": "To pay attention",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "过马路要注意安全。",
+        "py": "Guò mǎlù yào zhùyì ānquán.",
+        "vi": "Khi qua đường phải chú ý an toàn."
+      }
+    ]
+  },
+  {
+    "simplified": "继续",
+    "traditional": "繼續",
+    "pinyin": "jì xù",
+    "meaningVi": "Tiếp tục",
+    "meaningEn": "To continue",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "请继续说。",
+        "py": "Qǐng jìxù shuō.",
+        "vi": "Xin hãy tiếp tục nói."
+      }
+    ]
+  },
+  {
+    "simplified": "改变",
+    "traditional": "改變",
+    "pinyin": "gǎi biàn",
+    "meaningVi": "Thay đổi, biến đổi",
+    "meaningEn": "To change",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "人是可以改变的。",
+        "py": "Rén shì kěyǐ gǎibiàn de.",
+        "vi": "Con người có thể thay đổi được."
+      }
+    ]
+  },
+  {
+    "simplified": "突然",
+    "traditional": "突然",
+    "pinyin": "tū rán",
+    "meaningVi": "Đột nhiên, bỗng nhiên",
+    "meaningEn": "Suddenly",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "天气突然变冷了。",
+        "py": "Tiānqì tūrán biàn lěng le.",
+        "vi": "Thời tiết đột nhiên trở lạnh."
+      }
+    ]
+  },
+  {
+    "simplified": "尤其",
+    "traditional": "尤其",
+    "pinyin": "yóu qí",
+    "meaningVi": "Đặc biệt là, nhất là",
+    "meaningEn": "Especially",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我喜欢运动，尤其是游泳。",
+        "py": "Wǒ xǐhuān yùndòng, yóuqí shì yóuyǒng.",
+        "vi": "Tôi thích thể thao, đặc biệt là bơi lội."
+      }
+    ]
+  },
+  {
+    "simplified": "经济",
+    "traditional": "經濟",
+    "pinyin": "jīng jì",
+    "meaningVi": "Kinh tế",
+    "meaningEn": "Economy",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "中国经济增长很快。",
+        "py": "Zhōngguó jīngjì zēngzhǎng hěn kuài.",
+        "vi": "Kinh tế Trung Quốc tăng trưởng rất nhanh."
+      }
+    ]
+  },
+  {
+    "simplified": "政治",
+    "traditional": "政治",
+    "pinyin": "zhèng zhì",
+    "meaningVi": "Chính trị",
+    "meaningEn": "Politics",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "他对政治不感兴趣。",
+        "py": "Tā duì zhèngzhì bù gǎn xìngqù.",
+        "vi": "Anh ấy không hứng thú với chính trị."
+      }
+    ]
+  },
+  {
+    "simplified": "语言",
+    "traditional": "語言",
+    "pinyin": "yǔ yán",
+    "meaningVi": "Ngôn ngữ",
+    "meaningEn": "Language",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "学习多种语言很有用。",
+        "py": "Xuéxí duō zhǒng yǔyán hěn yǒuyòng.",
+        "vi": "Học nhiều ngôn ngữ rất có ích."
+      }
+    ]
+  },
+  {
+    "simplified": "历史",
+    "traditional": "歷史",
+    "pinyin": "lì shǐ",
+    "meaningVi": "Lịch sử",
+    "meaningEn": "History",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "中国有五千年的历史。",
+        "py": "Zhōngguó yǒu wǔqiān nián de lìshǐ.",
+        "vi": "Trung Quốc có lịch sử năm nghìn năm."
+      }
+    ]
+  },
+  {
+    "simplified": "音乐",
+    "traditional": "音樂",
+    "pinyin": "yīn yuè",
+    "meaningVi": "Âm nhạc",
+    "meaningEn": "Music",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "音乐能够改善心情。",
+        "py": "Yīnyuè nénggòu gǎishàn xīnqíng.",
+        "vi": "Âm nhạc có thể cải thiện tâm trạng."
+      }
+    ]
+  },
+  {
+    "simplified": "运动",
+    "traditional": "運動",
+    "pinyin": "yùn dòng",
+    "meaningVi": "Vận động, thể thao",
+    "meaningEn": "Sport / Exercise",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "坚持运动对健康有好处。",
+        "py": "Jiānchí yùndòng duì jiànkāng yǒu hǎochu.",
+        "vi": "Kiên trì tập thể dục rất có lợi cho sức khoẻ."
+      },
+      {
+        "cn": "你喜欢什么运动？",
+        "py": "Nǐ xǐhuān shénme yùndòng?",
+        "vi": "Bạn thích môn thể thao gì?"
+      }
+    ]
+  },
+  {
+    "simplified": "爱好",
+    "traditional": "愛好",
+    "pinyin": "ài hào",
+    "meaningVi": "Sở thích",
+    "meaningEn": "Hobby",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我的爱好是读书和旅游。",
+        "py": "Wǒ de àihào shì dúshū hé lǚyóu.",
+        "vi": "Sở thích của tôi là đọc sách và du lịch."
+      }
+    ]
+  },
+  {
+    "simplified": "比赛",
+    "traditional": "比賽",
+    "pinyin": "bǐ sài",
+    "meaningVi": "Thi đấu, cuộc thi",
+    "meaningEn": "Competition",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "明天有一场足球比赛。",
+        "py": "Míngtiān yǒu yī chǎng zúqiú bǐsài.",
+        "vi": "Ngày mai có một trận đấu bóng đá."
+      }
+    ]
+  },
+  {
+    "simplified": "聪明",
+    "traditional": "聰明",
+    "pinyin": "cōng míng",
+    "meaningVi": "Thông minh, thao lược",
+    "meaningEn": "Clever / Smart",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "这个孩子非常聪明。",
+        "py": "Zhège háizi fēicháng cōngming.",
+        "vi": "Đứa trẻ này cực kỳ thông minh."
+      },
+      {
+        "cn": "聪明不一定等于努力。",
+        "py": "Cōngming bù yīdìng děngyú nǔlì.",
+        "vi": "Thông minh không nhất thiết đồng nghĩa với chăm chỉ."
+      }
+    ]
+  },
+  {
+    "simplified": "勤奋",
+    "traditional": "勤奮",
+    "pinyin": "qín fèn",
+    "meaningVi": "Siêng năng, chăm chỉ",
+    "meaningEn": "Diligent",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "她是一个勤奋的学生。",
+        "py": "Tā shì yīgè qínfèn de xuéshēng.",
+        "vi": "Cô ấy là một học sinh chăm chỉ."
+      }
+    ]
+  },
+  {
+    "simplified": "耐心",
+    "traditional": "耐心",
+    "pinyin": "nài xīn",
+    "meaningVi": "Kiên nhẫn, nhẫn nại",
+    "meaningEn": "Patient",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "学好一门语言需要耐心。",
+        "py": "Xué hǎo yī mén yǔyán xūyào nàixīn.",
+        "vi": "Học giỏi một ngôn ngữ cần sự kiên nhẫn."
+      }
+    ]
+  },
+  {
+    "simplified": "好吃",
+    "traditional": "好吃",
+    "pinyin": "hǎo chī",
+    "meaningVi": "Ngon (thức ăn)",
+    "meaningEn": "Delicious",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "这家餐厅的菜很好吃。",
+        "py": "Zhè jiā cāntīng de cài hěn hǎochī.",
+        "vi": "Món ăn ở nhà hàng này rất ngon."
+      },
+      {
+        "cn": "妈妈做的饺子特别好吃。",
+        "py": "Māma zuò de jiǎozi tèbié hǎochī.",
+        "vi": "Bánh sủi cảo mẹ làm đặc biệt ngon."
+      }
+    ]
+  },
+  {
+    "simplified": "漂亮",
+    "traditional": "漂亮",
+    "pinyin": "piào liang",
+    "meaningVi": "Đẹp (ngoại hình)",
+    "meaningEn": "Beautiful / Pretty",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "你今天穿得很漂亮。",
+        "py": "Nǐ jīntiān chuān dé hěn piàoliang.",
+        "vi": "Hôm nay bạn mặc rất đẹp."
+      },
+      {
+        "cn": "这朵花真漂亮！",
+        "py": "Zhè duǒ huā zhēn piàoliang!",
+        "vi": "Bông hoa này thật đẹp!"
+      }
+    ]
+  },
+  {
+    "simplified": "天气",
+    "traditional": "天氣",
+    "pinyin": "tiān qì",
+    "meaningVi": "Thời tiết",
+    "meaningEn": "Weather",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "今天天气怎么样？",
+        "py": "Jīntiān tiānqì zěnmeyàng?",
+        "vi": "Hôm nay thời tiết thế nào?"
+      },
+      {
+        "cn": "明天天气预报说有雨。",
+        "py": "Míngtiān tiānqì yùbào shuō yǒu yǔ.",
+        "vi": "Dự báo thời tiết nói ngày mai có mưa."
+      }
+    ]
+  },
+  {
+    "simplified": "咖啡",
+    "traditional": "咖啡",
+    "pinyin": "kā fēi",
+    "meaningVi": "Cà phê",
+    "meaningEn": "Coffee",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我每天早上喝一杯咖啡。",
+        "py": "Wǒ měitiān zǎoshàng hē yī bēi kāfēi.",
+        "vi": "Mỗi sáng tôi uống một tách cà phê."
+      },
+      {
+        "cn": "你喝咖啡还是茶？",
+        "py": "Nǐ hē kāfēi háishi chá?",
+        "vi": "Bạn uống cà phê hay trà?"
+      }
+    ]
+  },
+  {
+    "simplified": "快乐",
+    "traditional": "快樂",
+    "pinyin": "kuài lè",
+    "meaningVi": "Vui vẻ, hạnh phúc",
+    "meaningEn": "Happy / Joyful",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "祝你生日快乐！",
+        "py": "Zhù nǐ shēngrì kuàilè!",
+        "vi": "Chúc mừng sinh nhật bạn!"
+      },
+      {
+        "cn": "我希望你永远快乐。",
+        "py": "Wǒ xīwàng nǐ yǒngyuǎn kuàilè.",
+        "vi": "Tôi mong bạn mãi mãi vui vẻ hạnh phúc."
+      }
+    ]
+  },
+  {
+    "simplified": "美丽",
+    "traditional": "美麗",
+    "pinyin": "měi lì",
+    "meaningVi": "Đẹp đẽ, xinh đẹp",
+    "meaningEn": "Beautiful",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "这座城市非常美丽。",
+        "py": "Zhè zuò chéngshì fēicháng měilì.",
+        "vi": "Thành phố này rất đẹp."
+      },
+      {
+        "cn": "她是一位美丽的姑娘。",
+        "py": "Tā shì yī wèi měilì de gūniang.",
+        "vi": "Cô ấy là một cô gái xinh đẹp."
+      }
+    ]
+  },
+  {
+    "simplified": "开心",
+    "traditional": "開心",
+    "pinyin": "kāi xīn",
+    "meaningVi": "Vui, phấn khởi",
+    "meaningEn": "Happy",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "看到你我很开心。",
+        "py": "Kàndào nǐ wǒ hěn kāixīn.",
+        "vi": "Gặp bạn tôi rất vui."
+      },
+      {
+        "cn": "今天是开心的一天。",
+        "py": "Jīntiān shì kāixīn de yī tiān.",
+        "vi": "Hôm nay là một ngày vui."
+      }
+    ]
+  },
+  {
+    "simplified": "难过",
+    "traditional": "難過",
+    "pinyin": "nán guò",
+    "meaningVi": "Buồn, đau lòng",
+    "meaningEn": "Sad",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "听到这个消息，我很难过。",
+        "py": "Tīngdào zhège xiāoxi, wǒ hěn nánguò.",
+        "vi": "Nghe tin đó tôi rất buồn."
+      },
+      {
+        "cn": "别难过，一切都会好起来的。",
+        "py": "Bié nánguò, yīqiè dōu huì hǎo qǐlái de.",
+        "vi": "Đừng buồn, mọi chuyện rồi sẽ ổn thôi."
+      }
+    ]
+  },
+  {
+    "simplified": "生气",
+    "traditional": "生氣",
+    "pinyin": "shēng qì",
+    "meaningVi": "Tức giận",
+    "meaningEn": "Angry",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "他因为迟到而生气。",
+        "py": "Tā yīnwèi chídào ér shēngqì.",
+        "vi": "Anh ấy tức giận vì đến muộn."
+      },
+      {
+        "cn": "别生气，这只是个误会。",
+        "py": "Bié shēngqì, zhè zhǐshì gè wùhuì.",
+        "vi": "Đừng tức giận, đây chỉ là hiểu lầm thôi."
+      }
+    ]
+  },
+  {
+    "simplified": "担心",
+    "traditional": "擔心",
+    "pinyin": "dān xīn",
+    "meaningVi": "Lo lắng, lo ngại",
+    "meaningEn": "To worry",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "妈妈很担心我的身体。",
+        "py": "Māma hěn dānxīn wǒ de shēntǐ.",
+        "vi": "Mẹ rất lo lắng cho sức khoẻ của tôi."
+      },
+      {
+        "cn": "不用担心，我会帮你的。",
+        "py": "Bùyòng dānxīn, wǒ huì bāng nǐ de.",
+        "vi": "Đừng lo lắng, tôi sẽ giúp bạn."
+      }
+    ]
+  },
+  {
+    "simplified": "紧张",
+    "traditional": "緊張",
+    "pinyin": "jǐn zhāng",
+    "meaningVi": "Căng thẳng, hồi hộp",
+    "meaningEn": "Nervous / Tense",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "考试前我很紧张。",
+        "py": "Kǎoshì qián wǒ hěn jǐnzhāng.",
+        "vi": "Trước kỳ thi tôi rất hồi hộp."
+      },
+      {
+        "cn": "深呼吸，不要紧张。",
+        "py": "Shēn hūxī, bùyào jǐnzhāng.",
+        "vi": "Hít thở sâu đi, đừng căng thẳng."
+      }
+    ]
+  },
+  {
+    "simplified": "爱",
+    "traditional": "愛",
+    "pinyin": "ài",
+    "meaningVi": "Yêu, yêu thích",
+    "meaningEn": "To love",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我爱我的家人。",
+        "py": "Wǒ ài wǒ de jiārén.",
+        "vi": "Tôi yêu gia đình của tôi."
+      },
+      {
+        "cn": "爱是最美好的情感。",
+        "py": "Ài shì zuì měihǎo de qínggǎn.",
+        "vi": "Tình yêu là cảm xúc đẹp đẽ nhất."
+      }
+    ]
+  },
+  {
+    "simplified": "睡觉",
+    "traditional": "睡覺",
+    "pinyin": "shuì jiào",
+    "meaningVi": "Ngủ",
+    "meaningEn": "To sleep",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "你几点睡觉？",
+        "py": "Nǐ jǐ diǎn shuìjiào?",
+        "vi": "Bạn ngủ lúc mấy giờ?"
+      },
+      {
+        "cn": "我昨晚睡得很好。",
+        "py": "Wǒ zuówǎn shuì de hěn hǎo.",
+        "vi": "Tối qua tôi ngủ rất ngon."
+      }
+    ]
+  },
+  {
+    "simplified": "起床",
+    "traditional": "起床",
+    "pinyin": "qǐ chuáng",
+    "meaningVi": "Dậy, ngủ dậy",
+    "meaningEn": "To get up",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我每天六点起床。",
+        "py": "Wǒ měitiān liù diǎn qǐchuáng.",
+        "vi": "Tôi thức dậy lúc sáu giờ mỗi ngày."
+      },
+      {
+        "cn": "周末我喜欢晚一点起床。",
+        "py": "Zhōumò wǒ xǐhuān wǎn yīdiǎn qǐchuáng.",
+        "vi": "Cuối tuần tôi thích dậy muộn hơn."
+      }
+    ]
+  },
+  {
+    "simplified": "洗澡",
+    "traditional": "洗澡",
+    "pinyin": "xǐ zǎo",
+    "meaningVi": "Tắm rửa",
+    "meaningEn": "To shower / bathe",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我每天晚上洗澡。",
+        "py": "Wǒ měitiān wǎnshàng xǐzǎo.",
+        "vi": "Tôi tắm mỗi tối."
+      }
+    ]
+  },
+  {
+    "simplified": "锻炼",
+    "traditional": "鍛煉",
+    "pinyin": "duàn liàn",
+    "meaningVi": "Tập luyện, rèn luyện",
+    "meaningEn": "To exercise / train",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "每天锻炼对身体有好处。",
+        "py": "Měitiān duànliàn duì shēntǐ yǒu hǎochu.",
+        "vi": "Tập luyện mỗi ngày rất có lợi cho sức khoẻ."
+      },
+      {
+        "cn": "你平时怎么锻炼？",
+        "py": "Nǐ píngshí zěnme duànliàn?",
+        "vi": "Bình thường bạn tập luyện như thế nào?"
+      }
+    ]
+  },
+  {
+    "simplified": "跑步",
+    "traditional": "跑步",
+    "pinyin": "pǎo bù",
+    "meaningVi": "Chạy bộ",
+    "meaningEn": "Running / Jogging",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我每天早上跑步。",
+        "py": "Wǒ měitiān zǎoshàng pǎobù.",
+        "vi": "Tôi chạy bộ mỗi sáng."
+      },
+      {
+        "cn": "跑步是最简单的运动。",
+        "py": "Pǎobù shì zuì jiǎndān de yùndòng.",
+        "vi": "Chạy bộ là môn thể thao đơn giản nhất."
+      }
+    ]
+  },
+  {
+    "simplified": "游泳",
+    "traditional": "游泳",
+    "pinyin": "yóu yǒng",
+    "meaningVi": "Bơi lội",
+    "meaningEn": "Swimming",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "夏天我喜欢去游泳。",
+        "py": "Xiàtiān wǒ xǐhuān qù yóuyǒng.",
+        "vi": "Mùa hè tôi thích đi bơi."
+      },
+      {
+        "cn": "你会游泳吗？",
+        "py": "Nǐ huì yóuyǒng ma?",
+        "vi": "Bạn có biết bơi không?"
+      }
+    ]
+  },
+  {
+    "simplified": "书包",
+    "traditional": "書包",
+    "pinyin": "shū bāo",
+    "meaningVi": "Cặp sách, túi xách",
+    "meaningEn": "Backpack / School bag",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我忘记带书包了。",
+        "py": "Wǒ wàngjì dài shūbāo le.",
+        "vi": "Tôi quên mang cặp sách rồi."
+      }
+    ]
+  },
+  {
+    "simplified": "作业",
+    "traditional": "作業",
+    "pinyin": "zuò yè",
+    "meaningVi": "Bài tập về nhà",
+    "meaningEn": "Homework",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "今天的作业很多。",
+        "py": "Jīntiān de zuòyè hěn duō.",
+        "vi": "Bài tập hôm nay rất nhiều."
+      },
+      {
+        "cn": "我要先做完作业再玩。",
+        "py": "Wǒ yào xiān zuò wán zuòyè zài wán.",
+        "vi": "Tôi phải làm xong bài tập rồi mới chơi."
+      }
+    ]
+  },
+  {
+    "simplified": "成绩",
+    "traditional": "成績",
+    "pinyin": "chéng jì",
+    "meaningVi": "Thành tích, điểm số",
+    "meaningEn": "Grade / Achievement",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "这次考试我成绩不好。",
+        "py": "Zhècì kǎoshì wǒ chéngjì bù hǎo.",
+        "vi": "Kỳ thi này thành tích của tôi không tốt."
+      },
+      {
+        "cn": "他的成绩一直很优秀。",
+        "py": "Tā de chéngjì yīzhí hěn yōuxiù.",
+        "vi": "Thành tích của anh ấy luôn xuất sắc."
+      }
+    ]
+  },
+  {
+    "simplified": "餐厅",
+    "traditional": "餐廳",
+    "pinyin": "cān tīng",
+    "meaningVi": "Nhà hàng, phòng ăn",
+    "meaningEn": "Restaurant",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我们去那家新开的餐厅吃饭吧。",
+        "py": "Wǒmen qù nà jiā xīn kāi de cāntīng chīfàn ba.",
+        "vi": "Chúng ta đến nhà hàng mới mở đó ăn nhé."
+      }
+    ]
+  },
+  {
+    "simplified": "点菜",
+    "traditional": "點菜",
+    "pinyin": "diǎn cài",
+    "meaningVi": "Gọi món",
+    "meaningEn": "To order food",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "请问您要点菜吗？",
+        "py": "Qǐngwèn nín yào diǎncài ma?",
+        "vi": "Xin hỏi quý khách muốn gọi món chưa?"
+      }
+    ]
+  },
+  {
+    "simplified": "买单",
+    "traditional": "買單",
+    "pinyin": "mǎi dān",
+    "meaningVi": "Tính tiền, trả tiền",
+    "meaningEn": "To pay the bill",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "服务员，买单！",
+        "py": "Fúwùyuán, mǎidān!",
+        "vi": "Phục vụ ơi, tính tiền cho tôi!"
+      }
+    ]
+  },
+  {
+    "simplified": "地铁",
+    "traditional": "地鐵",
+    "pinyin": "dì tiě",
+    "meaningVi": "Tàu điện ngầm, metro",
+    "meaningEn": "Subway / Metro",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我每天坐地铁上班。",
+        "py": "Wǒ měitiān zuò dìtiě shàngbān.",
+        "vi": "Tôi đi tàu điện ngầm đi làm mỗi ngày."
+      },
+      {
+        "cn": "坐地铁比开车快。",
+        "py": "Zuò dìtiě bǐ kāichē kuài.",
+        "vi": "Đi tàu điện ngầm nhanh hơn lái xe."
+      }
+    ]
+  },
+  {
+    "simplified": "公共汽车",
+    "traditional": "公共汽車",
+    "pinyin": "gōng gòng qì chē",
+    "meaningVi": "Xe buýt",
+    "meaningEn": "Bus",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我坐公共汽车上学。",
+        "py": "Wǒ zuò gōnggòng qìchē shàngxué.",
+        "vi": "Tôi đi xe buýt đến trường."
+      }
+    ]
+  },
+  {
+    "simplified": "骑车",
+    "traditional": "騎車",
+    "pinyin": "qí chē",
+    "meaningVi": "Đạp xe, đi xe đạp",
+    "meaningEn": "To ride a bike",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "天气好的时候我喜欢骑车。",
+        "py": "Tiānqì hǎo de shíhòu wǒ xǐhuān qí chē.",
+        "vi": "Khi thời tiết đẹp tôi thích đạp xe."
+      }
+    ]
+  },
+  {
+    "simplified": "开车",
+    "traditional": "開車",
+    "pinyin": "kāi chē",
+    "meaningVi": "Lái xe ô tô",
+    "meaningEn": "To drive",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "他每天开车上班。",
+        "py": "Tā měitiān kāichē shàngbān.",
+        "vi": "Anh ấy lái xe đi làm mỗi ngày."
+      }
+    ]
+  },
+  {
+    "simplified": "打电话",
+    "traditional": "打電話",
+    "pinyin": "dǎ diàn huà",
+    "meaningVi": "Gọi điện thoại",
+    "meaningEn": "To make a phone call",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我给他打了一个电话。",
+        "py": "Wǒ gěi tā dǎle yīgè diànhuà.",
+        "vi": "Tôi đã gọi điện cho anh ấy."
+      },
+      {
+        "cn": "你可以打电话给我。",
+        "py": "Nǐ kěyǐ dǎ diànhuà gěi wǒ.",
+        "vi": "Bạn có thể gọi điện cho tôi."
+      }
+    ]
+  },
+  {
+    "simplified": "发短信",
+    "traditional": "發短信",
+    "pinyin": "fā duǎn xìn",
+    "meaningVi": "Nhắn tin",
+    "meaningEn": "To send a text message",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "给我发短信就可以了。",
+        "py": "Gěi wǒ fā duǎnxìn jiù kěyǐ le.",
+        "vi": "Nhắn tin cho tôi là được rồi."
+      }
+    ]
+  },
+  {
+    "simplified": "上网",
+    "traditional": "上網",
+    "pinyin": "shàng wǎng",
+    "meaningVi": "Lên mạng, duyệt web",
+    "meaningEn": "To go online",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我喜欢上网查资料。",
+        "py": "Wǒ xǐhuān shàngwǎng chá zīliào.",
+        "vi": "Tôi thích lên mạng tra cứu thông tin."
+      }
+    ]
+  },
+  {
+    "simplified": "购物",
+    "traditional": "購物",
+    "pinyin": "gòu wù",
+    "meaningVi": "Mua sắm",
+    "meaningEn": "Shopping",
+    "hskLevel": 3,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "周末我和朋友一起去购物。",
+        "py": "Zhōumò wǒ hé péngyǒu yīqǐ qù gòuwù.",
+        "vi": "Cuối tuần tôi và bạn bè đi mua sắm cùng nhau."
+      }
+    ]
+  },
+  {
+    "simplified": "打折",
+    "traditional": "打折",
+    "pinyin": "dǎ zhé",
+    "meaningVi": "Giảm giá, khuyến mãi",
+    "meaningEn": "Discount",
+    "hskLevel": 2,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "这件衣服打八折。",
+        "py": "Zhè jiàn yīfú dǎ bā zhé.",
+        "vi": "Bộ áo này được giảm 20%."
+      },
+      {
+        "cn": "现在打折，快去买吧！",
+        "py": "Xiànzài dǎzhé, kuài qù mǎi ba!",
+        "vi": "Đang giảm giá rồi, mau đi mua thôi!"
+      }
+    ]
+  },
+  {
+    "simplified": "便宜",
+    "traditional": "便宜",
+    "pinyin": "pián yi",
+    "meaningVi": "Rẻ",
+    "meaningEn": "Cheap / Inexpensive",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "这家店的东西很便宜。",
+        "py": "Zhè jiā diàn de dōngxi hěn piányí.",
+        "vi": "Đồ ở cửa hàng này rất rẻ."
+      },
+      {
+        "cn": "有没有便宜一点的？",
+        "py": "Yǒu méiyǒu piányí yīdiǎn de?",
+        "vi": "Có cái nào rẻ hơn không?"
+      }
+    ]
+  },
+  {
+    "simplified": "贵",
+    "traditional": "貴",
+    "pinyin": "guì",
+    "meaningVi": "Đắt, mắc",
+    "meaningEn": "Expensive",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "这个包太贵了，我买不起。",
+        "py": "Zhège bāo tài guì le, wǒ mǎi bù qǐ.",
+        "vi": "Cái túi này đắt quá, tôi mua không nổi."
+      }
+    ]
+  },
+  {
+    "simplified": "天",
+    "traditional": "天",
+    "pinyin": "tiān",
+    "meaningVi": "Ngày, trời",
+    "meaningEn": "Day / Sky",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "今天是个好天。",
+        "py": "Jīntiān shì gè hǎo tiān.",
+        "vi": "Hôm nay là một ngày đẹp."
+      },
+      {
+        "cn": "天空很蓝。",
+        "py": "Tiānkōng hěn lán.",
+        "vi": "Bầu trời rất xanh."
+      }
+    ]
+  },
+  {
+    "simplified": "雨",
+    "traditional": "雨",
+    "pinyin": "yǔ",
+    "meaningVi": "Mưa",
+    "meaningEn": "Rain",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "外面在下雨。",
+        "py": "Wàimiàn zài xià yǔ.",
+        "vi": "Bên ngoài đang mưa."
+      },
+      {
+        "cn": "带把伞，天气预报说有雨。",
+        "py": "Dài bǎ sǎn, tiānqì yùbào shuō yǒu yǔ.",
+        "vi": "Mang ô theo đi, dự báo có mưa."
+      }
+    ]
+  },
+  {
+    "simplified": "热",
+    "traditional": "熱",
+    "pinyin": "rè",
+    "meaningVi": "Nóng",
+    "meaningEn": "Hot",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "今天太热了！",
+        "py": "Jīntiān tài rè le!",
+        "vi": "Hôm nay nóng quá!"
+      },
+      {
+        "cn": "夏天越南很热。",
+        "py": "Xiàtiān Yuènán hěn rè.",
+        "vi": "Mùa hè Việt Nam rất nóng."
+      }
+    ]
+  },
+  {
+    "simplified": "冷",
+    "traditional": "冷",
+    "pinyin": "lěng",
+    "meaningVi": "Lạnh",
+    "meaningEn": "Cold",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "冬天这里很冷。",
+        "py": "Dōngtiān zhèlǐ hěn lěng.",
+        "vi": "Mùa đông ở đây rất lạnh."
+      },
+      {
+        "cn": "你冷不冷？",
+        "py": "Nǐ lěng bu lěng?",
+        "vi": "Bạn có lạnh không?"
+      }
+    ]
+  },
+  {
+    "simplified": "春天",
+    "traditional": "春天",
+    "pinyin": "chūn tiān",
+    "meaningVi": "Mùa xuân",
+    "meaningEn": "Spring",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "春天是我最喜欢的季节。",
+        "py": "Chūntiān shì wǒ zuì xǐhuān de jìjié.",
+        "vi": "Mùa xuân là mùa tôi thích nhất."
+      }
+    ]
+  },
+  {
+    "simplified": "夏天",
+    "traditional": "夏天",
+    "pinyin": "xià tiān",
+    "meaningVi": "Mùa hè",
+    "meaningEn": "Summer",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "夏天我喜欢游泳。",
+        "py": "Xiàtiān wǒ xǐhuān yóuyǒng.",
+        "vi": "Mùa hè tôi thích đi bơi."
+      }
+    ]
+  },
+  {
+    "simplified": "秋天",
+    "traditional": "秋天",
+    "pinyin": "qiū tiān",
+    "meaningVi": "Mùa thu",
+    "meaningEn": "Autumn / Fall",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "秋天的叶子很漂亮。",
+        "py": "Qiūtiān de yèzi hěn piàoliang.",
+        "vi": "Lá mùa thu rất đẹp."
+      }
+    ]
+  },
+  {
+    "simplified": "冬天",
+    "traditional": "冬天",
+    "pinyin": "dōng tiān",
+    "meaningVi": "Mùa đông",
+    "meaningEn": "Winter",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "冬天我喜欢喝热汤。",
+        "py": "Dōngtiān wǒ xǐhuān hē rè tāng.",
+        "vi": "Mùa đông tôi thích uống canh nóng."
+      }
+    ]
+  },
+  {
+    "simplified": "日本",
+    "traditional": "日本",
+    "pinyin": "rì běn",
+    "meaningVi": "Nhật Bản",
+    "meaningEn": "Japan",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "日本在中国的东边。",
+        "py": "Rìběn zài Zhōngguó de dōngbiān.",
+        "vi": "Nhật Bản ở phía đông của Trung Quốc."
+      },
+      {
+        "cn": "我想去日本旅游。",
+        "py": "Wǒ xiǎng qù Rìběn lǚyóu.",
+        "vi": "Tôi muốn đi du lịch Nhật Bản."
+      }
+    ]
+  },
+  {
+    "simplified": "美国",
+    "traditional": "美國",
+    "pinyin": "měi guó",
+    "meaningVi": "Mỹ, Hoa Kỳ",
+    "meaningEn": "United States",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "他在美国上大学。",
+        "py": "Tā zài Měiguó shàng dàxué.",
+        "vi": "Anh ấy học đại học ở Mỹ."
+      },
+      {
+        "cn": "美国是一个很大的国家。",
+        "py": "Měiguó shì yīgè hěn dà de guójiā.",
+        "vi": "Mỹ là một đất nước rất lớn."
+      }
+    ]
+  },
+  {
+    "simplified": "英国",
+    "traditional": "英國",
+    "pinyin": "yīng guó",
+    "meaningVi": "Anh (nước)",
+    "meaningEn": "United Kingdom",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "英国的首都是伦敦。",
+        "py": "Yīngguó de shǒudū shì Lúndūn.",
+        "vi": "Thủ đô của Anh là London."
+      }
+    ]
+  },
+  {
+    "simplified": "德国",
+    "traditional": "德國",
+    "pinyin": "dé guó",
+    "meaningVi": "Đức (nước)",
+    "meaningEn": "Germany",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "德国的汽车很有名。",
+        "py": "Déguó de qìchē hěn yǒumíng.",
+        "vi": "Xe ô tô của Đức rất nổi tiếng."
+      }
+    ]
+  },
+  {
+    "simplified": "越南",
+    "traditional": "越南",
+    "pinyin": "yuè nán",
+    "meaningVi": "Việt Nam",
+    "meaningEn": "Vietnam",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "越南的食物很好吃。",
+        "py": "Yuènán de shíwù hěn hǎochī.",
+        "vi": "Đồ ăn Việt Nam rất ngon."
+      },
+      {
+        "cn": "我是越南人。",
+        "py": "Wǒ shì Yuènán rén.",
+        "vi": "Tôi là người Việt Nam."
+      }
+    ]
+  },
+  {
+    "simplified": "零",
+    "traditional": "零",
+    "pinyin": "líng",
+    "meaningVi": "Số không",
+    "meaningEn": "Zero",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "电话号码里有两个零。",
+        "py": "Diànhuà hàomǎ lǐ yǒu liǎng gè líng.",
+        "vi": "Số điện thoại có hai số không."
+      },
+      {
+        "cn": "今天气温是零度。",
+        "py": "Jīntiān qìwēn shì líng dù.",
+        "vi": "Nhiệt độ hôm nay là 0 độ."
+      }
+    ]
+  },
+  {
+    "simplified": "个",
+    "traditional": "個",
+    "pinyin": "gè",
+    "meaningVi": "Cái, con, người (lượng từ chung)",
+    "meaningEn": "(measure word)",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我买了三个苹果。",
+        "py": "Wǒ mǎile sān gè píngguǒ.",
+        "vi": "Tôi mua ba quả táo."
+      },
+      {
+        "cn": "她有两个孩子。",
+        "py": "Tā yǒu liǎng gè háizi.",
+        "vi": "Cô ấy có hai đứa con."
+      }
+    ]
+  },
+  {
+    "simplified": "买",
+    "traditional": "買",
+    "pinyin": "mǎi",
+    "meaningVi": "Mua",
+    "meaningEn": "To buy",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我想买一件新衣服。",
+        "py": "Wǒ xiǎng mǎi yī jiàn xīn yīfú.",
+        "vi": "Tôi muốn mua một bộ quần áo mới."
+      },
+      {
+        "cn": "你在哪里买的？",
+        "py": "Nǐ zài nǎlǐ mǎi de?",
+        "vi": "Bạn mua ở đâu vậy?"
+      }
+    ]
+  },
+  {
+    "simplified": "块",
+    "traditional": "塊",
+    "pinyin": "kuài",
+    "meaningVi": "Đồng (tiền tệ, Nhân dân tệ)",
+    "meaningEn": "Yuan (currency)",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "这个苹果两块钱。",
+        "py": "Zhège píngguǒ liǎng kuài qián.",
+        "vi": "Quả táo này hai tệ."
+      },
+      {
+        "cn": "一共多少块？",
+        "py": "Yīgòng duōshǎo kuài?",
+        "vi": "Tổng cộng bao nhiêu tệ?"
+      }
+    ]
+  },
+  {
+    "simplified": "衣服",
+    "traditional": "衣服",
+    "pinyin": "yī fu",
+    "meaningVi": "Quần áo",
+    "meaningEn": "Clothes",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "这件衣服很漂亮。",
+        "py": "Zhè jiàn yīfú hěn piàoliang.",
+        "vi": "Bộ quần áo này rất đẹp."
+      },
+      {
+        "cn": "我要换一件衣服。",
+        "py": "Wǒ yào huàn yī jiàn yīfú.",
+        "vi": "Tôi muốn thay một bộ quần áo."
+      }
+    ]
+  },
+  {
+    "simplified": "桌子",
+    "traditional": "桌子",
+    "pinyin": "zhuō zi",
+    "meaningVi": "Bàn",
+    "meaningEn": "Table / Desk",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "书放在桌子上。",
+        "py": "Shū fàng zài zhuōzi shàng.",
+        "vi": "Sách đặt trên bàn."
+      },
+      {
+        "cn": "这张桌子很大。",
+        "py": "Zhè zhāng zhuōzi hěn dà.",
+        "vi": "Cái bàn này rất to."
+      }
+    ]
+  },
+  {
+    "simplified": "椅子",
+    "traditional": "椅子",
+    "pinyin": "yǐ zi",
+    "meaningVi": "Ghế",
+    "meaningEn": "Chair",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "请坐椅子。",
+        "py": "Qǐng zuò yǐzi.",
+        "vi": "Mời ngồi ghế."
+      },
+      {
+        "cn": "那把椅子是新的。",
+        "py": "Nà bǎ yǐzi shì xīn de.",
+        "vi": "Cái ghế đó là mới."
+      }
+    ]
+  },
+  {
+    "simplified": "叫",
+    "traditional": "叫",
+    "pinyin": "jiào",
+    "meaningVi": "Gọi, kêu, tên là",
+    "meaningEn": "To call / be named",
+    "hskLevel": 1,
+    "wordType": "",
+    "examples": [
+      {
+        "cn": "我的狗叫小黑。",
+        "py": "Wǒ de gǒu jiào Xiǎo Hēi.",
+        "vi": "Con chó của tôi tên là Tiểu Hắc."
+      },
+      {
+        "cn": "你叫什么名字？",
+        "py": "Nǐ jiào shénmemíngzì?",
+        "vi": "Bạn tên là gì?"
+      }
+    ]
+  }
+]

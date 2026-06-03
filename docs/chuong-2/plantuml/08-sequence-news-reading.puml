@@ -1,0 +1,46 @@
+  @startuml
+  autonumber
+  skinparam shadowing false
+
+  actor "Người học" as User
+  participant "NewsReaderScreen" as NewsUI
+  participant "RSS Proxy / Source" as RSS
+  participant "VocabDataHelper" as VocabHelper
+  database "Local Vocabulary Cache" as LocalVocab
+  participant "Translation API" as TranslateAPI
+  participant "ProgressService" as Progress
+  database "Local Storage" as LocalStore
+
+  User -> NewsUI: Chọn nguồn tin
+  NewsUI -> RSS: GET feed
+  RSS --> NewsUI: RSS/XML
+  NewsUI -> NewsUI: Parse danh sách bài báo
+  NewsUI --> User: Hiển thị danh sách bài báo
+
+  User -> NewsUI: Chọn một bài báo
+  NewsUI --> User: Hiển thị nội dung bài
+
+  User -> NewsUI: Chạm vào một từ trong bài
+  NewsUI -> VocabHelper: getData(word)
+  VocabHelper -> LocalVocab: Tìm nghĩa cục bộ
+
+  alt Có dữ liệu cục bộ
+    LocalVocab --> VocabHelper: pinyin + meaning + examples
+  else Chưa có dữ liệu
+    VocabHelper -> TranslateAPI: Dịch zh -> vi
+    TranslateAPI --> VocabHelper: meaning
+  end
+
+  VocabHelper --> NewsUI: Dữ liệu từ vựng
+  NewsUI --> User: Hiển thị panel nghĩa từ
+
+  opt Lưu từ vào sổ tay
+    User -> NewsUI: Bấm bookmark
+    NewsUI -> Progress: toggleFavorite(word)
+    Progress -> LocalStore: Cập nhật favorite_words
+    LocalStore --> Progress: Thành công
+    Progress --> NewsUI: Trạng thái đã lưu
+    NewsUI --> User: Thông báo lưu thành công
+  end
+
+  @enduml

@@ -1,0 +1,704 @@
+[
+  [
+    "Điểm ngữ pháp",
+    "Loại từ",
+    "Giải thích",
+    "Ví dụ"
+  ],
+  [
+    "如何 /Rúhé",
+    "Đại từ",
+    "Dùng để hỏi phương thức/cách thức giải quyết vấn đề, thường dùng ở cuối câu để trưng cầu ý kiến hoặc hỏi thăm tình hình.",
+    "我们明天举行会议，讨论这个问题该如何解决。 / Wǒmen míngtiān jǔxíng huìyì, tǎolùn zhè ge wèntí gāi rúhé jiějué. / Chúng ta ngày mai tổ chức cuộc họp, thảo luận vấn đề này nên giải quyết thế nào 80 后”们月收入情况如何？/ Bālíng hòu men yuè shōurù qíngkuàng rúhé? / Tình hình thu nhập hàng tháng của thế hệ “8x” như thế nào?"
+  ],
+  [
+    "靠 /Kào/",
+    "Động từ/Danh từ",
+    "Là động từ, nghĩa là dựa vào, tựa vào để chống đỡ trọng lượng; nhờ, dựa vào ai đó mới đạt được lợi ích; gần kề, kế liền.",
+    "王老师喜欢靠这桌子讲课。 /Wáng lǎoshī xǐhuān kào zhè zhuōzi jiǎngkè. / Thầy Vương thích dựa vào bàn để giảng bài. 在家靠父母，出门靠朋友。/Zài jiā kào fùmǔ, chūmén kào péngyǒu/ Ở nhà dựa vào cha mẹ, ra ngoài dựa vào bạn bè."
+  ],
+  [
+    "居然 /Jūrán/",
+    "Phó từ",
+    "Biểu thị sự không ngờ đến, bất ngờ, ngạc nhiên (\"lại có thể\", \"lại\").",
+    "这么简单的题，你居然也不会做？上课时都干什么去 了？ /Zhème jiǎndān de tí, nǐ jūrán yě bú huì zuò? Shàngkè shí dōu gàn shénme qùle/ Bài tập đơn giản thế này mà cậu lại cũng không biết làm? Lúc lên lớp đã làm gì vậy?"
+  ],
+  [
+    "以来 /Yǐlái/",
+    "Danh từ",
+    "Biểu thị một khoảng thời gian từ một thời điểm nào đó trong quá khứ đến thời điểm hiện tại.",
+    "改革开放以来，中国发生了巨大的变化。 /Gǎigé kāifàng yǐlái, Zhōngguó fāshēngle jùdà de biànhuà/ Từ khi cải cách mở cửa đến nay, Trung Quốc đã có những thay đổi to lớn."
+  ],
+  [
+    "临 /Lín/",
+    "Động từ/Giới từ",
+    "Là động từ, có nghĩa là dựa sát, kề, kế. Là giới từ (\"临.....（时/前）\"), biểu thị sắp đến thời gian phát sinh của một hành động.",
+    "临江新修了一条路，晚饭后很多人都去那儿散步。 /Lín jiāng xīn xiūle yī tiáo lù, wǎnfàn hòu hěn duō rén dōu qù nà'er sànbù/ Gần bờ sông mới xây một con đường, sau bữa tối rất nhiều người đi dạo ở đó. 临走那天，父亲从老家赶来送我们。/Lín zǒu nèitiān, fùqin cóng lǎojiā gǎn lái sòng wǒmen/ Ngày sắp đi, bố tôi từ quê nhà đến tiễn chúng tôi."
+  ],
+  [
+    "立刻 /Lìkè/",
+    "Phó từ",
+    "Biểu thị sự ngay lập tức, nhấn mạnh một hành động nối tiếp hành động phát sinh ngay trước đó.",
+    "实验数据一出来，研究员们立刻展开了激烈的讨论。 /Shíyàn shùjù yī chūlái, yánjiūyuán men lìkè zhǎnkāi le jīliè de tǎolùn/ Ngay khi dữ liệu thí nghiệm vừa được công bố, các nhà nghiên cứu lập tức triển khai một cuộc thảo luận sôi nổi."
+  ],
+  [
+    "各自 /Gèzì/",
+    "Đại từ",
+    "Chỉ bản thân một người hoặc chỉ một trong những phương diện của bản thân, thường cùng với đối tượng được nhắc đến làm chủ ngữ, định ngữ.",
+    "学生们都有各自的理想。/Xuéshēngmen dōu yǒu gèzì de lǐxiǎng/ Các học sinh đều có những lý tưởng riêng."
+  ],
+  [
+    "勿 /Wù/",
+    "Phó từ",
+    "Ngôn ngữ viết, biểu thị sự cấm đoán, không cho phép hoặc can ngăn (\"chớ, đừng\"), tương đương với “不要”.",
+    "非工作人员，请勿入内。 /Fēi gōngzuò rényuán, qǐng wù rù nèi/ Người không phận sự, xin đừng vào trong. 网上购票者须注意网站的安全性，切勿上当受骗。/ Wǎngshàng gòupiào zhě xū zhùyì wǎngzhàn de ānquán xìng, qiè wù shàngdàng shòupiàn/ Người mua vé trực tuyến cần chú ý tính an toàn của trang web, chớ để bị lừa gạt."
+  ],
+  [
+    "包括 /Bāokuò/",
+    "Động từ",
+    "Biểu thị bao hàm các bộ phận. Nhấn mạnh một vài bộ phận, có tác dụng nêu ví dụ, bổ sung, giải thích.",
+    "汉语技能教学包括听、说、读、写四个方面 / Hànyǔ jìnéng jiàoxué bāokuò tīng, shuō, dú, xiě sì gè fāngmiàn/ Giảng dạy kỹ năng tiếng Hán bao gồm bốn khía cạnh: nghe, nói, đọc, viết. 我们班所有人，包括最不爱运动的刘方也都参加了这 次运动会。 / Wǒmen bān suǒyǒu rén, bāokuò zuì bù ài yùndòng de Liú Fāng yě dōu cānjiāle zhè cì yùndònghuì. /Tất cả mọi người trong lớp chúng tôi, bao gồm cả Lưu Phương, người ít yêu thích thể thao nhất, cũng đã tham gia hội thao lần này."
+  ],
+  [
+    "时刻 /Shíkè/",
+    "Danh từ/Phó từ",
+    "Danh từ: Biểu thị ở một vài thời điểm hoặc một đoạn thời gian. Phó từ: Biểu thị ý nghĩa mỗi thời mỗi khắc, thường xuyên (có thể lặp lại là “时时刻刻”).",
+    "在最后时刻，他为本队踢进了赢得比赛的关键一球。 /Zài zuìhòu shíkè, tā wèi běn duì tī jìnle yíngdé bǐsài de guānjiàn yī qiú/ Vào thời khắc cuối cùng, anh ấy đã sút vào một quả bóng quan trọng giúp đội mình thắng trận. 只要你愿意，公司的大门时刻都为你开着。/Zhǐyào nǐ yuànyì, gōngsī de dàmén shíkè dōu wèi nǐ kāizhe / Chỉ cần bạn đồng ý, cánh cửa công ty luôn luôn mở vì bạn."
+  ],
+  [
+    "至今 /Zhìjīn/",
+    "Phó từ",
+    "Chỉ thời gian, dùng để nhấn mạnh một trạng thái, sự việc hoặc tình huống kéo dài liên tục từ một thời điểm trong quá khứ cho đến thời điểm hiện tại (thời điểm nói)",
+    "那件事的真相至今仍是一个谜。/Nà jiàn shì de zhēnxiàng zhìjīn réng shì yī gè mí/ Sự thật về vụ việc đó đến nay vẫn là một bí ẩn."
+  ],
+  [
+    "顶 /Dǐng/",
+    "Danh từ/Động từ/Lượng từ",
+    "Danh từ: Chỉ bộ phận cao nhất của con người hoặc vật thể. Động từ: Biểu thị động tác của đầu, hoặc đón lấy, chống lại (áp lực).",
+    "Danh từ: 我们终于爬上了山顶，看到了美丽的日出。 /Wǒmen zhōngyú pá shàng le shāndǐng, kàn dào le měilì de rìchū/ Cuối cùng chúng tôi cũng leo lên được đỉnh núi, ngắm nhìn bình minh tuyệt đẹp. Động từ: 这根柱子顶着房梁。/Zhè gēn zhùzi dǐng zhe fángliáng/ Cây cột này chống đỡ xà nhà."
+  ],
+  [
+    "",
+    "",
+    "Lượng từ: Dùng cho mũ, ô hơi lớn, hoặc đồ vật có hình cái ô.",
+    "Lượng từ: 他戴着一顶红色的棒球帽。/Tā dài zhe yī dǐng hóngsè de bàngqiú mào/ Anh ấy đội một cái mũ bóng chày màu đỏ."
+  ],
+  [
+    "······得+不 行 /De bùxíng/",
+    "Kết cấu",
+    "Biểu thị trình độ, mức độ cao, còn có thể dùng “······+得+ 很/不得了”.",
+    "我今天忙了一整天，现在累得不行。/Wǒ jīntiān máng le yī zhěng tiān, xiànzài lèi de bùxíng/ Hôm nay tôi bận cả ngày, giờ mệt không chịu nổi/"
+  ],
+  [
+    "反而 /Fǎn'ér/",
+    "Phó từ",
+    "Đứng giữa hai câu, biểu thị sự tương phản với dự kiến ban đầu (\"ngược lại\").",
+    "他平时话不多，但在辩论赛上反而成了最活跃的人。 /Tā píngshí huà bù duō, dàn zài biànlùn sài shàng fǎn'ér chéng le zuì huóyuè de rén/ Bình thường anh ấy ít nói, nhưng trong cuộc thi tranh luận lại trở thành người hoạt bát nhất."
+  ],
+  [
+    "从而 /Cóng'ér/",
+    "Liên từ",
+    "Đứng giữa hai câu, câu trước biểu thị nguyên nhân/phương pháp, câu sau biểu thị kết quả/mục đích (\"từ đó\").",
+    "比赛前做好思想准备可以减少运动员的压力，从而取 得比赛的成功。 / Bǐsài qián zuò hǎo sīxiǎng zhǔnbèi kěyǐ jiǎnshǎo yùndòngyuán de yālì, cóng'ér qǔdé bǐsài de chénggōng. / Chuẩn bị tư tưởng tốt trước trận đấu có thể giảm áp lực cho vận động viên, từ đó đạt được thành công trong trận đấu."
+  ],
+  [
+    "于 /Yú/",
+    "Giới từ",
+    "Tương đương với “在、从、 对、向、比” (ở, từ, đối với, hướng về, so với).",
+    "这家公司成立于 1997 年。 /Zhè jiā gōngsī chénglì yú yījiǔjiǔqī nián/ Công ty này được thành lập từ năm 1997. 这种药主要用于感冒的治疗。/Zhè zhǒng yào zhǔyào yòng yú gǎnmào de zhìliáo/ Loại thuốc này chủ yếu dùng trong việc điều trị cảm cúm"
+  ],
+  [
+    "为 /Wéi/",
+    "Động từ",
+    "Có nghĩa là “成、成为” (thành, trở thành) Có nghĩa là “作为、算作” (làm, coi như).",
+    "压力也可以变为动力。/Yālì yě kěyǐ biàn wéi dònglì. / Áp lực cũng có thể trở thành động lực/ 找工作时，很多人会以收入多少为第一标准。/Zhǎo gōngzuò shí, hěn duō rén huì yǐ shōurù duōshǎo wéi dì yī biāozhǔn/ Khi tìm việc, nhiều người lấy mức thu nhập làm tiêu chuẩn đầu tiên."
+  ],
+  [
+    "起来 /Qǐlái/",
+    "Động từ xu hướng",
+    "Dùng sau động từ: Biểu thị từ phân tán đến tập trung lại Biểu thị từ lộ rõ đến ẩn nấp, ẩn náu.",
+    "他把散落一地的玩具都捡起来放回了箱子里。/Tā bǎ sànluò yī dì de wánjù dōu jiǎn qǐlái fàng huí le xiāngzi lǐ/ Cậu bé nhặt tất cả đồ chơi rơi vãi dưới đất lên và cất lại vào trong hộp. 他把散落一地的玩具都捡起来放回了箱子里。/Tā bǎ sànluò yī dì de wánjù dōu jiǎn qǐlái fàng huí le xiāngzi lǐ/ Cậu bé nhặt tất cả đồ chơi rơi vãi dưới đất lên và cất lại vào trong hộp."
+  ],
+  [
+    "替 /Tì/",
+    "Động từ/Giới từ",
+    "Là động từ: có nghĩa là \"thay thế\". Là giới từ: biểu thị “给、为” (cho ai, vì ai).",
+    "刘老师今天有点儿事来不了，你能替他吗？/Liú lǎoshī jīntiān yǒudiǎn er shì lái bù liǎo, nǐ néng tì tì tā ma/ Thầy Lưu hôm nay có chút việc không đến được, cậu có thể thay thầy ấy được không?"
+  ],
+  [
+    "",
+    "",
+    "",
+    "李阳要去留学了，我们都替他高兴。/Lǐ Yáng yào qù liúxué le, wǒmen dōu tì tā gāoxìng/ Lý Dương sắp đi du học rồi, chúng tôi đều mừng cho cậu ấy."
+  ],
+  [
+    "说不定 /Shuōbudìn g/",
+    "Động từ/Phó từ",
+    "Là động từ: có nghĩa là \"không thể nói rõ ràng, khẳng định\" Là phó từ: biểu thị ước tính, có khả năng lớn (\"biết đâu\").",
+    "这事儿经理已经同意了，只是出发的时间还说不定。 /Zhè shì'er jīnglǐ yǐjīng tóngyìle, zhǐshì chūfā de shíjiān hái shuōbudìng/ Việc này giám đốc đã đồng ý rồi, chỉ là thời gian xuất phát thì vẫn chưa thể nói rõ. 别随随便便就说放弃，说不定下次会成功了。 /Bié suí suí biàn biàn jiù shuō fàngqì, shuōbudìng xià cì huì chénggōngle/ Đừng tùy tiện nói từ bỏ, biết đâu lần sau sẽ thành công."
+  ],
+  [
+    "似的 /Shìde/",
+    "Trợ từ",
+    "Trợ từ, đặt sau danh từ, biểu thị sự so sánh với một số sự vật, tình huống (thường dùng trong văn viết). Dùng trong cấu trúc “·····得+什么似的” mang ngữ khí khoa trương.",
+    "大雨过后，湖面平静得镜子似的，倒映着整个天空。 /Dà yǔ guò hòu, húmiàn píngjìng de jìngzi shìde, dàoyìng zhe zhěnggè tiānkōng/ Sau cơn mưa lớn, mặt hồ phẳng lặng như tấm gương vậy, in bóng cả bầu trời. 听说偶像要来，她激动得什么似的，一整晚都没睡好。 Tīng shuō ǒuxiàng yào lái, tā jīdòng de shénme shìde, yī zhěng wǎn dōu méi shuì hǎo/ Nghe tin thần tượng sắp đến, cô ấy hào hứng đến mức không tả xiết, cả đêm không sao ngủ được."
+  ],
+  [
+    "纷纷 /Fēnfēn/",
+    "Tính từ/Phó từ",
+    "Tính từ: Mô tả (ngôn luận, vật rơi, rụng xuống) nhiều mà hỗn loạn. Phó từ: Biểu thị (nhiều người hoặc sự vật) liên tục tiếp diễn (\"dồn dập, tới tấp, sôi nổi\").",
+    "秋风刮起，落叶纷纷。 /Qiūfēng guā qǐ, luòyè fēnfēn / Gió thu thổi lên, lá rụng xôn xao 要下雨了，路上的人纷纷往家里跑。 /Yào xià yǔ le, lùshàng de rén fēnfēn wǎng jiā lǐ pǎo/ Sắp mưa rồi, người đi đường dồn dập chạy về nhà."
+  ],
+  [
+    "瞎 /Xiā/",
+    "Động từ/Phó từ",
+    "Động từ: Nghĩa là \"mắt không nhìn thấy\" (mù). Phó từ: Biểu thị không có lí do, không có căn cứ hoặc khi làm một việc không có hiệu quả (\"nói bừa, làm bừa\").",
+    "你一定知道马的那只眼睛是瞎的。 /Nǐ yīdìng zhīdào mǎ de nà zhǐ yǎnjīng shì xiā de. / Bạn nhất định biết con mắt nào của con ngựa đó bị mù. 别听他瞎说！不用害怕，我们不会这么倒霉的。 /Bié tīng tā xiāshuō! Bú yòng hàipà, wǒmen bú huì zhème dǎoméi de/Đừng nghe anh ta nói bừa! Không cần sợ hãi, chúng ta sẽ không xui xẻo như thế đâu."
+  ],
+  [
+    "分别 /Fēnbié/",
+    "Động từ/Phó từ/Danh từ",
+    "Động từ: nghĩa là ly biệt, chia tay, xa cách. Phó từ: biểu thị riêng biệt, mỗi cái một. Danh từ: nghĩa là phân biệt, bất đồng, khác nhau.",
+    "从毕业到现在我们已经分别 20 年了，一直都没有联 系。 /Cóng bìyè dào xiànzài wǒmen yǐjīng fēnbié èrshí nián le, yīzhí dōu méiyǒu liánxì/ Từ khi tốt nghiệp đến nay chúng tôi đã chia tay 20 năm rồi, vẫn luôn không liên lạc. 老师分别找我们谈了话，了解了每个人的想法。/Lǎoshī fēnbié zhǎo wǒmen tán le huà, liǎojiě le měi gè rén de xiǎngfǎ/ Giáo viên đã lần lượt gặp riêng chúng tôi nói chuyện, để hiểu suy nghĩ của từng người."
+  ],
+  [
+    "",
+    "",
+    "",
+    "对消费者来说，这两个品牌的产品质量几乎没有什么 分别。/Duì xiāofèizhě lái shuō, zhè liǎng gè pǐnpái de chǎnpǐn zhìliàng jīhū méiyǒu shénme fēnbié/ Đối với người tiêu dùng, chất lượng sản phẩm của hai thương hiệu này hầu như không có sự khác biệt nào."
+  ],
+  [
+    "根 /Gēn/",
+    "Danh từ/Lượng từ",
+    "Danh từ: Chỉ bộ phận của thực vật sinh trưởng dưới lòng đất, hoặc nền móng, cơ sở, gốc rễ của sự vật. Lượng từ: Thường dùng cho vật dài và nhỏ.",
+    "1这件事还是得从根上解决，只理解表面问题是不行 的。 /Zhè jiàn shì háishì děi cóng gēn shang jiějué, zhǐ lǐjiě biǎomiàn wèntí shì bùxíng de/ Việc này vẫn phải giải quyết từ gốc rễ, chỉ hiểu vấn đề bề mặt là không được. 摸到尾巴的盲人说大相像一根绳子。 /Mō dào wěibā de mángrén shuō dàxiàng xiàng yī gēn shéngzi. /Người mù sờ thấy cái đuôi nói con voi giống như một sợi dây."
+  ],
+  [
+    "便 /Biàn/",
+    "Phó từ",
+    "Nghĩa là 就 (“thì, là, đã”), thường dùng trong văn viết.",
+    "仅仅是换一种心情，换一个角度，便可以从困境中走出 来。 /Jǐnjǐn shì huàn yī zhǒng xīnqíng, huàn yīgè jiǎodù, biàn kěyǐ cóng kùnjìng zhōng zǒu chūlái/ Chỉ cần thay đổi một chút tâm trạng, thay đổi một góc độ, là có thể bước ra khỏi hoàn cảnh khó khăn."
+  ],
+  [
+    "倒 /Dào/",
+    "Phó từ",
+    "Biểu thị tương phản, trái ngược với tình huống thông thường. Biểu thị không nghĩ đến. Biểu thị sự nhượng bộ (khẳng định trước, sau đó nói các phương diện khác). Biểu thị không nhẫn nại, bình tĩnh (dùng để hỏi hoặc hối thúc).",
+    "怎么勇敢反倒成为缺点了？ /Shàonián bù jiě de wèn: “Zěnme yǒnggǎn fǎn dào chéngwéi quēdiǎnle/ Tại sao dũng cảm ngược lại lại trở thành khuyết điểm? 小刘租的房子虽然很小，不过收拾得倒还干净。 / Xiǎo Liú zū de fángzi suīrán hěn xiǎo, búguò shōushi dé dào hái gānjìng. / Căn nhà Tiểu Lưu thuê tuy rất nhỏ, nhưng dọn dẹp ngược lại vẫn còn sạch sẽ."
+  ],
+  [
+    "······来 ······去 /Lái... Qù/",
+    "Kết cấu",
+    "Biểu thị sự lặp đi lặp lại nhiều lần của động tác, hai động từ đứng trước “来” và “去” thường là cùng một từ hoặc là từ gần nghĩa.",
+    "小狗追着自己的尾巴，在草地上跑来跑去。 /Xiǎo gǒu zhuīzhe zìjǐ de wěibā, zài cǎodì shang pǎo lái pǎo qù/ Chú chó nhỏ đuổi theo cái đuôi của mình, chạy đi chạy lại trên bãi cỏ. 他们研究来讨论去，还是没找出原因。 /Tāmen yánjiū lái tǎolùn qù, háishì méi zhǎo chū yuányīn./ Bọn họ nghiên cứu tới thảo luận lui, vẫn không tìm ra nguyên nhân."
+  ],
+  [
+    "要不 /Yàobù/",
+    "Liên từ",
+    "Giống với “要不然”, biểu thị nếu không như thế này, thì kết quả sẽ như dưới đây. Có nghĩa là vẫn còn một sự lựa chọn khác (\"hay là\").",
+    "还好碰见你了，要不然我今天肯定会迟到了。 /Hái hǎo pèngjiàn nǐ le, yàoburán wǒ jīntiān kěndìng huì chídàole/ May mà gặp được cậu, nếu không thì hôm nay tôi chắc chắn sẽ bị trễ rồi. 今天太晚了，要不你明天再走吧。 /Jīntiān tài wǎnle, yàobù nǐ míngtiān zài zǒu ba/ Hôm nay muộn quá rồi, hay là cậu ngày mai hãy đi."
+  ],
+  [
+    "算 /Suàn)/",
+    "Động từ",
+    "Có nghĩa là “认作，当做” (xem như, coi như). Đằng sau có thể đi với “了” biểu thị “作罢，不再计较” (bỏ đi, không tính toán nữa).",
+    "这钱就算我借给你的，将来你有了的时候再还我。 / Zhè qián jiù suàn wǒ jiè gěi nǐ de, jiānglái nǐ yǒule de shíhou zài hái wǒ/ Số tiền này cứ coi như tôi cho cậu mượn, sau này khi cậu có thì trả lại tôi. 算了吧，你跑得再快，也追不上会飞的鸟啊。 /Suànle ba, nǐ pǎo dé zài kuài, yě zhuī bù shàng huì fēi de niǎo a/ Thôi đi, cậu chạy nhanh đến mấy cũng không đuổi kịp con chim biết bay đâu."
+  ],
+  [
+    "作为 /Zuòwéi/",
+    "Động từ/Giới từ",
+    "Động từ: Có nghĩa là “看做， 认为是·····” (xem là, coi là, cho rằng). Giới từ: Dùng để chỉ ra, dẫn ra thân phận của một người hoặc tính chất của sự vật (\"với tư cách là\").",
+    "北海公园离家最近，所以我把那儿作为每晚散步的去 处。 / Běihǎi Gōngyuán lí jiā zuì jìn, suǒyǐ wǒ bǎ nà'er zuòwéi měi wǎn sànbù de qùchù/ Công viên Bắc Hải gần nhà nhất, nên tôi coi đó là nơi đi dạo mỗi tối. 作为大作家、大学问家，鲁迅对吃很讲究。 /Zuòwéi dà zuòjiā, dà xuéwènjiā, Lǔ Xùn duì chī hěn jiǎngjiu. / Với tư cách là một đại văn hào, học giả lớn, Lỗ Tấn rất kỹ tính trong việc ăn uống."
+  ],
+  [
+    "曾经 /Céngjīng/",
+    "Phó từ",
+    "Biểu thị hành động hoặc tình huống đã từng xảy ra hoặc từng phát sinh.",
+    "我曾经去过北京两次。/Wǒ céngjīng qù guò Běijīng liǎng cì/ Tôi đã từng đi Bắc Kinh hai lần. 他曾经是一名老师，后来转行做了记者。/Tā céngjīng shì yī míng lǎoshī, hòulái zhuǎnháng zuò le jìzhě/ Anh ấy từng là một giáo viên, sau đó chuyển ngành làm phóng viên."
+  ],
+  [
+    "毕竟 /Bìjìng/",
+    "Phó từ",
+    "Có nghĩa là rốt cuộc, cuối cùng Dùng để chỉ phần quan trọng nhất hoặc chính xác nhất, thường dùng cùng câu biểu thị “cho dù thế nào thì kết quả chính là như thế này”.",
+    "虽然我们遇到了很多困难，但毕竟完成了任务。 / Suīrán wǒmen yù dàole hěn duō kùnnan, dàn bìjìng wánchéngle rènwù. / Mặc dù chúng ta đã gặp rất nhiều khó khăn, nhưng rốt cuộc cũng đã hoàn thành nhiệm vụ."
+  ],
+  [
+    "逐渐 /Zhújiàn/",
+    "Phó từ",
+    "Chỉ trình độ, số lượng tăng hoặc giảm một chút (\"dần dần\").",
+    "天色逐渐暗了下来，夜晚即将来临。/Tiānsè zhújiàn àn le xiàlái, yèwǎn jíjiāng láilín/ Màu trời dần dần tối đi, đêm sắp đến. 进入秋季，气温逐渐降低，树叶也开始变黄。/Jìnrù qiūjì, qìwēn zhújiàn jiàngdī, shùyè yě kāishǐ biàn huáng/ Bước vào mùa thu, nhiệt độ dần hạ thấp, lá cây cũng bắt đầu chuyển vàng."
+  ],
+  [
+    "或许 /Huòxǔ/",
+    "Phó từ",
+    "Có nghĩa là có lẽ, có khả năng (\"có lẽ\").",
+    "虽然以前她不支持你，但或许这次会有变化。 /Suīrán yǐqián tā bù zhīchí nǐ, dàn huòxǔ zhè cì huì yǒu biànhuà /Mặc dù trước đây cô ấy không ủng hộ bạn, nhưng có lẽ lần này sẽ có thay đổi. 或许正是因为这一点一滴的努力，你就会走在别人的 前面。 /Huòxǔ zhèng shì yīnwèi zhè yī diǎn yī dī de nǔlì,"
+  ],
+  [
+    "",
+    "",
+    "",
+    "nǐ jiù huì zǒu zài biérén de qiánmiàn. /Có lẽ chính vì chút nỗ lực nhỏ nhoi này, bạn sẽ đi trước người khác."
+  ],
+  [
+    "来/过来 /Lái/Guòlái /",
+    "Động từ xu hướng",
+    "Dùng sau động từ (ví dụ: \"醒 \") biểu thị chuyển tiếp từ lúc ngủ đến lúc tỉnh, hoặc quay về trạng thái lúc ban đầu/bình thường. Có thể dùng trong cấu trúc phủ định (动词 + 得/不 + 过 来).",
+    "早晨醒来，我发现窗外正下着大雪。 /Zǎochén xǐng lái, wǒ fāxiàn chuāng wài zhèng xiàzhe dà xuě/ Buổi sáng thức dậy, tôi phát hiện bên ngoài cửa sổ đang tuyết rơi dày. 脑子才清醒过来。 / Nǎozi cái qīngxǐng guòlái. / Đầu óc mới tỉnh táo trở lại."
+  ],
+  [
+    "所 /Suǒ/",
+    "Trợ từ/Lượng từ",
+    "Trợ từ: Đứng trước động từ, dùng để chỉ ra sự vật (thường làm định ngữ, chủ ngữ...). Dùng trong cấu trúc “有/无+ 所+ động từ” Lượng từ: Dùng với chỗ ở, nơi ở, cơ cấu (ví dụ: trường học).",
+    "这就是我所知道的全部情况。/Zhè jiùshì wǒ suǒ zhīdào de quánbù qíngkuàng/ Đây chính là toàn bộ tình hình mà tôi biết. 这所房子 /zhè suǒ fángzi/ Căn nhà này."
+  ],
+  [
+    "相当 /Xiāngdān g/",
+    "Động từ/Phó từ",
+    "Động từ: Biểu thị hai phương diện (số lượng, điều kiện...) tương đương, ngang bằng nhau. Phó từ: Biểu thị trình độ, mức độ tương đối cao (\"khá, tương đối\").",
+    "这种鸟一天所食的害虫相当于自己的体重。 /Zhè zhǒng niǎo yī tiān suǒ shí de hàichóng xiāngdāng yú zìjǐ de tǐzhòng. /Loài chim này ăn số lượng côn trùng gây hại trong một ngày tương đương với trọng lượng cơ thể của nó. 菜的味道好极了，服务也挺周到，我相当满意。 /Cài de wèidào hǎo jíle, fúwù yě tǐng zhōudao, wǒ xiāngdāng mǎnyì/ Món ăn ngon tuyệt vời, phục vụ cũng rất chu đáo, tôi khá hài lòng."
+  ],
+  [
+    "数 /Shǔ/Shù/",
+    "Động từ/Số từ",
+    "Động từ (shǔ): Biểu thị tra, đếm (số lượng). Dùng trong cấu trúc “数······（最）······” hoặc “（最）······的（要/就）数 ······” biểu thị so sánh (nhất). Số từ (shù): Có nghĩa là “几/ 几个” (vài, mấy), thường dùng trong văn viết.",
+    "先生，这是找您的钱 58 块 6，您数数。 /Xiānsheng, zhè shì zhǎo nín de qián wǔshíbā kuài liù, nín shǔ shǔ. / Thưa ngài, đây là tiền thối lại cho ngài 58 tệ 6, ngài đếm thử xem. 要数我们班跑得最快的，那就数李阳了。 /Yào shuō wǒmen bān pǎo de zuì kuài de, nà jiù shǔ Lǐ Yáng le/ Nếu nói về người chạy nhanh nhất lớp chúng ta, thì phải kể đến Lý Dương."
+  ],
+  [
+    "以及 /Yǐjí/",
+    "Liên từ",
+    "Dùng để nối cụm từ hoặc từ có quan hệ ngang bằng nhau, liên kết thành phần thường có sự phân biệt trước sau hoặc sự phân biệt chủ yếu và thứ yếu (\"cũng như\").",
+    "吃饭时不要用筷子敲打碗，盘子以及桌面。 /Chīfàn shí bú yào yòng kuàizi qiāodǎ wǎn, pánzi yǐjí zhuōmiàn. / Khi ăn cơm không được dùng đũa gõ vào bát, đĩa cũng như mặt bàn. 学校的领导，教师以及一些学生代表观看了演出。 /Xuéxiào de lǐngdǎo, jiàoshī yǐjí yīxiē xuésheng dàibiǎo guānkànle yǎnchū. /Lãnh đạo nhà trường, giáo viên và một số đại diện học sinh đã xem buổi biểu diễn."
+  ],
+  [
+    "程度 (Chéngdù)",
+    "Danh từ",
+    "Chỉ trình độ, mức độ hoặc cấp độ mà ở một vài phương diện đã đạt được.",
+    "1. 问题已经发展到了十分严重的程度。 / Wèntí yǐjīng fāzhǎn dào le shífēn yánzhòng de chéngdù. / Vấn đề đã phát triển đến mức độ vô cùng nghiêm trọng.<br>2. 在很 大程度上，一个人的未来取决于他所受的教育。 / Zài hěn dà chéngdù shang, yīgè rén de wèilái qǔjué yú tā suǒ shòu de jiàoyù. / Ở mức độ rất lớn, tương lai của một người phụ thuộc vào nền giáo dục mà anh ta nhận được."
+  ],
+  [
+    "何况 /Hékuàng/",
+    "Liên từ",
+    "Dùng ngữ khí phản vấn, biểu thị cao hơn một mức hoặc làm cho kết luận ở câu sau càng rõ ràng hơn",
+    "连运动员都不满意，更何况看比赛的球迷呢。 / Lián yùndòngyuán dōu bù mǎnyì, gèng hékuàng kàn bǐsài de qiúmí ne. /Ngay cả vận động viên cũng không hài lòng, huống hồ là người hâm mộ xem trận đấu."
+  ],
+  [
+    "何必 /Hébì/",
+    "Phó từ",
+    "Dùng ngữ khí phản vấn để biểu thị không cần thiết, không bắt buộc (\"cần gì phải, hà tất\").",
+    "你何必亲自送一趟呢？叫个快递不就行了？ /Nǐ hébì qīnzì sòng yī tàng ne? Jiào gè kuàidì bú jiù xíngle/ Cậu cần gì phải tự mình đi một chuyến? Gọi một người chuyển phát nhanh chẳng phải là được rồi sao?."
+  ],
+  [
+    "多亏 /Duōkuī/",
+    "Động từ",
+    "Do có sự giúp đỡ của người khác hoặc bởi vì một vài nhân tố có lợi, mà tránh được rủi ro hoặc đạt được lợi ích nào đó (\"may nhờ, nhờ có\").",
+    "今天搬家多亏有你在，你可帮我太忙了。/Jīntiān bānjiā duōkuī yǒu nǐ zài, nǐ kě bāng wǒ tài máng le/ Hôm nay chuyển nhà may nhờ có cậu ở đây, cậu đã giúp tôi quá nhiều rồi."
+  ],
+  [
+    "所谓 /Suǒwèi/",
+    "Tính từ",
+    "Biểu thị thường hay nói, dùng để đề ra từ ngữ cần giải thích (\"cái gọi là\"). Chỉ những điều do một vài người nói, thường biểu thị không đồng ý, không thừa nhận.",
+    "他所谓的“新闻“，其实我们早就知道了。 /Tā suǒwèi de “xīnwén“, qíshí wǒmen zǎo jiù zhīdàole. /Cái gọi là “tin tức” của anh ấy, thực ra chúng tôi đã biết từ lâu rồi."
+  ],
+  [
+    "则 /Zé/",
+    "Lượng từ/Liên từ",
+    "Lượng từ: Thường dùng với văn bản ngắn thành đoạn hoặc thành bài (mẩu tin, câu chuyện) Liên từ: Thường gặp kết cấu “A·····，（而）B 则······” biểu thị sự so sánh giữa câu trước và câu sau. Liên từ: Biểu thị mối quan hệ nhân quả (tương đương với “就” trong văn nói).",
+    "一则新闻 /yī zé xīnwén/: Một mẩu tin (trên báo/đài). 北方气候干燥，而南方则潮湿多雨。/Běifāng qìhòu gānzào, ér nánfāng zé cháoshī duō yǔ/ Khí hậu miền Bắc khô ráo, còn miền Nam thì ẩm ướt mưa nhiều. 物体受热，则体积膨胀。/Wùtǐ shòu rè, zé tǐjī péngzhàng/ Vật thể khi nhận nhiệt, thì thể tích sẽ nở ra."
+  ],
+  [
+    "为······所 ····· /Wéi... Suǒ../",
+    "Kết cấu cố định",
+    "Kết cấu cố định, thường dùng trong văn viết, trong đó “为” biểu thị ý nghĩa là “被” (bị/được).",
+    "大自然就可以更好地为人所用。 /Dà zìrán jiù kěyǐ gèng hǎo de wéi rén suǒ yòng/ Thiên nhiên có thể được con người sử dụng tốt hơn."
+  ],
+  [
+    "起 /Qǐ/",
+    "Động từ",
+    "Động từ (làm bổ ngữ), biểu thị sự liên tiếp, kết hợp và cố định.",
+    "最重要的是建立起一套行之有效的制度。/Zuì zhòngyào de shì jiànlì qǐ yī tào xíngzhīyǒuxiào de zhìdù/ /Điều quan trọng nhất là thiết lập một bộ chế độ có hiệu quả thực thi."
+  ],
+  [
+    "动词 + 过 (Guò)",
+    "Động từ xu hướng",
+    "Dùng với cách thức “động từ + 得/不 + 过” làm bổ ngữ, biểu thị ý nghĩa là quá, vượt qua, hơn (thường dùng trong so sánh năng lực, trình độ).",
+    "1. 跟别人谈论起军事来，没有人说得过他。 / Gēn biérén tánlùn qǐ jūngshì lái, méiyǒu rén shuō de guò tā. / Khi bàn luận về quân sự với người khác, không ai nói hơn được anh ấy.<br>2. 产品在价格上肯定竞争不过他 们。 / Chǎnpǐn zài jiàgé shang kěndìng jìngzhēng bú guò tāmen. / Sản phẩm chắc chắn không thể cạnh tranh lại họ về giá cả."
+  ],
+  [
+    "迟早 /Chízǎo/",
+    "Phó từ",
+    "Biểu thị một vài động tác hoặc sự việc sớm muộn cũng sẽ xảy ra.",
+    "随着网络技术的发展，这些问题迟早都会得到解决。 /Suízhe wǎngluò jìshù de fāzhǎn, zhèxiē wèntí chízǎo dōu huì dédào jiějué/ Cùng với sự phát triển của công nghệ mạng, những vấn đề này sớm muộn gì cũng sẽ được giải quyết."
+  ],
+  [
+    "再三 /Zàisān/",
+    "Phó từ",
+    "Có nghĩa là “hết lần này đến lần khác”, thường đi với động từ.",
+    "他考虑再三，最后还是客气地拒绝了。/Tā kǎolǜ zàisān, zuìhòu háishì kèqi de jùjuéle/ Anh ấy suy nghĩ hết lần này đến lần khác, cuối cùng vẫn lịch sự từ chối."
+  ],
+  [
+    "即 /Jí/",
+    "Động từ/Phó từ",
+    "Động từ: Dùng trong văn viết, nghĩa là “就是” (tức là). Phó từ: Có nghĩa là “就” “便” (thì, ngay).",
+    "“旦”是象形字，即太阳从地平线上升起。 /“Dàn” shì xiàngxíngzì, jí tàiyáng cóng dìpíngxiàn shang shēng qǐ/ Chữ “旦” là chữ tượng hình, tức là mặt trời mọc từ đường chân trời. 不懂即问是他最大的优点。/Bù dǒng jí wèn shì tā zuì dà de yōudiǎn/ Không hiểu thì hỏi ngay là ưu điểm lớn nhất của anh ấy."
+  ],
+  [
+    "个别 /Gèbié/",
+    "Tính từ",
+    "Có nghĩa là “单个，各个” (từng cái, mỗi cái). Biểu thị cực kỳ ít, hiếm có.",
+    "大部分同学都按时完成了作业，只有个别同学还需要 一点时间。/Dà bùfèn tóngxué dōu ànshí wánchéng le zuòyè, zhǐyǒu gèbié tóngxué hái xūyào yīdiǎn shíjiān/ Đa số các bạn học sinh đều hoàn thành bài tập đúng hạn, chỉ có một vài bạn cá biệt cần thêm chút thời gian."
+  ],
+  [
+    "非 /Fēi/",
+    "Tiền tố/Động từ/Phó từ",
+    "Tiền tố: Đứng trước cụm danh từ, biểu thị là không thuộc về phạm vi này. Động từ: Có nghĩa là “不是” (không phải). Phó từ: Biểu thị chủ quan cố ý, kiên trì làm một việc gì đó (thường dùng trong cấu trúc “非+ động từ + 不可”).",
+    "非机动车 /Fēi jīdòngchē/ Phi cơ giới /Xe không có động cơ 此物非彼物，不可混淆。/Cǐ wù fēi bǐ wù, bùkě hùnxiáo/ Vật này không phải vật kia, không thể lẫn lộn. 他下定决 心，非要考上那所名牌大学不可。/Tā xià dìng juéxīn, fēi yào kǎo shàng nà suǒ míngpái dàxué bùkě/ Anh ấy quyết tâm, nhất định phải thi đỗ vào ngôi trường đại học danh tiếng đó mới thôi."
+  ],
+  [
+    "以 /Yǐ/",
+    "Giới từ/Liên từ",
+    "Giới từ: Có nghĩa là “用、拿、 凭借” (dùng, lấy, dựa vào, nhờ vào). Liên từ: Biểu thị mục đích (\"để\").",
+    "我们应以客观的态度看待这个问题。/Wǒmen yīng yǐ kèguān de tàidù kàndài zhège wèntí/ Chúng ta nên dùng/lấy thái độ khách quan để nhìn nhận vấn đề này. 公司决定扩大生产规模，以满足日益增长的市场需求。 /Gōngsī juédìng kuòdà shēngchǎn guīmó, yǐ mǎnzú rìyì zēngzhǎng de shìchǎng xūqiú/ Công ty quyết định mở rộng quy mô sản xuất, để đáp ứng nhu cầu thị trường ngày càng tăng."
+  ],
+  [
+    "平常 /Píngcháng /",
+    "Tính từ/Danh từ",
+    "Tính từ: Biểu thị phổ thông, bình thường, không có gì đặc biệt Danh từ: Ý nghĩa là “平时” (ngày thường, lúc thường).",
+    "对小王来说，今天是一个不平常的日子。 /Duì Xiǎo Wáng lái shuō, jīntiān shì yīgè bù píngcháng de rìzi/ Đối với Tiểu Vương, hôm nay là một ngày không bình thường. 他平常总是来得很早，今天却迟到了。/Tā píngcháng zǒng shì lái de hěn zǎo, jīntiān què chídàole/ Anh ấy ngày thường luôn đến rất sớm, nhưng hôm nay lại đến muộn."
+  ],
+  [
+    "宁可 /Nìngkě/",
+    "Phó từ",
+    "Biểu thị sau khi so sánh, chọn lựa được 1 bên tương đối có lợi (\"thà rằng... còn hơn\").",
+    "1. 作为母亲，她宁可自己累一点儿，也不想委屈了孩 子。 /Zuòwéi mǔqīn, tā nìngkě zìjǐ lèi yīdiǎn er, yě bù xiǎng wěiqu le háizi/ Với tư cách là một người mẹ, cô ấy thà rằng mình mệt một chút, cũng không muốn làm con cái phải chịu thiệt thòi"
+  ],
+  [
+    "极其 /Jíqí/",
+    "Phó từ",
+    "Có nghĩa là “非常” (rất, cực kỳ), thường dùng trong văn viết, chỉ có thể bổ sung cho tính từ song âm tiết hoặc đa âm tiết.",
+    "在中国，餐桌上放一把刀是极其少见的现象。/Zài Zhōngguó, cānzhuō shang fàng yī bǎ dāo shì jíqí shǎojiàn de xiànxiàng/ Ở Trung Quốc, việc đặt dao trên bàn ăn là một hiện tượng cực kỳ hiếm thấy."
+  ],
+  [
+    "其余 /Qíyú/",
+    "Đại từ",
+    "Biểu thị phần còn lại, bộ phận khác.",
+    "怎么只有你们两个人？其余的同学呢？ /Zěnme zhǐyǒu nǐmen liǎng gè rén? Qíyú de tóngxué ne? / Sao chỉ có hai người các cậu? Những học sinh còn lại đâu?"
+  ],
+  [
+    "可见 /Kějiàn/",
+    "Liên từ",
+    "Thường dùng cách thức “······，（由此）可见······”, biểu thị có thể dựa vào tình huống được nói đến trong văn bản mà đưa ra phán đoán, đánh giá.",
+    "1. 他已经住院好几天了，一直诊断不出是什么问题，可 见情况不太好。 /Tā yǐjīng zhùyuàn hǎo jǐ tiānle, yīzhí zhěnduàn bù chū shì shénme wèntí, kějiàn qíngkuàng bú tài hǎo / Anh ấy đã nhập viện mấy ngày rồi, vẫn không chẩn đoán ra vấn đề gì, có thể thấy tình hình không được tốt lắm."
+  ],
+  [
+    "般 /Bān/",
+    "Trợ từ",
+    "Có nghĩa là “一样” “似的” (tựa như, như), thường đứng sau danh từ, tạo thành một cụm từ làm định ngữ hoặc trạng ngữ.",
+    "望着爸爸远去的背景，我的眼泪雨点般不停地往下掉。 /Wàngzhe bàba yuǎn qù de bèijǐng, wǒ de yǎnlèi yǔdiǎn bān bù tíng de wǎng xià diào/ Nhìn bóng lưng bố đi xa, nước mắt tôi rơi xuống không ngừng như mưa."
+  ],
+  [
+    "闻 (Wén)",
+    "Ngữ tố/Động từ",
+    "Ngữ tố: Có nghĩa là \"nghe thấy hoặc tin tức, sự việc được nghe thấy\"/ Động từ: Biểu thị dùng mũi để cảm nhận, nhận biết mùi vị.",
+    "老话说：百闻不如一见。 /Lǎo huà shuō: Bǎi wén bù rú yī jiàn. / Lời cổ nói: Trăm nghe không bằng một thấy. 等能闻到香味时，便可开锅了。/ Wén dào xiāngwèi shí, biàn kě kāi guō le./ Khi ngửi thấy mùi thơm, thì có thể mở nồi."
+  ],
+  [
+    "趁 /Chèn/",
+    "Giới từ",
+    "Có nghĩa là lợi dụng (thời gian, cơ hội).",
+    "萝卜饼要趁热吃。 /Luóbo bǐng yào chèn rè chī/ Bánh củ cải phải ăn lúc còn nóng."
+  ],
+  [
+    "动词+得/ 不+起 (De/Bù Qǐ)",
+    "Kết cấu",
+    "Biểu thị về mặt chủ quan có (không có) năng lực và điều kiện thực hiện (hoặc tiếp nhận) động tác nào đó.",
+    "只有经得起困难和时间考验的朋友才算是真正的朋 友。 /Zhǐyǒu jīng de qǐ kùnnan hé shíjiān kǎoyàn de péngyǒu cái suàn shì zhēnzhèng de péngyǒu/ Chỉ những người bạn vượt qua được thử thách của khó khăn và thời gian mới được coi là bạn bè thực sự."
+  ],
+  [
+    "支 /Zhī/",
+    "Động từ/Lượng từ",
+    "Động từ: Biểu thị dùng đồ vật chống cho vật thể không bị đổ xuống Lượng từ: Dùng trong tác phẩm âm nhạc, đội ngũ, hoặc đồ vật có hình cán (cây, bản).",
+    "他的两只手放在桌上，支着脑袋，正在想事情。 /Tā de liǎng zhī shǒu fàng zài zhuō shang, zhīzhe nǎodai, zhèngzài xiǎng shìqíng/ Hai tay anh ấy đặt trên bàn, chống cằm, đang suy nghĩ việc gì đó. 他弹第二支曲子时引起了牛的注意。 /Tā tán dì èr zhī qǔzi shí yǐnqǐle niú de zhùyì/ Khi anh ấy chơi bản nhạc thứ hai đã thu hút sự chú ý của con bò."
+  ],
+  [
+    "凭 /Píng/",
+    "Động từ/Giới từ",
+    "Động từ: Có nghĩa là nhờ vào, dựa vào. Giới từ: Biểu thị căn cứ, dựa vào (thường dùng cách thức “凭+ tân ngữ + động từ”).",
+    "干工作不能光凭经验，还要有创新。 /Gàn gōngzuò bù néng guāng píng jīngyàn, hái yào yǒu chuàngxīn/ Làm việc không thể chỉ dựa vào kinh nghiệm, còn phải có sự đổi mới. 请旅客们准备好车票，凭票进站。 /Qǐng lǚkèmen zhǔnbèi hǎo chēpiào, píng piào jìn zhàn/ Xin hành khách hãy chuẩn bị sẵn vé tàu, dựa vào vé để vào ga."
+  ],
+  [
+    "硬 /Yìng/",
+    "Phó từ",
+    "Biểu thị kiên quyết hoặc cố chấp làm một việc gì đó. Biểu thị không đủ năng lực nhưng vẫn tiếp tục tận lực để làm một việc gì đó (\"cố gắng, cố chấp\").",
+    "医生让他休息，他硬要回去上班。/Yīshēng ràng tā xiūxi, tā yìng yào huíqù shàngbān/ Bác sĩ bảo anh ấy nghỉ ngơi, anh ấy cứ đòi về đi làm. 为了治病，他还是硬把它喝下去了。 /Wèile zhì bìng, tā háishì yìng bǎ tā hē xiàqùle. /Mặc dù thuốc bắc hơi đắng, nhưng vì chữa bệnh, anh ấy vẫn cố gắng uống hết."
+  ],
+  [
+    "偶然 /Ǒurán/",
+    "Tính từ/Phó từ",
+    "Tính từ: Biểu thị sự việc phát sinh ngoài dự đoán hoặc dựa vào quy luật thông thường thì không có khả năng phát sinh (\"ngẫu nhiên, bất ngờ\"). Phó từ: Có nghĩa là “偶尔，有 时候” (thỉnh thoảng/ có lúc).",
+    "这次相遇完全是一个偶然的事件，谁也没有料到。 /Zhè cì xiāngyù wánquán shì yī gè ǒurán de shìjiàn, shéi yě méiyǒu liàodào/ Lần gặp gỡ này hoàn toàn là một sự kiện ngẫu nhiên, không ai ngờ tới cả. 我昨天在超市偶然遇见了十年没见的老同学。/Wǒ zuótiān zài chāoshì ǒurán yùjiàn le shí nián méi jiàn de lǎo tóngxué/ Hôm qua tôi tình cờ gặp một người bạn cũ đã mười năm không gặp ở siêu thị."
+  ],
+  [
+    "尽快 (Jǐnkuài)",
+    "Phó từ",
+    "Có nghĩa là nhanh hết mức có thể (\"nhanh chóng\").",
+    "1. 我要抓紧时间尽快把《说文解字》电脑化。 / Wǒ yào zhuājǐn shíjiān jǐnkuài bǎ 《Shuōwén Jiězì》 diànnǎo huà. / Tôi phải tranh thủ thời gian nhanh chóng máy tính hóa cuốn \"Thuyết văn giải tự\".<br>2. 趁这两天天气好，您尽 快把过季的衣服洗一洗，收起来。 / Chèn zhè liǎng tiān tiānqì hǎo, nín jǐnkuài bǎ guò jì de yīfu xǐ yī xǐ, shōu qǐlái. / Tranh thủ hai hôm thời tiết đẹp này, bạn nhanh chóng giặt giũ và cất quần áo trái mùa đi."
+  ],
+  [
+    "一旦 /Yīdàn/",
+    "Phó từ",
+    "Biểu thị thời gian không xác định, ngày đó bỗng nhiên tới hoặc giả dụ có ngày đó (\"một khi\").",
+    "一旦有人闯入这个空间，我们就会感觉不舒服、不自 在。 /Yīdàn yǒu rén chuǎng rù zhège kōngjiān, wǒmen jiù huì gǎnjué bù shūfú, bù zìzài/ Một khi có người đột nhập vào không gian này, chúng ta sẽ cảm thấy không thoải mái, không tự nhiên."
+  ],
+  [
+    "难免 /Nánmiǎn/",
+    "Tính từ",
+    "Có nghĩa là khó tránh khỏi, không thể tránh khỏi.",
+    "朋友间难免会发生矛盾、误会甚至是伤害。 /Péngyǒu jiān nánmiǎn huì fāshēng máodùn, wùhuì shènzhì shì shānghài/ Giữa bạn bè khó tránh khỏi việc xảy ra mâu thuẫn, hiểu lầm thậm chí là tổn thương."
+  ],
+  [
+    "自从 /Zìcóng/",
+    "Giới từ",
+    "Biểu thị bắt đầu từ mốc thời gian nào đó trong quá khứ (\"kể từ khi\").",
+    "自从有了长大后成为作家这个理想之后，他每天都坚 持写作。 /Zìcóng yǒule zhǎng dà hòu chéngwéi zuòjiā zhège lǐxiǎng zhīhòu, tā měitiān dōu jiānchí xiězuò/ Kể từ khi có lý tưởng lớn lên trở thành nhà văn, anh ấy mỗi ngày đều kiên trì viết lách."
+  ],
+  [
+    "一致 /Yīzhì/",
+    "Tính từ/Phó từ",
+    "Tính từ: Biểu thị không có sự chia rẽ, bất đồng. Phó từ: Biểu thị cùng nhau, đồng lòng.",
+    "文文跟他们的意见不一致。 /Wénwén gēn tāmen de yìjiàn bù yīzhì/ Ý kiến của Văn Văn không thống nhất với họ. 双方一致表示将进一步发展友好合作关系。 /Shuāngfāng yīzhì biǎoshì jiāng jìnyībù fāzhǎn yǒuhǎo hézuò guānxì/ Hai bên nhất trí bày tỏ sẽ tiếp tục phát triển mối quan hệ hợp tác hữu nghị."
+  ],
+  [
+    "某 /Mǒu/",
+    "Đại từ chỉ thị",
+    "Chỉ một người hoặc một vật nhất định (thường dùng sau họ, biểu thị biết tên nhưng không nói ra). Chỉ người hoặc vật không xác định.",
+    "某些干部的工作作风存在问题。/Mǒu xiē gànbù de gōngzuò zuòfēng cúnzài wèntí/ Tác phong làm việc của một số cán bộ nào đó tồn tại vấn đề. 在某种程度上，我同意你的观点。/Zài mǒu zhǒng chéngdù shàng, wǒ tóngyì nǐ de guāndiǎn/Ở một mức độ nào đó, tôi đồng ý với quan điểm của bạn."
+  ],
+  [
+    "幸亏 /Xìngkuī/",
+    "Phó từ",
+    "Biểu thị do một vài nguyên nhân nào đó mà tránh được một số chuyện không hy vọng sẽ phát sinh (\"may mà\").",
+    "幸亏你提醒了我，我今天就去报名。/Xìngkuī nǐ tíxǐngle wǒ, wǒ jīntiān jiù qù bàomíng/ May mà cậu nhắc tôi, hôm nay tôi sẽ đi đăng ký."
+  ],
+  [
+    "行动 /Xíngdòng/",
+    "Động từ/Danh từ",
+    "Động từ: Biểu thị đi lại, hoạt động cơ thể. Cũng có thể biểu thị tiến hành hành động nào đó vì mục đích nào đó. Danh từ: Biểu thị hoạt động, hành vi.",
+    "他运动时受伤了，行动不便。 /Tā yùndòng shí shòushāngle, xíngdòng bú biàn/ Anh ấy bị thương khi tập thể thao, đi lại bất tiện. 我们应该勇敢面对困难，迅速采取行动。/Wǒmen yīnggāi yǒnggǎn miànduì kùnnan, xùnsù cǎiqǔ xíngdòng. /Chúng ta nên dũng cảm đối mặt với khó khăn, nhanh chóng hành động."
+  ],
+  [
+    "义务 /Yìwù/",
+    "Danh từ/Tính từ",
+    "Danh từ: Biểu thị trách nhiệm về mặt pháp luật, đạo đức nên gánh vác, đảm nhiệm (\"nghĩa vụ\"). Tính từ: Biểu thị không nhận thù lao (mang tính nghĩa vụ).",
+    "中国有关于九年制义务教育的法律。 /Zhōngguó yǒu guānyú jiǔ nián zhì yìwù jiàoyù de fǎlǜ/ Trung Quốc có luật về giáo dục bắt buộc 9 năm 参与社会事务和促进社会进步是每个人的权利，也是 每个人的义务和责任。/Cānyù shèhuì shìwù hé cùjìn shèhuì jìnbù shì měi gèrén de quánlì, yě shì měi gèrén de yìwù hé zérèn /Tham gia công việc xã hội và thúc đẩy tiến bộ xã hội là quyền lợi của mỗi người, cũng là nghĩa vụ và trách nhiệm của mỗi người."
+  ],
+  [
+    "朝 /Cháo/",
+    "Động từ/Giới từ",
+    "Động từ: Biểu thị hướng về, đối mặt Giới từ: Biểu thị phương hướng của hành vi, động tác đã chỉ",
+    "我们学校的正门坐西朝东。 /Wǒmen xuéxiào de zhèng mén zuò xī cháo dōng/ Cổng chính của trường chúng tôi tọa lạc phía Tây, hướng về phía Đông. 使劲儿朝里面放水。 /Shǐ jìnr cháo lǐmiàn fàng shuǐ/ Dốc sức đổ nước vào bên trong."
+  ],
+  [
+    "简直 /Jiǎnzhí/",
+    "Phó từ",
+    "Biểu thị gần như là vậy nhưng cũng không hẳn hoàn toàn là như vậy. Mang ngữ khí khoa trương, nhấn mạnh (\"quả là/thật là\").",
+    "与从前相比，简直像换了个人。 /Yǔ cóngqián xiāng bǐ, jiǎnzhí xiàng huànle gè rén/ So với trước đây, (cô ấy) quả là như đã thay đổi thành một người khác."
+  ],
+  [
+    "来 /Lái/",
+    "Trợ từ",
+    "Đứng sau các từ chỉ số “十、 百、千”... hoặc từ chỉ số lượng, biểu thị ước lượng (\"khoảng hơn\"). Dùng sau các từ chỉ số như “一、二、三” tạo thành kết cấu “一来······，二来······” biểu thị liệt kê lí do (\"một là... hai là...\").",
+    "他雇了 20 来个当地人为他带路和搬运行李。 /Tā gùle èrshí lái gè dāngdì rén wèi tā dàilù hé bānyùn xíngli. / Anh ấy đã thuê khoảng hơn 20 người địa phương dẫn đường và khuân vác hành lý cho anh ấy. 一来是给大家送水果，二来是看看大家过节还有什么 难处。 /Yī lái shì gěi dàjiā sòng shuǐguǒ, èr lái shì kàn kàn dàjiā guòjié hái yǒu shénme nán chu/ Một là để mang trái cây đến cho mọi người, hai là để xem mọi người đón lễ còn khó khăn gì không."
+  ],
+  [
+    "至于 /Zhìyú/",
+    "Động từ/Giới từ",
+    "Động từ: Biểu thị đạt đến một loại trình độ nào đó (thường dùng trong câu phản vấn với ý \"đến mức\"). Giới từ: Dùng trong kết cấu “（A）·····，至于（B）······” biểu thị nhắc đến một việc khác nữa (\"còn về\").",
+    "我只是和你开个玩笑，你至于生那么大的气吗？ /Wǒ zhǐshì hé nǐ kāi gè wánxiào, nǐ zhìyú shēng nàme dà de qì ma/ Tôi chỉ đùa với cậu thôi, cậu đến mức phải tức giận lớn như vậy sao? 我只知道他是六班的学生，至于住在哪儿，我就不清楚 了。 /Wǒ zhǐ zhīdào tā shì liù bān de xuésheng, zhìyú zhù zài nǎ'er, wǒ jiù bù qīngchǔle/ Tôi chỉ biết anh ấy là học"
+  ],
+  [
+    "",
+    "",
+    "",
+    "sinh lớp 6, còn về việc anh ấy sống ở đâu, thì tôi không rõ."
+  ],
+  [
+    "总算 /Zǒngsuàn/",
+    "Phó từ",
+    "Biểu thị nguyện vọng cuối cùng cũng đã được thực hiện sau khi trải qua một khoảng thời gian dài (\"cuối cùng cũng\"). Biểu thị về mặt cơ bản vẫn vượt qua được (\"dù sao cũng\").",
+    "经过沟通，大导演总算搞明白了。 /Jīngguò gōutōng, dà dǎoyǎn zǒngsuàn gǎo míngbáile/ Sau khi trao đổi, đạo diễn lớn cuối cùng cũng đã hiểu ra. 虽然我对这家宾馆不太满意，但总算有个睡觉的地方 了。/Suīrán wǒ duì zhè jiā bīngguǎn bú tài mǎnyì, dàn zǒngsuàn yǒu gè shuìjiào de dìfāngle /Mặc dù tôi không hài lòng lắm với khách sạn này, nhưng dù sao cũng có chỗ để ngủ rồi."
+  ],
+  [
+    "下来 /Xiàlái/",
+    "Bổ ngữ xu hướng",
+    "Biểu thị hoàn thành (một hành động, một sự việc)",
+    "你的论文大概什么时候发表？定下来了吗？ /Nǐ de lùnwén dàgài shénme shíhou fābiǎo? Dìng xiàláile ma? / Luận văn của bạn khoảng khi nào công bố? Đã định xong chưa?"
+  ],
+  [
+    "舍不得 /Shěbudé/",
+    "Động từ",
+    "Biểu thị không muốn từ bỏ, tiêu phí hoặc sử dụng.",
+    "把你最喜欢的玩具送给小朋友，你舍得吗 ？/ Bǎ nǐ zuì xǐhuān de wánjù sòng gěi xiǎopéngyǒu, nǐ shědé ma? /Tặng món đồ chơi yêu thích nhất của bạn cho em bé, bạn có nỡ không?"
+  ],
+  [
+    "从此 /Cóngcǐ/",
+    "Phó từ",
+    "Biểu thị từ thời điểm này hoặc từ thời điểm nói trở đi (\"từ đó về sau\").",
+    "因为那场严重的误会，他们大吵了一架，从此两人的关 系就疏远了。/Yīnwèi nà chǎng yánzhòng de wùhuì, tāmen dà chǎo le yī jià, cóngcǐ liǎng rén de guānxì jiù shūyuǎn le/ Vì sự hiểu lầm nghiêm trọng đó, họ đã cãi nhau to, kể từ đó mối quan hệ của hai người trở nên xa cách."
+  ],
+  [
+    "假设 /Jiǎshè/",
+    "Động từ/Danh từ",
+    "Động từ: Biểu thị coi một số tình huống là thật (\"giả sử\"). Danh từ: Biểu thị tình huống giả thiết, tưởng tượng (\"giả thiết\").",
+    "假设我要从国贸到鼓楼大街，该怎么乘车？ /Jiǎshè wǒ yào cóng Guómào dào Gǔlóu Dàjiē, gāi zěnme chéngchē? / Giả sử tôi muốn đi từ Quốc Mậu đến phố Cổ Lâu, nên đi xe như thế nào? 你当年的假设已经被证明是对的。 /Nǐ dāngnián de jiǎshè yǐjīng bèi zhèngmíng shì duì de/ Giả thiết năm đó của bạn đã được chứng minh là đúng."
+  ],
+  [
+    "堆 /Duī/",
+    "Lượng từ/Động từ/Danh từ",
+    "Lượng từ: Dùng cho đám người hoặc đống đồ vật. Động từ: Biểu thị dùng tay hoặc dụng cụ để xếp, chất lên nhau. Danh từ: Biểu thị đồ vật xếp cùng nhau.",
+    "门口放着好几堆刚送来的货物，还没整理。/Ménkǒu fàng zhe hǎo jǐ duī gāng sòng lái de huòwù, hái méi zhěnglǐ./ Ở cửa đặt mấy đống hàng hóa vừa mới gửi đến, vẫn chưa được sắp xếp. 快把房间里的玩具堆到一起，太乱了。/ Kuài bǎ fángjiān lǐ de wánjù duī dào yīqǐ, tài luàn le/ Mau chất/xếp đồ chơi trong phòng lại thành một đống đi, bừa bộn quá. 墙角有一堆废弃的纸箱。/Qiángjiǎo yǒu yī duī fèiqì de zhǐxiāng/ Ở góc tường có một đống thùng carton bỏ đi."
+  ],
+  [
+    "不如 /Bùrú/",
+    "Động từ",
+    "Biểu thị không thể sánh bằng.",
+    "三家的营业额加起来还不如他一家高。 /Sān jiā de yíngyè'é jiā qǐlái hái bù rú tā yī jiā gāo/ Doanh thu của ba cửa hàng cộng lại còn không cao bằng doanh thu của một mình cửa hàng anh ấy."
+  ],
+  [
+    "干脆 /Gāncuì/",
+    "Tính từ/Phó từ",
+    "Tính từ: Dứt khoát Phó từ: Biểu thị đơn giản, quyết đoán",
+    "我求他帮忙，他答应得很干脆。 /Wǒ qiú tā bāngmáng, tā dāyìng de hěn gāncuì/Tôi nhờ anh ấy giúp đỡ, anh ấy đồng ý rất dứt khoát. 我看我干脆放弃好了。 /Wǒ kàn wǒ gāncuì fàngqì hǎo le. /Tôi nghĩ tôi cứ từ bỏ đi thôi."
+  ],
+  [
+    "万一 /Wànyī/",
+    "Liên từ/Danh từ",
+    "Liên từ: Biểu thị khả năng rất nhỏ, thường dùng với trường hợp không ngờ đến hoặc bất lợi Danh từ: Biểu thị tình huống bất ngờ có khả năng rất nhỏ (thường dùng trong cách thức cố định “就怕万一”).",
+    "你带上伞吧，万一回来的时候下雨呢。/Nǐ dài shàng sǎn ba, wànyī huílái de shíhòu xià yǔ ne/ Cậu mang theo ô đi, nhỡ đâu lúc về trời mưa thì sao. 我们考虑了所有可能性，连最坏的万一也都想到了。 /Wǒmen kǎolǜ le suǒyǒu kěnéngxìng, lián zuì huài de wànyī yě dōu xiǎngdào le/ Chúng tôi đã cân nhắc mọi khả năng, ngay cả trường hợp xấu nhất cũng đã nghĩ tới."
+  ],
+  [
+    "无意 /Wúyì/",
+    "Động từ",
+    "Động từ: Có nghĩa là không muốn, không có ý định..",
+    "我无意打扰您，不过我可以跟您谈一会儿吗？/Wǒ wúyì dǎrǎo nín, búguò wǒ kěyǐ gēn nín tán yīhuǐ'er ma? / Tôi không có ý định làm phiền ngài, nhưng tôi có thể nói chuyện với ngài một lát được không?."
+  ],
+  [
+    "有利 /Yǒulì/",
+    "Tính từ",
+    "Có nghĩa là có lợi, có ích (thường dùng “有利于” để biểu thị có lợi cho người hoặc vật nào đó).",
+    "高高的个子，漂亮的外表，都是他的有利条件。 /Gāo gāo de gèzi, piàoliang de wàibiǎo, dōu shì tā de yǒulì tiáojiàn./Chiều cao nổi bật, vẻ ngoài xinh đẹp, đều là những điều kiện có lợi của anh ấy."
+  ],
+  [
+    "的确 /Díquè/",
+    "Phó từ",
+    "Ý nghĩa là hoàn toàn chính xác, chân thực (\"quả thực, đích thực\").",
+    "他的确我所教过的学生中最聪明的。 /Tā díquè wǒ suǒ jiāoguò de xuésheng zhōng zuì cōngming de/ Anh ấy quả thực là người thông minh nhất trong số những học sinh mà tôi từng dạy."
+  ],
+  [
+    "嗯 (Ńg/Ǹg)",
+    "Thán từ",
+    "Biểu thị nghi vấn. Biểu thị đáp ứng hoặc chấp thuận.",
+    "嗯？不是 28 号，难道是我记错了？ /Ńg? Bú shì èrshíbā hào, nándào shì wǒ jì cuòle? / Hả? Không phải ngày 28, chẳng lẽ tôi nhớ nhầm rồi?. 嗯，如果您心情好，我就说件事。 /Ǹg, rúguǒ nín xīnqíng hǎo, wǒ jiù shuō jiàn shì/ Ừm, nếu ngài đang có tâm trạng tốt, tôi sẽ nói một việc."
+  ],
+  [
+    "轻易 /Qīngyì/",
+    "Tính từ/Phó từ",
+    "Tính từ: đơn giản, dễ dàng Phó từ: Biểu thị thái độ khi xử lí công việc không cẩn thận, rất tùy tiện. Thường dùng trong câu phủ định (“轻 易不·····” nghĩa là “rất ít làm”).",
+    "1假，就这样轻易地请好了。 /Jiǎ, jiù zhèyàng qīngyì de qǐng hǎole. /Xin nghỉ phép cứ thế dễ dàng được chấp thuận 他为人好强，轻易不求人。 /Tā wéirén hàoqiáng, qīngyì bù qiú rén/ Anh ấy là người tự cường, không dễ dàng nhờ vả người khác."
+  ],
+  [
+    "密切 /Mìqiè/",
+    "Tính từ/Động từ",
+    "Tính từ: Biểu thị quan hệ gần gũi, mật thiết. Động từ: Có nghĩa làm cho quan hệ trở nên gần gũi mật thiết hơn.",
+    "多年来，两国一直保持着密切的友好关系。/Duō nián lái, liǎng guó yīzhí bǎochí zhe mìqiè de yǒuhǎo guānxì/ Trong nhiều năm qua, hai nước vẫn luôn duy trì mối quan hệ hữu nghị mật thiết. 双方领导人同意密切各领域的合作。/Shuāngfāng lǐngdǎo rén tóngyì mìqiè gè lǐngyù de hézuò/ Lãnh đạo hai bên đồng ý tăng cường/thắt chặt hợp tác trên các lĩnh vực."
+  ],
+  [
+    "尽量 /Jǐnliàng/",
+    "Phó từ",
+    "Biểu thị trong một phạm vi nhất định nỗ lực đạt đến mức độ cao nhất (\"cố gắng hết sức\").",
+    "老年人要尽量少吃油炸食品。 /Lǎonián rén yào jǐnliàng shǎo chī yóu zhá shí pǐn/ Người già cần cố gắng hạn chế ăn đồ chiên rán."
+  ],
+  [
+    "逐步 /Zhúbù/",
+    "Phó từ",
+    "Biểu thị từng bước từng bước một (thường dùng trong những tình huống do con người làm ra).",
+    "调整能源消费结构，逐步向可再生能源转变。 /Tiáozhěng néngyuán xiāofèi jiégòu, zhúbù xiàng kě zàishēng néngyuán zhuǎnbiàn. /Điều chỉnh cơ cấu tiêu thụ năng lượng, từng bước chuyển đổi sang năng lượng tái tạo."
+  ],
+  [
+    "照常 /Zhàochán g/",
+    "Động từ/Phó từ",
+    "Động từ: Có nghĩa là giống như bình thường Phó từ: Biểu thị tình huống tiếp tục không thay đổi (\"như thường lệ\").",
+    "这里的日常生活，一切照常。 / Zhèlǐ de rìcháng shēnghuó, yīqiè zhàocháng/ Cuộc sống hàng ngày ở đây, mọi thứ vẫn như thường lệ. 在东方广场的迎新活动照常举行。 /Zài Dōngfāng Guǎngchǎng de yíngxīn huódòng zhàocháng jǔxíng/ Hoạt động đón năm mới tại quảng trường Đông Phương vẫn được tổ chức như thường lệ."
+  ],
+  [
+    "难怪 /Nánguài/",
+    "Động từ/Phó từ",
+    "Động từ: không nên phê bình, oán trách), mang ngữ khí thông cảm, tha thứ. Phó từ: Biểu thị đã rõ nguyên nhân, không còn cảm thấy lạ lùng với tình huống nào đó nữa (\"thảo nào, hèn chi\").",
+    "这也难怪 / Zhè yě nánguài/ Điều này cũng không trách được. 你的抽屉真乱，难怪总是找不到东西。 /Nǐ de chōuti zhēn luàn, nánguài zǒng shì zhǎo bù dào dōngxi/Ngăn kéo của cậu thật bừa bộn, thảo nào luôn không tìm thấy đồ."
+  ],
+  [
+    "与其 /Yǔqí/",
+    "Liên từ",
+    "Dùng khi so sánh 2 tình huống cần phải lựa chọn, “与 其” sử dụng về mặt từ bỏ, đằng sau có thể kết hợp dùng",
+    "与其在这儿干着急，不如我们主动打电话去问问情况。 /Yǔqí zài zhèr gān zháojí, bùrú wǒmen zhǔdòng dǎ diànhuà qù wèn wen qíngkuàng/ Thà rằng cứ ngồi đây lo"
+  ],
+  [
+    "",
+    "",
+    "với “不如” hoặc “宁可” (\"thà rằng... còn hơn\").",
+    "sốt vó, chi bằng chúng ta chủ động gọi điện hỏi tình hình."
+  ],
+  [
+    "过 /Guò/",
+    "Bổ ngữ xu hướng",
+    "Biểu thị người hoặc vật thể thông qua động tác để thay đổi phương hướng hoặc di chuyển vị trí.",
+    "他转过身，一句话也不说。/Tā zhuǎn guò shēn, yī jù huà yě bù shuō/ Anh ấy quay người lại, không nói một lời nào."
+  ],
+  [
+    "开 /Kāi/",
+    "Bổ ngữ xu hướng",
+    "Biểu thị mở ra, giãn ra.",
+    "请你让开一下，我要过去。/Qǐng nǐ ràng kāi yīxià, wǒ yào guòqù/ Làm ơn tránh/tránh ra một chút, tôi cần đi qua."
+  ],
+  [
+    "赶快 /Gǎnkuài/",
+    "Phó từ",
+    "Ý nghĩa là bắt kịp thời gian, gia tăng tốc độ).",
+    "我下个月要搬家，得赶快找房子。/Wǒ xià gè yuè yào bānjiā, děi gǎnkuài zhǎo fángzi/ Tháng sau tôi phải chuyển nhà, phải nhanh chóng tìm nhà."
+  ],
+  [
+    "片 /Piàn/",
+    "Danh từ/Lượng từ",
+    "Danh từ: Đồ vật có bề mặt phẳng, mỏng, thường không quá lớn Lượng từ: Dùng để chỉ những đồ vật thành phiến, cũng có thể dùng với âm thanh, cảnh sắc.",
+    "瓶子里装着满满的石头、玻璃碎片和沙子。 /Píngzi lǐ zhuāngzhe mǎnmǎn de shítou, bōli suìpiàn hé shāzi/ Trong chai đựng đầy đá, mảnh thủy tinh và cát. 同学们听了，发出一片热烈的欢呼声。 /Tóngxuémen tīngle, fā chū yī piàn rèliè de huānhū shēng/ Các bạn học sinh nghe xong, phát ra một tràng tiếng reo hò nhiệt liệt."
+  ],
+  [
+    "根本 /Gēnběn/",
+    "Danh từ/Tính từ/Phó từ",
+    "Danh từ: Bộ phận quan trọng nhất của sự vật. Tính từ: Ý nghĩa là “chủ yếu, quan trọng nhất” Phó từ: Biểu thị từ đầu đến cuối, trước sau như một",
+    "想学好汉语，单词是根本。/Xiǎng xué hǎo Hànyǔ, dāncí shì gēnběn/Muốn học tốt tiếng Hán, từ vựng là gốc rễ/nền tảng. 我们的根本目的是帮助大家学好中文。/Wǒmen de gēnběn mùdì shì bāngzhù dàjiā xué hǎo Zhōngwén/ Mục đích cốt lõi/chính của chúng tôi là giúp mọi người học tốt tiếng Trung. 他根本没听你说话。/Tā gēnběn méi tīng nǐ shuōhuà/ Anh ta hoàn toàn không nghe bạn nói."
+  ],
+  [
+    "除非 /Chúfēi/",
+    "Liên từ/Giới từ",
+    "Liên từ: Biểu thị điều kiện duy nhất, giống với “只有”, đằng sau thường đi với “才、 否则、不然” (\"trừ phi\"). .Giới từ: ngoại trừ",
+    "除非明天下大雨，否则比赛照常进行。/Chúfēi míngtiān xià dàyǔ, fǒuzé bǐsài zhàocháng jìnxíng/ Trừ phi ngày mai trời mưa to, nếu không thì trận đấu vẫn diễn ra như thường lệ. 这种机器，除非李阳，没人修得好。/Zhè zhǒng jīqì, chúfēi Lǐ Yáng, méi rén xiū de hǎo/ Loại máy này, trừ Lý Dương ra, không ai sửa được."
+  ],
+  [
+    "直 /Zhí/",
+    "Phó từ",
+    "Dùng để diễn tả hành động diễn ra liên tục, không bị gián đoạn, thường đứng trước động từ đơn âm tiết.",
+    "这趟车可以直达北京，非常方便。 /Zhè tàng chē kěyǐ zhídá Běijīng, fēicháng fāngbiàn/ Chuyến xe này có thể đi thẳng đến Bắc Kinh, rất tiện lợi."
+  ],
+  [
+    "",
+    "",
+    "Nhấn mạnh một hành động kéo dài, lặp đi lặp lại hoặc làm hoài không nghỉ.",
+    ""
+  ],
+  [
+    "反正 /Fǎnzhèng/",
+    "Phó từ",
+    "Biểu thị tình huống tuy không giống nhưng kết quả lại như nhau (\"dù sao thì\"). Biểu thị ngữ khí kiên quyết khẳng định.",
+    "不管你们谁去，反正我不会去。 /Bùguǎn nǐmen shuí qù, fǎnzhèng wǒ bú huì qù/ Bất kể ai trong các cậu đi, dù sao thì tôi cũng sẽ không đi. 你别再说了，反正我是会考虑的。 /Nǐ bié zài shuōle, fǎnzhèng wǒ shì huì kǎolǜ de. / Cậu đừng nói nữa, dù sao thì tôi cũng sẽ xem xét."
+  ]
+]

@@ -1,0 +1,42 @@
+@startuml
+!include style-sequence.puml
+hide footbox
+title Biểu đồ tuần tự chức năng Học từ vựng theo chủ đề HSK
+
+actor "Người học" as User
+boundary "VocabularyListScreen" as ListUI
+control "VocabularyService" as VocabularyService
+database "HSK JSON\nAssets" as HskAssets
+boundary "VocabularyLearningFlow" as LearningFlow
+boundary "VocabularyDetailScreen" as DetailUI
+control "ProgressService" as ProgressService
+database "SharedPreferences" as LocalStore
+
+User -> ListUI: Chọn cấp độ HSK và chủ đề
+ListUI -> VocabularyService: loadHskVocabulary(level, topic)
+VocabularyService -> HskAssets: Đọc dữ liệu từ assets
+HskAssets --> VocabularyService: Danh sách từ vựng
+VocabularyService --> ListUI: Trả danh sách từ phù hợp
+ListUI --> User: Hiển thị danh sách bài học
+
+User -> ListUI: Bắt đầu học
+ListUI -> LearningFlow: Mở luồng học từ vựng
+LearningFlow -> DetailUI: Hiển thị từ hiện tại
+DetailUI --> User: Ẩn nghĩa, hiển thị mặt trước thẻ
+
+User -> DetailUI: Nhấn Xem đáp án
+DetailUI --> User: Hiển thị pinyin, nghĩa, ví dụ
+
+opt Đánh dấu đã học
+  User -> DetailUI: Nhấn Đã học
+  DetailUI -> ProgressService: markAsLearned(word)
+  ProgressService -> LocalStore: Cập nhật learned_words
+  LocalStore --> ProgressService: Thành công
+  ProgressService --> DetailUI: Xác nhận lưu tiến độ
+end
+
+User -> LearningFlow: Nhấn Từ tiếp theo
+LearningFlow --> User: Hiển thị thẻ kế tiếp hoặc tổng kết bài học
+
+@enduml
+

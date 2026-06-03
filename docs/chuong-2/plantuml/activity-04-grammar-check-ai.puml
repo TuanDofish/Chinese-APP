@@ -1,0 +1,51 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam ArrowColor #6E6E6E
+skinparam activity {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+  DiamondBackgroundColor #FCFCFC
+  DiamondBorderColor #8F8F8F
+  StartColor #6AA84F
+  EndColor #C0504D
+  BarColor #8F8F8F
+}
+
+|Người học|
+start
+:Nhập câu tiếng Trung;
+:Nhấn "Kiểm tra ngữ pháp";
+
+|Ứng dụng mobile|
+if (Câu rỗng?) then (Có)
+  :Thông báo yêu cầu nhập câu;
+  stop
+else (Không)
+  :Tạo prompt kiểm tra ngữ pháp;
+endif
+
+|Gemini AI|
+:Phân tích ngữ pháp và sinh JSON kết quả;
+
+|Ứng dụng mobile|
+if (Phản hồi hợp lệ?) then (Có)
+  :Phân tích điểm số;
+  :Phân tích lỗi sai;
+  :Phân tích câu sửa và gợi ý;
+  :Hiển thị kết quả lên giao diện;
+else (Không)
+  :Sinh kết quả fallback hoặc thông báo lỗi;
+endif
+
+|Người học|
+if (Muốn kiểm tra câu khác?) then (Có)
+  :Nhập câu mới;
+  |Ứng dụng mobile|
+  :Lặp lại quy trình kiểm tra;
+endif
+
+|Người học|
+stop
+@enduml

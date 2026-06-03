@@ -1,0 +1,35 @@
+@startuml
+autonumber
+skinparam shadowing false
+
+actor "Người học" as User
+participant "NewsReaderScreen\n(Tab luyện phát âm)" as PronUI
+participant "FlutterTts" as TTS
+participant "SpeechToText" as STT
+participant "ProgressService" as Progress
+database "Local Storage" as LocalStore
+
+User -> PronUI: Chọn cấp HSK và câu mẫu
+PronUI --> User: Hiển thị Chinese + pinyin + nghĩa
+
+User -> PronUI: Bấm nghe mẫu
+PronUI -> TTS: speak(sentence)
+TTS --> PronUI: Phát âm hoàn tất
+
+User -> PronUI: Bấm micro để đọc lại
+PronUI -> STT: startListening(locale = zh-CN)
+STT --> PronUI: recognizedText
+PronUI -> PronUI: calculateSimilarity(target, recognized)
+PronUI --> User: Hiển thị điểm, feedback, tips
+
+PronUI -> Progress: addStudyMinutes(minutes)
+Progress -> LocalStore: Tăng today_minutes
+LocalStore --> Progress: Thành công
+Progress --> PronUI: Xác nhận cập nhật
+
+opt Người học đọc lại
+  User -> PronUI: Bấm "Đọc lại câu này"
+  PronUI -> PronUI: Reset score và recognizedText
+end
+
+@enduml

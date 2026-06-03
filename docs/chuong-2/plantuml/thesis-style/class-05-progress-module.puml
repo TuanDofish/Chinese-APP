@@ -1,0 +1,68 @@
+@startuml
+!include style-class.puml
+left to right direction
+title Biểu đồ lớp phân hệ Thống kê và mục tiêu học tập
+
+package "Giao diện mobile" {
+  class StatsScreen <<boundary>> {
+    +loadStats()
+    +saveGoals()
+    +refreshSummary()
+  }
+}
+
+package "Điều khiển và dịch vụ" {
+  class ProgressService <<control>> {
+    +getStudySummary()
+    +saveDailyGoal()
+    +incrementStudyMinutes()
+    +markAsLearned(word)
+  }
+
+  class StreakCalculator <<control>> {
+    +calculateStreak(stats)
+  }
+}
+
+package "Miền dữ liệu" {
+  class DailyGoal <<entity>> {
+    +goalWords: int
+    +goalMinutes: int
+  }
+
+  class DailyLearningStat <<entity>> {
+    +studyDate: Date
+    +learnedWordsCount: int
+    +studyMinutes: int
+    +streakSnapshot: int
+  }
+
+  class UserWordProgress <<entity>> {
+    +isFavorite: bool
+    +isLearned: bool
+    +bestPronunciationScore: decimal
+  }
+
+  class StudySummary <<entity>> {
+    +totalLearnedWords: int
+    +currentStreak: int
+    +todayMinutes: int
+  }
+}
+
+package "Hạ tầng ngoài" {
+  class SharedPreferences <<external>>
+}
+
+StatsScreen --> ProgressService
+ProgressService --> StreakCalculator
+ProgressService ..> SharedPreferences
+
+ProgressService --> DailyGoal
+ProgressService --> DailyLearningStat
+ProgressService --> UserWordProgress
+ProgressService --> StudySummary
+StreakCalculator --> DailyLearningStat
+
+@enduml
+

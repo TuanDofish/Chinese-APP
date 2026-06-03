@@ -1,0 +1,72 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam ArrowColor #6E6E6E
+skinparam activity {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+  DiamondBackgroundColor #FCFCFC
+  DiamondBorderColor #8F8F8F
+  StartColor #6AA84F
+  EndColor #C0504D
+  BarColor #8F8F8F
+}
+
+|Người học|
+start
+:Nhập từ khóa tra cứu;
+:Nhấn nút "Tra từ";
+
+|Ứng dụng mobile|
+if (Từ khóa rỗng?) then (Có)
+  :Thông báo yêu cầu nhập từ khóa;
+  stop
+else (Không)
+endif
+
+if (Có chữ Hán?) then (Có)
+  :Giữ nguyên truy vấn;
+else (Không)
+  |Dịch vụ dịch|
+  :Dịch từ khóa Việt -> Trung;
+  |Ứng dụng mobile|
+  if (Dịch thành công?) then (Có)
+    :Chuẩn hóa truy vấn theo chữ Hán;
+  else (Không)
+    :Thông báo không tìm thấy từ phù hợp;
+    stop
+  endif
+endif
+
+:Tra dữ liệu từ vựng cục bộ;
+if (Có dữ liệu cục bộ?) then (Có)
+  :Lấy pinyin, nghĩa, ví dụ;
+else (Không)
+  |Dịch vụ từ điển|
+  :Dịch từ Trung -> Việt;
+  |Ứng dụng mobile|
+  if (Có nghĩa trả về?) then (Có)
+    :Tạo dữ liệu hiển thị tạm thời;
+  else (Không)
+    :Hiển thị thông báo không tra được nghĩa;
+    stop
+  endif
+endif
+
+:Hiển thị màn hình chi tiết từ;
+
+|Người học|
+if (Lưu vào sổ tay?) then (Có)
+  |Ứng dụng mobile|
+  :Cập nhật trạng thái yêu thích;
+endif
+
+if (Nghe phát âm?) then (Có)
+  |Ứng dụng mobile|
+  :Phát âm mẫu bằng TTS;
+endif
+
+|Người học|
+stop
+@enduml

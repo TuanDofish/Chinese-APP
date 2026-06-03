@@ -1,0 +1,33 @@
+@startuml
+!include style-activity.puml
+title Biểu đồ hoạt động chức năng Luyện phát âm
+
+start
+:Người học mở chức năng luyện phát âm;
+:Chọn câu mẫu cần luyện;
+:Hiển thị chữ Hán, pinyin và nghĩa;
+
+if (Nghe phát âm mẫu?) then (Có)
+  :Phát âm mẫu bằng TTS;
+endif
+
+:Người học bắt đầu ghi âm;
+:Thu âm và nhận diện giọng nói;
+
+if (Nhận diện thành công?) then (Có)
+  :So khớp với câu mẫu;
+  :Tính điểm phát âm;
+  :Hiển thị câu nhận diện và điểm số;
+else (Không)
+  :Thông báo chưa nhận diện được giọng nói;
+  stop
+endif
+
+if (Luyện lại?) then (Có)
+  :Quay lại bước ghi âm;
+endif
+
+:Lưu kết quả gần nhất;
+stop
+@enduml
+

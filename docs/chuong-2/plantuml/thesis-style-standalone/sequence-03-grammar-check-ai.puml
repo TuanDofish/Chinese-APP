@@ -1,0 +1,58 @@
+﻿@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+skinparam maxMessageSize 80
+skinparam ParticipantPadding 26
+skinparam BoxPadding 12
+skinparam ArrowColor #4A4A4A
+skinparam NoteBorderColor #9A9A9A
+skinparam NoteBackgroundColor #FAFAFA
+skinparam RoundCorner 18
+skinparam ActorBorderColor #8F8F8F
+skinparam ActorBackgroundColor #FBFBFB
+skinparam ParticipantBorderColor #8F8F8F
+skinparam ParticipantBackgroundColor #F7F7F7
+skinparam BoundaryBorderColor #8F8F8F
+skinparam BoundaryBackgroundColor #F7F7F7
+skinparam ControlBorderColor #8F8F8F
+skinparam ControlBackgroundColor #F7F7F7
+skinparam EntityBorderColor #8F8F8F
+skinparam EntityBackgroundColor #F7F7F7
+skinparam DatabaseBorderColor #8F8F8F
+skinparam DatabaseBackgroundColor white
+skinparam LifeLineBorderColor #BDBDBD
+skinparam LifeLineBackgroundColor white
+skinparam sequence {
+  MessageFontColor #222222
+  ParticipantFontColor #222222
+  ParticipantBorderThickness 1
+  ArrowThickness 1.1
+}
+hide footbox
+title Biểu đồ tuần tự chức năng Kiểm tra ngữ pháp bằng AI
+
+actor "Người học" as User
+boundary "GrammarCheckerScreen" as GrammarUI
+control "GrammarAiService" as GrammarAiService
+entity "Gemini API" as GeminiAPI
+
+User -> GrammarUI: Nhập câu tiếng Trung cần kiểm tra
+GrammarUI -> GrammarUI: Kiểm tra dữ liệu đầu vào
+
+alt Câu nhập hợp lệ
+  User -> GrammarUI: Nhấn Phân tích ngữ pháp
+  GrammarUI -> GrammarAiService: checkGrammar(text)
+  GrammarAiService -> GeminiAPI: Gửi prompt phân tích câu
+  GeminiAPI --> GrammarAiService: Câu sửa, lỗi và gợi ý
+  GrammarAiService --> GrammarUI: Kết quả phân tích
+  GrammarUI --> User: Hiển thị lỗi, giải thích, câu sửa
+else Câu nhập rỗng hoặc quá ngắn
+  GrammarUI --> User: Hiển thị thông báo validation
+end
+
+@enduml
+
+

@@ -1,0 +1,96 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam linetype ortho
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam class {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+}
+
+package "Mobile UI" {
+  class NewsReaderScreen <<boundary>> {
+    +fetchLiveNews()
+    +parseRSS()
+    +lookupWord()
+    +buildArticleContent()
+  }
+
+  class NewsArticle <<entity>> {
+    +title: String
+    +titleVi: String
+    +content: String
+    +source: String
+    +level: String
+    +pubDate: DateTime
+  }
+}
+
+package "Service & Helper" {
+  class VocabDataHelper <<service>> {
+    +getData()
+    +translateViToZhAsync()
+  }
+
+  class ProgressService <<service>> {
+    +toggleFavorite()
+  }
+}
+
+package "Domain / Data" {
+  class ArticleSource <<entity>> {
+    +id: bigint
+    +name: String
+    +rssUrl: String
+    +defaultLevel: String
+  }
+
+  class Article <<entity>> {
+    +id: bigint
+    +title: String
+    +content: String
+    +link: String
+    +hskLevel: String
+  }
+
+  class ReadingSession <<entity>> {
+    +id: bigint
+    +timeSpentSeconds: int
+    +lookedUpWordsCount: int
+  }
+
+  class ReadingWordLookup <<entity>> {
+    +id: bigint
+    +word: String
+    +meaningVi: String
+    +savedToNotebook: bool
+  }
+
+  class Vocabulary <<entity>> {
+    +simplified: String
+    +pinyin: String
+    +meaningVi: String
+  }
+}
+
+package "External" {
+  class RSSSource <<external>>
+  class TranslationAPI <<external>>
+  class FlutterTts <<external>>
+}
+
+NewsReaderScreen --> RSSSource : tải feed
+NewsReaderScreen --> VocabDataHelper : tra nghĩa từ
+NewsReaderScreen --> ProgressService : lưu sổ tay
+NewsReaderScreen --> FlutterTts : đọc bài báo
+NewsReaderScreen --> NewsArticle : hiển thị dữ liệu
+
+VocabDataHelper ..> TranslationAPI
+ArticleSource "1" -- "0..*" Article : phát hành
+ReadingSession "1" -- "0..*" ReadingWordLookup : ghi nhận
+ReadingWordLookup --> Vocabulary : khớp từ vựng
+Article --> ReadingSession : được mở đọc
+
+@enduml

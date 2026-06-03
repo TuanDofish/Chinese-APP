@@ -1,0 +1,33 @@
+@startuml
+!include style-sequence.puml
+hide footbox
+title Biểu đồ tuần tự chức năng Luyện phát âm câu
+
+actor "Người học" as User
+boundary "NewsReaderScreen" as PracticeUI
+control "SpeechService" as SpeechService
+entity "FlutterTts" as FlutterTts
+entity "SpeechToText" as SpeechToText
+database "SharedPreferences" as LocalStore
+
+User -> PracticeUI: Chọn câu mẫu cần luyện
+PracticeUI --> User: Hiển thị chữ Hán, pinyin, nghĩa
+
+opt Nghe phát âm mẫu
+  User -> PracticeUI: Nhấn Nghe mẫu
+  PracticeUI -> FlutterTts: speak(sentence)
+  FlutterTts --> PracticeUI: Hoàn tất phát âm
+end
+
+User -> PracticeUI: Nhấn Bắt đầu ghi âm
+PracticeUI -> SpeechService: listen(targetSentence)
+SpeechService -> SpeechToText: Thu âm và nhận diện giọng nói
+SpeechToText --> SpeechService: Văn bản nhận diện
+SpeechService -> SpeechService: Tính điểm phát âm
+SpeechService -> LocalStore: Lưu kết quả gần nhất
+LocalStore --> SpeechService: Thành công
+SpeechService --> PracticeUI: Câu nhận diện và điểm số
+PracticeUI --> User: Hiển thị kết quả luyện phát âm
+
+@enduml
+

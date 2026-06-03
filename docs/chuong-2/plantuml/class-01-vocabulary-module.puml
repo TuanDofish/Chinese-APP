@@ -1,0 +1,130 @@
+@startuml
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam linetype ortho
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam class {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+}
+
+package "Mobile UI" {
+  class MagicVocabScreen <<boundary>> {
+    +build()
+  }
+
+  class DictionarySearchTab <<boundary>> {
+    -searchController: TextEditingController
+    -searchResult: Map
+    +performSearch()
+  }
+
+  class VocabularyListScreen <<boundary>> {
+    -selectedLevel: String
+    -allWords: List
+    +loadData()
+    +navigateToDetail()
+  }
+
+  class VocabularyLearningFlow <<boundary>> {
+    -currentIndex: int
+    +nextPage()
+  }
+
+  class VocabularyDetailScreen <<boundary>> {
+    -isRevealed: bool
+    -isFavorite: bool
+    -pronScore: int
+    +onReveal()
+    +toggleFavorite()
+    +checkPronunciation()
+  }
+}
+
+package "Service & Helper" {
+  class VocabDataHelper <<service>> {
+    +getData()
+    +getDataAsync()
+    +translateViToZhAsync()
+  }
+
+  class VocabularyService <<service>> {
+    +loadHskVocabulary()
+    +filterByLevel()
+  }
+
+  class ProgressService <<service>> {
+    +markAsLearned()
+    +toggleFavorite()
+    +getLearnedWords()
+    +getFavoriteWords()
+  }
+
+  class SpeechService <<service>> {
+    +listen()
+    +calculateScore()
+    +playLastRecording()
+  }
+}
+
+package "Domain / Data" {
+  class Topic <<entity>> {
+    +id: bigint
+    +name: String
+    +hskLevel: String
+  }
+
+  class Vocabulary <<entity>> {
+    +id: bigint
+    +simplified: String
+    +traditional: String
+    +pinyin: String
+    +meaningVi: String
+    +hskLevel: String
+  }
+
+  class VocabularyExample <<entity>> {
+    +id: bigint
+    +exampleCn: String
+    +exampleVi: String
+  }
+
+  class UserWordProgress <<entity>> {
+    +isFavorite: bool
+    +isLearned: bool
+    +bestPronunciationScore: decimal
+  }
+}
+
+package "External" {
+  class SharedPreferences <<external>>
+  class TranslationAPI <<external>>
+  class FlutterTts <<external>>
+}
+
+MagicVocabScreen o-- DictionarySearchTab
+MagicVocabScreen o-- VocabularyListScreen
+
+VocabularyListScreen --> VocabularyLearningFlow : mở luồng học
+VocabularyLearningFlow o-- VocabularyDetailScreen : chứa các từ
+DictionarySearchTab --> VocabularyDetailScreen : hiển thị kết quả
+
+DictionarySearchTab --> VocabDataHelper
+VocabularyListScreen --> VocabularyService
+VocabularyDetailScreen --> VocabDataHelper
+VocabularyDetailScreen --> ProgressService
+VocabularyDetailScreen --> SpeechService
+VocabularyDetailScreen --> FlutterTts
+
+VocabDataHelper ..> TranslationAPI
+VocabularyService ..> Vocabulary
+ProgressService ..> UserWordProgress
+ProgressService ..> SharedPreferences
+
+Topic "1" -- "0..*" Vocabulary : phân loại
+Vocabulary "1" -- "0..*" VocabularyExample : có ví dụ
+Vocabulary "1" -- "0..*" UserWordProgress : theo dõi
+
+@enduml

@@ -1,0 +1,68 @@
+{
+  "id": "food",
+  "name": "Đồ ăn",
+  "nameCn": "食物",
+  "color": "#FF5722",
+  "words": [
+    {
+      "word": "米饭",
+      "pinyin": "mǐfàn",
+      "meaning": "cơm",
+      "image": "edfec00f07.jpg"
+    },
+    {
+      "word": "面条",
+      "pinyin": "miàntiáo",
+      "meaning": "mì",
+      "image": "814b1c8d80.jpg"
+    },
+    {
+      "word": "饺子",
+      "pinyin": "jiǎozi",
+      "meaning": "há cảo",
+      "image": "dc02d72e23.jpg"
+    },
+    {
+      "word": "包子",
+      "pinyin": "bāozi",
+      "meaning": "bánh bao",
+      "image": "68e695653b.jpg"
+    },
+    {
+      "word": "水果",
+      "pinyin": "shuǐguǒ",
+      "meaning": "hoa quả",
+      "image": "64254630ba.jpg"
+    },
+    {
+      "word": "蔬菜",
+      "pinyin": "shūcài",
+      "meaning": "rau củ",
+      "image": "bf44b741b2.jpg"
+    },
+    {
+      "word": "苹果",
+      "pinyin": "píngguǒ",
+      "meaning": "táo",
+      "image": "e6803e21b9.jpg"
+    },
+    {
+      "word": "香蕉",
+      "pinyin": "xiāngjiāo",
+      "meaning": "chuối",
+      "image": "b7c03bbf2b.jpg"
+    },
+    {
+      "word": "茶",
+      "pinyin": "chá",
+      "meaning": "trà",
+      "image": "a001ed1cf1.jpg"
+    },
+    {
+      "word": "汤",
+      "pinyin": "tāng",
+      "meaning": "canh",
+      "image": "9c6d2f2f45.jpg"
+    }
+  ]
+}

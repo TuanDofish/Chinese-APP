@@ -1,0 +1,159 @@
+﻿@startuml
+hide circle
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam linetype ortho
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam roundcorner 14
+skinparam ArrowColor #4A4A4A
+skinparam package {
+  BorderColor #8F8F8F
+  FontColor #222222
+  BackgroundColor white
+}
+skinparam class {
+  BackgroundColor #F7F7F7
+  BorderColor #8F8F8F
+  FontColor #222222
+}
+left to right direction
+title Biểu đồ lớp tổng quát hệ thống App học tiếng Trung
+
+package "Người dùng và tiến độ" {
+  class User <<entity>> {
+    +id: bigint
+    +displayName: String
+    +role: UserRole
+    +targetHskLevel: String
+  }
+
+  class UserWordProgress <<entity>> {
+    +isFavorite: bool
+    +isLearned: bool
+    +bestPronunciationScore: decimal
+  }
+
+  class DailyGoal <<entity>> {
+    +goalWords: int
+    +goalMinutes: int
+  }
+
+  class DailyLearningStat <<entity>> {
+    +studyDate: Date
+    +learnedWordsCount: int
+    +studyMinutes: int
+    +streakSnapshot: int
+  }
+}
+
+package "Từ vựng" {
+  class Topic <<entity>> {
+    +id: bigint
+    +name: String
+    +hskLevel: String
+  }
+
+  class Vocabulary <<entity>> {
+    +id: bigint
+    +simplified: String
+    +pinyin: String
+    +meaningVi: String
+    +hskLevel: String
+  }
+
+  class VocabularyExample <<entity>> {
+    +id: bigint
+    +exampleCn: String
+    +exampleVi: String
+  }
+}
+
+package "Ngữ pháp" {
+  class GrammarLesson <<entity>> {
+    +id: bigint
+    +title: String
+    +patternText: String
+    +hskLevel: String
+  }
+
+  class GrammarCheckSession <<entity>> {
+    +id: bigint
+    +inputText: String
+    +score: decimal
+  }
+}
+
+package "Luyện phát âm" {
+  class PronunciationSentence <<entity>> {
+    +id: bigint
+    +sentenceCn: String
+    +sentenceVi: String
+  }
+
+  class PronunciationAttempt <<entity>> {
+    +id: bigint
+    +recognizedText: String
+    +score: decimal
+  }
+}
+
+package "Đọc báo" {
+  class ArticleSource <<entity>> {
+    +id: bigint
+    +name: String
+    +rssUrl: String
+  }
+
+  class Article <<entity>> {
+    +id: bigint
+    +title: String
+    +publishedAt: DateTime
+  }
+
+  class ReadingSession <<entity>> {
+    +id: bigint
+    +timeSpentSeconds: int
+    +lookedUpWordsCount: int
+  }
+}
+
+package "Dịch vụ hệ thống" {
+  class VocabularyService <<control>>
+  class GrammarAiService <<control>>
+  class SpeechService <<control>>
+  class NewsFeedService <<control>>
+  class ProgressService <<control>>
+  class ContentManagementService <<control>>
+}
+
+User "1" -- "0..*" UserWordProgress
+User "1" -- "1" DailyGoal
+User "1" -- "0..*" DailyLearningStat
+
+Topic "1" -- "0..*" Vocabulary : phân loại
+Vocabulary "1" -- "0..*" VocabularyExample : có ví dụ
+Vocabulary "1" -- "0..*" UserWordProgress : được theo dõi
+
+User "1" -- "0..*" GrammarCheckSession : thực hiện
+User "1" -- "0..*" PronunciationAttempt : luyện tập
+PronunciationSentence "1" -- "0..*" PronunciationAttempt : được đọc
+
+ArticleSource "1" -- "0..*" Article : phát hành
+Article "1" -- "0..*" ReadingSession : được đọc
+User "1" -- "0..*" ReadingSession : tham gia
+
+VocabularyService ..> Topic
+VocabularyService ..> Vocabulary
+GrammarAiService ..> GrammarCheckSession
+SpeechService ..> PronunciationAttempt
+NewsFeedService ..> Article
+ProgressService ..> DailyGoal
+ProgressService ..> DailyLearningStat
+ContentManagementService ..> Vocabulary
+ContentManagementService ..> GrammarLesson
+ContentManagementService ..> PronunciationSentence
+ContentManagementService ..> Article
+
+@enduml
+
