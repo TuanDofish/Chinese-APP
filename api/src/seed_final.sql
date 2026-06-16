@@ -1,5 +1,5 @@
 -- ======================================================
--- SEED DATA FINAL - Magic Chinese App
+-- SEED DATA FINAL - VNChinese App
 -- Xóa & nạp lại toàn bộ dữ liệu 8 bảng
 -- ======================================================
 
@@ -12,9 +12,9 @@ SET session_replication_role = 'origin';
 -- 1. USERS
 -- =====================
 INSERT INTO users (email, "passwordHash", "displayName", "avatarUrl", role) VALUES
-('admin@magicchinese.com',  'hashed_admin',   'Admin',     NULL, 'admin'),
-('nguyen@magicchinese.com', 'hashed_pass_123','Nguyễn Văn A', NULL, 'user'),
-('linh@magicchinese.com',   'hashed_pass_456','Trần Thị Linh', NULL, 'user');
+('admin@vnchinese.local',  'scrypt$1a3fb53279c93f8218369b093bea6d5d$5ed28499116662f475bce95765f859a7c0a0ae13e90703539309cb9dc7d419c0c0940351c4e189f37b8117c1dcba0f3d27f358c50e49895dea6ba7ce9bab118e', 'Admin VNChinese', NULL, 'admin'),
+('nguyen@vnchinese.local', 'scrypt$93401c06ecc0da8576a15026bcb75084$4fc60d507627c0b3a91e6ac43a392e8bc68ea19be86ad3054c9369d5a7e8aba2bfb3163a58c3b902c117697e2f0923028307cdc149f290d991538bd19dd61d39', 'Nguyễn Văn A', NULL, 'user'),
+('linh@vnchinese.local',   'scrypt$93401c06ecc0da8576a15026bcb75084$4fc60d507627c0b3a91e6ac43a392e8bc68ea19be86ad3054c9369d5a7e8aba2bfb3163a58c3b902c117697e2f0923028307cdc149f290d991538bd19dd61d39', 'Trần Thị Linh', NULL, 'user');
 
 -- =====================
 -- 2. COURSE LEVELS
@@ -121,27 +121,27 @@ INSERT INTO quiz_questions ("lessonId", "questionType", "questionText", options,
 INSERT INTO articles (title, title_vi, content, source, hsk_level, active) VALUES
 ('你好，北京！', 'Xin chào, Bắc Kinh!',
  '北京是中国的首都。北京有很多好吃的东西。我喜欢北京的烤鸭。北京有很多公园，我每天早上去公园运动。你来过北京吗？',
- 'Magic Chinese', 'HSK 1', true),
+ 'VNChinese', 'HSK 1', true),
 
 ('我的家人', 'Gia đình của tôi',
  '我有一个大家庭。爸爸是医生，妈妈是老师。我有一个哥哥和一个妹妹。哥哥在上海工作，妹妹还在上小学。我很爱我的家人。',
- 'Magic Chinese', 'HSK 1', true),
+ 'VNChinese', 'HSK 1', true),
 
 ('每天的生活', 'Cuộc sống hàng ngày',
  '我每天七点起床。早上喝一杯牛奶，吃一片面包。八点坐地铁去学校学习中文和英文。下午三点半放学，骑自行车回家。晚上做作业，然后看电视。十点睡觉。',
- 'Magic Chinese', 'HSK 1', true),
+ 'VNChinese', 'HSK 1', true),
 
 ('中国的传统节日', 'Lễ tết truyền thống của Trung Quốc',
  '中国有很多传统节日。春节是最重要的节日，通常在一月或二月。春节的时候，家人聚在一起吃饭，孩子们可以收到红包。中秋节在农历八月十五，人们会赏月、吃月饼。',
- 'Magic Chinese', 'HSK 2', true),
+ 'VNChinese', 'HSK 2', true),
 
 ('在超市购物', 'Mua sắm ở siêu thị',
  '今天下午，我去超市买东西。我需要买牛奶、面包、苹果和鸡蛋。在超市里，东西很多，价格也不贵。结账的时候，我用手机支付，非常方便。',
- 'Magic Chinese', 'HSK 2', true),
+ 'VNChinese', 'HSK 2', true),
 
 ('学中文的好处', 'Lợi ích của việc học tiếng Trung',
  '现在越来越多的人开始学习中文。因为中国经济发展很快，中文变得越来越重要。会说中文可以帮助你找到更好的工作机会。另外，学中文还可以了解中国文化。',
- 'Magic Chinese', 'HSK 3', true);
+ 'VNChinese', 'HSK 3', true);
 
 -- =====================
 -- 8. USER PROGRESS

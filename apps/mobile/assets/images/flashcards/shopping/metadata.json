@@ -1,0 +1,158 @@
+{
+  "id": "shopping",
+  "name": "Mua sắm",
+  "nameCn": "购物",
+  "color": "#C83E35",
+  "words": [
+    {
+      "word": "买",
+      "pinyin": "mǎi",
+      "meaning": "mua",
+      "image": "8be34d50fd.jpg",
+      "query": "shopping bag purchase",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/9070118/pexels-photo-9070118.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/a-person-holding-a-basket-9070118/",
+        "photographer": "Tara Clark",
+        "photographer_url": "https://www.pexels.com/@tara-clark-89384110",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "卖",
+      "pinyin": "mài",
+      "meaning": "bán",
+      "image": "821d5fce78.jpg",
+      "query": "shop seller market",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/12298301/pexels-photo-12298301.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/man-on-the-street-selling-fresh-vegetables-12298301/",
+        "photographer": "Rahul Sapra",
+        "photographer_url": "https://www.pexels.com/@rsapmech",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "钱",
+      "pinyin": "qián",
+      "meaning": "tiền",
+      "image": "d23513f09b.jpg",
+      "query": "money cash coins",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/210600/pexels-photo-210600.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/coins-on-brown-wood-210600/",
+        "photographer": "Pixabay",
+        "photographer_url": "https://www.pexels.com/@pixabay",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "贵",
+      "pinyin": "guì",
+      "meaning": "đắt",
+      "image": "0a0f0a1307.jpg",
+      "query": "expensive luxury price tag",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/30077330/pexels-photo-30077330.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/luxury-breitling-watch-in-elegant-presentation-box-30077330/",
+        "photographer": "Heidi Daniëls",
+        "photographer_url": "https://www.pexels.com/@heidi-daniels-2308315",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "便宜",
+      "pinyin": "pián yi",
+      "meaning": "rẻ",
+      "image": "86194baed3.jpg",
+      "query": "sale discount price tag",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/19952690/pexels-photo-19952690.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/display-of-merchandise-19952690/",
+        "photographer": "Yunus  Kılıç",
+        "photographer_url": "https://www.pexels.com/@yunus-kilic-55235055",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "商店",
+      "pinyin": "shāng diàn",
+      "meaning": "cửa hàng",
+      "image": "f303c10a9f.jpg",
+      "query": "small shop store front",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/13768940/pexels-photo-13768940.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/a-woman-sitting-on-a-stool-in-front-of-a-shop-13768940/",
+        "photographer": "Markus Winkler",
+        "photographer_url": "https://www.pexels.com/@markus-winkler-1430818",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "东西",
+      "pinyin": "dōng xī",
+      "meaning": "đồ vật",
+      "image": "a026c722b2.jpg",
+      "query": "everyday objects on table",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/29651242/pexels-photo-29651242.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/vintage-flea-market-in-nancy-france-29651242/",
+        "photographer": "Alexis B",
+        "photographer_url": "https://www.pexels.com/@alexis-b-1699196",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "打折",
+      "pinyin": "dǎ zhé",
+      "meaning": "giảm giá",
+      "image": "ce1c94b64c.jpg",
+      "query": "discount sale sign",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/27639078/pexels-photo-27639078.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/a-street-light-27639078/",
+        "photographer": "Alexa V. Mato",
+        "photographer_url": "https://www.pexels.com/@alexa-v-mato-1162295356",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "买单",
+      "pinyin": "mǎi dān",
+      "meaning": "thanh toán",
+      "image": "554003c7ff.jpg",
+      "query": "paying restaurant bill",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/6816369/pexels-photo-6816369.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/close-up-of-a-man-paying-a-bill-at-a-glass-table-6816369/",
+        "photographer": "Yan Krukau",
+        "photographer_url": "https://www.pexels.com/@yankrukov",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "点菜",
+      "pinyin": "diǎn cài",
+      "meaning": "gọi món",
+      "image": "d85522beda.jpg",
+      "query": "ordering food menu restaurant",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/28251611/pexels-photo-28251611.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/fujifilm-x-pro-2-28251611/",
+        "photographer": "Onur Kaya",
+        "photographer_url": "https://www.pexels.com/@kayaartsss",
+        "license": "Pexels License"
+      }
+    }
+  ]
+}

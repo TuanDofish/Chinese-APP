@@ -1,0 +1,158 @@
+{
+  "id": "school",
+  "name": "Trường học",
+  "nameCn": "学校",
+  "color": "#2563A9",
+  "words": [
+    {
+      "word": "学习",
+      "pinyin": "xué xí",
+      "meaning": "học tập",
+      "image": "4ef520d6cd.jpg",
+      "query": "student studying books desk",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/9489771/pexels-photo-9489771.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/girl-student-studying-in-the-library-9489771/",
+        "photographer": "Yaroslav Shuraev",
+        "photographer_url": "https://www.pexels.com/@yaroslav-shuraev",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "学生",
+      "pinyin": "xué shēng",
+      "meaning": "học sinh",
+      "image": "35d9969dfa.jpg",
+      "query": "student classroom",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/8617961/pexels-photo-8617961.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/students-looking-at-their-teacher-8617961/",
+        "photographer": "Yan Krukau",
+        "photographer_url": "https://www.pexels.com/@yankrukov",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "老师",
+      "pinyin": "lǎo shī",
+      "meaning": "giáo viên",
+      "image": "295af37e05.jpg",
+      "query": "teacher classroom",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/8617961/pexels-photo-8617961.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/students-looking-at-their-teacher-8617961/",
+        "photographer": "Yan Krukau",
+        "photographer_url": "https://www.pexels.com/@yankrukov",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "学校",
+      "pinyin": "xué xiào",
+      "meaning": "trường học",
+      "image": "413b738061.jpg",
+      "query": "school building",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/2676888/pexels-photo-2676888.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/photo-of-man-and-woman-walking-in-campus-2676888/",
+        "photographer": "PixelPanda",
+        "photographer_url": "https://www.pexels.com/@pixelpanda-1386402",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "书",
+      "pinyin": "shū",
+      "meaning": "sách",
+      "image": "2f3703e427.jpg",
+      "query": "books stack",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/8207315/pexels-photo-8207315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/a-person-holding-books-8207315/",
+        "photographer": "Alexandra Krainyukhova",
+        "photographer_url": "https://www.pexels.com/@alexakrain",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "汉语",
+      "pinyin": "hàn yǔ",
+      "meaning": "tiếng Trung",
+      "image": "25cf96268e.jpg",
+      "query": "chinese language book",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/17050931/pexels-photo-17050931.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/photo-of-a-pensive-young-man-in-a-suit-sitting-at-a-table-with-books-17050931/",
+        "photographer": "Tran Nhu Tuan",
+        "photographer_url": "https://www.pexels.com/@kooldark",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "写",
+      "pinyin": "xiě",
+      "meaning": "viết",
+      "image": "4d7dc6c5f8.jpg",
+      "query": "writing notebook pen",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/31396700/pexels-photo-31396700.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/close-up-of-hand-writing-in-notebook-31396700/",
+        "photographer": "Biekir Litovchenko",
+        "photographer_url": "https://www.pexels.com/@biekir-litovchenko-2148554792",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "读",
+      "pinyin": "dú",
+      "meaning": "đọc",
+      "image": "75769d1ac8.jpg",
+      "query": "reading book",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/30845677/pexels-photo-30845677.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/relaxed-reading-with-coffee-on-bed-30845677/",
+        "photographer": "Filipa Moreira",
+        "photographer_url": "https://www.pexels.com/@filipa-moreira-2149871975",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "字",
+      "pinyin": "zì",
+      "meaning": "chữ",
+      "image": "a95dbb0ea4.jpg",
+      "query": "chinese characters calligraphy",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/31069603/pexels-photo-31069603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/woman-practicing-calligraphy-in-sunlit-room-31069603/",
+        "photographer": "Jesse R",
+        "photographer_url": "https://www.pexels.com/@jesserphotonyc",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "作业",
+      "pinyin": "zuò yè",
+      "meaning": "bài tập",
+      "image": "116e077219.jpg",
+      "query": "homework notebook desk",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/5321357/pexels-photo-5321357.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/brown-notebook-on-the-laptop-5321357/",
+        "photographer": "seyfi durmaz",
+        "photographer_url": "https://www.pexels.com/@seyfidurmaz",
+        "license": "Pexels License"
+      }
+    }
+  ]
+}

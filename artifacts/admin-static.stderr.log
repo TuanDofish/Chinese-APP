@@ -1,0 +1,28 @@
+127.0.0.1 - - [13/Jun/2026 19:17:49] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [13/Jun/2026 19:18:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [13/Jun/2026 19:22:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [13/Jun/2026 19:22:11] "GET /styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [13/Jun/2026 19:22:11] "GET /app.js HTTP/1.1" 200 -
+127.0.0.1 - - [13/Jun/2026 19:22:12] code 404, message File not found
+127.0.0.1 - - [13/Jun/2026 19:22:12] "GET /mobile/assets/fonts/NotoSansSC-Variable.ttf HTTP/1.1" 404 -
+127.0.0.1 - - [13/Jun/2026 19:22:12] code 404, message File not found
+127.0.0.1 - - [13/Jun/2026 19:22:12] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [13/Jun/2026 19:22:13] code 404, message File not found
+127.0.0.1 - - [13/Jun/2026 19:22:13] "GET /mobile/assets/images/flashcards/greeting/1681525453.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [13/Jun/2026 19:22:13] code 404, message File not found
+127.0.0.1 - - [13/Jun/2026 19:22:13] code 404, message File not found
+127.0.0.1 - - [13/Jun/2026 19:22:13] "GET /mobile/assets/images/flashcards/home/9bdfe95fda.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [13/Jun/2026 19:22:13] "GET /mobile/assets/images/flashcards/food/edfec00f07.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [13/Jun/2026 19:22:13] code 404, message File not found
+127.0.0.1 - - [13/Jun/2026 19:22:13] code 404, message File not found
+127.0.0.1 - - [13/Jun/2026 19:22:13] "GET /mobile/assets/images/flashcards/transport/fed19a817b.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [13/Jun/2026 19:22:13] code 404, message File not found
+127.0.0.1 - - [13/Jun/2026 19:22:13] code 404, message File not found
+127.0.0.1 - - [13/Jun/2026 19:22:13] "GET /mobile/assets/images/flashcards/health/7be627ccbd.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [13/Jun/2026 19:22:13] "GET /mobile/assets/images/flashcards/media_society/d2fb1e3e17.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [13/Jun/2026 19:22:13] "GET /mobile/assets/images/flashcards/school/413b738061.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [13/Jun/2026 19:22:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [13/Jun/2026 19:22:15] "GET /styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [13/Jun/2026 19:22:15] "GET /app.js HTTP/1.1" 200 -
+127.0.0.1 - - [13/Jun/2026 19:22:15] code 404, message File not found
+127.0.0.1 - - [13/Jun/2026 19:22:15] "GET /mobile/assets/fonts/NotoSansSC-Variable.ttf HTTP/1.1" 404 -

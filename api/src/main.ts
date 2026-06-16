@@ -1,6 +1,8 @@
 import { NestFactory } from '@nestjs/core';
+import { Logger } from '@nestjs/common';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { json, urlencoded } from 'express';
 import { AppModule } from './app.module';
 
 function loadLocalEnv() {
@@ -23,11 +25,36 @@ function loadLocalEnv() {
 
 async function bootstrap() {
   loadLocalEnv();
-  const app = await NestFactory.create(AppModule);
+  const logger = new Logger('HttpAction');
+  const app = await NestFactory.create(AppModule, { bodyParser: false });
+  app.use(json({ limit: '10mb' }));
+  app.use(urlencoded({ extended: true, limit: '10mb' }));
+  app.use((req, res, next) => {
+    const startedAt = Date.now();
+    const requestId = `http_${Date.now().toString(36)}_${Math.random()
+      .toString(36)
+      .slice(2, 8)}`;
+    res.on('finish', () => {
+      const payload = {
+        action: 'http.request',
+        requestId,
+        at: new Date().toISOString(),
+        method: req.method,
+        path: req.originalUrl || req.url,
+        statusCode: res.statusCode,
+        durationMs: Date.now() - startedAt,
+      };
+      const line = JSON.stringify(payload);
+      if (res.statusCode >= 500) logger.error(line);
+      else if (res.statusCode >= 400) logger.warn(line);
+      else logger.log(line);
+    });
+    next();
+  });
   app.enableCors({
     origin: true,
-    methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type'],
+    methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
   });
   await app.listen(process.env.PORT ?? 3001);
 }

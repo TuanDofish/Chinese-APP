@@ -1,0 +1,158 @@
+{
+  "id": "health",
+  "name": "Sức khỏe và cơ thể",
+  "nameCn": "健康",
+  "color": "#197A62",
+  "words": [
+    {
+      "word": "身体",
+      "pinyin": "shēn tǐ",
+      "meaning": "cơ thể",
+      "image": "7be627ccbd.jpg",
+      "query": "healthy body exercise",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/31293814/pexels-photo-31293814.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/group-outdoor-fitness-training-session-31293814/",
+        "photographer": "Arsov Ivan",
+        "photographer_url": "https://www.pexels.com/@arsov-ivan-461429481",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "眼睛",
+      "pinyin": "yǎn jīng",
+      "meaning": "mắt",
+      "image": "946f5c8c69.jpg",
+      "query": "eye closeup",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/3750717/pexels-photo-3750717.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/grayscale-photo-of-woman-s-face-3750717/",
+        "photographer": "Elizaveta Dushechkina",
+        "photographer_url": "https://www.pexels.com/@elizaveta-dushechkina-2099536",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "耳朵",
+      "pinyin": "ěr duǒ",
+      "meaning": "tai",
+      "image": "62507462c9.jpg",
+      "query": "ear closeup",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/18285649/pexels-photo-18285649.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/close-up-of-a-woman-wearing-a-large-pearl-earring-18285649/",
+        "photographer": "Arif khan",
+        "photographer_url": "https://www.pexels.com/@arif",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "鼻子",
+      "pinyin": "bí zi",
+      "meaning": "mũi",
+      "image": "e6134a2993.jpg",
+      "query": "nose face closeup",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/16069403/pexels-photo-16069403.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/close-up-of-face-16069403/",
+        "photographer": "Ran Lu",
+        "photographer_url": "https://www.pexels.com/@ran-lu-499464116",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "手",
+      "pinyin": "shǒu",
+      "meaning": "tay",
+      "image": "3c7d183f1b.jpg",
+      "query": "hands closeup",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/10154712/pexels-photo-10154712.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/black-and-white-photo-of-hands-10154712/",
+        "photographer": "Anderson Portella",
+        "photographer_url": "https://www.pexels.com/@andersonportella",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "脚",
+      "pinyin": "jiǎo",
+      "meaning": "chân",
+      "image": "5297c01727.jpg",
+      "query": "feet walking",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/35549360/pexels-photo-35549360.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/feet-on-a-stone-path-with-wildflowers-35549360/",
+        "photographer": "Jayce Q",
+        "photographer_url": "https://www.pexels.com/@jayce-q-132128526",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "生病",
+      "pinyin": "shēng bìng",
+      "meaning": "bị bệnh",
+      "image": "75d80e662b.jpg",
+      "query": "sick person thermometer",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/14530635/pexels-photo-14530635.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/man-lying-down-in-hospital-14530635/",
+        "photographer": "Valentin Angel Fernandez",
+        "photographer_url": "https://www.pexels.com/@vafphotos",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "医院",
+      "pinyin": "yī yuàn",
+      "meaning": "bệnh viện",
+      "image": "071bd02a36.jpg",
+      "query": "hospital building",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/16901852/pexels-photo-16901852.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/overcast-over-building-in-city-16901852/",
+        "photographer": "Gansharm Bdk",
+        "photographer_url": "https://www.pexels.com/@gansharm-bdk-93674348",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "医生",
+      "pinyin": "yī shēng",
+      "meaning": "bác sĩ",
+      "image": "6d7c1afb07.jpg",
+      "query": "doctor portrait",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/37272329/pexels-photo-37272329.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/portrait-of-confident-female-doctor-with-hijab-37272329/",
+        "photographer": "Layth Mushreq",
+        "photographer_url": "https://www.pexels.com/@layth-mushreq-2148270719",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "休息",
+      "pinyin": "xiū xī",
+      "meaning": "nghỉ ngơi",
+      "image": "3a991a4ca5.jpg",
+      "query": "resting on sofa",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/20830465/pexels-photo-20830465.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/black-and-white-photo-of-a-cat-lying-on-a-sofa-20830465/",
+        "photographer": "Q. Hưng Phạm",
+        "photographer_url": "https://www.pexels.com/@qhung999",
+        "license": "Pexels License"
+      }
+    }
+  ]
+}

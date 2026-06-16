@@ -6,51 +6,123 @@
   "words": [
     {
       "word": "眼睛",
-      "pinyin": "yǎnjing",
+      "pinyin": "yǎn jīng",
       "meaning": "mắt",
-      "image": "946f5c8c69.jpg"
+      "image": "946f5c8c69.jpg",
+      "query": "eye closeup",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/3750717/pexels-photo-3750717.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/grayscale-photo-of-woman-s-face-3750717/",
+        "photographer": "Elizaveta Dushechkina",
+        "photographer_url": "https://www.pexels.com/@elizaveta-dushechkina-2099536",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "耳朵",
-      "pinyin": "ěrduo",
+      "pinyin": "ěr duǒ",
       "meaning": "tai",
-      "image": "62507462c9.jpg"
+      "image": "62507462c9.jpg",
+      "query": "ear closeup",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/18285649/pexels-photo-18285649.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/close-up-of-a-woman-wearing-a-large-pearl-earring-18285649/",
+        "photographer": "Arif khan",
+        "photographer_url": "https://www.pexels.com/@arif",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "鼻子",
-      "pinyin": "bízi",
+      "pinyin": "bí zi",
       "meaning": "mũi",
-      "image": "e6134a2993.jpg"
+      "image": "e6134a2993.jpg",
+      "query": "nose face closeup",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/16069403/pexels-photo-16069403.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/close-up-of-face-16069403/",
+        "photographer": "Ran Lu",
+        "photographer_url": "https://www.pexels.com/@ran-lu-499464116",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "嘴",
       "pinyin": "zuǐ",
       "meaning": "miệng",
-      "image": "3697bfcf41.jpg"
+      "image": "3697bfcf41.jpg",
+      "query": "mouth smile lips",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/11956948/pexels-photo-11956948.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/close-up-photo-of-person-s-lips-11956948/",
+        "photographer": "Amir SeilSepour",
+        "photographer_url": "https://www.pexels.com/@amiresel",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "手",
       "pinyin": "shǒu",
       "meaning": "tay",
-      "image": "3c7d183f1b.jpg"
+      "image": "3c7d183f1b.jpg",
+      "query": "hand fingers",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/1454797/pexels-photo-1454797.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/person-s-hand-in-shallow-photo-1454797/",
+        "photographer": "Min An",
+        "photographer_url": "https://www.pexels.com/@minan1398",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "脚",
       "pinyin": "jiǎo",
       "meaning": "chân",
-      "image": "5297c01727.jpg"
+      "image": "5297c01727.jpg",
+      "query": "foot barefoot",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/356175/pexels-photo-356175.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/person-in-blue-pants-standing-356175/",
+        "photographer": "Pixabay",
+        "photographer_url": "https://www.pexels.com/@pixabay",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "头",
       "pinyin": "tóu",
       "meaning": "đầu",
-      "image": "4be2abbcf7.jpg"
+      "image": "4be2abbcf7.jpg",
+      "query": "head silhouette",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/16251528/pexels-photo-16251528.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/a-silhouette-of-a-womans-head-16251528/",
+        "photographer": "Alex Urezkov",
+        "photographer_url": "https://www.pexels.com/@instasky",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "心",
       "pinyin": "xīn",
       "meaning": "tim",
-      "image": "bf08c05e00.jpg"
+      "image": "bf08c05e00.jpg",
+      "query": "heart love",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/880843/pexels-photo-880843.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/photography-of-heart-digital-wallpaper-880843/",
+        "photographer": "Tim Mossholder",
+        "photographer_url": "https://www.pexels.com/@timmossholder",
+        "license": "Pexels License"
+      }
     }
   ]
 }

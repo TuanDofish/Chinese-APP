@@ -1,0 +1,158 @@
+{
+  "id": "daily_life",
+  "name": "Sinh hoạt hằng ngày",
+  "nameCn": "日常生活",
+  "color": "#FF5722",
+  "words": [
+    {
+      "word": "起床",
+      "pinyin": "qǐ chuáng",
+      "meaning": "thức dậy",
+      "image": "59b19552d6.jpg",
+      "query": "waking up morning bed",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/9330891/pexels-photo-9330891.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/bed-sheets-on-the-bed-9330891/",
+        "photographer": "Alena Tamarovskaia",
+        "photographer_url": "https://www.pexels.com/@alena-tamarovskaia-98047836",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "睡觉",
+      "pinyin": "shuì jiào",
+      "meaning": "ngủ",
+      "image": "60cffce1f6.jpg",
+      "query": "sleeping in bed",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/1021051/pexels-photo-1021051.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/family-of-three-lying-on-bed-showing-feet-while-covered-with-yellow-blanket-1021051/",
+        "photographer": "Simon Berger",
+        "photographer_url": "https://www.pexels.com/@simon73",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "洗澡",
+      "pinyin": "xǐ zǎo",
+      "meaning": "tắm",
+      "image": "5ac500cfcc.jpg",
+      "query": "shower bathroom",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/28479469/pexels-photo-28479469.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/modern-white-marble-bathroom-interior-28479469/",
+        "photographer": "Pușcaș Adryan",
+        "photographer_url": "https://www.pexels.com/@pu-ca-adryan-163345030",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "做饭",
+      "pinyin": "zuò fàn",
+      "meaning": "nấu ăn",
+      "image": "e69a3d7106.jpg",
+      "query": "cooking kitchen",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/30795870/pexels-photo-30795870.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/monochrome-kitchen-scene-with-female-chef-30795870/",
+        "photographer": "- landsmann -",
+        "photographer_url": "https://www.pexels.com/@landsmann-803094805",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "吃饭",
+      "pinyin": "chī fàn",
+      "meaning": "ăn cơm",
+      "image": "0068330a10.jpg",
+      "query": "eating meal table",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/8697540/pexels-photo-8697540.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/couple-sitting-and-eating-healthy-meals-on-a-dining-table-8697540/",
+        "photographer": "Farhad Ibrahimzade",
+        "photographer_url": "https://www.pexels.com/@farhad",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "喝水",
+      "pinyin": "hē shuǐ",
+      "meaning": "uống nước",
+      "image": "2c8250acfd.jpg",
+      "query": "drinking water glass",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/9639901/pexels-photo-9639901.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/water-moving-inside-a-drinking-glass-9639901/",
+        "photographer": "Dima Valkov",
+        "photographer_url": "https://www.pexels.com/@dima-valkov-1186343",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "上班",
+      "pinyin": "shàng bān",
+      "meaning": "đi làm",
+      "image": "b4f0388f1e.jpg",
+      "query": "commuting to work office",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/37342792/pexels-photo-37342792.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/black-and-white-urban-crosswalk-scene-of-businessman-37342792/",
+        "photographer": "Mak_ jp",
+        "photographer_url": "https://www.pexels.com/@mak_-jp-107017486",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "下班",
+      "pinyin": "xià bān",
+      "meaning": "tan làm",
+      "image": "96ed60cdcb.jpg",
+      "query": "leaving office work",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/5847812/pexels-photo-5847812.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/grayscale-photo-of-man-walking-near-the-building-5847812/",
+        "photographer": "Tomás Monteiro",
+        "photographer_url": "https://www.pexels.com/@monteiro-online",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "买东西",
+      "pinyin": "mǎi dōng xī",
+      "meaning": "mua đồ",
+      "image": "b6dffff782.jpg",
+      "query": "grocery shopping",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/9070106/pexels-photo-9070106.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/a-person-holding-a-basket-9070106/",
+        "photographer": "Tara Clark",
+        "photographer_url": "https://www.pexels.com/@tara-clark-89384110",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "打电话",
+      "pinyin": "dǎ diàn huà",
+      "meaning": "gọi điện",
+      "image": "575345386c.jpg",
+      "query": "phone call smartphone",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/1796469/pexels-photo-1796469.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/black-and-white-photo-of-person-holding-a-mobile-phone-1796469/",
+        "photographer": "Mwabonje Ringa",
+        "photographer_url": "https://www.pexels.com/@mwabonje",
+        "license": "Pexels License"
+      }
+    }
+  ]
+}

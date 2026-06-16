@@ -10,18 +10,28 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
-import 'grammar_ai_service.dart';
+import 'package:mobile/features/auth/auth_service.dart';
+import 'package:mobile/features/grammar/grammar_ai_service.dart';
+import 'package:mobile/features/games/mini_game_screen.dart';
+import 'package:mobile/core/services/progress_service.dart';
+
+part 'app/app_shell.dart';
+part 'features/auth/auth_flow.dart';
+part 'features/home/home_screen.dart';
+part 'features/vocabulary/vocabulary_screen.dart';
+part 'features/grammar/grammar_screen.dart';
+part 'features/reading/reading_practice_screen.dart';
 
 void main() {
   runApp(const VNChineseApp());
 }
 
 class AppColors {
-  static const ink = Color(0xFF17202A);
-  static const muted = Color(0xFF667085);
-  static const paper = Color(0xFFF7F4EF);
+  static const ink = Color(0xFF151922);
+  static const muted = Color(0xFF596275);
+  static const paper = Color(0xFFFAF7F2);
   static const surface = Color(0xFFFFFFFF);
-  static const line = Color(0xFFE7DDD0);
+  static const line = Color(0xFFE4D9CC);
   static const cinnabar = Color(0xFFC83E35);
   static const jade = Color(0xFF197A62);
   static const amber = Color(0xFFE0A326);
@@ -39,7 +49,9 @@ class VNChineseApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        fontFamily: 'Arial',
+        fontFamily: 'Segoe UI',
+        fontFamilyFallback: const ['Roboto', 'Arial', 'NotoSansSC'],
+        visualDensity: VisualDensity.standard,
         scaffoldBackgroundColor: AppColors.paper,
         colorScheme: ColorScheme.fromSeed(
           seedColor: AppColors.cinnabar,
@@ -49,44 +61,73 @@ class VNChineseApp extends StatelessWidget {
         ),
         textTheme: const TextTheme(
           headlineLarge: TextStyle(
-            fontSize: 34,
-            height: 1.08,
-            fontWeight: FontWeight.w900,
+            fontSize: 32,
+            height: 1.14,
+            fontWeight: FontWeight.w800,
             color: AppColors.ink,
           ),
           headlineMedium: TextStyle(
-            fontSize: 26,
-            height: 1.16,
-            fontWeight: FontWeight.w900,
+            fontSize: 25,
+            height: 1.22,
+            fontWeight: FontWeight.w800,
             color: AppColors.ink,
           ),
           titleLarge: TextStyle(
-            fontSize: 21,
-            fontWeight: FontWeight.w900,
+            fontSize: 20,
+            height: 1.28,
+            fontWeight: FontWeight.w800,
             color: AppColors.ink,
           ),
           titleMedium: TextStyle(
             fontSize: 16,
-            fontWeight: FontWeight.w800,
+            height: 1.35,
+            fontWeight: FontWeight.w700,
             color: AppColors.ink,
           ),
           bodyLarge: TextStyle(
-            fontSize: 15,
-            height: 1.45,
+            fontSize: 15.5,
+            height: 1.55,
             color: AppColors.ink,
           ),
           bodyMedium: TextStyle(
-            fontSize: 14,
-            height: 1.45,
+            fontSize: 14.5,
+            height: 1.55,
             color: AppColors.muted,
           ),
-          labelLarge: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+          labelLarge: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
         ),
         appBarTheme: const AppBarTheme(
           elevation: 0,
           centerTitle: false,
           backgroundColor: AppColors.paper,
           foregroundColor: AppColors.ink,
+          titleTextStyle: TextStyle(
+            color: AppColors.ink,
+            fontSize: 20,
+            fontWeight: FontWeight.w700,
+            height: 1.25,
+          ),
+        ),
+        navigationBarTheme: NavigationBarThemeData(
+          height: 74,
+          backgroundColor: AppColors.surface,
+          indicatorColor: AppColors.cinnabar.withValues(alpha: 0.12),
+          iconTheme: WidgetStateProperty.resolveWith((states) {
+            final selected = states.contains(WidgetState.selected);
+            return IconThemeData(
+              color: selected ? AppColors.ink : AppColors.muted,
+              size: selected ? 25 : 23,
+            );
+          }),
+          labelTextStyle: WidgetStateProperty.resolveWith((states) {
+            final selected = states.contains(WidgetState.selected);
+            return TextStyle(
+              color: selected ? AppColors.ink : AppColors.muted,
+              fontSize: 12,
+              height: 1.15,
+              fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
+            );
+          }),
         ),
         inputDecorationTheme: InputDecorationTheme(
           filled: true,
@@ -116,7 +157,7 @@ class VNChineseApp extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
             ),
-            textStyle: const TextStyle(fontWeight: FontWeight.w900),
+            textStyle: const TextStyle(fontWeight: FontWeight.w700),
           ),
         ),
         outlinedButtonTheme: OutlinedButtonThemeData(
@@ -127,2079 +168,11 @@ class VNChineseApp extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
             ),
-            textStyle: const TextStyle(fontWeight: FontWeight.w800),
+            textStyle: const TextStyle(fontWeight: FontWeight.w700),
           ),
         ),
       ),
       home: const AuthGate(),
-    );
-  }
-}
-
-class AuthGate extends StatefulWidget {
-  const AuthGate({super.key});
-
-  @override
-  State<AuthGate> createState() => _AuthGateState();
-}
-
-class _AuthGateState extends State<AuthGate> {
-  bool _entered = false;
-
-  @override
-  Widget build(BuildContext context) {
-    if (_entered) {
-      return MainScreen(onLogout: () => setState(() => _entered = false));
-    }
-    return AuthScreen(onContinue: () => setState(() => _entered = true));
-  }
-}
-
-class AuthScreen extends StatefulWidget {
-  const AuthScreen({super.key, required this.onContinue});
-
-  final VoidCallback onContinue;
-
-  @override
-  State<AuthScreen> createState() => _AuthScreenState();
-}
-
-class _AuthScreenState extends State<AuthScreen> {
-  bool _isRegister = false;
-  bool _remember = true;
-  String _targetLevel = 'HSK 2';
-
-  @override
-  Widget build(BuildContext context) {
-    final title = _isRegister ? 'Tạo tài khoản học tập' : 'Chào mừng trở lại';
-    final subtitle = _isRegister
-        ? 'Lưu tiến độ, mục tiêu HSK và sổ tay từ vựng trên thiết bị.'
-        : 'Tiếp tục lộ trình tiếng Trung cá nhân hóa cho người Việt.';
-
-    return Scaffold(
-      body: SafeArea(
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            final isWide = constraints.maxWidth >= 820;
-            return SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(20, 18, 20, 28),
-              child: ConstrainedBox(
-                constraints: BoxConstraints(
-                  minHeight: constraints.maxHeight - 46,
-                ),
-                child: Center(
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 1120),
-                    child: isWide
-                        ? Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              const Expanded(flex: 6, child: AuthVisualPanel()),
-                              const SizedBox(width: 28),
-                              Expanded(
-                                flex: 5,
-                                child: _buildForm(title, subtitle),
-                              ),
-                            ],
-                          )
-                        : Column(
-                            children: [
-                              const AuthVisualPanel(),
-                              const SizedBox(height: 20),
-                              _buildForm(title, subtitle),
-                            ],
-                          ),
-                  ),
-                ),
-              ),
-            );
-          },
-        ),
-      ),
-    );
-  }
-
-  Widget _buildForm(String title, String subtitle) {
-    return AppCard(
-      padding: const EdgeInsets.all(22),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const BrandMark(showText: true),
-          const SizedBox(height: 22),
-          SegmentTabs(
-            labels: const ['Đăng nhập', 'Đăng ký'],
-            selectedIndex: _isRegister ? 1 : 0,
-            onChanged: (index) => setState(() => _isRegister = index == 1),
-          ),
-          const SizedBox(height: 22),
-          Text(title, style: Theme.of(context).textTheme.headlineMedium),
-          const SizedBox(height: 8),
-          Text(subtitle, style: Theme.of(context).textTheme.bodyMedium),
-          const SizedBox(height: 22),
-          if (_isRegister) ...[
-            const TextField(
-              textInputAction: TextInputAction.next,
-              decoration: InputDecoration(
-                labelText: 'Họ tên',
-                prefixIcon: Icon(Icons.badge_outlined),
-              ),
-            ),
-            const SizedBox(height: 12),
-          ],
-          const TextField(
-            keyboardType: TextInputType.emailAddress,
-            textInputAction: TextInputAction.next,
-            decoration: InputDecoration(
-              labelText: 'Email',
-              hintText: 'ban@example.com',
-              prefixIcon: Icon(Icons.mail_outline),
-            ),
-          ),
-          const SizedBox(height: 12),
-          const TextField(
-            obscureText: true,
-            decoration: InputDecoration(
-              labelText: 'Mật khẩu',
-              prefixIcon: Icon(Icons.lock_outline),
-              suffixIcon: Icon(Icons.visibility_off_outlined),
-            ),
-          ),
-          if (_isRegister) ...[
-            const SizedBox(height: 12),
-            DropdownButtonFormField<String>(
-              initialValue: _targetLevel,
-              items: const ['HSK 1', 'HSK 2', 'HSK 3', 'HSK 4']
-                  .map(
-                    (level) =>
-                        DropdownMenuItem(value: level, child: Text(level)),
-                  )
-                  .toList(),
-              decoration: const InputDecoration(
-                labelText: 'Mục tiêu hiện tại',
-                prefixIcon: Icon(Icons.flag_outlined),
-              ),
-              onChanged: (value) =>
-                  setState(() => _targetLevel = value ?? 'HSK 2'),
-            ),
-          ],
-          const SizedBox(height: 4),
-          Row(
-            children: [
-              Checkbox(
-                value: _remember,
-                onChanged: (value) => setState(() => _remember = value ?? true),
-              ),
-              const Expanded(
-                child: Text('Ghi nhớ phiên học trên thiết bị này'),
-              ),
-            ],
-          ),
-          const SizedBox(height: 12),
-          FilledButton.icon(
-            onPressed: widget.onContinue,
-            icon: Icon(_isRegister ? Icons.person_add_alt_1 : Icons.login),
-            label: Text(_isRegister ? 'Tạo tài khoản' : 'Đăng nhập'),
-          ),
-          const SizedBox(height: 10),
-          OutlinedButton.icon(
-            onPressed: widget.onContinue,
-            icon: const Icon(Icons.school_outlined),
-            label: const Text('Học thử không cần tài khoản'),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class AuthVisualPanel extends StatelessWidget {
-  const AuthVisualPanel({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return AppCard(
-      gradient: const LinearGradient(
-        colors: [Color(0xFF2D2722), Color(0xFF522E29), Color(0xFF1F4E45)],
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-      ),
-      padding: const EdgeInsets.all(24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const BrandMark(inverted: true, showText: true),
-          const SizedBox(height: 54),
-          Text(
-            'VNChinese',
-            style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-              color: Colors.white,
-              fontSize: 44,
-            ),
-          ),
-          const SizedBox(height: 10),
-          const Text(
-            'Ứng dụng học tiếng Trung cho người Việt: từ vựng HSK, AI ngữ pháp, luyện phát âm, đọc bài và video ngắn.',
-            style: TextStyle(
-              color: Color(0xFFEFE7DC),
-              fontSize: 16,
-              height: 1.45,
-            ),
-          ),
-          const SizedBox(height: 26),
-          const Wrap(
-            spacing: 10,
-            runSpacing: 10,
-            children: [
-              VisualBadge(icon: Icons.translate, label: 'Từ điển Trung - Việt'),
-              VisualBadge(icon: Icons.auto_awesome, label: 'AI ngữ pháp'),
-              VisualBadge(icon: Icons.mic_none, label: 'Chấm phát âm'),
-              VisualBadge(
-                icon: Icons.menu_book_outlined,
-                label: 'Sổ tay từ mới',
-              ),
-            ],
-          ),
-          const SizedBox(height: 34),
-          Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.11),
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: Colors.white.withValues(alpha: 0.16)),
-            ),
-            child: const Row(
-              children: [
-                CharacterTile(text: '学', color: AppColors.cinnabar),
-                SizedBox(width: 16),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'xué',
-                        style: TextStyle(
-                          color: Color(0xFFFFE1A8),
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
-                      SizedBox(height: 4),
-                      Text(
-                        'học, học tập',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 19,
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
-                      SizedBox(height: 4),
-                      Text(
-                        '我每天学习中文。',
-                        style: TextStyle(color: Color(0xFFEFE7DC)),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key, required this.onLogout});
-
-  final VoidCallback onLogout;
-
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
-  int _selectedIndex = 0;
-  final List<Widget?> _screens = List<Widget?>.filled(5, null);
-
-  @override
-  void initState() {
-    super.initState();
-    _screens[0] = _buildScreen(0);
-  }
-
-  Widget _buildScreen(int index) {
-    switch (index) {
-      case 0:
-        return HomeScreen(onOpenTab: _selectTab);
-      case 1:
-        return const VocabularyScreen();
-      case 2:
-        return const GrammarScreen();
-      case 3:
-        return const ReadingPracticeScreen();
-      case 4:
-        return ProfileScreen(onLogout: widget.onLogout);
-      default:
-        return const SizedBox.shrink();
-    }
-  }
-
-  void _selectTab(int index) {
-    setState(() {
-      _selectedIndex = index;
-      _screens[index] ??= _buildScreen(index);
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    _screens[_selectedIndex] ??= _buildScreen(_selectedIndex);
-
-    return Scaffold(
-      body: IndexedStack(
-        index: _selectedIndex,
-        children: List.generate(
-          _screens.length,
-          (index) => _screens[index] ?? const SizedBox.shrink(),
-        ),
-      ),
-      bottomNavigationBar: NavigationBar(
-        height: 72,
-        selectedIndex: _selectedIndex,
-        onDestinationSelected: _selectTab,
-        destinations: const [
-          NavigationDestination(
-            icon: Icon(Icons.home_outlined),
-            selectedIcon: Icon(Icons.home),
-            label: 'Hôm nay',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.menu_book_outlined),
-            selectedIcon: Icon(Icons.menu_book),
-            label: 'Từ vựng',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.edit_note_outlined),
-            selectedIcon: Icon(Icons.edit_note),
-            label: 'Ngữ pháp',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.record_voice_over_outlined),
-            selectedIcon: Icon(Icons.record_voice_over),
-            label: 'Đọc',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.person_outline),
-            selectedIcon: Icon(Icons.person),
-            label: 'Tài khoản',
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key, required this.onOpenTab});
-
-  final ValueChanged<int> onOpenTab;
-
-  @override
-  Widget build(BuildContext context) {
-    return ScreenShell(
-      title: 'Hôm nay học gì?',
-      subtitle: 'Lộ trình HSK 2, mục tiêu 25 phút và 18 từ mới.',
-      trailing: const UserAvatar(),
-      children: [
-        AppCard(
-          gradient: const LinearGradient(
-            colors: [Color(0xFFFAF1E6), Color(0xFFE7F2EC)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-          child: Stack(
-            children: [
-              Positioned(
-                right: 12,
-                top: -26,
-                child: Text(
-                  '语',
-                  style: TextStyle(
-                    fontSize: 144,
-                    fontWeight: FontWeight.w900,
-                    color: AppColors.cinnabar.withValues(alpha: 0.07),
-                  ),
-                ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const StatusPill(
-                    icon: Icons.flag_outlined,
-                    label: 'Đang học HSK 2',
-                  ),
-                  const SizedBox(height: 18),
-                  Text(
-                    'Hoàn thành bài Gia đình và thời gian',
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  ),
-                  const SizedBox(height: 8),
-                  const Text(
-                    'Ôn 8 từ đã lưu, luyện một câu phát âm và kiểm tra ngữ pháp bằng AI để giữ streak.',
-                  ),
-                  const SizedBox(height: 18),
-                  Wrap(
-                    spacing: 10,
-                    runSpacing: 10,
-                    children: [
-                      FilledButton.icon(
-                        onPressed: () => onOpenTab(1),
-                        icon: const Icon(Icons.play_arrow_rounded),
-                        label: const Text('Học tiếp'),
-                      ),
-                      OutlinedButton.icon(
-                        onPressed: () => onOpenTab(1),
-                        icon: const Icon(Icons.bookmark_border),
-                        label: const Text('Mở sổ tay'),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 18),
-        const MetricWrap(
-          metrics: [
-            DashboardMetric(
-              '12',
-              'Ngày streak',
-              Icons.local_fire_department_outlined,
-              AppColors.cinnabar,
-            ),
-            DashboardMetric(
-              '18/20',
-              'Từ hôm nay',
-              Icons.style_outlined,
-              AppColors.jade,
-            ),
-            DashboardMetric(
-              '24 phút',
-              'Thời gian học',
-              Icons.timer_outlined,
-              AppColors.amber,
-            ),
-            DashboardMetric(
-              '3',
-              'Lượt AI sửa câu',
-              Icons.auto_fix_high_outlined,
-              AppColors.blue,
-            ),
-          ],
-        ),
-        const SizedBox(height: 24),
-        SectionHeader(
-          title: 'Tính năng chính',
-          subtitle:
-              'Các màn hình đã được tách đúng nhóm chức năng: từ điển, sổ tay, flashcard, ngữ pháp, đọc và phát âm.',
-        ),
-        FeatureGrid(
-          items: [
-            FeatureItem(
-              'Từ vựng HSK',
-              'Tra từ, học theo chủ đề và lưu sổ tay.',
-              Icons.translate,
-              AppColors.cinnabar,
-              () => onOpenTab(1),
-            ),
-            FeatureItem(
-              'AI ngữ pháp',
-              'Nhập câu, xem lỗi, câu sửa và mẹo học.',
-              Icons.psychology_alt_outlined,
-              AppColors.blue,
-              () => onOpenTab(2),
-            ),
-            FeatureItem(
-              'Phát âm',
-              'Nghe mẫu, ghi âm và nhận điểm tương đồng.',
-              Icons.mic_none,
-              AppColors.jade,
-              () => onOpenTab(3),
-            ),
-            FeatureItem(
-              'Đọc và video',
-              'Đọc câu theo HSK, luyện phụ đề Little Fox.',
-              Icons.ondemand_video_outlined,
-              AppColors.plum,
-              () => onOpenTab(3),
-            ),
-          ],
-        ),
-        const SizedBox(height: 24),
-        const SectionHeader(title: 'Lộ trình HSK'),
-        const HskRoadmap(),
-      ],
-    );
-  }
-}
-
-class VocabularyScreen extends StatefulWidget {
-  const VocabularyScreen({super.key});
-
-  @override
-  State<VocabularyScreen> createState() => _VocabularyScreenState();
-}
-
-class _VocabularyScreenState extends State<VocabularyScreen> {
-  int _tab = 0;
-  Set<String> _saved = {};
-
-  @override
-  void initState() {
-    super.initState();
-    _loadSaved();
-  }
-
-  Future<void> _loadSaved() async {
-    final saved = await NotebookStore.load();
-    if (mounted) setState(() => _saved = saved);
-  }
-
-  Future<void> _toggleSaved(String word) async {
-    final saved = await NotebookStore.toggle(word);
-    if (mounted) setState(() => _saved = saved);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ScreenShell(
-      title: 'Từ vựng HSK',
-      subtitle:
-          'Tra từ Trung - Việt, học flashcard theo chủ đề và quản lý sổ tay.',
-      trailing: IconButton.filledTonal(
-        tooltip: 'Đồng bộ sổ tay',
-        onPressed: _loadSaved,
-        icon: const Icon(Icons.cloud_sync_outlined),
-      ),
-      children: [
-        SegmentTabs(
-          labels: const ['Từ điển', 'Bài học', 'Sổ tay'],
-          selectedIndex: _tab,
-          onChanged: (index) => setState(() => _tab = index),
-        ),
-        const SizedBox(height: 16),
-        if (_tab == 0)
-          DictionaryPanel(saved: _saved, onToggleSaved: _toggleSaved),
-        if (_tab == 1)
-          FlashcardTopicsPanel(saved: _saved, onToggleSaved: _toggleSaved),
-        if (_tab == 2)
-          NotebookPanel(saved: _saved, onToggleSaved: _toggleSaved),
-      ],
-    );
-  }
-}
-
-class DictionaryPanel extends StatefulWidget {
-  const DictionaryPanel({
-    super.key,
-    required this.saved,
-    required this.onToggleSaved,
-  });
-
-  final Set<String> saved;
-  final ValueChanged<String> onToggleSaved;
-
-  @override
-  State<DictionaryPanel> createState() => _DictionaryPanelState();
-}
-
-class _DictionaryPanelState extends State<DictionaryPanel> {
-  final TextEditingController _controller = TextEditingController();
-  final FlutterTts _tts = FlutterTts();
-  VocabEntry? _result;
-  bool _loading = false;
-  bool _dictionaryReady = false;
-  String _message = '';
-  Timer? _debounce;
-
-  @override
-  void initState() {
-    super.initState();
-    _tts.setLanguage('zh-CN');
-    DictionaryRepository.ensureLoaded().then((_) {
-      if (mounted) setState(() => _dictionaryReady = true);
-    });
-    _controller.addListener(() {
-      _debounce?.cancel();
-      final q = _controller.text.trim();
-      if (q.isEmpty) return;
-      _debounce = Timer(
-        const Duration(milliseconds: 260),
-        () => _search(q, quick: true),
-      );
-    });
-  }
-
-  @override
-  void dispose() {
-    _debounce?.cancel();
-    _controller.dispose();
-    _tts.stop();
-    super.dispose();
-  }
-
-  Future<void> _search(String query, {bool quick = false}) async {
-    final q = query.trim();
-    if (q.isEmpty) return;
-    setState(() {
-      _loading = true;
-      _message = '';
-    });
-
-    await DictionaryRepository.ensureLoaded();
-    final local = DictionaryRepository.lookupLocal(q);
-    if (local != null) {
-      setState(() {
-        _result = local;
-        _loading = false;
-      });
-      return;
-    }
-
-    final remote = await DictionaryRepository.lookupRemote(q);
-    if (!mounted) return;
-    setState(() {
-      _result = remote ?? local;
-      _loading = false;
-      _message = _result == null
-          ? 'Không tìm thấy từ phù hợp. Hãy thử Hán tự, pinyin hoặc nghĩa tiếng Việt.'
-          : '';
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          children: [
-            Expanded(
-              child: TextField(
-                controller: _controller,
-                textInputAction: TextInputAction.search,
-                onSubmitted: _search,
-                decoration: InputDecoration(
-                  hintText: _dictionaryReady
-                      ? '突然 / học / xuexi'
-                      : 'Đang nạp từ điển HSK...',
-                  prefixIcon: const Icon(
-                    Icons.search_rounded,
-                    color: AppColors.cinnabar,
-                  ),
-                  suffixIcon: _controller.text.isNotEmpty
-                      ? IconButton(
-                          tooltip: 'Xóa',
-                          icon: const Icon(Icons.cancel_rounded),
-                          onPressed: () => setState(() {
-                            _controller.clear();
-                            _result = null;
-                            _message = '';
-                          }),
-                        )
-                      : null,
-                ),
-              ),
-            ),
-            const SizedBox(width: 10),
-            FilledButton(
-              onPressed: _loading ? null : () => _search(_controller.text),
-              child: _loading
-                  ? const SizedBox(
-                      width: 18,
-                      height: 18,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                        color: Colors.white,
-                      ),
-                    )
-                  : const Text('Tra'),
-            ),
-          ],
-        ),
-        const SizedBox(height: 14),
-        const Text(
-          'Từ thịnh hành',
-          style: TextStyle(color: AppColors.muted, fontWeight: FontWeight.w800),
-        ),
-        const SizedBox(height: 10),
-        Wrap(
-          spacing: 8,
-          runSpacing: 8,
-          children: DictionaryRepository.trending.map((word) {
-            return ActionChip(
-              label: Text(word),
-              onPressed: () {
-                _controller.text = word;
-                _search(word);
-              },
-            );
-          }).toList(),
-        ),
-        const SizedBox(height: 18),
-        if (_message.isNotEmpty)
-          EmptyState(
-            icon: Icons.search_off,
-            title: 'Chưa có kết quả',
-            message: _message,
-          ),
-        if (_result != null)
-          DictionaryResultCard(
-            entry: _result!,
-            saved: widget.saved.contains(_result!.simplified),
-            onSpeak: () => _tts.speak(_result!.simplified),
-            onToggleSaved: () => widget.onToggleSaved(_result!.simplified),
-          ),
-      ],
-    );
-  }
-}
-
-class DictionaryResultCard extends StatelessWidget {
-  const DictionaryResultCard({
-    super.key,
-    required this.entry,
-    required this.saved,
-    required this.onSpeak,
-    required this.onToggleSaved,
-  });
-
-  final VocabEntry entry;
-  final bool saved;
-  final VoidCallback onSpeak;
-  final VoidCallback onToggleSaved;
-
-  @override
-  Widget build(BuildContext context) {
-    return AppCard(
-      padding: EdgeInsets.zero,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(18, 18, 18, 14),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Wrap(
-                    spacing: 12,
-                    runSpacing: 8,
-                    crossAxisAlignment: WrapCrossAlignment.center,
-                    children: [
-                      Text(
-                        entry.simplified,
-                        style: const TextStyle(
-                          fontSize: 52,
-                          fontWeight: FontWeight.w900,
-                          color: AppColors.ink,
-                        ),
-                      ),
-                      Text(
-                        entry.pinyin,
-                        style: const TextStyle(
-                          fontSize: 24,
-                          color: AppColors.cinnabar,
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                IconButton(
-                  tooltip: 'Nghe phát âm',
-                  onPressed: onSpeak,
-                  icon: const Icon(
-                    Icons.volume_up_outlined,
-                    color: AppColors.amber,
-                  ),
-                ),
-                IconButton(
-                  tooltip: saved ? 'Bỏ khỏi sổ tay' : 'Lưu vào sổ tay',
-                  onPressed: onToggleSaved,
-                  icon: Icon(
-                    saved ? Icons.bookmark : Icons.bookmark_border,
-                    color: saved ? AppColors.cinnabar : AppColors.muted,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const Divider(height: 1),
-          Padding(
-            padding: const EdgeInsets.all(18),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                InfoLine(
-                  icon: Icons.translate,
-                  label: 'Nghĩa tiếng Việt',
-                  value: entry.meaning,
-                ),
-                if (entry.hanViet.isNotEmpty) ...[
-                  const SizedBox(height: 8),
-                  InfoLine(
-                    icon: Icons.spellcheck,
-                    label: 'Hán Việt',
-                    value: entry.hanViet,
-                  ),
-                ],
-                if (entry.wordType.isNotEmpty) ...[
-                  const SizedBox(height: 8),
-                  InfoLine(
-                    icon: Icons.category_outlined,
-                    label: 'Loại từ',
-                    value: entry.wordType,
-                  ),
-                ],
-                const SizedBox(height: 18),
-                const Text(
-                  'Ví dụ câu',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w900,
-                    color: AppColors.ink,
-                  ),
-                ),
-                const SizedBox(height: 10),
-                ...entry.examples.map((ex) => ExampleTile(example: ex)),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class FlashcardTopicsPanel extends StatefulWidget {
-  const FlashcardTopicsPanel({
-    super.key,
-    required this.saved,
-    required this.onToggleSaved,
-  });
-
-  final Set<String> saved;
-  final ValueChanged<String> onToggleSaved;
-
-  @override
-  State<FlashcardTopicsPanel> createState() => _FlashcardTopicsPanelState();
-}
-
-class _FlashcardTopicsPanelState extends State<FlashcardTopicsPanel> {
-  String _level = 'HSK 1';
-  late final Future<List<FlashcardTopic>> _topicsFuture;
-
-  @override
-  void initState() {
-    super.initState();
-    _topicsFuture = FlashcardRepository.loadTopics();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder<List<FlashcardTopic>>(
-      future: _topicsFuture,
-      builder: (context, snapshot) {
-        final allTopics = snapshot.data ?? FlashcardRepository.fallbackTopics;
-        final topics = allTopics
-            .where((topic) => topic.level == _level)
-            .toList();
-        if (!snapshot.hasData && allTopics.isEmpty) {
-          return const AppCard(
-            child: Center(child: CircularProgressIndicator()),
-          );
-        }
-        return _buildTopicList(topics);
-      },
-    );
-  }
-
-  Widget _buildTopicList(List<FlashcardTopic> topics) {
-    final allWords = topics
-        .expand((topic) => topic.words.map((word) => word.simplified))
-        .toSet();
-    final learned = widget.saved.intersection(allWords).length;
-
-    return Column(
-      children: [
-        LevelSelector(
-          levels: const ['HSK 1', 'HSK 2', 'HSK 3', 'HSK 4'],
-          selected: _level,
-          onSelected: (level) => setState(() => _level = level),
-        ),
-        const SizedBox(height: 16),
-        AppCard(
-          gradient: LinearGradient(
-            colors: [
-              _levelColor(_level).withValues(alpha: 0.86),
-              _levelColor(_level).withValues(alpha: 0.68),
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    _level,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 28,
-                      fontWeight: FontWeight.w900,
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  Text(
-                    '$learned/${allWords.length} từ',
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                  const Spacer(),
-                  StatusPill(
-                    label:
-                        '${allWords.isEmpty ? 0 : (learned / allWords.length * 100).round()}%',
-                    color: Colors.white,
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: LinearProgressIndicator(
-                  minHeight: 7,
-                  value: allWords.isEmpty ? 0 : learned / allWords.length,
-                  backgroundColor: Colors.white.withValues(alpha: 0.28),
-                  valueColor: const AlwaysStoppedAnimation<Color>(Colors.white),
-                ),
-              ),
-              const SizedBox(height: 14),
-              const Text(
-                'Mỗi chủ đề là một bài học flashcard có ảnh, nghe mẫu và quiz ngắn.',
-                style: TextStyle(color: Colors.white),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 16),
-        ...topics.map(
-          (topic) => Padding(
-            padding: const EdgeInsets.only(bottom: 12),
-            child: TopicCard(
-              topic: topic,
-              savedCount: topic.words
-                  .where((word) => widget.saved.contains(word.simplified))
-                  .length,
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => FlashcardLessonScreen(
-                      topic: topic,
-                      saved: widget.saved,
-                      onToggleSaved: widget.onToggleSaved,
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class NotebookPanel extends StatelessWidget {
-  const NotebookPanel({
-    super.key,
-    required this.saved,
-    required this.onToggleSaved,
-  });
-
-  final Set<String> saved;
-  final ValueChanged<String> onToggleSaved;
-
-  @override
-  Widget build(BuildContext context) {
-    final words = saved
-        .map(DictionaryRepository.lookupLocal)
-        .whereType<VocabEntry>()
-        .toList();
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        AppCard(
-          color: const Color(0xFFFFFAF0),
-          child: Row(
-            children: [
-              const Icon(Icons.bookmark_added_outlined, color: AppColors.amber),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Text(
-                  'Sổ tay hiện có ${saved.length} từ. Danh sách này được lưu tự động trên thiết bị.',
-                  style: const TextStyle(fontWeight: FontWeight.w800),
-                ),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 14),
-        if (words.isEmpty)
-          const EmptyState(
-            icon: Icons.bookmark_border,
-            title: 'Chưa có từ nào',
-            message: 'Hãy lưu từ khi tra cứu hoặc học theo chủ đề.',
-          )
-        else
-          ...words.map(
-            (word) => Padding(
-              padding: const EdgeInsets.only(bottom: 12),
-              child: CompactWordCard(
-                entry: word,
-                onRemove: () => onToggleSaved(word.simplified),
-              ),
-            ),
-          ),
-      ],
-    );
-  }
-}
-
-class GrammarScreen extends StatefulWidget {
-  const GrammarScreen({super.key});
-
-  @override
-  State<GrammarScreen> createState() => _GrammarScreenState();
-}
-
-class _GrammarScreenState extends State<GrammarScreen> {
-  int _tab = 0;
-  String _level = 'HSK 1';
-  final TextEditingController _controller = TextEditingController(
-    text: '我不学校去',
-  );
-  GrammarCheckResult? _result;
-  bool _checking = false;
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  Future<void> _check() async {
-    final text = _controller.text.trim();
-    if (text.isEmpty) return;
-    setState(() {
-      _checking = true;
-      _result = null;
-    });
-    GrammarCheckResult result;
-    try {
-      final ai = await GrammarAiService.checkGrammar(text);
-      result = _grammarResultFromAi(ai, text);
-    } catch (error) {
-      result = GrammarCheckResult(
-        score: 35,
-        title: 'Chưa kết nối được AI',
-        summary: 'Không gọi được API Google AI Studio qua backend.',
-        correction: text,
-        explanation:
-            'Hãy kiểm tra backend đang chạy và đã có GEMINI_API_KEY. Hệ thống không tự chấm 92 khi API lỗi.',
-        errors: ['Lỗi API: $error'],
-      );
-    }
-    if (!mounted) return;
-    setState(() {
-      _result = result;
-      _checking = false;
-    });
-  }
-
-  GrammarCheckResult _grammarResultFromAi(
-    Map<String, dynamic> data,
-    String original,
-  ) {
-    final rawScore = data['score'];
-    final score = rawScore is num ? rawScore.round().clamp(0, 100) : 0;
-    final correction = data['correction'];
-    final correctionCn = correction is Map
-        ? (correction['cn'] ?? correction['chinese'] ?? original).toString()
-        : (data['correctionCn'] ?? data['corrected'] ?? original).toString();
-    final correctionVi = correction is Map
-        ? (correction['vi'] ?? '').toString()
-        : (data['vi'] ?? '').toString();
-    final errors = <String>[];
-    final rawErrors = data['errors'];
-    if (rawErrors is List) {
-      for (final item in rawErrors) {
-        if (item is Map) {
-          final type = (item['type'] ?? 'Lỗi').toString();
-          final explanation = (item['explanation'] ?? item['message'] ?? '')
-              .toString();
-          final fix = (item['fix'] ?? item['suggestion'] ?? '').toString();
-          errors.add(
-            [
-              type,
-              explanation,
-              fix,
-            ].where((part) => part.trim().isNotEmpty).join(': '),
-          );
-        } else {
-          errors.add(item.toString());
-        }
-      }
-    }
-    final isCorrect = data['isCorrect'] == true || score >= 85;
-    if (score <= 0 && errors.isNotEmpty) {
-      return GrammarCheckResult(
-        score: 35,
-        title: 'AI chưa phản hồi được',
-        summary: errors.first,
-        correction: original,
-        explanation:
-            (data['style_tips'] ??
-                    'Kiểm tra backend và GEMINI_API_KEY rồi thử lại.')
-                .toString(),
-        errors: errors,
-      );
-    }
-    return GrammarCheckResult(
-      score: score == 0 ? (isCorrect ? 90 : 60) : score,
-      title: isCorrect ? 'Câu dùng được' : 'AI đề xuất sửa',
-      summary:
-          (data['summary'] ??
-                  data['style_tips'] ??
-                  (isCorrect
-                      ? 'AI không phát hiện lỗi lớn.'
-                      : 'AI phát hiện điểm cần chỉnh.'))
-              .toString(),
-      correction: correctionCn,
-      explanation: correctionVi.isNotEmpty
-          ? correctionVi
-          : (data['explanation'] ?? data['style_tips'] ?? '').toString(),
-      errors: errors,
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ScreenShell(
-      title: 'Ngữ pháp và AI',
-      subtitle: 'Xem mẫu câu theo HSK, nhập câu tiếng Trung để nhận phản hồi.',
-      trailing: IconButton.filledTonal(
-        tooltip: 'Lịch sử kiểm tra',
-        onPressed: () {},
-        icon: const Icon(Icons.history),
-      ),
-      children: [
-        SegmentTabs(
-          labels: const ['Bài học', 'AI kiểm tra'],
-          selectedIndex: _tab,
-          onChanged: (index) => setState(() => _tab = index),
-        ),
-        const SizedBox(height: 16),
-        if (_tab == 0) _buildLessons(),
-        if (_tab == 1) _buildChecker(),
-      ],
-    );
-  }
-
-  Widget _buildLessons() {
-    return FutureBuilder<List<GrammarLessonData>>(
-      future: GrammarRepository.loadLessons(),
-      builder: (context, snapshot) {
-        final lessons = (snapshot.data ?? GrammarRepository.lessons)
-            .where((lesson) => lesson.level == _level)
-            .toList();
-        return Column(
-          children: [
-            LevelSelector(
-              levels: const ['HSK 1', 'HSK 2', 'HSK 3', 'HSK 4'],
-              selected: _level,
-              onSelected: (level) => setState(() => _level = level),
-            ),
-            const SizedBox(height: 16),
-            if (!snapshot.hasData)
-              const AppCard(child: Center(child: CircularProgressIndicator())),
-            ...lessons.asMap().entries.map(
-              (entry) => Padding(
-                padding: const EdgeInsets.only(bottom: 14),
-                child: GrammarLessonCard(
-                  index: entry.key + 1,
-                  lesson: entry.value,
-                ),
-              ),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  Widget _buildChecker() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        AppCard(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Row(
-                children: [
-                  Icon(Icons.auto_awesome, color: AppColors.blue),
-                  SizedBox(width: 8),
-                  Text(
-                    'AI sửa câu tiếng Trung',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w900,
-                      color: AppColors.ink,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 14),
-              TextField(
-                controller: _controller,
-                maxLines: 5,
-                decoration: const InputDecoration(
-                  hintText: 'Nhập câu cần kiểm tra, ví dụ: 我不学校去',
-                ),
-              ),
-              const SizedBox(height: 14),
-              FilledButton.icon(
-                onPressed: _checking ? null : _check,
-                icon: _checking
-                    ? const SizedBox(
-                        width: 18,
-                        height: 18,
-                        child: CircularProgressIndicator(
-                          strokeWidth: 2,
-                          color: Colors.white,
-                        ),
-                      )
-                    : const Icon(Icons.fact_check_outlined),
-                label: Text(
-                  _checking ? 'Đang kiểm tra...' : 'Kiểm tra ngữ pháp',
-                ),
-              ),
-            ],
-          ),
-        ),
-        if (_result != null) ...[
-          const SizedBox(height: 16),
-          GrammarResultCard(result: _result!),
-        ],
-      ],
-    );
-  }
-}
-
-class ReadingPracticeScreen extends StatefulWidget {
-  const ReadingPracticeScreen({super.key});
-
-  @override
-  State<ReadingPracticeScreen> createState() => _ReadingPracticeScreenState();
-}
-
-class _ReadingPracticeScreenState extends State<ReadingPracticeScreen> {
-  int _tab = 0;
-  String _level = 'HSK 1';
-  int _sentenceIndex = 0;
-  bool _listening = false;
-  String _recognized = '';
-  int? _score;
-  bool _contentLoading = true;
-  List<SentencePractice> _practiceSentences = ReadingRepository.sentences;
-  List<NewsArticleData> _articles = const [];
-  List<VideoLessonData> _videoLessons = VideoRepository.lessons;
-  final FlutterTts _tts = FlutterTts();
-  final stt.SpeechToText _speech = stt.SpeechToText();
-
-  @override
-  void initState() {
-    super.initState();
-    _tts.setLanguage('zh-CN');
-    _tts.setSpeechRate(0.45);
-    _loadContent();
-  }
-
-  @override
-  void dispose() {
-    _tts.stop();
-    _speech.stop();
-    super.dispose();
-  }
-
-  Future<void> _loadContent({bool includeLiveNews = false}) async {
-    final results = await Future.wait([
-      ReadingRepository.loadSentences(),
-      ReadingRepository.loadArticles(includeLive: includeLiveNews),
-      VideoRepository.loadLessons(),
-    ]);
-    if (!mounted) return;
-    setState(() {
-      _practiceSentences = results[0] as List<SentencePractice>;
-      _articles = results[1] as List<NewsArticleData>;
-      _videoLessons = results[2] as List<VideoLessonData>;
-      _contentLoading = false;
-    });
-  }
-
-  List<SentencePractice> get _sentences =>
-      _practiceSentences.where((s) => s.level == _level).toList();
-
-  Future<void> _startListening(SentencePractice current) async {
-    final available = await _speech.initialize();
-    if (!available) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(
-            'Trình duyệt chưa cấp quyền micro hoặc không hỗ trợ nhận dạng giọng nói.',
-          ),
-        ),
-      );
-      return;
-    }
-    setState(() {
-      _listening = true;
-      _recognized = '';
-      _score = null;
-    });
-    await _speech.listen(
-      localeId: 'zh-CN',
-      listenFor: const Duration(seconds: 8),
-      pauseFor: const Duration(seconds: 2),
-      onResult: (result) {
-        setState(() => _recognized = result.recognizedWords);
-        if (result.finalResult) _finishPronunciation(current);
-      },
-    );
-  }
-
-  Future<void> _stopListening(SentencePractice current) async {
-    await _speech.stop();
-    _finishPronunciation(current);
-  }
-
-  void _finishPronunciation(SentencePractice current) {
-    if (!mounted) return;
-    setState(() {
-      _listening = false;
-      _score = PronunciationScorer.score(current.cn, _recognized);
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ScreenShell(
-      title: 'Luyện đọc và phát âm',
-      subtitle:
-          'Đọc báo tiếng Trung, tra từ trong bài và luyện phụ đề video ngắn.',
-      trailing: IconButton.filledTonal(
-        tooltip: 'Làm mới',
-        onPressed: () {
-          setState(() {
-            _recognized = '';
-            _score = null;
-            _contentLoading = true;
-          });
-          _loadContent(includeLiveNews: true);
-        },
-        icon: const Icon(Icons.refresh),
-      ),
-      children: [
-        SegmentTabs(
-          labels: const ['Phát âm', 'Đọc báo', 'Video'],
-          selectedIndex: _tab,
-          onChanged: (index) => setState(() => _tab = index),
-        ),
-        const SizedBox(height: 16),
-        if (_tab == 0) _buildPronunciation(),
-        if (_tab == 1) _buildReadingList(),
-        if (_tab == 2) _buildVideos(),
-      ],
-    );
-  }
-
-  Widget _buildPronunciation() {
-    final sentences = _sentences;
-    return Column(
-      children: [
-        LevelSelector(
-          levels: const ['HSK 1', 'HSK 2', 'HSK 3', 'HSK 4'],
-          selected: _level,
-          onSelected: (level) => setState(() {
-            _level = level;
-            _sentenceIndex = 0;
-            _recognized = '';
-            _score = null;
-          }),
-        ),
-        const SizedBox(height: 16),
-        if (_contentLoading)
-          const AppCard(child: Center(child: CircularProgressIndicator())),
-        if (!_contentLoading && sentences.isEmpty)
-          const EmptyState(
-            icon: Icons.record_voice_over_outlined,
-            title: 'Chưa có câu luyện',
-            message: 'Dữ liệu luyện phát âm cho cấp này đang được cập nhật.',
-          ),
-        if (!_contentLoading && sentences.isNotEmpty)
-          _PronunciationPracticeCard(
-            current: sentences[_sentenceIndex % sentences.length],
-            currentIndex: _sentenceIndex,
-            total: sentences.length,
-            listening: _listening,
-            recognized: _recognized,
-            score: _score,
-            onSpeak: () =>
-                _tts.speak(sentences[_sentenceIndex % sentences.length].cn),
-            onRecord: () {
-              final current = sentences[_sentenceIndex % sentences.length];
-              return _listening
-                  ? _stopListening(current)
-                  : _startListening(current);
-            },
-            onNext: () => setState(() {
-              _sentenceIndex++;
-              _recognized = '';
-              _score = null;
-            }),
-          ),
-      ],
-    );
-  }
-
-  Widget _buildReadingList() {
-    final items = _articles
-        .where((article) => article.level == _level)
-        .toList();
-    final liveCount = _articles.where((article) => article.live).length;
-    return Column(
-      children: [
-        LevelSelector(
-          levels: const ['HSK 1', 'HSK 2', 'HSK 3', 'HSK 4'],
-          selected: _level,
-          onSelected: (level) => setState(() => _level = level),
-        ),
-        const SizedBox(height: 16),
-        AppCard(
-          color: const Color(0xFFFFFAEA),
-          child: Row(
-            children: [
-              const Icon(Icons.rss_feed, color: AppColors.amber),
-              const SizedBox(width: 10),
-              Expanded(
-                child: Text(
-                  liveCount > 0
-                      ? 'Đã cập nhật $liveCount tin mới từ RSS. Mở bài để đọc từng câu kèm pinyin, dịch nhanh và tra từ.'
-                      : 'Đọc báo có câu tiếng Trung, pinyin, dịch nhanh và tra từ ngay trong bài.',
-                  style: const TextStyle(fontWeight: FontWeight.w700),
-                ),
-              ),
-              TextButton.icon(
-                onPressed: () {
-                  setState(() => _contentLoading = true);
-                  _loadContent(includeLiveNews: true);
-                },
-                icon: const Icon(Icons.sync),
-                label: const Text('Tải mới'),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 14),
-        if (_contentLoading)
-          const AppCard(child: Center(child: CircularProgressIndicator())),
-        ...items.asMap().entries.map((entry) {
-          final item = entry.value;
-          return Padding(
-            padding: const EdgeInsets.only(bottom: 12),
-            child: AppCard(
-              child: InkWell(
-                onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => NewsArticleReaderScreen(article: item),
-                  ),
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CircleAvatar(
-                      radius: 15,
-                      backgroundColor: AppColors.blue.withValues(alpha: 0.12),
-                      child: Text(
-                        '${entry.key + 1}',
-                        style: const TextStyle(
-                          color: AppColors.blue,
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              StatusPill(
-                                label: item.live ? 'Tin mới' : item.level,
-                                color: item.live
-                                    ? AppColors.jade
-                                    : _levelColor(item.level),
-                              ),
-                              const SizedBox(width: 8),
-                              Expanded(
-                                child: Text(
-                                  item.source,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: const TextStyle(
-                                    color: AppColors.muted,
-                                    fontWeight: FontWeight.w800,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            item.title,
-                            style: const TextStyle(
-                              fontSize: 19,
-                              fontWeight: FontWeight.w900,
-                            ),
-                          ),
-                          if (item.titleVi.isNotEmpty) ...[
-                            const SizedBox(height: 3),
-                            Text(
-                              item.titleVi,
-                              style: const TextStyle(
-                                color: AppColors.blue,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ],
-                          const SizedBox(height: 6),
-                          Text(
-                            item.summaryVi,
-                            style: const TextStyle(
-                              color: AppColors.muted,
-                              fontStyle: FontStyle.italic,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    IconButton(
-                      tooltip: 'Nghe tiêu đề',
-                      onPressed: () => _tts.speak(item.title),
-                      icon: const Icon(Icons.volume_up_outlined),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          );
-        }),
-        if (!_contentLoading && items.isEmpty)
-          const EmptyState(
-            icon: Icons.newspaper_outlined,
-            title: 'Chưa có bài đọc',
-            message: 'Nguồn đọc báo cho cấp này đang được cập nhật.',
-          ),
-      ],
-    );
-  }
-
-  Widget _buildVideos() {
-    final lessons = _videoLessons
-        .where((lesson) => lesson.level == _level)
-        .toList();
-    return Column(
-      children: [
-        LevelSelector(
-          levels: const ['HSK 1', 'HSK 2', 'HSK 3', 'HSK 4'],
-          selected: _level,
-          onSelected: (level) => setState(() => _level = level),
-        ),
-        const SizedBox(height: 16),
-        ...lessons.map((lesson) {
-          return Padding(
-            padding: const EdgeInsets.only(bottom: 14),
-            child: VideoLessonCard(
-              lesson: lesson,
-              onOpen: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => VideoLessonDetailScreen(lesson: lesson),
-                ),
-              ),
-            ),
-          );
-        }),
-        if (!_contentLoading && lessons.isEmpty)
-          const EmptyState(
-            icon: Icons.video_library_outlined,
-            title: 'Chưa có video',
-            message: 'Video cho cấp này đang được cập nhật.',
-          ),
-      ],
-    );
-  }
-}
-
-class _PronunciationPracticeCard extends StatelessWidget {
-  const _PronunciationPracticeCard({
-    required this.current,
-    required this.currentIndex,
-    required this.total,
-    required this.listening,
-    required this.recognized,
-    required this.score,
-    required this.onSpeak,
-    required this.onRecord,
-    required this.onNext,
-  });
-
-  final SentencePractice current;
-  final int currentIndex;
-  final int total;
-  final bool listening;
-  final String recognized;
-  final int? score;
-  final VoidCallback onSpeak;
-  final Future<void> Function() onRecord;
-  final VoidCallback onNext;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        AppCard(
-          gradient: const LinearGradient(
-            colors: [Color(0xFFEAF6F0), Color(0xFFFFF7E8)],
-          ),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  StatusPill(
-                    icon: Icons.record_voice_over_outlined,
-                    label: 'Câu ${currentIndex + 1}/$total',
-                  ),
-                  const Spacer(),
-                  IconButton.filledTonal(
-                    tooltip: 'Nghe mẫu',
-                    onPressed: onSpeak,
-                    icon: const Icon(Icons.volume_up_outlined),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16),
-              Text(
-                current.cn,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.w900,
-                  color: AppColors.ink,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                current.py,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  color: AppColors.blue,
-                  fontWeight: FontWeight.w800,
-                  fontSize: 16,
-                ),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                current.vi,
-                textAlign: TextAlign.center,
-                style: const TextStyle(color: AppColors.muted),
-              ),
-              const SizedBox(height: 26),
-              GestureDetector(
-                onTap: () => onRecord(),
-                child: AnimatedContainer(
-                  duration: const Duration(milliseconds: 200),
-                  width: 88,
-                  height: 88,
-                  decoration: BoxDecoration(
-                    color: listening ? AppColors.cinnabar : Colors.white,
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                        color: (listening ? AppColors.cinnabar : AppColors.blue)
-                            .withValues(alpha: 0.22),
-                        blurRadius: 20,
-                        spreadRadius: 5,
-                      ),
-                    ],
-                  ),
-                  child: Icon(
-                    listening ? Icons.stop : Icons.mic,
-                    size: 40,
-                    color: listening ? Colors.white : AppColors.blue,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 12),
-              Text(
-                listening ? 'Đang nghe... bấm để dừng' : 'Bấm để bắt đầu đọc',
-                style: const TextStyle(
-                  fontWeight: FontWeight.w800,
-                  color: AppColors.muted,
-                ),
-              ),
-            ],
-          ),
-        ),
-        if (recognized.isNotEmpty) ...[
-          const SizedBox(height: 14),
-          AppCard(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'Bạn đã đọc:',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w800,
-                    color: AppColors.muted,
-                  ),
-                ),
-                const SizedBox(height: 6),
-                Text(
-                  recognized,
-                  style: const TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w900,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-        if (score != null) ...[
-          const SizedBox(height: 14),
-          PronunciationScoreCard(score: score!, onNext: onNext),
-        ],
-      ],
-    );
-  }
-}
-
-class NewsArticleReaderScreen extends StatefulWidget {
-  const NewsArticleReaderScreen({super.key, required this.article});
-
-  final NewsArticleData article;
-
-  @override
-  State<NewsArticleReaderScreen> createState() =>
-      _NewsArticleReaderScreenState();
-}
-
-class _NewsArticleReaderScreenState extends State<NewsArticleReaderScreen> {
-  final FlutterTts _tts = FlutterTts();
-  int _currentSentence = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    _tts.setLanguage('zh-CN');
-    _tts.setSpeechRate(0.45);
-    DictionaryRepository.ensureLoaded().then((_) {
-      if (mounted) setState(() {});
-    });
-  }
-
-  @override
-  void dispose() {
-    _tts.stop();
-    super.dispose();
-  }
-
-  void _showWord(VocabEntry entry) {
-    showModalBottomSheet<void>(
-      context: context,
-      showDragHandle: true,
-      builder: (context) => Padding(
-        padding: const EdgeInsets.fromLTRB(20, 6, 20, 24),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Text(
-                  entry.simplified,
-                  style: const TextStyle(
-                    fontSize: 38,
-                    fontWeight: FontWeight.w900,
-                  ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Text(
-                    entry.pinyin,
-                    style: const TextStyle(
-                      color: AppColors.cinnabar,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w900,
-                    ),
-                  ),
-                ),
-                IconButton.filledTonal(
-                  onPressed: () => _tts.speak(entry.simplified),
-                  icon: const Icon(Icons.volume_up_outlined),
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
-            InfoLine(
-              icon: Icons.translate,
-              label: 'Nghĩa',
-              value: entry.meaning,
-            ),
-            if (entry.examples.isNotEmpty) ...[
-              const SizedBox(height: 14),
-              ExampleTile(example: entry.examples.first),
-            ],
-          ],
-        ),
-      ),
-    );
-  }
-
-  List<InlineSpan> _buildSpans(String text) {
-    final spans = <InlineSpan>[];
-    var i = 0;
-    while (i < text.length) {
-      final char = text.substring(i, i + 1);
-      if (!RegExp(r'[\u4e00-\u9fff]').hasMatch(char)) {
-        spans.add(TextSpan(text: char));
-        i++;
-        continue;
-      }
-      final entry = DictionaryRepository.lookupAt(text, i);
-      if (entry == null) {
-        spans.add(TextSpan(text: char));
-        i++;
-        continue;
-      }
-      spans.add(
-        WidgetSpan(
-          alignment: PlaceholderAlignment.baseline,
-          baseline: TextBaseline.ideographic,
-          child: InkWell(
-            onTap: () => _showWord(entry),
-            borderRadius: BorderRadius.circular(4),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 1),
-              child: Text(
-                entry.simplified,
-                style: const TextStyle(
-                  fontSize: 23,
-                  height: 1.65,
-                  color: AppColors.blue,
-                  fontWeight: FontWeight.w800,
-                  decoration: TextDecoration.underline,
-                  decorationThickness: 0.8,
-                ),
-              ),
-            ),
-          ),
-        ),
-      );
-      i += entry.simplified.length;
-    }
-    return spans;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final lines = widget.article.sentences.isEmpty
-        ? ReadingRepository.buildStudyLines(widget.article.content)
-        : widget.article.sentences;
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.article.level),
-        actions: [
-          IconButton(
-            tooltip: 'Nghe bài',
-            onPressed: () => _tts.speak(widget.article.content),
-            icon: const Icon(Icons.volume_up_outlined),
-          ),
-        ],
-      ),
-      body: ListView(
-        padding: const EdgeInsets.fromLTRB(16, 12, 16, 28),
-        children: [
-          AppCard(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                StatusPill(
-                  icon: Icons.newspaper_outlined,
-                  label: widget.article.source,
-                ),
-                if (widget.article.live) ...[
-                  const SizedBox(height: 8),
-                  const StatusPill(label: 'RSS mới', color: AppColors.jade),
-                ],
-                const SizedBox(height: 14),
-                Text(
-                  widget.article.title,
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
-                if (widget.article.titleVi.isNotEmpty) ...[
-                  const SizedBox(height: 6),
-                  Text(
-                    widget.article.titleVi,
-                    style: const TextStyle(
-                      color: AppColors.muted,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ],
-                const SizedBox(height: 18),
-                ...lines.asMap().entries.map((entry) {
-                  final index = entry.key;
-                  final line = entry.value;
-                  return ArticleSentenceCard(
-                    index: index,
-                    active: index == _currentSentence,
-                    line: line,
-                    onSpeak: () {
-                      setState(() => _currentSentence = index);
-                      _tts.speak(line.cn);
-                    },
-                    spans: _buildSpans(line.cn),
-                  );
-                }),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class ArticleSentenceCard extends StatelessWidget {
-  const ArticleSentenceCard({
-    super.key,
-    required this.index,
-    required this.active,
-    required this.line,
-    required this.spans,
-    required this.onSpeak,
-  });
-
-  final int index;
-  final bool active;
-  final ArticleSentenceData line;
-  final List<InlineSpan> spans;
-  final VoidCallback onSpeak;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 14),
-      padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        color: active
-            ? AppColors.cinnabar.withValues(alpha: 0.08)
-            : const Color(0xFFFFFBF6),
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(
-          color: active ? AppColors.cinnabar : AppColors.line,
-          width: active ? 1.4 : 1,
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CircleAvatar(
-                radius: 14,
-                backgroundColor: active ? AppColors.cinnabar : AppColors.line,
-                child: Text(
-                  '${index + 1}',
-                  style: TextStyle(
-                    color: active ? Colors.white : AppColors.muted,
-                    fontWeight: FontWeight.w900,
-                    fontSize: 12,
-                  ),
-                ),
-              ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: RichText(
-                  text: TextSpan(
-                    style: const TextStyle(
-                      color: AppColors.ink,
-                      fontSize: 23,
-                      height: 1.55,
-                      fontWeight: FontWeight.w800,
-                    ),
-                    children: spans,
-                  ),
-                ),
-              ),
-              const SizedBox(width: 8),
-              IconButton.filledTonal(
-                tooltip: 'Nghe câu',
-                onPressed: onSpeak,
-                icon: const Icon(Icons.volume_up_outlined),
-              ),
-            ],
-          ),
-          if (line.py.isNotEmpty) ...[
-            const SizedBox(height: 8),
-            Text(
-              line.py,
-              style: const TextStyle(
-                color: AppColors.blue,
-                fontWeight: FontWeight.w800,
-                height: 1.35,
-              ),
-            ),
-          ],
-          if (line.vi.isNotEmpty) ...[
-            const SizedBox(height: 6),
-            Text(
-              line.vi,
-              style: const TextStyle(
-                color: AppColors.muted,
-                fontStyle: FontStyle.italic,
-                height: 1.35,
-              ),
-            ),
-          ],
-        ],
-      ),
     );
   }
 }
@@ -2234,11 +207,11 @@ class ProfileData {
   static const fallback = ProfileData(
     name: 'Người học VNChinese',
     level: 'HSK 2',
-    streakDays: 12,
-    weeklyProgress: 0.68,
-    savedWords: 42,
-    speakingScore: 91,
-    readingArticles: 4,
+    streakDays: 0,
+    weeklyProgress: 0,
+    savedWords: 0,
+    speakingScore: 0,
+    readingArticles: 0,
     dailyGoalWords: 18,
     dailyGoalMinutes: 25,
     reminderTime: '20:30',
@@ -2283,20 +256,1174 @@ class ProfileData {
   }
 }
 
+class LearningDayStat {
+  const LearningDayStat({
+    required this.date,
+    this.learnedWords = 0,
+    this.reviewedWords = 0,
+    this.studyMinutes = 0,
+    this.grammarChecks = 0,
+    this.reading = 0,
+    this.speaking = 0,
+    this.quizzes = 0,
+    this.scoreTotal = 0,
+    this.scoreCount = 0,
+    this.correctCount = 0,
+    this.totalCount = 0,
+  });
+
+  final DateTime date;
+  final int learnedWords;
+  final int reviewedWords;
+  final int studyMinutes;
+  final int grammarChecks;
+  final int reading;
+  final int speaking;
+  final int quizzes;
+  final int scoreTotal;
+  final int scoreCount;
+  final int correctCount;
+  final int totalCount;
+
+  bool get isActive =>
+      learnedWords +
+          reviewedWords +
+          studyMinutes +
+          grammarChecks +
+          reading +
+          speaking +
+          quizzes >
+      0;
+
+  int get averageScore =>
+      scoreCount <= 0 ? 0 : (scoreTotal / scoreCount).round();
+
+  String get weekdayLabel {
+    const labels = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
+    return labels[date.weekday - 1];
+  }
+
+  Map<String, dynamic> toJson() => {
+    'date': date.toIso8601String().substring(0, 10),
+    'learnedWords': learnedWords,
+    'reviewedWords': reviewedWords,
+    'studyMinutes': studyMinutes,
+    'grammarChecks': grammarChecks,
+    'reading': reading,
+    'speaking': speaking,
+    'quizzes': quizzes,
+    'scoreTotal': scoreTotal,
+    'scoreCount': scoreCount,
+    'correctCount': correctCount,
+    'totalCount': totalCount,
+  };
+
+  factory LearningDayStat.fromJson(
+    Map<String, dynamic> json, {
+    DateTime? fallbackDate,
+  }) {
+    return LearningDayStat(
+      date:
+          DateTime.tryParse((json['date'] ?? '').toString()) ??
+          fallbackDate ??
+          DateTime.now(),
+      learnedWords: ProfileData._int(json['learnedWords'], 0),
+      reviewedWords: ProfileData._int(json['reviewedWords'], 0),
+      studyMinutes: ProfileData._int(json['studyMinutes'], 0),
+      grammarChecks: ProfileData._int(json['grammarChecks'], 0),
+      reading: ProfileData._int(json['reading'], 0),
+      speaking: ProfileData._int(json['speaking'], 0),
+      quizzes: ProfileData._int(json['quizzes'], 0),
+      scoreTotal: ProfileData._int(json['scoreTotal'], 0),
+      scoreCount: ProfileData._int(json['scoreCount'], 0),
+      correctCount: ProfileData._int(json['correctCount'], 0),
+      totalCount: ProfileData._int(json['totalCount'], 0),
+    );
+  }
+}
+
+class HskLevelProgress {
+  const HskLevelProgress({
+    required this.level,
+    required this.totalWords,
+    required this.learnedWords,
+    this.masteredWords = 0,
+    this.dueReview = 0,
+  });
+
+  final String level;
+  final int totalWords;
+  final int learnedWords;
+  final int masteredWords;
+  final int dueReview;
+
+  double get progress =>
+      totalWords <= 0 ? 0 : (learnedWords / totalWords).clamp(0.0, 1.0);
+
+  factory HskLevelProgress.fromJson(Map<String, dynamic> json) {
+    return HskLevelProgress(
+      level: (json['level'] ?? 'HSK 1').toString(),
+      totalWords: ProfileData._int(json['totalWords'], 0),
+      learnedWords: ProfileData._int(json['learnedWords'], 0),
+      masteredWords: ProfileData._int(json['masteredWords'], 0),
+      dueReview: ProfileData._int(json['dueReview'], 0),
+    );
+  }
+}
+
+class LearningActivityItem {
+  const LearningActivityItem({
+    required this.kind,
+    required this.title,
+    required this.detail,
+    required this.occurredAt,
+  });
+
+  final String kind;
+  final String title;
+  final String detail;
+  final DateTime occurredAt;
+
+  Map<String, dynamic> toJson() => {
+    'kind': kind,
+    'title': title,
+    'detail': detail,
+    'occurredAt': occurredAt.toIso8601String(),
+  };
+
+  factory LearningActivityItem.fromJson(Map<String, dynamic> json) {
+    return LearningActivityItem(
+      kind: (json['kind'] ?? 'practice').toString(),
+      title: (json['title'] ?? 'Hoạt động học').toString(),
+      detail: (json['detail'] ?? '').toString(),
+      occurredAt:
+          DateTime.tryParse((json['occurredAt'] ?? '').toString()) ??
+          DateTime.now(),
+    );
+  }
+
+  String get timeLabel {
+    final now = DateTime.now();
+    final difference = now.difference(occurredAt);
+    if (difference.inMinutes < 1) return 'Vừa xong';
+    if (difference.inMinutes < 60) return '${difference.inMinutes} phút trước';
+    if (difference.inHours < 24) return '${difference.inHours} giờ trước';
+    if (difference.inDays == 1) return 'Hôm qua';
+    return '${occurredAt.day.toString().padLeft(2, '0')}/'
+        '${occurredAt.month.toString().padLeft(2, '0')}';
+  }
+}
+
+class LearningProgressSnapshot {
+  const LearningProgressSnapshot({
+    required this.targetLevel,
+    required this.dailyGoalWords,
+    required this.dailyGoalMinutes,
+    required this.savedWords,
+    required this.todayWords,
+    required this.studyMinutesToday,
+    required this.grammarChecksToday,
+    required this.readingArticlesThisWeek,
+    required this.speakingScore,
+    required this.streakDays,
+    required this.weeklyStudyMinutes,
+    required this.weeklyWords,
+    required this.weeklyReviews,
+    required this.activeDaysThisWeek,
+    required this.accuracy,
+    required this.totalLearnedWords,
+    required this.totalMasteredWords,
+    required this.dueReviewWords,
+    required this.vocabularyScore,
+    required this.grammarScore,
+    required this.readingScore,
+    required this.lastSevenDays,
+    required this.roadmap,
+    required this.recentActivities,
+  });
+
+  final String targetLevel;
+  final int dailyGoalWords;
+  final int dailyGoalMinutes;
+  final int savedWords;
+  final int todayWords;
+  final int studyMinutesToday;
+  final int grammarChecksToday;
+  final int readingArticlesThisWeek;
+  final int speakingScore;
+  final int streakDays;
+  final int weeklyStudyMinutes;
+  final int weeklyWords;
+  final int weeklyReviews;
+  final int activeDaysThisWeek;
+  final int accuracy;
+  final int totalLearnedWords;
+  final int totalMasteredWords;
+  final int dueReviewWords;
+  final int vocabularyScore;
+  final int grammarScore;
+  final int readingScore;
+  final List<LearningDayStat> lastSevenDays;
+  final List<HskLevelProgress> roadmap;
+  final List<LearningActivityItem> recentActivities;
+
+  static const empty = LearningProgressSnapshot(
+    targetLevel: 'HSK 2',
+    dailyGoalWords: 18,
+    dailyGoalMinutes: 25,
+    savedWords: 0,
+    todayWords: 0,
+    studyMinutesToday: 0,
+    grammarChecksToday: 0,
+    readingArticlesThisWeek: 0,
+    speakingScore: 0,
+    streakDays: 0,
+    weeklyStudyMinutes: 0,
+    weeklyWords: 0,
+    weeklyReviews: 0,
+    activeDaysThisWeek: 0,
+    accuracy: 0,
+    totalLearnedWords: 0,
+    totalMasteredWords: 0,
+    dueReviewWords: 0,
+    vocabularyScore: 0,
+    grammarScore: 0,
+    readingScore: 0,
+    lastSevenDays: [],
+    roadmap: [],
+    recentActivities: [],
+  );
+
+  double get dailyProgress {
+    final wordProgress = dailyGoalWords <= 0
+        ? 0.0
+        : todayWords / dailyGoalWords;
+    final minuteProgress = dailyGoalMinutes <= 0
+        ? 0.0
+        : studyMinutesToday / dailyGoalMinutes;
+    return ((wordProgress + minuteProgress) / 2).clamp(0.0, 1.0).toDouble();
+  }
+
+  String get wordsLabel => '$todayWords/$dailyGoalWords';
+
+  double get weeklyGoalProgress {
+    final wordGoal = dailyGoalWords * 7;
+    final minuteGoal = dailyGoalMinutes * 7;
+    final wordProgress = wordGoal <= 0 ? 0.0 : weeklyWords / wordGoal;
+    final minuteProgress = minuteGoal <= 0
+        ? 0.0
+        : weeklyStudyMinutes / minuteGoal;
+    return ((wordProgress + minuteProgress) / 2).clamp(0.0, 1.0).toDouble();
+  }
+
+  String get todaySummary {
+    if (todayWords == 0 &&
+        studyMinutesToday == 0 &&
+        grammarChecksToday == 0 &&
+        readingArticlesThisWeek == 0) {
+      return 'Chọn một bài từ vựng, kiểm tra câu hoặc đọc một bài ngắn để app bắt đầu ghi tiến độ hôm nay.';
+    }
+    return 'Đã học $todayWords từ, $studyMinutesToday phút, sửa $grammarChecksToday câu và mở $readingArticlesThisWeek bài đọc trong tuần.';
+  }
+}
+
+class GrammarHistoryItem {
+  const GrammarHistoryItem({
+    required this.input,
+    required this.correction,
+    required this.score,
+    required this.title,
+    required this.checkedAt,
+  });
+
+  final String input;
+  final String correction;
+  final int score;
+  final String title;
+  final DateTime checkedAt;
+
+  Map<String, dynamic> toJson() => {
+    'input': input,
+    'correction': correction,
+    'score': score,
+    'title': title,
+    'checkedAt': checkedAt.toIso8601String(),
+  };
+
+  factory GrammarHistoryItem.fromJson(Map<String, dynamic> json) {
+    return GrammarHistoryItem(
+      input: (json['input'] ?? '').toString(),
+      correction: (json['correction'] ?? '').toString(),
+      score: ProfileData._int(json['score'], 0),
+      title: (json['title'] ?? 'Kiểm tra câu').toString(),
+      checkedAt:
+          DateTime.tryParse((json['checkedAt'] ?? '').toString()) ??
+          DateTime.now(),
+    );
+  }
+
+  String get dateLabel {
+    final hour = checkedAt.hour.toString().padLeft(2, '0');
+    final minute = checkedAt.minute.toString().padLeft(2, '0');
+    final day = checkedAt.day.toString().padLeft(2, '0');
+    final month = checkedAt.month.toString().padLeft(2, '0');
+    return '$hour:$minute $day/$month/${checkedAt.year}';
+  }
+}
+
+class LearningProgressStore {
+  static const _goalLevelKey = 'vnchinese_goal_level';
+  static const _goalWordsKey = 'vnchinese_goal_words';
+  static const _goalMinutesKey = 'vnchinese_goal_minutes';
+  static const _todayDateKey = 'vnchinese_today_date';
+  static const _todayWordsKey = 'vnchinese_today_words';
+  static const _todayMinutesKey = 'vnchinese_today_minutes';
+  static const _todayGrammarKey = 'vnchinese_today_grammar_checks';
+  static const _lastStudyDateKey = 'vnchinese_last_study_date';
+  static const _streakKey = 'vnchinese_streak_days';
+  static const _readingWeekKey = 'vnchinese_reading_week';
+  static const _readingWeekCountKey = 'vnchinese_reading_week_count';
+  static const _speakingScoreKey = 'vnchinese_speaking_score';
+  static const _grammarHistoryKey = 'vnchinese_grammar_history';
+  static const _reminderTimeKey = 'vnchinese_reminder_time';
+  static const _learnedLevelPrefix = 'vnchinese_learned_level_';
+  static const _learnedWordsPrefix = 'vnchinese_learned_words_';
+  static const _dailyHistoryKey = 'vnchinese_daily_history_v2';
+  static const _activityHistoryKey = 'vnchinese_activity_history_v1';
+  static const _officialTotals = {
+    'HSK 1': 150,
+    'HSK 2': 300,
+    'HSK 3': 600,
+    'HSK 4': 1200,
+    'HSK 5': 2500,
+    'HSK 6': 5000,
+  };
+
+  static String _dateKey(DateTime date) =>
+      date.toIso8601String().substring(0, 10);
+
+  static String _weekKey(DateTime date) {
+    final firstDay = DateTime(date.year, 1, 1);
+    final dayOfYear = date.difference(firstDay).inDays + 1;
+    final week = ((dayOfYear + firstDay.weekday - 2) / 7).floor() + 1;
+    return '${date.year}-$week';
+  }
+
+  static Future<void> _resetDailyIfNeeded(SharedPreferences prefs) async {
+    final today = _dateKey(DateTime.now());
+    if (prefs.getString(_todayDateKey) == today) return;
+    await prefs.setString(_todayDateKey, today);
+    await prefs.setInt(_todayWordsKey, 0);
+    await prefs.setInt(_todayMinutesKey, 0);
+    await prefs.setInt(_todayGrammarKey, 0);
+  }
+
+  static Future<void> _resetWeeklyIfNeeded(SharedPreferences prefs) async {
+    final week = _weekKey(DateTime.now());
+    if (prefs.getString(_readingWeekKey) == week) return;
+    await prefs.setString(_readingWeekKey, week);
+    await prefs.setInt(_readingWeekCountKey, 0);
+  }
+
+  static Future<void> _touchStudy(SharedPreferences prefs) async {
+    final today = _dateKey(DateTime.now());
+    final last = prefs.getString(_lastStudyDateKey);
+    if (last == today) return;
+
+    var nextStreak = 1;
+    if (last != null) {
+      final lastDate = DateTime.tryParse(last);
+      final todayDate = DateTime.tryParse(today);
+      if (lastDate != null && todayDate != null) {
+        final diff = todayDate.difference(lastDate).inDays;
+        nextStreak = diff == 1 ? (prefs.getInt(_streakKey) ?? 0) + 1 : 1;
+      }
+    }
+    await prefs.setString(_lastStudyDateKey, today);
+    await prefs.setInt(_streakKey, nextStreak);
+  }
+
+  static Map<String, dynamic> _loadDailyHistory(SharedPreferences prefs) {
+    final raw = prefs.getString(_dailyHistoryKey);
+    if (raw == null || raw.isEmpty) return <String, dynamic>{};
+    try {
+      return Map<String, dynamic>.from(jsonDecode(raw) as Map);
+    } catch (_) {
+      return <String, dynamic>{};
+    }
+  }
+
+  static Future<void> _recordDaily(
+    SharedPreferences prefs, {
+    int learnedWords = 0,
+    int reviewedWords = 0,
+    int studyMinutes = 0,
+    int grammarChecks = 0,
+    int reading = 0,
+    int speaking = 0,
+    int quizzes = 0,
+    int scoreTotal = 0,
+    int scoreCount = 0,
+    int correctCount = 0,
+    int totalCount = 0,
+  }) async {
+    final history = _loadDailyHistory(prefs);
+    final key = _dateKey(DateTime.now());
+    final existing = history[key] is Map
+        ? Map<String, dynamic>.from(history[key] as Map)
+        : <String, dynamic>{'date': key};
+    int current(String field) => ProfileData._int(existing[field], 0);
+    history[key] = {
+      'date': key,
+      'learnedWords': current('learnedWords') + learnedWords,
+      'reviewedWords': current('reviewedWords') + reviewedWords,
+      'studyMinutes': current('studyMinutes') + studyMinutes,
+      'grammarChecks': current('grammarChecks') + grammarChecks,
+      'reading': current('reading') + reading,
+      'speaking': current('speaking') + speaking,
+      'quizzes': current('quizzes') + quizzes,
+      'scoreTotal': current('scoreTotal') + scoreTotal,
+      'scoreCount': current('scoreCount') + scoreCount,
+      'correctCount': current('correctCount') + correctCount,
+      'totalCount': current('totalCount') + totalCount,
+    };
+    final sortedKeys = history.keys.toList()..sort();
+    for (final oldKey in sortedKeys.take(max(0, sortedKeys.length - 90))) {
+      history.remove(oldKey);
+    }
+    await prefs.setString(_dailyHistoryKey, jsonEncode(history));
+  }
+
+  static Future<List<LearningDayStat>> _loadLastSevenDays(
+    SharedPreferences prefs,
+  ) async {
+    final history = _loadDailyHistory(prefs);
+    final todayKey = _dateKey(DateTime.now());
+    final result = <LearningDayStat>[];
+    for (var offset = 6; offset >= 0; offset--) {
+      final date = DateTime.now().subtract(Duration(days: offset));
+      final key = _dateKey(date);
+      final data = history[key] is Map
+          ? Map<String, dynamic>.from(history[key] as Map)
+          : <String, dynamic>{'date': key};
+      if (key == todayKey) {
+        data['learnedWords'] = max(
+          ProfileData._int(data['learnedWords'], 0),
+          prefs.getInt(_todayWordsKey) ?? 0,
+        );
+        data['studyMinutes'] = max(
+          ProfileData._int(data['studyMinutes'], 0),
+          prefs.getInt(_todayMinutesKey) ?? 0,
+        );
+        data['grammarChecks'] = max(
+          ProfileData._int(data['grammarChecks'], 0),
+          prefs.getInt(_todayGrammarKey) ?? 0,
+        );
+      }
+      result.add(LearningDayStat.fromJson(data, fallbackDate: date));
+    }
+    return result;
+  }
+
+  static Future<void> _addActivity(
+    SharedPreferences prefs,
+    LearningActivityItem item,
+  ) async {
+    final raw = prefs.getStringList(_activityHistoryKey) ?? <String>[];
+    raw.insert(0, jsonEncode(item.toJson()));
+    await prefs.setStringList(_activityHistoryKey, raw.take(20).toList());
+  }
+
+  static Future<List<LearningActivityItem>> _loadActivities(
+    SharedPreferences prefs,
+  ) async {
+    final raw = prefs.getStringList(_activityHistoryKey) ?? <String>[];
+    return raw
+        .map((item) {
+          try {
+            return LearningActivityItem.fromJson(
+              Map<String, dynamic>.from(jsonDecode(item) as Map),
+            );
+          } catch (_) {
+            return null;
+          }
+        })
+        .whereType<LearningActivityItem>()
+        .take(8)
+        .toList();
+  }
+
+  static Future<void> _sendRemote(
+    String method,
+    String path,
+    Map<String, dynamic> body,
+  ) async {
+    final session = await AuthService.instance.restoreSession();
+    if (session == null || session.isGuest || session.token.isEmpty) return;
+    try {
+      final request =
+          http.Request(
+              method,
+              Uri.parse('${DictionaryRepository.apiBaseUrl}$path'),
+            )
+            ..headers.addAll({
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ${session.token}',
+            })
+            ..body = jsonEncode(body);
+      final response = await request.send().timeout(const Duration(seconds: 5));
+      await response.stream.drain<void>();
+    } catch (_) {
+      // Offline activity remains available in SharedPreferences.
+    }
+  }
+
+  static Future<LearningProgressSnapshot> loadSnapshot({
+    bool includeRemote = true,
+  }) async {
+    final prefs = await SharedPreferences.getInstance();
+    await _resetDailyIfNeeded(prefs);
+    await _resetWeeklyIfNeeded(prefs);
+    final saved = await NotebookStore.load();
+    final learnedByLevel = await loadLearnedWordsByLevel();
+    final roadmap = _officialTotals.entries
+        .map(
+          (entry) => HskLevelProgress(
+            level: entry.key,
+            totalWords: entry.value,
+            learnedWords: learnedByLevel[entry.key] ?? 0,
+          ),
+        )
+        .toList();
+    final lastSevenDays = await _loadLastSevenDays(prefs);
+    final recentActivities = await _loadActivities(prefs);
+    final weeklyStudyMinutes = lastSevenDays.fold<int>(
+      0,
+      (total, day) => total + day.studyMinutes,
+    );
+    final weeklyWords = lastSevenDays.fold<int>(
+      0,
+      (total, day) => total + day.learnedWords,
+    );
+    final weeklyReviews = lastSevenDays.fold<int>(
+      0,
+      (total, day) => total + day.reviewedWords,
+    );
+    final scoreTotal = lastSevenDays.fold<int>(
+      0,
+      (total, day) => total + day.scoreTotal,
+    );
+    final scoreCount = lastSevenDays.fold<int>(
+      0,
+      (total, day) => total + day.scoreCount,
+    );
+    final correctCount = lastSevenDays.fold<int>(
+      0,
+      (total, day) => total + day.correctCount,
+    );
+    final totalCount = lastSevenDays.fold<int>(
+      0,
+      (total, day) => total + day.totalCount,
+    );
+    final targetLevel = prefs.getString(_goalLevelKey) ?? 'HSK 2';
+    final targetRoadmap = roadmap.firstWhere(
+      (item) => item.level == targetLevel,
+      orElse: () => roadmap.first,
+    );
+    final speakingScore = prefs.getInt(_speakingScoreKey) ?? 0;
+    final grammarHistory = await loadGrammarHistory();
+    final grammarScore = grammarHistory.isEmpty
+        ? 0
+        : (grammarHistory.fold<int>(0, (sum, item) => sum + item.score) /
+                  grammarHistory.length)
+              .round();
+    final readingCount = prefs.getInt(_readingWeekCountKey) ?? 0;
+    final local = LearningProgressSnapshot(
+      targetLevel: targetLevel,
+      dailyGoalWords: prefs.getInt(_goalWordsKey) ?? 18,
+      dailyGoalMinutes: prefs.getInt(_goalMinutesKey) ?? 25,
+      savedWords: saved.length,
+      todayWords: prefs.getInt(_todayWordsKey) ?? 0,
+      studyMinutesToday: prefs.getInt(_todayMinutesKey) ?? 0,
+      grammarChecksToday: prefs.getInt(_todayGrammarKey) ?? 0,
+      readingArticlesThisWeek: readingCount,
+      speakingScore: speakingScore,
+      streakDays: prefs.getInt(_streakKey) ?? 0,
+      weeklyStudyMinutes: weeklyStudyMinutes,
+      weeklyWords: weeklyWords,
+      weeklyReviews: weeklyReviews,
+      activeDaysThisWeek: lastSevenDays.where((day) => day.isActive).length,
+      accuracy: totalCount > 0
+          ? ((correctCount / totalCount) * 100).round()
+          : (scoreCount > 0 ? (scoreTotal / scoreCount).round() : 0),
+      totalLearnedWords: roadmap.fold<int>(
+        0,
+        (total, level) => total + level.learnedWords,
+      ),
+      totalMasteredWords: 0,
+      dueReviewWords: 0,
+      vocabularyScore: (targetRoadmap.progress * 100).round(),
+      grammarScore: grammarScore,
+      readingScore: (readingCount * 20).clamp(0, 100),
+      lastSevenDays: lastSevenDays,
+      roadmap: roadmap,
+      recentActivities: recentActivities,
+    );
+    return includeRemote ? _loadRemoteSnapshot(local) : local;
+  }
+
+  static Future<LearningProgressSnapshot> _loadRemoteSnapshot(
+    LearningProgressSnapshot local,
+  ) async {
+    final session = await AuthService.instance.restoreSession();
+    if (session == null || session.isGuest || session.token.isEmpty) {
+      return local;
+    }
+    try {
+      final response = await http
+          .get(
+            Uri.parse('${DictionaryRepository.apiBaseUrl}/learning/summary'),
+            headers: {'Authorization': 'Bearer ${session.token}'},
+          )
+          .timeout(const Duration(seconds: 5));
+      if (response.statusCode < 200 || response.statusCode >= 300) {
+        return local;
+      }
+      final decoded = jsonDecode(utf8.decode(response.bodyBytes));
+      if (decoded is! Map) return local;
+      final data = Map<String, dynamic>.from(decoded);
+      Map<String, dynamic> mapOf(String key) => data[key] is Map
+          ? Map<String, dynamic>.from(data[key] as Map)
+          : <String, dynamic>{};
+      final profile = mapOf('profile');
+      final today = mapOf('today');
+      final weekly = mapOf('weekly');
+      final totals = mapOf('totals');
+      final skills = mapOf('skills');
+
+      final remoteDays = <String, LearningDayStat>{};
+      for (final item
+          in data['activity'] is List ? data['activity'] as List : const []) {
+        if (item is! Map) continue;
+        final json = Map<String, dynamic>.from(item);
+        final date = DateTime.tryParse((json['date'] ?? '').toString());
+        if (date == null) continue;
+        remoteDays[_dateKey(date)] = LearningDayStat.fromJson(json);
+      }
+      final mergedDays = local.lastSevenDays.map((localDay) {
+        final remoteDay = remoteDays[_dateKey(localDay.date)];
+        if (remoteDay == null) return localDay;
+        return LearningDayStat(
+          date: localDay.date,
+          learnedWords: max(localDay.learnedWords, remoteDay.learnedWords),
+          reviewedWords: max(localDay.reviewedWords, remoteDay.reviewedWords),
+          studyMinutes: max(localDay.studyMinutes, remoteDay.studyMinutes),
+          grammarChecks: max(localDay.grammarChecks, remoteDay.grammarChecks),
+          reading: max(localDay.reading, remoteDay.reading),
+          speaking: max(localDay.speaking, remoteDay.speaking),
+          quizzes: max(localDay.quizzes, remoteDay.quizzes),
+          scoreTotal: localDay.scoreTotal,
+          scoreCount: localDay.scoreCount,
+          correctCount: localDay.correctCount,
+          totalCount: localDay.totalCount,
+        );
+      }).toList();
+
+      final remoteRoadmap = <HskLevelProgress>[];
+      for (final item
+          in data['roadmap'] is List ? data['roadmap'] as List : const []) {
+        if (item is Map) {
+          remoteRoadmap.add(
+            HskLevelProgress.fromJson(Map<String, dynamic>.from(item)),
+          );
+        }
+      }
+      final mergedRoadmap = remoteRoadmap.isEmpty
+          ? local.roadmap
+          : remoteRoadmap.map((remote) {
+              final localLevel = local.roadmap
+                  .where((item) => item.level == remote.level)
+                  .firstOrNull;
+              return HskLevelProgress(
+                level: remote.level,
+                totalWords: max(remote.totalWords, localLevel?.totalWords ?? 0),
+                learnedWords: max(
+                  remote.learnedWords,
+                  localLevel?.learnedWords ?? 0,
+                ),
+                masteredWords: remote.masteredWords,
+                dueReview: remote.dueReview,
+              );
+            }).toList();
+
+      final remoteActivities = <LearningActivityItem>[];
+      for (final item
+          in data['recentActivities'] is List
+              ? data['recentActivities'] as List
+              : const []) {
+        if (item is Map) {
+          remoteActivities.add(
+            LearningActivityItem.fromJson(Map<String, dynamic>.from(item)),
+          );
+        }
+      }
+      final activityKeys = <String>{};
+      final mergedActivities = [...remoteActivities, ...local.recentActivities]
+        ..sort((a, b) => b.occurredAt.compareTo(a.occurredAt));
+      final uniqueActivities = mergedActivities
+          .where(
+            (item) => activityKeys.add(
+              '${item.kind}|${item.title}|${item.detail}|'
+              '${item.occurredAt.millisecondsSinceEpoch ~/ 60000}',
+            ),
+          )
+          .take(8)
+          .toList();
+
+      final targetLevel =
+          profile['targetLevel']?.toString() ?? local.targetLevel;
+      final targetRoadmap = mergedRoadmap
+          .where((item) => item.level == targetLevel)
+          .firstOrNull;
+      final remoteReadingThisWeek = mergedDays.fold<int>(
+        0,
+        (total, day) => total + day.reading,
+      );
+      return LearningProgressSnapshot(
+        targetLevel: targetLevel,
+        dailyGoalWords: ProfileData._int(
+          profile['dailyGoalWords'],
+          local.dailyGoalWords,
+        ),
+        dailyGoalMinutes: ProfileData._int(
+          profile['dailyGoalMinutes'],
+          local.dailyGoalMinutes,
+        ),
+        savedWords: max(
+          local.savedWords,
+          data['favoriteWords'] is List
+              ? (data['favoriteWords'] as List).length
+              : 0,
+        ),
+        todayWords: max(
+          local.todayWords,
+          ProfileData._int(today['learnedWords'], 0),
+        ),
+        studyMinutesToday: max(
+          local.studyMinutesToday,
+          (ProfileData._int(today['studySeconds'], 0) / 60).round(),
+        ),
+        grammarChecksToday: max(
+          local.grammarChecksToday,
+          ProfileData._int(today['aiInteractions'], 0),
+        ),
+        readingArticlesThisWeek: max(
+          local.readingArticlesThisWeek,
+          remoteReadingThisWeek,
+        ),
+        speakingScore: ProfileData._int(
+          totals['speakingScore'],
+          local.speakingScore,
+        ),
+        streakDays: max(local.streakDays, ProfileData._int(today['streak'], 0)),
+        weeklyStudyMinutes: max(
+          local.weeklyStudyMinutes,
+          ProfileData._int(weekly['studyMinutes'], 0),
+        ),
+        weeklyWords: max(
+          local.weeklyWords,
+          ProfileData._int(weekly['learnedWords'], 0),
+        ),
+        weeklyReviews: max(
+          local.weeklyReviews,
+          ProfileData._int(weekly['reviewedWords'], 0),
+        ),
+        activeDaysThisWeek: max(
+          local.activeDaysThisWeek,
+          ProfileData._int(weekly['activeDays'], 0),
+        ),
+        accuracy: ProfileData._int(totals['accuracy'], local.accuracy),
+        totalLearnedWords: max(
+          local.totalLearnedWords,
+          ProfileData._int(totals['learnedWords'], 0),
+        ),
+        totalMasteredWords: ProfileData._int(
+          totals['masteredWords'],
+          local.totalMasteredWords,
+        ),
+        dueReviewWords: ProfileData._int(
+          totals['dueReview'],
+          local.dueReviewWords,
+        ),
+        vocabularyScore: ProfileData._int(
+          skills['vocabulary'],
+          targetRoadmap == null
+              ? local.vocabularyScore
+              : (targetRoadmap.progress * 100).round(),
+        ),
+        grammarScore: ProfileData._int(skills['grammar'], local.grammarScore),
+        readingScore: ProfileData._int(skills['reading'], local.readingScore),
+        lastSevenDays: mergedDays,
+        roadmap: mergedRoadmap,
+        recentActivities: uniqueActivities,
+      );
+    } catch (_) {
+      return local;
+    }
+  }
+
+  static Future<ProfileData> loadLocalProfile() async {
+    final progress = await loadSnapshot(includeRemote: false);
+    final session = await AuthService.instance.restoreSession();
+    return ProfileData(
+      name: session?.displayName ?? ProfileData.fallback.name,
+      level: progress.targetLevel,
+      streakDays: progress.streakDays,
+      weeklyProgress: progress.dailyProgress,
+      savedWords: progress.savedWords,
+      speakingScore: progress.speakingScore,
+      readingArticles: progress.readingArticlesThisWeek,
+      dailyGoalWords: progress.dailyGoalWords,
+      dailyGoalMinutes: progress.dailyGoalMinutes,
+      reminderTime:
+          (await SharedPreferences.getInstance()).getString(_reminderTimeKey) ??
+          ProfileData.fallback.reminderTime,
+      storage: 'Lưu cục bộ trên thiết bị',
+    );
+  }
+
+  static Future<void> updateGoal({
+    required String level,
+    required int words,
+    required int minutes,
+  }) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_goalLevelKey, level);
+    await prefs.setInt(_goalWordsKey, words);
+    await prefs.setInt(_goalMinutesKey, minutes);
+  }
+
+  static Future<void> updateReminder(String time) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_reminderTimeKey, time);
+  }
+
+  static Future<Map<String, int>> loadLearnedWordsByLevel() async {
+    final prefs = await SharedPreferences.getInstance();
+    return {
+      for (final level in _officialTotals.keys)
+        level: max(
+          prefs.getInt('$_learnedLevelPrefix$level') ?? 0,
+          (prefs.getStringList('$_learnedWordsPrefix$level') ?? const [])
+              .toSet()
+              .length,
+        ),
+    };
+  }
+
+  static Future<void> recordVocabularyWord({
+    required String level,
+    String? word,
+  }) async {
+    final prefs = await SharedPreferences.getInstance();
+    await _resetDailyIfNeeded(prefs);
+    final safeLevel = _officialTotals.containsKey(level) ? level : 'HSK 1';
+    final cleanWord = word?.trim() ?? '';
+    final learnedKey = '$_learnedWordsPrefix$safeLevel';
+    final learnedWords = (prefs.getStringList(learnedKey) ?? <String>[])
+        .toSet();
+    final isNew = cleanWord.isEmpty || learnedWords.add(cleanWord);
+    if (!isNew) return;
+    await _touchStudy(prefs);
+    await prefs.setInt(_todayWordsKey, (prefs.getInt(_todayWordsKey) ?? 0) + 1);
+    await prefs.setInt(
+      _todayMinutesKey,
+      (prefs.getInt(_todayMinutesKey) ?? 0) + 2,
+    );
+    if (cleanWord.isNotEmpty) {
+      await prefs.setStringList(learnedKey, learnedWords.toList()..sort());
+    }
+    final levelKey = '$_learnedLevelPrefix$safeLevel';
+    await prefs.setInt(levelKey, (prefs.getInt(levelKey) ?? 0) + 1);
+    await _recordDaily(prefs, learnedWords: 1, studyMinutes: 2);
+    await _addActivity(
+      prefs,
+      LearningActivityItem(
+        kind: 'vocabulary',
+        title: 'Học từ mới',
+        detail: cleanWord.isEmpty ? safeLevel : '$cleanWord · $safeLevel',
+        occurredAt: DateTime.now(),
+      ),
+    );
+    if (cleanWord.isNotEmpty) {
+      await _sendRemote(
+        'PUT',
+        '/learning/words/${Uri.encodeComponent(cleanWord)}',
+        {'learned': true, 'favorite': true},
+      );
+    }
+  }
+
+  static Future<void> recordStudyMinutes(int minutes) async {
+    if (minutes <= 0) return;
+    final prefs = await SharedPreferences.getInstance();
+    await _resetDailyIfNeeded(prefs);
+    await _touchStudy(prefs);
+    await prefs.setInt(
+      _todayMinutesKey,
+      (prefs.getInt(_todayMinutesKey) ?? 0) + minutes,
+    );
+    await _recordDaily(prefs, studyMinutes: minutes);
+  }
+
+  static Future<void> recordGrammarCheck(
+    String input,
+    GrammarCheckResult result,
+  ) async {
+    final prefs = await SharedPreferences.getInstance();
+    await _resetDailyIfNeeded(prefs);
+    await _touchStudy(prefs);
+    await prefs.setInt(
+      _todayGrammarKey,
+      (prefs.getInt(_todayGrammarKey) ?? 0) + 1,
+    );
+    await prefs.setInt(
+      _todayMinutesKey,
+      (prefs.getInt(_todayMinutesKey) ?? 0) + 3,
+    );
+
+    final history = prefs.getStringList(_grammarHistoryKey) ?? <String>[];
+    final item = GrammarHistoryItem(
+      input: input,
+      correction: result.correction,
+      score: result.score,
+      title: result.title,
+      checkedAt: DateTime.now(),
+    );
+    history.insert(0, jsonEncode(item.toJson()));
+    await prefs.setStringList(_grammarHistoryKey, history.take(20).toList());
+    await _recordDaily(
+      prefs,
+      studyMinutes: 3,
+      grammarChecks: 1,
+      scoreTotal: result.score,
+      scoreCount: 1,
+      correctCount: result.score >= 70 ? 1 : 0,
+      totalCount: 1,
+    );
+    await _addActivity(
+      prefs,
+      LearningActivityItem(
+        kind: 'grammar',
+        title: 'Kiểm tra ngữ pháp',
+        detail: '${result.score} điểm · ${result.title}',
+        occurredAt: DateTime.now(),
+      ),
+    );
+    await _sendRemote('POST', '/learning/attempts', {
+      'type': 'QUIZ',
+      'targetType': 'GRAMMAR',
+      'targetId': input.length > 80 ? input.substring(0, 80) : input,
+      'score': result.score,
+      'correctCount': result.score >= 70 ? 1 : 0,
+      'totalCount': 1,
+      'durationSeconds': 180,
+    });
+  }
+
+  static Future<List<GrammarHistoryItem>> loadGrammarHistory() async {
+    final prefs = await SharedPreferences.getInstance();
+    final raw = prefs.getStringList(_grammarHistoryKey) ?? <String>[];
+    return raw
+        .map((item) {
+          try {
+            return GrammarHistoryItem.fromJson(
+              jsonDecode(item) as Map<String, dynamic>,
+            );
+          } catch (_) {
+            return null;
+          }
+        })
+        .whereType<GrammarHistoryItem>()
+        .toList();
+  }
+
+  static Future<void> recordReadingArticle({
+    int minutes = 4,
+    String? title,
+  }) async {
+    final prefs = await SharedPreferences.getInstance();
+    await _resetDailyIfNeeded(prefs);
+    await _resetWeeklyIfNeeded(prefs);
+    await _touchStudy(prefs);
+    await prefs.setInt(
+      _readingWeekCountKey,
+      (prefs.getInt(_readingWeekCountKey) ?? 0) + 1,
+    );
+    await prefs.setInt(
+      _todayMinutesKey,
+      (prefs.getInt(_todayMinutesKey) ?? 0) + minutes,
+    );
+    await _recordDaily(prefs, studyMinutes: minutes, reading: 1);
+    await _addActivity(
+      prefs,
+      LearningActivityItem(
+        kind: 'reading',
+        title: 'Đọc bài báo',
+        detail: [
+          if ((title ?? '').trim().isNotEmpty) title!.trim(),
+          '$minutes phút',
+        ].join(' · '),
+        occurredAt: DateTime.now(),
+      ),
+    );
+    await _sendRemote('POST', '/learning/attempts', {
+      'type': 'READING',
+      'targetType': 'ARTICLE',
+      'targetId': (title ?? '').trim(),
+      'score': 0,
+      'correctCount': 0,
+      'totalCount': 0,
+      'durationSeconds': minutes * 60,
+    });
+  }
+
+  static Future<void> recordSpeakingScore(int score) async {
+    final prefs = await SharedPreferences.getInstance();
+    await _resetDailyIfNeeded(prefs);
+    await _touchStudy(prefs);
+    final previous = prefs.getInt(_speakingScoreKey);
+    final nextScore = previous == null
+        ? score
+        : ((previous + score) / 2).round();
+    await prefs.setInt(_speakingScoreKey, nextScore.clamp(0, 100));
+    await prefs.setInt(
+      _todayMinutesKey,
+      (prefs.getInt(_todayMinutesKey) ?? 0) + 3,
+    );
+    await _recordDaily(
+      prefs,
+      studyMinutes: 3,
+      speaking: 1,
+      scoreTotal: score,
+      scoreCount: 1,
+    );
+    await _addActivity(
+      prefs,
+      LearningActivityItem(
+        kind: 'speaking',
+        title: 'Luyện phát âm',
+        detail: '$score điểm',
+        occurredAt: DateTime.now(),
+      ),
+    );
+    await _sendRemote('POST', '/learning/attempts', {
+      'type': 'PRONUNCIATION',
+      'score': score,
+      'correctCount': score >= 70 ? 1 : 0,
+      'totalCount': 1,
+      'durationSeconds': 180,
+    });
+  }
+
+  static Future<void> recordQuizResult({
+    required int score,
+    required int correctCount,
+    required int totalCount,
+    int minutes = 5,
+  }) async {
+    final prefs = await SharedPreferences.getInstance();
+    await _resetDailyIfNeeded(prefs);
+    await _touchStudy(prefs);
+    await prefs.setInt(
+      _todayMinutesKey,
+      (prefs.getInt(_todayMinutesKey) ?? 0) + minutes,
+    );
+    await _recordDaily(
+      prefs,
+      studyMinutes: minutes,
+      quizzes: 1,
+      scoreTotal: score,
+      scoreCount: 1,
+      correctCount: correctCount,
+      totalCount: totalCount,
+    );
+    await _addActivity(
+      prefs,
+      LearningActivityItem(
+        kind: 'quiz',
+        title: 'Hoàn thành bài kiểm tra',
+        detail: '$score điểm · $correctCount/$totalCount câu đúng',
+        occurredAt: DateTime.now(),
+      ),
+    );
+  }
+}
+
 class ProfileRepository {
   static Uri _uri(String path) =>
       Uri.parse('${DictionaryRepository.apiBaseUrl}$path');
 
   static Future<ProfileData> load() async {
-    final response = await http
-        .get(_uri('/profile'))
-        .timeout(const Duration(seconds: 3));
-    if (response.statusCode != 200) {
-      throw Exception('Profile API ${response.statusCode}');
+    final local = await LearningProgressStore.loadLocalProfile();
+    final session = await AuthService.instance.restoreSession();
+    if (session == null || session.isGuest || session.token.isEmpty) {
+      return local;
     }
-    return ProfileData.fromJson(
-      jsonDecode(response.body) as Map<String, dynamic>,
-    );
+    try {
+      final response = await http
+          .get(
+            _uri('/learning/summary'),
+            headers: {'Authorization': 'Bearer ${session.token}'},
+          )
+          .timeout(const Duration(seconds: 5));
+      if (response.statusCode < 200 || response.statusCode >= 300) {
+        return local;
+      }
+      final data = jsonDecode(utf8.decode(response.bodyBytes));
+      if (data is! Map) return local;
+      final profile = data['profile'] is Map
+          ? Map<String, dynamic>.from(data['profile'] as Map)
+          : <String, dynamic>{};
+      final today = data['today'] is Map
+          ? Map<String, dynamic>.from(data['today'] as Map)
+          : <String, dynamic>{};
+      final totals = data['totals'] is Map
+          ? Map<String, dynamic>.from(data['totals'] as Map)
+          : <String, dynamic>{};
+      final favoriteWords = data['favoriteWords'] is List
+          ? (data['favoriteWords'] as List).length
+          : local.savedWords;
+      final goalWords =
+          (profile['dailyGoalWords'] as num?)?.round() ?? local.dailyGoalWords;
+      final goalMinutes =
+          (profile['dailyGoalMinutes'] as num?)?.round() ??
+          local.dailyGoalMinutes;
+      final todayWords = (today['learnedWords'] as num?)?.round() ?? 0;
+      final todayMinutes =
+          ((today['studySeconds'] as num?)?.toDouble() ?? 0) / 60;
+      final progress =
+          ((goalWords <= 0 ? 0 : todayWords / goalWords) +
+              (goalMinutes <= 0 ? 0 : todayMinutes / goalMinutes)) /
+          2;
+      return ProfileData(
+        name: profile['displayName']?.toString() ?? local.name,
+        level: profile['targetLevel']?.toString() ?? local.level,
+        streakDays: (today['streak'] as num?)?.round() ?? local.streakDays,
+        weeklyProgress: progress.clamp(0.0, 1.0).toDouble(),
+        savedWords: favoriteWords,
+        speakingScore:
+            (totals['speakingScore'] as num?)?.round() ?? local.speakingScore,
+        readingArticles:
+            (today['reading'] as num?)?.round() ?? local.readingArticles,
+        dailyGoalWords: goalWords,
+        dailyGoalMinutes: goalMinutes,
+        reminderTime: profile['reminderTime']?.toString() ?? local.reminderTime,
+        storage: 'Đồng bộ PostgreSQL và thiết bị',
+      );
+    } catch (_) {
+      return local;
+    }
   }
 
   static Future<ProfileData> updateGoal({
@@ -2304,23 +1431,37 @@ class ProfileRepository {
     required int words,
     required int minutes,
   }) async {
-    final response = await http
-        .post(
-          _uri('/profile/goal'),
-          headers: {'Content-Type': 'application/json'},
-          body: jsonEncode({
-            'level': level,
-            'words': words,
-            'minutes': minutes,
-          }),
-        )
-        .timeout(const Duration(seconds: 5));
-    if (response.statusCode != 200 && response.statusCode != 201) {
-      throw Exception('Profile API ${response.statusCode}');
-    }
-    return ProfileData.fromJson(
-      jsonDecode(response.body) as Map<String, dynamic>,
+    await LearningProgressStore.updateGoal(
+      level: level,
+      words: words,
+      minutes: minutes,
     );
+    try {
+      final session = await AuthService.instance.restoreSession();
+      if (session == null || session.isGuest || session.token.isEmpty) {
+        return LearningProgressStore.loadLocalProfile();
+      }
+      final response = await http
+          .put(
+            _uri('/learning/goal'),
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ${session.token}',
+            },
+            body: jsonEncode({
+              'level': level,
+              'words': words,
+              'minutes': minutes,
+            }),
+          )
+          .timeout(const Duration(seconds: 5));
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return LearningProgressStore.loadLocalProfile();
+      }
+    } catch (_) {
+      // Best effort sync; local data is the source of truth for offline mode.
+    }
+    return LearningProgressStore.loadLocalProfile();
   }
 }
 
@@ -2371,12 +1512,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
         _profileFuture = Future.value(profile);
       });
       messenger.showSnackBar(
-        const SnackBar(content: Text('Đã cập nhật mục tiêu qua API.')),
+        const SnackBar(content: Text('Đã cập nhật mục tiêu học.')),
       );
     } catch (error) {
       if (!mounted) return;
       messenger.showSnackBar(
-        SnackBar(content: Text('Chưa gọi được API tài khoản: $error')),
+        SnackBar(content: Text('Chưa lưu được mục tiêu: $error')),
       );
     }
   }
@@ -2457,7 +1598,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           _saveGoal(level, words.round(), minutes.round());
                         },
                         icon: const Icon(Icons.cloud_done_outlined),
-                        label: const Text('Lưu qua API'),
+                        label: const Text('Lưu mục tiêu'),
                       ),
                     ),
                   ],
@@ -2520,6 +1661,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
     ScaffoldMessenger.of(
       context,
     ).showSnackBar(SnackBar(content: Text(message)));
+  }
+
+  Future<void> _pickReminder(ProfileData profile) async {
+    final parts = profile.reminderTime.split(':');
+    final selected = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay(
+        hour: int.tryParse(parts.first) ?? 20,
+        minute: parts.length > 1 ? int.tryParse(parts[1]) ?? 30 : 30,
+      ),
+      helpText: 'Chọn giờ nhắc học',
+    );
+    if (selected == null) return;
+    final value =
+        '${selected.hour.toString().padLeft(2, '0')}:${selected.minute.toString().padLeft(2, '0')}';
+    await LearningProgressStore.updateReminder(value);
+    if (!mounted) return;
+    _refreshProfile();
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text('Đã đặt giờ nhắc học lúc $value.')));
   }
 
   @override
@@ -2682,7 +1844,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     value: '${profile.savedWords} từ đã lưu',
                     color: AppColors.amber,
                     onTap: () =>
-                        _showRowMessage('Sổ tay đang đồng bộ từ API hồ sơ.'),
+                        _showRowMessage('Sổ tay đã được lưu trên thiết bị.'),
                   ),
                   const Divider(height: 20),
                   ProfileActionRow(
@@ -2690,8 +1852,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     title: 'Luyện nói',
                     value: 'Điểm trung bình ${profile.speakingScore}',
                     color: AppColors.jade,
-                    onTap: () =>
-                        _showRowMessage('Điểm phát âm đã lấy từ API hồ sơ.'),
+                    onTap: () => _showRowMessage(
+                      'Điểm phát âm được cập nhật sau mỗi lần luyện.',
+                    ),
                   ),
                   const Divider(height: 20),
                   ProfileActionRow(
@@ -2714,9 +1877,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     title: 'Nhắc học hằng ngày',
                     value: profile.reminderTime,
                     color: AppColors.cinnabar,
-                    onTap: () => _showRowMessage(
-                      'API nhắc học hiện trả về ${profile.reminderTime}.',
-                    ),
+                    onTap: () => _pickReminder(profile),
                   ),
                   const Divider(height: 20),
                   ProfileActionRow(
@@ -2847,6 +2008,15 @@ class _FlashcardLessonScreenState extends State<FlashcardLessonScreen> {
       appBar: AppBar(
         title: Text(widget.topic.name),
         actions: [
+          IconButton(
+            tooltip: 'Quiz chủ đề',
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => FlashcardQuizScreen(topic: widget.topic),
+              ),
+            ),
+            icon: const Icon(Icons.quiz_outlined),
+          ),
           Padding(
             padding: const EdgeInsets.only(right: 16),
             child: Center(
@@ -2919,7 +2089,10 @@ class _FlashcardLessonScreenState extends State<FlashcardLessonScreen> {
                   Expanded(
                     child: FilledButton.icon(
                       onPressed: _index == total - 1
-                          ? () => Navigator.pop(context)
+                          ? () {
+                              LearningProgressStore.recordStudyMinutes(5);
+                              Navigator.pop(context);
+                            }
                           : () => _pageController.nextPage(
                               duration: const Duration(milliseconds: 260),
                               curve: Curves.easeOut,
@@ -2934,6 +2107,166 @@ class _FlashcardLessonScreenState extends State<FlashcardLessonScreen> {
               ),
             ),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class FlashcardQuizScreen extends StatefulWidget {
+  const FlashcardQuizScreen({super.key, required this.topic});
+
+  final FlashcardTopic topic;
+
+  @override
+  State<FlashcardQuizScreen> createState() => _FlashcardQuizScreenState();
+}
+
+class _FlashcardQuizScreenState extends State<FlashcardQuizScreen> {
+  late final List<VocabEntry> _questions;
+  int _index = 0;
+  int _score = 0;
+  String? _selected;
+
+  @override
+  void initState() {
+    super.initState();
+    _questions = [...widget.topic.words]..shuffle(Random());
+  }
+
+  List<String> get _choices {
+    final current = _questions[_index];
+    final distractors =
+        widget.topic.words
+            .where((word) => word.simplified != current.simplified)
+            .map((word) => word.meaning)
+            .toSet()
+            .toList()
+          ..shuffle(Random(current.simplified.hashCode));
+    final choices = <String>[current.meaning, ...distractors.take(3)];
+    choices.shuffle(Random(current.meaning.hashCode));
+    return choices;
+  }
+
+  void _answer(String value) {
+    if (_selected != null) return;
+    final correct = value == _questions[_index].meaning;
+    setState(() {
+      _selected = value;
+      if (correct) _score++;
+    });
+  }
+
+  void _next() {
+    if (_index >= _questions.length - 1) {
+      final score = _questions.isEmpty
+          ? 0
+          : ((_score / _questions.length) * 100).round();
+      LearningProgressStore.recordQuizResult(
+        score: score,
+        correctCount: _score,
+        totalCount: _questions.length,
+      );
+      ProgressService().recordAttempt(
+        type: 'QUIZ',
+        score: score,
+        correctCount: _score,
+        totalCount: _questions.length,
+        durationSeconds: 300,
+        targetType: 'TOPIC',
+        targetId: widget.topic.id,
+      );
+      showDialog<void>(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Hoàn thành quiz'),
+          content: Text('Bạn trả lời đúng $_score/${_questions.length} câu.'),
+          actions: [
+            FilledButton(
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.pop(context);
+              },
+              child: const Text('Xong'),
+            ),
+          ],
+        ),
+      );
+      return;
+    }
+    setState(() {
+      _index++;
+      _selected = null;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final current = _questions[_index];
+    final choices = _choices;
+    return Scaffold(
+      appBar: AppBar(title: Text('Quiz · ${widget.topic.name}')),
+      body: ListView(
+        padding: const EdgeInsets.all(20),
+        children: [
+          LinearProgressIndicator(value: (_index + 1) / _questions.length),
+          const SizedBox(height: 28),
+          Text(
+            'Từ này có nghĩa là gì?',
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          const SizedBox(height: 18),
+          Text(
+            current.simplified,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 72, fontWeight: FontWeight.w900),
+          ),
+          Text(
+            current.pinyin,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              color: AppColors.cinnabar,
+              fontSize: 20,
+              fontWeight: FontWeight.w800,
+            ),
+          ),
+          const SizedBox(height: 28),
+          ...choices.map((choice) {
+            final answered = _selected != null;
+            final correct = choice == current.meaning;
+            final selected = choice == _selected;
+            final color = answered && correct
+                ? AppColors.jade
+                : answered && selected
+                ? AppColors.cinnabar
+                : AppColors.line;
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: OutlinedButton(
+                onPressed: answered ? null : () => _answer(choice),
+                style: OutlinedButton.styleFrom(
+                  minimumSize: const Size.fromHeight(52),
+                  side: BorderSide(color: color, width: selected ? 2 : 1),
+                ),
+                child: Text(choice),
+              ),
+            );
+          }),
+          if (_selected != null) ...[
+            const SizedBox(height: 12),
+            FilledButton.icon(
+              onPressed: _next,
+              icon: Icon(
+                _index == _questions.length - 1
+                    ? Icons.check
+                    : Icons.arrow_forward,
+              ),
+              label: Text(
+                _index == _questions.length - 1 ? 'Xem kết quả' : 'Câu tiếp',
+              ),
+            ),
+          ],
         ],
       ),
     );
@@ -2965,13 +2298,17 @@ class _VideoLessonDetailScreenState extends State<VideoLessonDetailScreen> {
   bool _showVietnamese = true;
   bool _pausedAtLineEnd = false;
   bool _pollingPosition = false;
+  bool _awaitingPractice = false;
   double _videoDurationSeconds = 0;
   String _recognized = '';
+  int? _lockedLine;
   final Map<int, int> _scores = {};
 
   @override
   void initState() {
     super.initState();
+    _autoPause = widget.lesson.hasTimedSubtitles;
+    if (widget.lesson.subtitles.isNotEmpty) _current = 0;
     _tts.setLanguage('zh-CN');
     _tts.setSpeechRate(0.44);
     _ytController = YoutubePlayerController.fromVideoId(
@@ -2992,11 +2329,7 @@ class _VideoLessonDetailScreenState extends State<VideoLessonDetailScreen> {
       final hasNewDuration =
           durationSeconds > 0 &&
           (durationSeconds - _videoDurationSeconds).abs() > 0.5;
-      if (playing) {
-        _startPositionTimer();
-      } else {
-        _stopPositionTimer();
-      }
+      _startPositionTimer();
       if (playing != _isPlaying || hasNewDuration) {
         setState(() {
           _isPlaying = playing;
@@ -3004,6 +2337,7 @@ class _VideoLessonDetailScreenState extends State<VideoLessonDetailScreen> {
         });
       }
     });
+    _startPositionTimer();
   }
 
   @override
@@ -3017,31 +2351,15 @@ class _VideoLessonDetailScreenState extends State<VideoLessonDetailScreen> {
     super.dispose();
   }
 
-  double get _subtitleFallbackDuration {
-    final count = max(1, widget.lesson.subtitles.length);
-    final estimated = count * 3.2;
-    final knownDuration = _videoDurationSeconds > 0
-        ? _videoDurationSeconds
-        : estimated;
-    return max(count * 2.2, knownDuration);
-  }
-
-  double get _generatedLineSpan {
-    final count = max(1, widget.lesson.subtitles.length);
-    return max(2.2, _subtitleFallbackDuration / count);
-  }
-
   double _lineStart(int index) {
     final sub = widget.lesson.subtitles[index];
-    if (sub.end > sub.start) return sub.start;
-    return index * _generatedLineSpan;
+    return sub.end > sub.start ? sub.start : 0;
   }
 
   double _lineEnd(int index) {
     final sub = widget.lesson.subtitles[index];
     final start = _lineStart(index);
-    if (sub.end > sub.start) return max(start + 0.8, sub.end);
-    return min(_subtitleFallbackDuration, start + _generatedLineSpan * 0.92);
+    return sub.end > sub.start ? max(start + 0.8, sub.end) : 0;
   }
 
   void _startPositionTimer() {
@@ -3068,7 +2386,9 @@ class _VideoLessonDetailScreenState extends State<VideoLessonDetailScreen> {
         }
       }
       final seconds = await _ytController.currentTime;
-      if (mounted) _syncActiveLine(seconds, _isPlaying);
+      final playerState = await _ytController.playerState;
+      final playing = playerState == PlayerState.playing;
+      if (mounted) _syncActiveLine(seconds, playing);
     } catch (_) {
       // The iframe can briefly reject currentTime while the video is loading.
     } finally {
@@ -3078,6 +2398,38 @@ class _VideoLessonDetailScreenState extends State<VideoLessonDetailScreen> {
 
   void _syncActiveLine(double seconds, bool playing) {
     if (widget.lesson.subtitles.isEmpty) return;
+    if (!widget.lesson.hasTimedSubtitles) {
+      if (playing != _isPlaying) setState(() => _isPlaying = playing);
+      return;
+    }
+    final locked = _lockedLine;
+    if (locked != null) {
+      final lineEnd = _lineEnd(locked);
+      final shouldPause =
+          _autoPause &&
+          playing &&
+          seconds >= lineEnd - 0.08 &&
+          !_pausedAtLineEnd;
+
+      if (_current != locked || playing != _isPlaying || shouldPause) {
+        setState(() {
+          _current = locked;
+          _isPlaying = shouldPause ? false : playing;
+          if (shouldPause) {
+            _pausedAtLineEnd = true;
+            _awaitingPractice = true;
+            _lockedLine = null;
+          }
+        });
+        _scrollToCurrent();
+      }
+
+      if (shouldPause) {
+        _ytController.pauseVideo();
+      }
+      return;
+    }
+
     var newIndex = _current;
     var matched = false;
     for (var i = 0; i < widget.lesson.subtitles.length; i++) {
@@ -3088,34 +2440,18 @@ class _VideoLessonDetailScreenState extends State<VideoLessonDetailScreen> {
       }
     }
     if (!matched) {
-      final approximate = (seconds / _generatedLineSpan).floor();
-      newIndex = approximate
-          .clamp(0, widget.lesson.subtitles.length - 1)
-          .toInt();
+      newIndex = 0;
+      for (var i = 0; i < widget.lesson.subtitles.length; i++) {
+        if (_lineStart(i) <= seconds) newIndex = i;
+      }
     }
 
-    final shouldPause =
-        _autoPause &&
-        playing &&
-        newIndex >= 0 &&
-        seconds >= _lineEnd(newIndex) - 0.12 &&
-        !_pausedAtLineEnd;
-
-    if (newIndex != _current || playing != _isPlaying || shouldPause) {
+    if (newIndex != _current || playing != _isPlaying) {
       setState(() {
         _current = newIndex;
         _isPlaying = playing;
-        if (shouldPause) {
-          _pausedAtLineEnd = true;
-          _isPlaying = false;
-        }
       });
       if (newIndex >= 0) _scrollToCurrent();
-    }
-
-    if (shouldPause) {
-      _stopPositionTimer();
-      _ytController.pauseVideo();
     }
   }
 
@@ -3133,8 +2469,14 @@ class _VideoLessonDetailScreenState extends State<VideoLessonDetailScreen> {
     setState(() {
       _current = index;
       _recognized = '';
+      _lockedLine = index;
+      _awaitingPractice = false;
       _pausedAtLineEnd = false;
     });
+    if (!widget.lesson.hasTimedSubtitles) {
+      _tts.speak(widget.lesson.subtitles[index].cn);
+      return;
+    }
     _ytController.seekTo(seconds: _lineStart(index), allowSeekAhead: true);
     _ytController.playVideo();
     _startPositionTimer();
@@ -3142,10 +2484,21 @@ class _VideoLessonDetailScreenState extends State<VideoLessonDetailScreen> {
 
   void _toggleVideo() {
     _pausedAtLineEnd = false;
+    if (widget.lesson.hasTimedSubtitles &&
+        !_isPlaying &&
+        _current < 0 &&
+        widget.lesson.subtitles.isNotEmpty) {
+      setState(() {
+        _lockedLine = 0;
+        _current = 0;
+      });
+    }
     if (_isPlaying) {
       _ytController.pauseVideo();
-      _stopPositionTimer();
     } else {
+      if (widget.lesson.hasTimedSubtitles) {
+        _lockedLine ??= _activeLineIndex >= 0 ? _activeLineIndex : null;
+      }
       _ytController.playVideo();
       _startPositionTimer();
     }
@@ -3190,10 +2543,12 @@ class _VideoLessonDetailScreenState extends State<VideoLessonDetailScreen> {
             children: [
               StatusPill(label: 'Câu ${index + 1}', color: AppColors.cinnabar),
               const SizedBox(width: 8),
-              const Expanded(
+              Expanded(
                 child: Text(
-                  'Nghe video, dừng từng câu rồi nhại lại',
-                  style: TextStyle(
+                  widget.lesson.hasTimedSubtitles
+                      ? 'Video tự dừng ở cuối câu, ghi âm xong sẽ đi tiếp'
+                      : 'Bài này chưa có mốc thời gian, dùng nghe mẫu từng câu',
+                  style: const TextStyle(
                     color: Colors.white70,
                     fontWeight: FontWeight.w800,
                   ),
@@ -3290,7 +2645,13 @@ class _VideoLessonDetailScreenState extends State<VideoLessonDetailScreen> {
                 onPressed: listeningThisLine
                     ? () => _stopLine(index)
                     : () => _recordLine(index),
-                icon: Icon(listeningThisLine ? Icons.stop_circle : Icons.mic),
+                icon: Icon(
+                  listeningThisLine
+                      ? Icons.stop_circle
+                      : _awaitingPractice && _current == index
+                      ? Icons.mic
+                      : Icons.mic_none,
+                ),
                 label: Text(
                   listeningThisLine ? 'Dừng ghi âm' : 'Ghi âm nhại lại',
                 ),
@@ -3328,17 +2689,24 @@ class _VideoLessonDetailScreenState extends State<VideoLessonDetailScreen> {
             icon: Icon(_isPlaying ? Icons.pause : Icons.play_arrow),
           ),
           FilterChip(
-            selected: _autoPause,
+            selected: widget.lesson.hasTimedSubtitles && _autoPause,
             showCheckmark: false,
             avatar: Icon(
               _autoPause ? Icons.pause_circle : Icons.play_circle_outline,
               size: 18,
             ),
-            label: const Text('Tự dừng'),
-            onSelected: (value) => setState(() {
-              _autoPause = value;
-              _pausedAtLineEnd = false;
-            }),
+            label: Text(
+              widget.lesson.hasTimedSubtitles
+                  ? 'Tự dừng từng câu'
+                  : 'Chưa có timing',
+            ),
+            onSelected: widget.lesson.hasTimedSubtitles
+                ? (value) => setState(() {
+                    _autoPause = value;
+                    _pausedAtLineEnd = false;
+                    _awaitingPractice = false;
+                  })
+                : null,
           ),
           FilterChip(
             selected: _showPinyin,
@@ -3374,6 +2742,7 @@ class _VideoLessonDetailScreenState extends State<VideoLessonDetailScreen> {
       _current = index;
       _listening = true;
       _recognized = '';
+      _awaitingPractice = false;
       _scores.remove(index);
     });
     await _speech.listen(
@@ -3397,10 +2766,13 @@ class _VideoLessonDetailScreenState extends State<VideoLessonDetailScreen> {
     final target = widget.lesson.subtitles[index].cn;
     final shouldContinue =
         _autoPause && index < widget.lesson.subtitles.length - 1;
+    final score = PronunciationScorer.score(target, _recognized);
     setState(() {
       _listening = false;
-      _scores[index] = PronunciationScorer.score(target, _recognized);
+      _awaitingPractice = false;
+      _scores[index] = score;
     });
+    LearningProgressStore.recordSpeakingScore(score);
     if (shouldContinue) {
       Future.delayed(const Duration(milliseconds: 700), () {
         if (!mounted || _listening || _current != index) return;
@@ -3450,6 +2822,16 @@ class _VideoLessonDetailScreenState extends State<VideoLessonDetailScreen> {
                 Text(
                   '${widget.lesson.subtitles.length} câu phụ đề',
                   style: const TextStyle(color: Colors.white70),
+                ),
+                const Spacer(),
+                Icon(
+                  widget.lesson.hasTimedSubtitles
+                      ? Icons.sync
+                      : Icons.warning_amber_rounded,
+                  color: widget.lesson.hasTimedSubtitles
+                      ? AppColors.jade
+                      : AppColors.amber,
+                  size: 18,
                 ),
               ],
             ),
@@ -4099,58 +3481,622 @@ class MetricWrap extends StatelessWidget {
   }
 }
 
-class HskRoadmap extends StatelessWidget {
-  const HskRoadmap({super.key});
+class LearningJourneyDashboard extends StatelessWidget {
+  const LearningJourneyDashboard({
+    super.key,
+    required this.progress,
+    required this.onOpenVocabulary,
+    required this.onOpenPractice,
+  });
+
+  final LearningProgressSnapshot progress;
+  final VoidCallback onOpenVocabulary;
+  final VoidCallback onOpenPractice;
 
   @override
   Widget build(BuildContext context) {
-    const rows = [
-      ('HSK 1', 150, 150, AppColors.jade),
-      ('HSK 2', 300, 204, AppColors.cinnabar),
-      ('HSK 3', 600, 156, AppColors.blue),
-      ('HSK 4', 1200, 96, AppColors.plum),
-    ];
-    return AppCard(
-      child: Column(
-        children: rows.map((row) {
-          final progress = row.$3 / row.$2;
-          return Padding(
-            padding: const EdgeInsets.only(bottom: 13),
+    return Column(
+      children: [
+        AppCard(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '7 ngày gần nhất',
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          '${progress.weeklyStudyMinutes} phút · '
+                          '${progress.weeklyWords} từ mới',
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                      ],
+                    ),
+                  ),
+                  _ProgressRing(value: progress.weeklyGoalProgress),
+                ],
+              ),
+              const SizedBox(height: 18),
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  final columns = constraints.maxWidth >= 620 ? 4 : 2;
+                  final width =
+                      (constraints.maxWidth - (columns - 1) * 12) / columns;
+                  return Wrap(
+                    spacing: 12,
+                    runSpacing: 14,
+                    children: [
+                      _JourneyMetric(
+                        width: width,
+                        icon: Icons.calendar_month_outlined,
+                        color: AppColors.blue,
+                        value: '${progress.activeDaysThisWeek}/7',
+                        label: 'Ngày hoạt động',
+                      ),
+                      _JourneyMetric(
+                        width: width,
+                        icon: Icons.local_fire_department_outlined,
+                        color: AppColors.cinnabar,
+                        value: '${progress.streakDays} ngày',
+                        label: 'Chuỗi hiện tại',
+                      ),
+                      _JourneyMetric(
+                        width: width,
+                        icon: Icons.task_alt,
+                        color: AppColors.jade,
+                        value: '${progress.accuracy}%',
+                        label: 'Độ chính xác',
+                      ),
+                      _JourneyMetric(
+                        width: width,
+                        icon: Icons.refresh,
+                        color: AppColors.amber,
+                        value: '${progress.dueReviewWords}',
+                        label: 'Từ cần ôn',
+                      ),
+                    ],
+                  );
+                },
+              ),
+              const SizedBox(height: 20),
+              Text(
+                'Thời lượng mỗi ngày',
+                style: Theme.of(
+                  context,
+                ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w900),
+              ),
+              const SizedBox(height: 12),
+              _WeeklyActivityChart(
+                days: progress.lastSevenDays,
+                dailyGoalMinutes: progress.dailyGoalMinutes,
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 16),
+        AppCard(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  const Icon(Icons.insights_outlined, color: AppColors.blue),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      'Năng lực hiện tại',
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                  ),
+                  TextButton.icon(
+                    onPressed: onOpenPractice,
+                    icon: const Icon(Icons.play_arrow_rounded),
+                    label: const Text('Luyện tập'),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 14),
+              _SkillProgress(
+                label: 'Từ vựng',
+                score: progress.vocabularyScore,
+                color: AppColors.cinnabar,
+              ),
+              _SkillProgress(
+                label: 'Ngữ pháp',
+                score: progress.grammarScore,
+                color: AppColors.blue,
+              ),
+              _SkillProgress(
+                label: 'Nghe và nói',
+                score: progress.speakingScore,
+                color: AppColors.jade,
+              ),
+              _SkillProgress(
+                label: 'Đọc hiểu',
+                score: progress.readingScore,
+                color: AppColors.plum,
+                showBottomSpacing: false,
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 16),
+        AppCard(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  const Icon(Icons.route_outlined, color: AppColors.cinnabar),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      'Lộ trình HSK',
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                  ),
+                  TextButton.icon(
+                    onPressed: onOpenVocabulary,
+                    icon: const Icon(Icons.menu_book_outlined),
+                    label: const Text('Học từ'),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              ..._visibleRoadmap(progress).map(
+                (item) => _HskProgressRow(
+                  item: item,
+                  isCurrent: item.level == progress.targetLevel,
+                  onTap: onOpenVocabulary,
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 16),
+        AppCard(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  const Icon(Icons.history, color: AppColors.amber),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      'Hoạt động gần đây',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              if (progress.recentActivities.isEmpty)
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 14),
+                  child: Text(
+                    'Hoàn thành một bài học để bắt đầu nhật ký tiến độ.',
+                    style: TextStyle(color: AppColors.muted),
+                  ),
+                )
+              else
+                ...progress.recentActivities
+                    .take(5)
+                    .map((item) => _RecentActivityRow(item: item)),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  List<HskLevelProgress> _visibleRoadmap(LearningProgressSnapshot snapshot) {
+    final target =
+        int.tryParse(snapshot.targetLevel.replaceAll(RegExp(r'\D'), '')) ?? 2;
+    return snapshot.roadmap.take(max(4, min(6, target + 1))).toList();
+  }
+}
+
+class _ProgressRing extends StatelessWidget {
+  const _ProgressRing({required this.value});
+
+  final double value;
+
+  @override
+  Widget build(BuildContext context) {
+    final percent = (value * 100).round();
+    return SizedBox(
+      width: 66,
+      height: 66,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          SizedBox.expand(
+            child: CircularProgressIndicator(
+              value: value,
+              strokeWidth: 7,
+              backgroundColor: AppColors.line,
+              color: AppColors.jade,
+            ),
+          ),
+          Text(
+            '$percent%',
+            style: const TextStyle(
+              color: AppColors.jade,
+              fontWeight: FontWeight.w900,
+              fontSize: 14,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _JourneyMetric extends StatelessWidget {
+  const _JourneyMetric({
+    required this.width,
+    required this.icon,
+    required this.color,
+    required this.value,
+    required this.label,
+  });
+
+  final double width;
+  final IconData icon;
+  final Color color;
+  final String value;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: width,
+      child: Row(
+        children: [
+          Container(
+            width: 38,
+            height: 38,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: color.withValues(alpha: 0.1),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Icon(icon, color: color, size: 21),
+          ),
+          const SizedBox(width: 9),
+          Expanded(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    Icon(Icons.school_outlined, color: row.$4),
+                Text(
+                  value,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(fontWeight: FontWeight.w900),
+                ),
+                Text(
+                  label,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _WeeklyActivityChart extends StatelessWidget {
+  const _WeeklyActivityChart({
+    required this.days,
+    required this.dailyGoalMinutes,
+  });
+
+  final List<LearningDayStat> days;
+  final int dailyGoalMinutes;
+
+  @override
+  Widget build(BuildContext context) {
+    final values = days.isEmpty
+        ? List.generate(
+            7,
+            (index) => LearningDayStat(
+              date: DateTime.now().subtract(Duration(days: 6 - index)),
+            ),
+          )
+        : days;
+    final maxMinutes = max(
+      dailyGoalMinutes,
+      values.fold<int>(1, (peak, day) => max(peak, day.studyMinutes)),
+    );
+    return SizedBox(
+      height: 132,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: values.map((day) {
+          final ratio = day.studyMinutes <= 0
+              ? 0.0
+              : (day.studyMinutes / maxMinutes).clamp(0.0, 1.0);
+          final reachedGoal =
+              dailyGoalMinutes > 0 && day.studyMinutes >= dailyGoalMinutes;
+          return Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    day.studyMinutes == 0 ? '' : '${day.studyMinutes}',
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: reachedGoal ? AppColors.jade : AppColors.muted,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Container(
+                    width: 22,
+                    height: max(4.0, ratio * 80),
+                    decoration: BoxDecoration(
+                      color: day.studyMinutes == 0
+                          ? AppColors.line
+                          : reachedGoal
+                          ? AppColors.jade
+                          : AppColors.blue,
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                  ),
+                  const SizedBox(height: 7),
+                  Text(
+                    day.weekdayLabel,
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        }).toList(),
+      ),
+    );
+  }
+}
+
+class _SkillProgress extends StatelessWidget {
+  const _SkillProgress({
+    required this.label,
+    required this.score,
+    required this.color,
+    this.showBottomSpacing = true,
+  });
+
+  final String label;
+  final int score;
+  final Color color;
+  final bool showBottomSpacing;
+
+  @override
+  Widget build(BuildContext context) {
+    final safeScore = score.clamp(0, 100);
+    return Padding(
+      padding: EdgeInsets.only(bottom: showBottomSpacing ? 14 : 0),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  label,
+                  style: const TextStyle(fontWeight: FontWeight.w800),
+                ),
+              ),
+              Text(
+                '$safeScore%',
+                style: TextStyle(color: color, fontWeight: FontWeight.w900),
+              ),
+            ],
+          ),
+          const SizedBox(height: 7),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(5),
+            child: LinearProgressIndicator(
+              value: safeScore / 100,
+              minHeight: 8,
+              backgroundColor: AppColors.line,
+              color: color,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _HskProgressRow extends StatelessWidget {
+  const _HskProgressRow({
+    required this.item,
+    required this.isCurrent,
+    required this.onTap,
+  });
+
+  final HskLevelProgress item;
+  final bool isCurrent;
+  final VoidCallback onTap;
+
+  Color get color {
+    return switch (item.level) {
+      'HSK 1' => AppColors.jade,
+      'HSK 2' => AppColors.cinnabar,
+      'HSK 3' => AppColors.blue,
+      'HSK 4' => AppColors.plum,
+      'HSK 5' => AppColors.amber,
+      _ => AppColors.ink,
+    };
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final percent = (item.progress * 100).round();
+    return Material(
+      color: isCurrent ? color.withValues(alpha: 0.06) : Colors.transparent,
+      borderRadius: BorderRadius.circular(6),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(6),
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 11, horizontal: 8),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.school_outlined, color: color, size: 21),
+                  const SizedBox(width: 8),
+                  Text(
+                    item.level,
+                    style: const TextStyle(fontWeight: FontWeight.w900),
+                  ),
+                  if (isCurrent) ...[
                     const SizedBox(width: 8),
-                    Expanded(
-                      child: Text(
-                        row.$1,
-                        style: const TextStyle(fontWeight: FontWeight.w900),
+                    StatusPill(label: 'Đang học', color: color),
+                  ],
+                  const Spacer(),
+                  Flexible(
+                    child: Text(
+                      '${item.learnedWords}/${item.totalWords} · $percent%',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                        color: color,
+                        fontWeight: FontWeight.w900,
                       ),
                     ),
-                    Text(
-                      '${row.$3}/${row.$2} từ',
-                      style: TextStyle(
-                        color: row.$4,
-                        fontWeight: FontWeight.w900,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(5),
+                child: LinearProgressIndicator(
+                  value: item.progress,
+                  minHeight: 8,
+                  backgroundColor: AppColors.line,
+                  color: color,
+                ),
+              ),
+              if (item.masteredWords > 0 || item.dueReview > 0) ...[
+                const SizedBox(height: 6),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        '${item.masteredWords} từ đã vững',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Flexible(
+                      child: Text(
+                        '${item.dueReview} cần ôn',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.end,
+                        style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 8),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: LinearProgressIndicator(
-                    value: progress,
-                    minHeight: 10,
-                    backgroundColor: AppColors.line,
-                    valueColor: AlwaysStoppedAnimation<Color>(row.$4),
-                  ),
+              ],
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _RecentActivityRow extends StatelessWidget {
+  const _RecentActivityRow({required this.item});
+
+  final LearningActivityItem item;
+
+  Color get color {
+    return switch (item.kind) {
+      'vocabulary' => AppColors.cinnabar,
+      'grammar' || 'quiz' => AppColors.blue,
+      'speaking' => AppColors.jade,
+      'reading' => AppColors.plum,
+      _ => AppColors.amber,
+    };
+  }
+
+  IconData get icon {
+    return switch (item.kind) {
+      'vocabulary' => Icons.translate,
+      'grammar' => Icons.auto_fix_high_outlined,
+      'quiz' => Icons.fact_check_outlined,
+      'speaking' => Icons.mic_none,
+      'reading' => Icons.menu_book_outlined,
+      _ => Icons.check_circle_outline,
+    };
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      decoration: const BoxDecoration(
+        border: Border(bottom: BorderSide(color: AppColors.line)),
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 38,
+            height: 38,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: color.withValues(alpha: 0.1),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Icon(icon, color: color, size: 21),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  item.title,
+                  style: const TextStyle(fontWeight: FontWeight.w900),
                 ),
+                if (item.detail.isNotEmpty)
+                  Text(
+                    item.detail,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
               ],
             ),
-          );
-        }).toList(),
+          ),
+          const SizedBox(width: 8),
+          Text(item.timeLabel, style: Theme.of(context).textTheme.bodySmall),
+        ],
       ),
     );
   }
@@ -4344,8 +4290,7 @@ class FlashcardTopicArt extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final samples = topic.words.take(2).map((word) => word.simplified).toList();
-    return Container(
+    final fallback = Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -4368,39 +4313,33 @@ class FlashcardTopicArt extends StatelessWidget {
             ),
           ),
           Center(child: Icon(topic.icon, color: Colors.white, size: 30)),
-          Positioned(
-            left: 7,
-            bottom: 6,
-            right: 7,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: samples
-                  .map(
-                    (sample) => Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 2),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 5,
-                        vertical: 2,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.white.withValues(alpha: 0.9),
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      child: Text(
-                        sample,
-                        style: TextStyle(
-                          color: color,
-                          fontSize: 10,
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
-                    ),
-                  )
-                  .toList(),
-            ),
-          ),
         ],
       ),
+    );
+    final imagePath = topic.imagePath;
+    if (imagePath == null || imagePath.isEmpty) return fallback;
+
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        Image.asset(
+          imagePath,
+          fit: BoxFit.cover,
+          errorBuilder: (context, error, stackTrace) => fallback,
+        ),
+        DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.black.withValues(alpha: 0.48),
+                Colors.black.withValues(alpha: 0.08),
+              ],
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -4414,6 +4353,66 @@ class FlashcardWordArt extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = _visualPalette(entry.simplified);
     final icon = _visualIconFor(entry);
+    final fallback = _fallback(colors, icon);
+    final imagePath = entry.imagePath;
+    if (imagePath == null || imagePath.isEmpty) return fallback;
+
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        Image.asset(
+          imagePath,
+          fit: BoxFit.cover,
+          errorBuilder: (context, error, stackTrace) => fallback,
+        ),
+        DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.black.withValues(alpha: 0.02),
+                Colors.black.withValues(alpha: 0.68),
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+        ),
+        Positioned(
+          left: 28,
+          right: 28,
+          bottom: 24,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                entry.simplified,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 46,
+                  fontWeight: FontWeight.w900,
+                  height: 1,
+                  shadows: [Shadow(blurRadius: 12, color: Colors.black87)],
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                entry.meaning,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w800,
+                  shadows: [Shadow(blurRadius: 10, color: Colors.black87)],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _fallback(List<Color> colors, IconData icon) {
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -4565,13 +4564,16 @@ class TopicCard extends StatelessWidget {
                 children: [
                   Text(
                     topic.name,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   const SizedBox(height: 6),
-                  Row(
+                  Wrap(
+                    spacing: 6,
+                    runSpacing: 6,
                     children: [
                       StatusPill(label: 'Flashcard', color: color),
-                      const SizedBox(width: 6),
                       const StatusPill(label: 'Quiz', color: AppColors.blue),
                     ],
                   ),
@@ -4689,169 +4691,234 @@ class FlashcardView extends StatelessWidget {
   final VoidCallback onSpeak;
   final VoidCallback onToggleSaved;
 
-  void _showImageSource(BuildContext context) {
+  void _showPronunciationCheck(BuildContext context) {
     showModalBottomSheet<void>(
       context: context,
       showDragHandle: true,
-      builder: (context) {
-        return SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(20, 4, 20, 20),
-            child: FutureBuilder<FlashcardImageSuggestion>(
-              future: FlashcardImageRepository.suggest(entry),
-              builder: (context, snapshot) {
-                final suggestion =
-                    snapshot.data ??
-                    (snapshot.hasError
-                        ? FlashcardImageSuggestion.fallback(entry)
-                        : null);
-                if (suggestion == null) {
-                  return const SizedBox(
-                    height: 160,
-                    child: Center(child: CircularProgressIndicator()),
-                  );
-                }
-                return Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Nguồn ảnh flashcard',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    ProfileActionRow(
-                      icon: Icons.image_search_outlined,
-                      title: suggestion.provider,
-                      value: suggestion.keyword,
-                      color: AppColors.amber,
-                    ),
-                    const SizedBox(height: 12),
-                    Text(
-                      suggestion.style,
-                      style: const TextStyle(
-                        color: AppColors.muted,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    SelectableText(
-                      suggestion.flaticonSearchUrl,
-                      style: const TextStyle(color: AppColors.blue),
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      suggestion.note,
-                      style: const TextStyle(color: AppColors.muted),
-                    ),
-                  ],
-                );
-              },
-            ),
-          ),
-        );
-      },
+      builder: (context) => PronunciationPracticeSheet(entry: entry),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        InkWell(
-          onTap: onFlip,
-          borderRadius: BorderRadius.circular(8),
-          child: AppCard(
-            padding: const EdgeInsets.all(18),
-            child: Column(
-              children: [
-                AspectRatio(
-                  aspectRatio: 16 / 10,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: AppColors.amber.withValues(alpha: 0.12),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    clipBehavior: Clip.antiAlias,
-                    child: FlashcardWordArt(entry: entry),
+    return InkWell(
+      onTap: onFlip,
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      child: Column(
+        children: [
+          // 1. IMAGE BOX
+          AspectRatio(
+            aspectRatio: 16 / 9,
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.12),
+                    blurRadius: 16,
+                    offset: const Offset(0, 6),
                   ),
-                ),
-                const SizedBox(height: 22),
-                Text(
-                  entry.pinyin,
-                  style: const TextStyle(
-                    fontSize: 22,
-                    color: AppColors.muted,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  entry.simplified,
-                  style: const TextStyle(
-                    fontSize: 64,
-                    fontWeight: FontWeight.w900,
-                    color: AppColors.ink,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                if (showBack)
-                  Column(
-                    children: [
-                      Text(
-                        entry.meaning,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w900,
-                          color: AppColors.cinnabar,
+                ],
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    if (entry.imagePath != null && entry.imagePath!.isNotEmpty)
+                      Image.asset(
+                        entry.imagePath!,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) =>
+                            _FlashcardImageFallback(entry: entry),
+                      )
+                    else
+                      _FlashcardImageFallback(entry: entry),
+                    DecoratedBox(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.transparent,
+                            Colors.black.withValues(alpha: 0.12),
+                          ],
                         ),
                       ),
-                      const SizedBox(height: 12),
-                      ExampleTile(example: entry.examples.first),
-                    ],
-                  )
-                else
-                  const Text(
-                    'Chạm thẻ để xem nghĩa và ví dụ',
-                    style: TextStyle(
-                      color: AppColors.muted,
-                      fontWeight: FontWeight.w700,
                     ),
-                  ),
-                const SizedBox(height: 16),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton.filledTonal(
-                      tooltip: 'Nghe mẫu',
-                      onPressed: onSpeak,
-                      icon: const Icon(Icons.volume_up_outlined),
-                    ),
-                    const SizedBox(width: 12),
-                    IconButton.filledTonal(
-                      tooltip: saved ? 'Bỏ khỏi sổ tay' : 'Lưu vào sổ tay',
-                      onPressed: onToggleSaved,
-                      icon: Icon(
-                        saved ? Icons.bookmark : Icons.bookmark_border,
+                    Positioned(
+                      right: 14,
+                      bottom: 14,
+                      child: Container(
+                        padding: const EdgeInsets.all(9),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withValues(alpha: 0.94),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: const Icon(
+                          Icons.image_outlined,
+                          color: AppColors.cinnabar,
+                          size: 20,
+                        ),
                       ),
-                    ),
-                    const SizedBox(width: 12),
-                    IconButton.filledTonal(
-                      tooltip: 'Nguồn ảnh minh họa',
-                      onPressed: () => _showImageSource(context),
-                      icon: const Icon(Icons.image_search_outlined),
                     ),
                   ],
                 ),
-              ],
+              ),
             ),
           ),
+
+          const SizedBox(height: 24),
+
+          // 2. PINYIN
+          Text(
+            entry.pinyin,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 22,
+              color: AppColors.muted,
+              fontWeight: FontWeight.w900,
+            ),
+          ),
+          const SizedBox(height: 16),
+
+          // 3. BIG HANZI
+          Text(
+            entry.simplified,
+            style: const TextStyle(
+              fontSize: 80,
+              fontWeight: FontWeight.w900,
+              color: AppColors.ink,
+              height: 1.0,
+            ),
+          ),
+          const SizedBox(height: 16),
+
+          // 4. MEANING
+          Text(
+            entry.meaning,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w900,
+              color: AppColors.cinnabar,
+            ),
+          ),
+
+          const SizedBox(height: 24),
+
+          // 5. EXAMPLES (Back of Card)
+          if (showBack && entry.examples.isNotEmpty) ...[
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(20),
+              margin: const EdgeInsets.symmetric(horizontal: 16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: AppColors.line),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.04),
+                    blurRadius: 10,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: Column(
+                children: [
+                  Text(
+                    entry.examples.first.cn,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: AppColors.ink,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    entry.examples.first.py,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: AppColors.blue,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 14,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    entry.examples.first.vi,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: AppColors.muted,
+                      fontStyle: FontStyle.italic,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 24),
+          ],
+
+          // 6. BUTTONS
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton.filledTonal(
+                tooltip: 'Nghe mẫu',
+                onPressed: onSpeak,
+                icon: const Icon(Icons.volume_up_outlined),
+              ),
+              const SizedBox(width: 16),
+              IconButton.filledTonal(
+                tooltip: saved ? 'Bỏ khỏi sổ tay' : 'Lưu vào sổ tay',
+                onPressed: onToggleSaved,
+                icon: Icon(saved ? Icons.bookmark : Icons.bookmark_border),
+              ),
+              const SizedBox(width: 16),
+              IconButton.filledTonal(
+                tooltip: 'Kiểm tra phát âm',
+                onPressed: () => _showPronunciationCheck(context),
+                icon: const Icon(Icons.mic_none_outlined),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+        ],
+      ),
+    );
+  }
+}
+
+class _FlashcardImageFallback extends StatelessWidget {
+  const _FlashcardImageFallback({required this.entry});
+
+  final VocabEntry entry;
+
+  @override
+  Widget build(BuildContext context) {
+    return DecoratedBox(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Color(0xFFEAF6F0), Color(0xFFFFF1E8)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
         ),
-      ],
+      ),
+      child: Center(
+        child: Text(
+          entry.simplified,
+          style: const TextStyle(
+            color: AppColors.ink,
+            fontSize: 76,
+            fontWeight: FontWeight.w900,
+          ),
+        ),
+      ),
     );
   }
 }
@@ -4945,8 +5012,11 @@ class GrammarResultCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final unavailable = result.score <= 0 && !result.isAi;
     final good = result.score >= 85;
-    final color = good
+    final color = unavailable
+        ? AppColors.blue
+        : good
         ? AppColors.jade
         : result.score >= 60
         ? AppColors.amber
@@ -4965,10 +5035,10 @@ class GrammarResultCard extends StatelessWidget {
                   border: Border.all(color: color, width: 5),
                 ),
                 child: Text(
-                  '${result.score}',
+                  unavailable ? 'AI' : '${result.score}',
                   style: TextStyle(
                     color: color,
-                    fontSize: 24,
+                    fontSize: unavailable ? 20 : 24,
                     fontWeight: FontWeight.w900,
                   ),
                 ),
@@ -4988,6 +5058,14 @@ class GrammarResultCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 4),
                     Text(result.summary),
+                    const SizedBox(height: 8),
+                    StatusPill(
+                      icon: result.isAi
+                          ? Icons.auto_awesome
+                          : Icons.offline_bolt_outlined,
+                      label: result.provider,
+                      color: color,
+                    ),
                   ],
                 ),
               ),
@@ -5023,6 +5101,31 @@ class GrammarResultCard extends StatelessWidget {
             ],
           ),
         ),
+        if (result.suggestions.isNotEmpty) ...[
+          const SizedBox(height: 12),
+          AppCard(
+            color: const Color(0xFFF0F6FB),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Gợi ý diễn đạt:',
+                  style: TextStyle(
+                    color: AppColors.blue,
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                ...result.suggestions.map(
+                  (item) => Padding(
+                    padding: const EdgeInsets.only(bottom: 8),
+                    child: SelectableText(item),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
         if (result.errors.isNotEmpty) ...[
           const SizedBox(height: 12),
           ...result.errors.map(
@@ -5227,10 +5330,27 @@ class VideoLessonCard extends StatelessWidget {
                     style: const TextStyle(color: AppColors.muted),
                   ),
                   const SizedBox(height: 8),
-                  StatusPill(
-                    icon: Icons.ondemand_video_outlined,
-                    label: lesson.source,
-                    color: AppColors.cinnabar,
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: [
+                      StatusPill(
+                        icon: Icons.ondemand_video_outlined,
+                        label: lesson.source,
+                        color: AppColors.cinnabar,
+                      ),
+                      StatusPill(
+                        icon: lesson.hasTimedSubtitles
+                            ? Icons.sync
+                            : Icons.edit_note,
+                        label: lesson.hasTimedSubtitles
+                            ? 'Phụ đề đã khớp'
+                            : 'Luyện câu thủ công',
+                        color: lesson.hasTimedSubtitles
+                            ? AppColors.jade
+                            : AppColors.amber,
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 8),
                   Text(
@@ -5343,6 +5463,9 @@ class GrammarCheckResult {
     required this.correction,
     required this.explanation,
     required this.errors,
+    this.source = 'local',
+    this.provider = 'Bộ quy tắc nội bộ',
+    this.suggestions = const [],
   });
 
   final int score;
@@ -5351,14 +5474,26 @@ class GrammarCheckResult {
   final String correction;
   final String explanation;
   final List<String> errors;
+  final String source;
+  final String provider;
+  final List<String> suggestions;
+
+  bool get isAi => source.startsWith('gemini');
 }
 
 class SentencePractice {
-  const SentencePractice(this.level, this.cn, this.py, this.vi);
+  const SentencePractice(
+    this.level,
+    this.cn,
+    this.py,
+    this.vi, {
+    this.topic = 'Giao tiếp hằng ngày',
+  });
   final String level;
   final String cn;
   final String py;
   final String vi;
+  final String topic;
 }
 
 class NewsArticleData {
@@ -5373,6 +5508,7 @@ class NewsArticleData {
     this.link,
     this.sentences = const [],
     this.live = false,
+    this.publishedAt = '',
   });
 
   final String id;
@@ -5385,6 +5521,7 @@ class NewsArticleData {
   final String? link;
   final List<ArticleSentenceData> sentences;
   final bool live;
+  final String publishedAt;
 }
 
 class ArticleSentenceData {
@@ -5419,6 +5556,7 @@ class VideoLessonData {
     required this.youtubeId,
     required this.subtitles,
     this.source = 'Little Fox Chinese',
+    this.transcriptStatus = 'untimed',
   });
 
   final String title;
@@ -5427,6 +5565,10 @@ class VideoLessonData {
   final String youtubeId;
   final List<VideoSubtitleData> subtitles;
   final String source;
+  final String transcriptStatus;
+  bool get hasTimedSubtitles =>
+      subtitles.isNotEmpty &&
+      subtitles.every((subtitle) => subtitle.end > subtitle.start);
   String get thumbnail => 'https://img.youtube.com/vi/$youtubeId/mqdefault.jpg';
   String get youtubeUrl => 'https://www.youtube.com/watch?v=$youtubeId';
 }
@@ -5434,10 +5576,12 @@ class VideoLessonData {
 class DictionaryRepository {
   static const String apiBaseUrl = String.fromEnvironment(
     'API_BASE_URL',
-    defaultValue: 'http://127.0.0.1:3001',
+    defaultValue: 'http://localhost:3001',
   );
   static final Map<String, VocabEntry> _cache = {};
   static final Map<String, VocabEntry> _exactEntries = {};
+  static final Map<String, String> _flashcardImagePaths = {};
+  static final Map<String, VocabEntry> _flashcardEntries = {};
   static final List<VocabEntry> _assetEntries = [];
   static final List<VocabEntry> _hskEntries = [];
   static Future<void>? _loadFuture;
@@ -5469,6 +5613,7 @@ class DictionaryRepository {
   static Future<void> _loadAssets() async {
     _ensureBaseIndex();
     if (_assetEntries.isNotEmpty || _hskEntries.isNotEmpty) return;
+    await _loadFlashcardImageIndex();
     try {
       final seed = jsonDecode(
         await rootBundle.loadString('assets/data/dictionary_seed_clean.json'),
@@ -5512,7 +5657,7 @@ class DictionaryRepository {
               wordType: (map['wordType'] ?? '').toString(),
               examples: [
                 ExampleSentenceData(
-                  '我今天学习“$word”。',
+                  '我今天学习"$word"。',
                   'Wǒ jīntiān xuéxí "$word".',
                   'Hôm nay tôi học từ "$word".',
                 ),
@@ -5522,6 +5667,55 @@ class DictionaryRepository {
         );
         _indexEntries(_hskEntries);
       }
+    } catch (_) {}
+  }
+
+  static Future<void> _loadFlashcardImageIndex() async {
+    if (_flashcardImagePaths.isNotEmpty) return;
+    try {
+      final decoded = jsonDecode(
+        await rootBundle.loadString('assets/images/flashcards/index.json'),
+      );
+      if (decoded is! Map || decoded['topics'] is! List) return;
+      for (final topic in (decoded['topics'] as List).whereType<Map>()) {
+        final topicId = (topic['id'] ?? '').toString().trim();
+        final words = topic['words'];
+        if (topicId.isEmpty || words is! List) continue;
+        for (final raw in words.whereType<Map>()) {
+          final word = (raw['word'] ?? '').toString().trim();
+          final image = (raw['image'] ?? '').toString().trim();
+          if (word.isEmpty || image.isEmpty) continue;
+          final imagePath = 'assets/images/flashcards/$topicId/$image';
+          _flashcardImagePaths[word] = imagePath;
+          final pinyin = (raw['pinyin'] ?? '').toString().trim();
+          final meaning = (raw['meaning'] ?? '').toString().trim();
+          if (pinyin.isNotEmpty || meaning.isNotEmpty) {
+            final normalized = _normalizedFlashcardText(word, pinyin, meaning);
+            final importedExamples = <ExampleSentenceData>[];
+            final rawExamples = raw['examples'];
+            if (rawExamples is List) {
+              for (final example in rawExamples.whereType<Map>()) {
+                final cn = (example['cn'] ?? '').toString().trim();
+                final py = (example['py'] ?? '').toString().trim();
+                final vi = (example['vi'] ?? '').toString().trim();
+                if (cn.isNotEmpty && vi.isNotEmpty) {
+                  importedExamples.add(ExampleSentenceData(cn, py, vi));
+                }
+              }
+            }
+            _flashcardEntries[word] = VocabEntry(
+              simplified: word,
+              pinyin: normalized.$1,
+              meaning: normalized.$2,
+              imagePath: imagePath,
+              examples: importedExamples.isNotEmpty
+                  ? importedExamples.take(3).toList()
+                  : _flashcardExamples(word, normalized.$1, normalized.$2),
+            );
+          }
+        }
+      }
+      _indexEntries(_flashcardEntries.values);
     } catch (_) {}
   }
 
@@ -5555,7 +5749,7 @@ class DictionaryRepository {
       examples: examples.isEmpty
           ? [
               ExampleSentenceData(
-                '我今天学习“$word”。',
+                '我今天学习"$word"。',
                 'Wǒ jīntiān xuéxí "$word".',
                 'Hôm nay tôi học từ "$word".',
               ),
@@ -5578,6 +5772,100 @@ class DictionaryRepository {
     return null;
   }
 
+  static (String, String) _normalizedFlashcardText(
+    String word,
+    String pinyin,
+    String meaning,
+  ) {
+    const curated = <String, (String, String)>{
+      '天气': ('tiānqì', 'thời tiết'),
+      '热': ('rè', 'nóng'),
+      '冷': ('lěng', 'lạnh'),
+      '下雨': ('xiàyǔ', 'mưa'),
+      '雪': ('xuě', 'tuyết'),
+      '风': ('fēng', 'gió'),
+      '晴': ('qíng', 'trời nắng, quang đãng'),
+      '阴': ('yīn', 'trời âm u'),
+      '春天': ('chūntiān', 'mùa xuân'),
+      '夏天': ('xiàtiān', 'mùa hè'),
+      '学校': ('xuéxiào', 'trường học'),
+      '老师': ('lǎoshī', 'giáo viên'),
+      '学生': ('xuésheng', 'học sinh'),
+      '学习': ('xuéxí', 'học tập'),
+      '吃饭': ('chīfàn', 'ăn cơm'),
+      '喝水': ('hēshuǐ', 'uống nước'),
+      '买东西': ('mǎi dōngxi', 'mua đồ'),
+      '打电话': ('dǎ diànhuà', 'gọi điện thoại'),
+    };
+    final value = curated[word];
+    if (value != null) return value;
+    return (
+      pinyin,
+      meaning.isEmpty ? 'Nghĩa tiếng Việt đang cập nhật' : meaning,
+    );
+  }
+
+  static List<ExampleSentenceData> _flashcardExamples(
+    String word,
+    String pinyin,
+    String meaning,
+  ) {
+    const curated = <String, List<ExampleSentenceData>>{
+      '天气': [
+        ExampleSentenceData(
+          '今天天气很好，我们去公园吧。',
+          'Jīntiān tiānqì hěn hǎo, wǒmen qù gōngyuán ba.',
+          'Hôm nay thời tiết rất đẹp, chúng ta đi công viên nhé.',
+        ),
+        ExampleSentenceData(
+          '你喜欢什么样的天气？',
+          'Nǐ xǐhuan shénme yàng de tiānqì?',
+          'Bạn thích kiểu thời tiết như thế nào?',
+        ),
+        ExampleSentenceData(
+          '天气预报说明天会下雨。',
+          'Tiānqì yùbào shuō míngtiān huì xiàyǔ.',
+          'Dự báo thời tiết nói ngày mai sẽ mưa.',
+        ),
+      ],
+      '下雨': [
+        ExampleSentenceData(
+          '外面下雨了，别忘了带伞。',
+          'Wàimiàn xiàyǔ le, bié wàng le dài sǎn.',
+          'Bên ngoài mưa rồi, đừng quên mang ô.',
+        ),
+      ],
+      '学校': [
+        ExampleSentenceData(
+          '我每天坐公交车去学校。',
+          'Wǒ měitiān zuò gōngjiāochē qù xuéxiào.',
+          'Mỗi ngày tôi đi xe buýt đến trường.',
+        ),
+      ],
+      '吃饭': [
+        ExampleSentenceData(
+          '我们一起去吃饭吧。',
+          'Wǒmen yìqǐ qù chīfàn ba.',
+          'Chúng ta cùng đi ăn cơm nhé.',
+        ),
+      ],
+    };
+    final examples = curated[word];
+    if (examples != null) return examples;
+    return [
+      ExampleSentenceData(
+        '这个词是"$word"。',
+        'Zhège cí shì "$pinyin".',
+        'Từ này có nghĩa là "$meaning".',
+      ),
+      ExampleSentenceData(
+        '请用"$word"说一个完整的句子。',
+        'Qǐng yòng "$word" shuō yí ge wánzhěng de jùzi.',
+        'Hãy dùng "$word" để nói một câu hoàn chỉnh.',
+      ),
+    ];
+  }
+
   static bool _matches(VocabEntry entry, String original, String folded) {
     final pinyin = entry.pinyin.toLowerCase().replaceAll(' ', '');
     final compactQuery = folded.replaceAll(' ', '');
@@ -5594,25 +5882,33 @@ class DictionaryRepository {
     required String imagePath,
   }) {
     final found = lookupLocal(word);
+    final flashcardEntry = _flashcardEntries[word];
+    final resolvedImagePath = _flashcardImagePaths[word] ?? imagePath;
+    if (flashcardEntry != null) {
+      return flashcardEntry.copyWith(
+        imagePath: resolvedImagePath,
+        level: level,
+      );
+    }
     if (found == null) {
       return VocabEntry(
         simplified: word,
         pinyin: '',
         meaning: 'Nghĩa tiếng Việt đang cập nhật',
         level: level,
-        imagePath: imagePath,
+        imagePath: resolvedImagePath,
         examples: [
           ExampleSentenceData(
-            '请用“$word”造句。',
+            '请用"$word"造句。',
             'Qǐng yòng "$word" zàojù.',
             'Hãy đặt câu với từ "$word".',
           ),
         ],
       );
     }
-    return found.imagePath == null
-        ? found.copyWith(imagePath: imagePath, level: level)
-        : found;
+    return found.imagePath == null || _flashcardImagePaths.containsKey(word)
+        ? found.copyWith(imagePath: resolvedImagePath, level: level)
+        : found.copyWith(level: level);
   }
 
   static VocabEntry? lookupAt(String text, int start) {
@@ -6002,7 +6298,7 @@ class FlashcardRepository {
   static Future<List<FlashcardTopic>> loadTopics() async {
     if (_cache != null) return _cache!;
     await DictionaryRepository.ensureLoaded();
-    _cache = _plans.map((plan) {
+    final plannedTopics = _plans.map((plan) {
       return _topic(
         plan.id,
         plan.level,
@@ -6012,7 +6308,153 @@ class FlashcardRepository {
         plan.imagePath,
       );
     }).toList();
+    final plannedIds = plannedTopics.map((topic) => topic.id).toSet();
+    final assetTopics = await _loadAssetTopics(plannedIds);
+    _cache = [...plannedTopics, ...assetTopics];
     return _cache!;
+  }
+
+  static Future<List<FlashcardTopic>> _loadAssetTopics(
+    Set<String> skipIds,
+  ) async {
+    try {
+      dynamic decoded;
+      try {
+        final response = await http
+            .get(
+              Uri.parse(
+                '${DictionaryRepository.apiBaseUrl}/content/flashcards',
+              ),
+            )
+            .timeout(const Duration(seconds: 4));
+        if (response.statusCode >= 200 && response.statusCode < 300) {
+          final remote = jsonDecode(response.body);
+          if (remote is Map &&
+              remote['topics'] is List &&
+              (remote['topics'] as List).isNotEmpty) {
+            decoded = remote;
+          }
+        }
+      } catch (_) {}
+      decoded ??= jsonDecode(
+        await rootBundle.loadString('assets/images/flashcards/index.json'),
+      );
+      if (decoded is! Map || decoded['topics'] is! List) return const [];
+      return (decoded['topics'] as List)
+          .whereType<Map>()
+          .map((raw) => _topicFromAsset(Map<String, dynamic>.from(raw)))
+          .whereType<FlashcardTopic>()
+          .where((topic) => !skipIds.contains(topic.id))
+          .toList();
+    } catch (_) {
+      return const [];
+    }
+  }
+
+  static FlashcardTopic? _topicFromAsset(Map<String, dynamic> topic) {
+    final id = (topic['id'] ?? '').toString().trim();
+    final wordsRaw = topic['words'];
+    if (id.isEmpty || wordsRaw is! List) return null;
+    final level = (topic['level'] ?? _levelForAssetTopic(id)).toString();
+    final entries = wordsRaw
+        .whereType<Map>()
+        .map((raw) {
+          final word = (raw['word'] ?? '').toString().trim();
+          if (word.isEmpty) return null;
+          final image = (raw['image'] ?? '').toString().trim();
+          final examples = <ExampleSentenceData>[];
+          final rawExamples = raw['examples'];
+          if (rawExamples is List) {
+            for (final example in rawExamples.whereType<Map>()) {
+              final cn = (example['cn'] ?? '').toString().trim();
+              final py = (example['py'] ?? '').toString().trim();
+              final vi = (example['vi'] ?? '').toString().trim();
+              if (cn.isNotEmpty && vi.isNotEmpty) {
+                examples.add(ExampleSentenceData(cn, py, vi));
+              }
+            }
+          }
+          final fallback = DictionaryRepository.forFlashcard(
+            word,
+            level: level,
+            imagePath: image.isEmpty
+                ? 'assets/images/flashcards/family/427034659a.jpg'
+                : 'assets/images/flashcards/$id/$image',
+          );
+          final pinyin = (raw['pinyin'] ?? '').toString().trim();
+          final meaning = (raw['meaning'] ?? '').toString().trim();
+          return fallback.copyWith(
+            pinyin: pinyin.isEmpty ? fallback.pinyin : pinyin,
+            meaning: meaning.isEmpty ? fallback.meaning : meaning,
+            level: level,
+            examples: examples.isEmpty ? fallback.examples : examples,
+          );
+        })
+        .whereType<VocabEntry>()
+        .toList();
+    if (entries.isEmpty) return null;
+    final firstImage = wordsRaw
+        .whereType<Map>()
+        .map((raw) => (raw['image'] ?? '').toString().trim())
+        .firstWhere((image) => image.isNotEmpty, orElse: () => '');
+    final imagePath = firstImage.isEmpty
+        ? 'assets/images/flashcards/family/427034659a.jpg'
+        : 'assets/images/flashcards/$id/$firstImage';
+    return FlashcardTopic(
+      id: id,
+      level: level,
+      name: (topic['name'] ?? id).toString(),
+      icon: _iconForAssetTopic(id),
+      imagePath: imagePath,
+      words: entries,
+    );
+  }
+
+  static String _levelForAssetTopic(String id) {
+    return switch (id) {
+      'animals' ||
+      'body' ||
+      'colors' ||
+      'family' ||
+      'food' ||
+      'greeting' ||
+      'home' ||
+      'weather' => 'HSK 1',
+      'clothes' ||
+      'daily_life' ||
+      'health' ||
+      'nature' ||
+      'places' ||
+      'school' ||
+      'shopping' ||
+      'transport' => 'HSK 2',
+      'city_life' || 'entertainment' || 'sports' => 'HSK 3',
+      'media_society' => 'HSK 4',
+      _ => 'HSK 2',
+    };
+  }
+
+  static IconData _iconForAssetTopic(String id) {
+    return switch (id) {
+      'animals' => Icons.pets_outlined,
+      'body' => Icons.accessibility_new_outlined,
+      'city_life' => Icons.location_city_outlined,
+      'clothes' => Icons.checkroom_outlined,
+      'colors' => Icons.palette_outlined,
+      'daily_life' => Icons.today_outlined,
+      'entertainment' => Icons.movie_creation_outlined,
+      'food' => Icons.local_dining_outlined,
+      'health' => Icons.health_and_safety_outlined,
+      'home' => Icons.chair_outlined,
+      'nature' => Icons.terrain_outlined,
+      'places' => Icons.place_outlined,
+      'school' => Icons.school_outlined,
+      'shopping' => Icons.shopping_bag_outlined,
+      'sports' => Icons.sports_soccer_outlined,
+      'transport' => Icons.directions_bus_outlined,
+      'weather' => Icons.wb_sunny_outlined,
+      _ => Icons.style_outlined,
+    };
   }
 
   static FlashcardTopic _topic(
@@ -6023,21 +6465,26 @@ class FlashcardRepository {
     List<String> words,
     String imagePath,
   ) {
+    final entries = words
+        .map(
+          (word) => DictionaryRepository.forFlashcard(
+            word,
+            level: level,
+            imagePath: imagePath,
+          ),
+        )
+        .toList();
+    final resolvedTopicImagePath = entries
+        .map((entry) => entry.imagePath)
+        .whereType<String>()
+        .firstWhere((path) => path.isNotEmpty, orElse: () => imagePath);
     return FlashcardTopic(
       id: id,
       level: level,
       name: name,
       icon: icon,
-      imagePath: imagePath,
-      words: words
-          .map(
-            (word) => DictionaryRepository.forFlashcard(
-              word,
-              level: level,
-              imagePath: imagePath,
-            ),
-          )
-          .toList(),
+      imagePath: resolvedTopicImagePath,
+      words: entries,
     );
   }
 
@@ -6159,7 +6606,7 @@ class FlashcardRepository {
       'HSK 4',
       'Truyền thông và xã hội',
       Icons.newspaper_outlined,
-      'assets/images/flashcards/family/39af35e7b7.jpg',
+      'assets/images/flashcards/city_life/c8ace4e283.jpg',
       ['新闻', '社会', '文化', '广告', '观众', '影响', '介绍', '讨论', '信息', '网络'],
     ),
     _FlashcardPlan(
@@ -6200,8 +6647,21 @@ class GrammarRepository {
 
   static Future<List<GrammarLessonData>> _loadLessons() async {
     try {
-      final raw = await rootBundle.loadString('assets/data/grammar_hsk14.json');
-      final decoded = jsonDecode(raw);
+      dynamic decoded;
+      try {
+        final response = await http
+            .get(
+              Uri.parse('${DictionaryRepository.apiBaseUrl}/content/grammar'),
+            )
+            .timeout(const Duration(seconds: 4));
+        if (response.statusCode >= 200 && response.statusCode < 300) {
+          final remote = jsonDecode(utf8.decode(response.bodyBytes));
+          if (remote is List && remote.isNotEmpty) decoded = remote;
+        }
+      } catch (_) {}
+      decoded ??= jsonDecode(
+        await rootBundle.loadString('assets/data/grammar_hsk14.json'),
+      );
       if (decoded is! List) return lessons;
       return decoded
           .whereType<Map>()
@@ -6528,7 +6988,7 @@ class GrammarChecker {
       correction =
           '${shiAdjective.group(1)!}${shiAdjective.group(2) ?? '很'}${shiAdjective.group(3)!}';
       issue(
-        'Tính từ vị ngữ trong tiếng Trung thường không dùng 是. Nói “我很好”, không nói “我是很好”.',
+        'Tính từ vị ngữ trong tiếng Trung thường không dùng 是. Nói "我很好", không nói "我是很好".',
         penalty: 18,
       );
     }
@@ -6593,25 +7053,45 @@ class GrammarChecker {
 class ReadingRepository {
   static Future<List<SentencePractice>> loadSentences() async {
     try {
+      final response = await http
+          .get(
+            Uri.parse(
+              '${DictionaryRepository.apiBaseUrl}/content/pronunciation',
+            ),
+          )
+          .timeout(const Duration(seconds: 4));
+      if (response.statusCode >= 200 && response.statusCode < 300) {
+        final remote = jsonDecode(utf8.decode(response.bodyBytes));
+        if (remote is List && remote.isNotEmpty) {
+          return _sentencesFromList(remote);
+        }
+      }
+    } catch (_) {}
+    try {
       final raw = await rootBundle.loadString('assets/data/reading_hsk.json');
       final decoded = jsonDecode(raw);
       if (decoded is! List) return sentences;
-      return decoded
-          .whereType<Map>()
-          .map((raw) {
-            final map = Map<String, dynamic>.from(raw);
-            return SentencePractice(
-              (map['level'] ?? 'HSK 1').toString(),
-              (map['cn'] ?? '').toString(),
-              (map['py'] ?? '').toString(),
-              (map['vi'] ?? '').toString(),
-            );
-          })
-          .where((item) => item.cn.isNotEmpty)
-          .toList();
+      return _sentencesFromList(decoded);
     } catch (_) {
       return sentences;
     }
+  }
+
+  static List<SentencePractice> _sentencesFromList(List<dynamic> values) {
+    return values
+        .whereType<Map>()
+        .map((raw) {
+          final map = Map<String, dynamic>.from(raw);
+          return SentencePractice(
+            (map['level'] ?? 'HSK 1').toString(),
+            (map['cn'] ?? '').toString(),
+            (map['py'] ?? '').toString(),
+            (map['vi'] ?? '').toString(),
+            topic: (map['topic'] ?? 'Giao tiếp hằng ngày').toString(),
+          );
+        })
+        .where((item) => item.cn.isNotEmpty)
+        .toList();
   }
 
   static Future<List<NewsArticleData>> loadArticles({
@@ -6643,10 +7123,21 @@ class ReadingRepository {
 
   static Future<List<NewsArticleData>> _loadSeedArticles() async {
     try {
-      final raw = await rootBundle.loadString(
-        'assets/data/reading_news_seed.json',
+      dynamic decoded;
+      try {
+        final response = await http
+            .get(
+              Uri.parse('${DictionaryRepository.apiBaseUrl}/content/articles'),
+            )
+            .timeout(const Duration(seconds: 4));
+        if (response.statusCode >= 200 && response.statusCode < 300) {
+          final remote = jsonDecode(utf8.decode(response.bodyBytes));
+          if (remote is List && remote.isNotEmpty) decoded = remote;
+        }
+      } catch (_) {}
+      decoded ??= jsonDecode(
+        await rootBundle.loadString('assets/data/reading_news_seed.json'),
       );
-      final decoded = jsonDecode(raw);
       if (decoded is! List) return const [];
       return decoded
           .whereType<Map>()
@@ -6694,10 +7185,9 @@ class ReadingRepository {
       content: content,
       summaryVi: summaryVi.isEmpty ? source : summaryVi,
       link: link,
-      sentences: lines.isEmpty
-          ? buildStudyLines([title, content].join('。'))
-          : lines,
+      sentences: lines.isEmpty ? buildStudyLines(content) : lines,
       live: map['live'] == true || link.startsWith('http'),
+      publishedAt: (map['publishedAt'] ?? map['published_at'] ?? '').toString(),
     );
   }
 
@@ -6713,7 +7203,7 @@ class ReadingRepository {
       final cn = match.group(0)?.trim() ?? '';
       if (cn.isEmpty || !RegExp(r'[\u4e00-\u9fff]').hasMatch(cn)) continue;
       lines.add(ArticleSentenceData(cn, pinyinFor(cn), meaningHintFor(cn)));
-      if (lines.length >= 18) break;
+      if (lines.length >= 80) break;
     }
     return lines.isEmpty
         ? [
@@ -6859,13 +7349,35 @@ class ReadingRepository {
 }
 
 class VideoRepository {
+  static const _unavailableVideoIds = {
+    'NjKooVPp8-s',
+    'YmTB_nQxJQj',
+    'Aqs0VrMEeXQ',
+    'jMEW0KcwBdY',
+    'MPuvcZCu5f9',
+    '8K7BNGGjGiA',
+    'hYM-F05V02A',
+  };
+
   static Future<List<VideoLessonData>> loadLessons() async {
     try {
-      final raw = await rootBundle.loadString('assets/data/video_lessons.json');
-      final decoded = jsonDecode(raw);
+      dynamic decoded;
+      try {
+        final response = await http
+            .get(Uri.parse('${DictionaryRepository.apiBaseUrl}/content/videos'))
+            .timeout(const Duration(seconds: 4));
+        if (response.statusCode >= 200 && response.statusCode < 300) {
+          final remote = jsonDecode(response.body);
+          if (remote is List && remote.isNotEmpty) decoded = remote;
+        }
+      } catch (_) {}
+      decoded ??= jsonDecode(
+        await rootBundle.loadString('assets/data/video_lessons.json'),
+      );
       if (decoded is! List) return lessons;
       final loaded = decoded
           .whereType<Map>()
+          .where((raw) => (raw['status'] ?? 'published') == 'published')
           .map((raw) {
             final map = Map<String, dynamic>.from(raw);
             final subtitles = <VideoSubtitleData>[];
@@ -6878,17 +7390,15 @@ class VideoRepository {
                   final py = (sub['py'] ?? '').toString().trim();
                   final vi = (sub['vi'] ?? '').toString().trim();
                   if (cn.isNotEmpty) {
-                    final index = subtitles.length;
-                    final start =
-                        (sub['start'] as num?)?.toDouble() ?? index * 3.2;
-                    final end = (sub['end'] as num?)?.toDouble() ?? start + 2.9;
+                    final start = (sub['start'] as num?)?.toDouble() ?? 0;
+                    final end = (sub['end'] as num?)?.toDouble() ?? 0;
                     subtitles.add(
                       VideoSubtitleData(
                         cn,
                         py,
                         vi,
                         start: start,
-                        end: max(start + 0.8, end),
+                        end: end > start ? end : 0,
                       ),
                     );
                   }
@@ -6903,10 +7413,22 @@ class VideoRepository {
                   .toString(),
               subtitles: subtitles,
               source: (map['source'] ?? 'Little Fox Chinese').toString(),
+              transcriptStatus:
+                  (map['transcriptStatus'] ??
+                          (subtitles.every(
+                                (subtitle) => subtitle.end > subtitle.start,
+                              )
+                              ? 'timed'
+                              : 'untimed'))
+                      .toString(),
             );
           })
           .where(
-            (lesson) => lesson.title.isNotEmpty && lesson.youtubeId.isNotEmpty,
+            (lesson) =>
+                lesson.title.isNotEmpty &&
+                lesson.youtubeId.isNotEmpty &&
+                lesson.hasTimedSubtitles &&
+                !_unavailableVideoIds.contains(lesson.youtubeId),
           )
           .toList();
       return loaded.isEmpty ? lessons : loaded;
@@ -7064,5 +7586,124 @@ Color _levelColor(String level) {
       return AppColors.plum;
     default:
       return AppColors.cinnabar;
+  }
+}
+
+class PronunciationPracticeSheet extends StatefulWidget {
+  final VocabEntry entry;
+  const PronunciationPracticeSheet({super.key, required this.entry});
+
+  @override
+  State<PronunciationPracticeSheet> createState() =>
+      _PronunciationPracticeSheetState();
+}
+
+class _PronunciationPracticeSheetState
+    extends State<PronunciationPracticeSheet> {
+  final stt.SpeechToText _speech = stt.SpeechToText();
+  bool _isListening = false;
+  String _recognizedText = '';
+  int? _score;
+
+  Future<void> _startListening() async {
+    bool available = await _speech.initialize();
+    if (available) {
+      setState(() {
+        _isListening = true;
+        _recognizedText = '';
+        _score = null;
+      });
+      _speech.listen(
+        onResult: (val) {
+          setState(() {
+            _recognizedText = val.recognizedWords;
+            if (val.hasConfidenceRating && val.confidence > 0) {
+              if (_recognizedText.trim() == widget.entry.simplified) {
+                _score = 100;
+              } else if (_recognizedText.contains(widget.entry.simplified) ||
+                  widget.entry.simplified.contains(_recognizedText)) {
+                _score = 80;
+              } else {
+                _score = 50;
+              }
+            }
+          });
+        },
+        localeId: 'zh-CN',
+      );
+    }
+  }
+
+  void _stopListening() {
+    _speech.stop();
+    setState(() => _isListening = false);
+    if (_recognizedText.isNotEmpty && _score == null) {
+      if (_recognizedText.trim() == widget.entry.simplified) {
+        _score = 100;
+      } else if (_recognizedText.contains(widget.entry.simplified) ||
+          widget.entry.simplified.contains(_recognizedText)) {
+        _score = 80;
+      } else {
+        _score = 50;
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(24),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Text(
+            'Kiểm tra phát âm',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 16),
+          Text(
+            widget.entry.simplified,
+            style: const TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+          ),
+          Text(
+            widget.entry.pinyin,
+            style: const TextStyle(fontSize: 20, color: Colors.grey),
+          ),
+          const SizedBox(height: 24),
+          if (_recognizedText.isNotEmpty)
+            Text(
+              'Bạn đã đọc: $_recognizedText',
+              style: const TextStyle(fontSize: 18, color: Colors.blue),
+            ),
+          if (_score != null)
+            Text(
+              'Điểm: $_score/100',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: _score! >= 80 ? Colors.green : Colors.orange,
+              ),
+            ),
+          const SizedBox(height: 24),
+          GestureDetector(
+            onTapDown: (_) => _startListening(),
+            onTapUp: (_) => _stopListening(),
+            onTapCancel: () => _stopListening(),
+            child: CircleAvatar(
+              radius: 40,
+              backgroundColor: _isListening ? Colors.red : Colors.blue,
+              child: const Icon(Icons.mic, size: 40, color: Colors.white),
+            ),
+          ),
+          const SizedBox(height: 8),
+          const Text('Nhấn giữ để nói', style: TextStyle(color: Colors.grey)),
+          const SizedBox(height: 20),
+        ],
+      ),
+    );
   }
 }

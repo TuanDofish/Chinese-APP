@@ -1,0 +1,158 @@
+{
+  "id": "clothes",
+  "name": "Quần áo",
+  "nameCn": "衣服",
+  "color": "#9C27B0",
+  "words": [
+    {
+      "word": "衣服",
+      "pinyin": "yī fú",
+      "meaning": "quần áo",
+      "image": "6e06060b48.jpg",
+      "query": "clothes on rack",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/5771897/pexels-photo-5771897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/grayscale-photograph-of-shirts-on-clothes-hangers-5771897/",
+        "photographer": "Jake \"Sulli\" Swoyer",
+        "photographer_url": "https://www.pexels.com/@sullidise",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "裤子",
+      "pinyin": "kù zi",
+      "meaning": "quần",
+      "image": "f2bdf96832.jpg",
+      "query": "pants jeans",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/6439226/pexels-photo-6439226.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/a-woman-in-denim-pants-sitting-on-concrete-wall-6439226/",
+        "photographer": "Lucas Castro",
+        "photographer_url": "https://www.pexels.com/@lucas-castro-17629060",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "鞋",
+      "pinyin": "xié",
+      "meaning": "giày",
+      "image": "db695b39ed.jpg",
+      "query": "shoes pair",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/32644170/pexels-photo-32644170.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/stylish-tan-leather-shoes-with-sunglasses-32644170/",
+        "photographer": "ALOK DAS",
+        "photographer_url": "https://www.pexels.com/@alokkd1",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "帽子",
+      "pinyin": "mào zi",
+      "meaning": "mũ",
+      "image": "5cb80710c3.jpg",
+      "query": "hat cap",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/6342793/pexels-photo-6342793.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/portrait-of-man-wearing-sunglasses-6342793/",
+        "photographer": "Mungai Mutugi",
+        "photographer_url": "https://www.pexels.com/@mungai-mutugi-3669723",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "袜子",
+      "pinyin": "wà zi",
+      "meaning": "tất",
+      "image": "b23963f121.jpg",
+      "query": "socks pair",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/10557895/pexels-photo-10557895.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/directly-above-view-of-socks-in-knitted-container-10557895/",
+        "photographer": "Ron Lach",
+        "photographer_url": "https://www.pexels.com/@ron-lach",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "衬衫",
+      "pinyin": "chèn shān",
+      "meaning": "áo sơ mi",
+      "image": "e91bb131a2.jpg",
+      "query": "shirt on hanger",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/13381986/pexels-photo-13381986.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/gray-button-up-shirt-hanging-near-white-wall-13381986/",
+        "photographer": "Fahmi Garna",
+        "photographer_url": "https://www.pexels.com/@fahmi-garna-249814583",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "裙子",
+      "pinyin": "qún zi",
+      "meaning": "váy",
+      "image": "556b6f00f4.jpg",
+      "query": "dress skirt fashion",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/6061727/pexels-photo-6061727.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/woman-in-white-shirt-and-floral-skirt-sitting-on-brown-wooden-chair-6061727/",
+        "photographer": "Nugroho  Wahyu",
+        "photographer_url": "https://www.pexels.com/@whynugrohou",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "外套",
+      "pinyin": "wài tào",
+      "meaning": "áo khoác",
+      "image": "5d9141eafd.jpg",
+      "query": "jacket coat",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/4398944/pexels-photo-4398944.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/man-wearing-brown-coat-4398944/",
+        "photographer": "PIZHONBY",
+        "photographer_url": "https://www.pexels.com/@pizhonby-2864032",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "包",
+      "pinyin": "bāo",
+      "meaning": "túi",
+      "image": "5442dfce9b.jpg",
+      "query": "bag backpack",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/20094394/pexels-photo-20094394.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/man-wearing-backpack-by-the-shore-20094394/",
+        "photographer": "Thomas Richard",
+        "photographer_url": "https://www.pexels.com/@thomas-richard-945930195",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "颜色",
+      "pinyin": "yán sè",
+      "meaning": "màu sắc",
+      "image": "6b36c6f7ec.jpg",
+      "query": "colorful fabric",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/34131689/pexels-photo-34131689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/colorful-traditional-rugs-and-textiles-displayed-outdoors-34131689/",
+        "photographer": "Aysegul Aytoren",
+        "photographer_url": "https://www.pexels.com/@aysegul-aytoren-46790226",
+        "license": "Pexels License"
+      }
+    }
+  ]
+}

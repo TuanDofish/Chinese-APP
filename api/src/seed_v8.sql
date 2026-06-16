@@ -1,5 +1,5 @@
 -- ====================================================
--- SEED DATA V8 - Chinese Learning App (Magic Chinese)
+-- SEED DATA V8 - VNChinese
 -- 8 Tables Structure (No Flashcards/UserQuizResults)
 -- ====================================================
 
@@ -8,8 +8,8 @@
 -- =====================
 INSERT INTO users (email, "passwordHash", "displayName", "avatarUrl", role)
 VALUES
-('admin@magicchinese.com', '$2b$10$hashedpassword', 'Admin', NULL, 'admin'),
-('student@magicchinese.com', '$2b$10$hashedpassword', 'Lý Cường', NULL, 'user')
+('admin@vnchinese.local', 'scrypt$1a3fb53279c93f8218369b093bea6d5d$5ed28499116662f475bce95765f859a7c0a0ae13e90703539309cb9dc7d419c0c0940351c4e189f37b8117c1dcba0f3d27f358c50e49895dea6ba7ce9bab118e', 'Admin VNChinese', NULL, 'admin'),
+('student@vnchinese.local', 'scrypt$93401c06ecc0da8576a15026bcb75084$4fc60d507627c0b3a91e6ac43a392e8bc68ea19be86ad3054c9369d5a7e8aba2bfb3163a58c3b902c117697e2f0923028307cdc149f290d991538bd19dd61d39', 'Người học VNChinese', NULL, 'user')
 ON CONFLICT DO NOTHING;
 
 -- =====================
@@ -89,8 +89,8 @@ ON CONFLICT (id) DO UPDATE SET "questionText" = EXCLUDED."questionText";
 -- =====================
 INSERT INTO articles (id, title, title_vi, content, source, hsk_level)
 VALUES
-(1, '你好，北京！', 'Xin chào, Bắc Kinh!', '北京是中国的首都。北京有很多好吃的东西。', 'Magic Chinese', 'HSK 1'),
-(2, '我的家人', 'Gia đình của tôi', '我有一个大家庭。爸爸是医生，妈妈是老师。', 'Magic Chinese', 'HSK 1')
+(1, '你好，北京！', 'Xin chào, Bắc Kinh!', '北京是中国的首都。北京有很多好吃的东西。', 'VNChinese', 'HSK 1'),
+(2, '我的家人', 'Gia đình của tôi', '我有一个大家庭。爸爸是医生，妈妈是老师。', 'VNChinese', 'HSK 1')
 ON CONFLICT (id) DO UPDATE SET title = EXCLUDED.title;
 
 -- =====================

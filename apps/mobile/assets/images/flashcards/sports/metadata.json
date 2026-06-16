@@ -1,0 +1,158 @@
+{
+  "id": "sports",
+  "name": "Thể thao",
+  "nameCn": "运动",
+  "color": "#4CAF50",
+  "words": [
+    {
+      "word": "运动",
+      "pinyin": "yùn dòng",
+      "meaning": "thể thao",
+      "image": "37b6debeb4.jpg",
+      "query": "people exercising outdoors",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/5965907/pexels-photo-5965907.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/runners-and-a-biker-at-a-bike-lane-5965907/",
+        "photographer": "Rosivan  Morais",
+        "photographer_url": "https://www.pexels.com/@rosivanmorais",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "跑步",
+      "pinyin": "pǎo bù",
+      "meaning": "chạy bộ",
+      "image": "7b385d0284.jpg",
+      "query": "running jogging",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/24913608/pexels-photo-24913608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/a-sidewalk-in-a-city-24913608/",
+        "photographer": "Alexis B",
+        "photographer_url": "https://www.pexels.com/@alexis-b-1699196",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "游泳",
+      "pinyin": "yóu yǒng",
+      "meaning": "bơi lội",
+      "image": "221486055c.jpg",
+      "query": "swimming pool",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/14027344/pexels-photo-14027344.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/people-bathing-in-a-river-14027344/",
+        "photographer": "Rahul Sapra",
+        "photographer_url": "https://www.pexels.com/@rsapmech",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "足球",
+      "pinyin": "zú qiú",
+      "meaning": "bóng đá",
+      "image": "ed05233ac8.jpg",
+      "query": "soccer ball field",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/28222529/pexels-photo-28222529.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/adidas-soccer-ball-28222529/",
+        "photographer": "Tunahan KALAYCI",
+        "photographer_url": "https://www.pexels.com/@tunahan-kalayci-469309432",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "篮球",
+      "pinyin": "lán qiú",
+      "meaning": "bóng rổ",
+      "image": "ea2eed1fb5.jpg",
+      "query": "basketball court",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/5785714/pexels-photo-5785714.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/boys-in-uniform-playing-basketball-indoors-5785714/",
+        "photographer": "Dayvison Tadeu",
+        "photographer_url": "https://www.pexels.com/@kobe",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "走路",
+      "pinyin": "zǒu lù",
+      "meaning": "đi bộ",
+      "image": "a315706916.jpg",
+      "query": "walking path",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/31264821/pexels-photo-31264821.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/tranquil-forest-path-in-skane-sweden-31264821/",
+        "photographer": "Henrik Tuvesson",
+        "photographer_url": "https://www.pexels.com/@henriktuvessonphotography",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "健康",
+      "pinyin": "jiàn kāng",
+      "meaning": "khỏe mạnh",
+      "image": "fbc026c9fb.jpg",
+      "query": "healthy lifestyle exercise",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/5965907/pexels-photo-5965907.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/runners-and-a-biker-at-a-bike-lane-5965907/",
+        "photographer": "Rosivan  Morais",
+        "photographer_url": "https://www.pexels.com/@rosivanmorais",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "比赛",
+      "pinyin": "bǐ sài",
+      "meaning": "trận đấu",
+      "image": "a5c5d0dc90.jpg",
+      "query": "sports competition",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/37219538/pexels-photo-37219538.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/intense-soccer-match-in-myawaddy-myanmar-37219538/",
+        "photographer": "Kyi HtetLinn",
+        "photographer_url": "https://www.pexels.com/@kyi-htetlinn-2160738647",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "跳舞",
+      "pinyin": "tiào wǔ",
+      "meaning": "nhảy múa",
+      "image": "fad50bfdcb.jpg",
+      "query": "dancing people",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/28424057/pexels-photo-28424057.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/joyful-dance-party-in-sunlit-street-28424057/",
+        "photographer": "Roman Biernacki",
+        "photographer_url": "https://www.pexels.com/@szafran",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "休息",
+      "pinyin": "xiū xī",
+      "meaning": "nghỉ ngơi",
+      "image": "3a991a4ca5.jpg",
+      "query": "rest after exercise",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/8436471/pexels-photo-8436471.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/young-woman-sitting-on-a-yoga-mat-leaning-against-the-wall-8436471/",
+        "photographer": "Yan Krukau",
+        "photographer_url": "https://www.pexels.com/@yankrukov",
+        "license": "Pexels License"
+      }
+    }
+  ]
+}

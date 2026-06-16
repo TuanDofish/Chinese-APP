@@ -11,61 +11,151 @@
           "word": "猫",
           "pinyin": "māo",
           "meaning": "mèo",
-          "image": "b655de688e.jpg"
+          "image": "b655de688e.jpg",
+          "query": "cat animal cute",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/33444883/pexels-photo-33444883.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/adorable-black-and-white-kitten-portrait-33444883/",
+            "photographer": "Faisal  Hendra",
+            "photographer_url": "https://www.pexels.com/@faisalhendra",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "狗",
           "pinyin": "gǒu",
           "meaning": "chó",
-          "image": "5090e44ef9.jpg"
+          "image": "5090e44ef9.jpg",
+          "query": "dog animal cute",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/16254908/pexels-photo-16254908.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/a-portrait-of-a-cute-dog-16254908/",
+            "photographer": "Sudhir Sangwan",
+            "photographer_url": "https://www.pexels.com/@sudhirsangwan",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "鸟",
           "pinyin": "niǎo",
           "meaning": "chim",
-          "image": "cdd7ce48a9.jpg"
+          "image": "cdd7ce48a9.jpg",
+          "query": "bird colorful",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/31852029/pexels-photo-31852029.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/colorful-turaco-perched-in-lush-green-jungle-31852029/",
+            "photographer": "T6 Adventures",
+            "photographer_url": "https://www.pexels.com/@t6adventures",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "鱼",
           "pinyin": "yú",
           "meaning": "cá",
-          "image": "0857fa4e34.jpg"
+          "image": "0857fa4e34.jpg",
+          "query": "fish underwater",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/4498933/pexels-photo-4498933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/sea-fishes-swimming-in-bottom-in-blue-water-4498933/",
+            "photographer": "wewe yang",
+            "photographer_url": "https://www.pexels.com/@wewe-yang-2383099",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "马",
           "pinyin": "mǎ",
           "meaning": "ngựa",
-          "image": "4e2572e0c7.jpg"
+          "image": "4e2572e0c7.jpg",
+          "query": "horse running",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/10823059/pexels-photo-10823059.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/two-horses-running-on-grass-10823059/",
+            "photographer": "Jose  Fagundes",
+            "photographer_url": "https://www.pexels.com/@jose-fagundes-161733207",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "牛",
           "pinyin": "niú",
           "meaning": "bò",
-          "image": "a933ef6a9b.jpg"
+          "image": "a933ef6a9b.jpg",
+          "query": "cow farm",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/27035492/pexels-photo-27035492.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/black-and-white-photo-of-cows-on-a-pasture-27035492/",
+            "photographer": "Giulia Botan",
+            "photographer_url": "https://www.pexels.com/@botanphotography",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "羊",
           "pinyin": "yáng",
           "meaning": "cừu",
-          "image": "a136f339af.jpg"
+          "image": "a136f339af.jpg",
+          "query": "sheep wool",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/35005847/pexels-photo-35005847.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/close-up-of-sheep-in-a-barnyard-setting-35005847/",
+            "photographer": "Jay Moon",
+            "photographer_url": "https://www.pexels.com/@jay-moon-2149536798",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "兔",
           "pinyin": "tù",
           "meaning": "thỏ",
-          "image": "ff5e0a155e.jpg"
+          "image": "ff5e0a155e.jpg",
+          "query": "rabbit cute",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/36587617/pexels-photo-36587617.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/fluffy-white-rabbit-in-cage-with-human-interaction-36587617/",
+            "photographer": "Blackcurrant Great",
+            "photographer_url": "https://www.pexels.com/@blackcurrant-great-2016663774",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "熊猫",
-          "pinyin": "xióngmāo",
+          "pinyin": "xióng māo",
           "meaning": "gấu trúc",
-          "image": "b1a6effdd5.jpg"
+          "image": "b1a6effdd5.jpg",
+          "query": "panda bear bamboo",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/33710714/pexels-photo-33710714.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/giant-panda-eating-bamboo-in-hong-kong-zoo-33710714/",
+            "photographer": "Jobelle Meana",
+            "photographer_url": "https://www.pexels.com/@jobelle-meana-2154582150",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "老虎",
-          "pinyin": "lǎohǔ",
+          "pinyin": "lǎo hǔ",
           "meaning": "hổ",
-          "image": "38a3d1ca0b.jpg"
+          "image": "38a3d1ca0b.jpg",
+          "query": "tiger wild",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/145971/pexels-photo-145971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/tiger-beside-tree-145971/",
+            "photographer": "Flickr",
+            "photographer_url": "https://www.pexels.com/@flickr",
+            "license": "Pexels License"
+          }
         }
       ]
     },
@@ -77,63 +167,153 @@
       "words": [
         {
           "word": "米饭",
-          "pinyin": "mǐfàn",
+          "pinyin": "mǐ fàn",
           "meaning": "cơm",
-          "image": "edfec00f07.jpg"
+          "image": "edfec00f07.jpg",
+          "query": "rice bowl steamed",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/343871/pexels-photo-343871.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/selective-focus-photography-of-fried-rice-in-bowl-343871/",
+            "photographer": "Jay Abrantes",
+            "photographer_url": "https://www.pexels.com/@meguchi",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "面条",
-          "pinyin": "miàntiáo",
+          "pinyin": "miàn tiáo",
           "meaning": "mì",
-          "image": "814b1c8d80.jpg"
+          "image": "814b1c8d80.jpg",
+          "query": "noodles chinese food",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/14853728/pexels-photo-14853728.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/chopsticks-on-pasta-14853728/",
+            "photographer": "Alan Retano",
+            "photographer_url": "https://www.pexels.com/@alan-retano-369197863",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "饺子",
-          "pinyin": "jiǎozi",
+          "pinyin": "jiǎo zi",
           "meaning": "há cảo",
-          "image": "dc02d72e23.jpg"
+          "image": "dc02d72e23.jpg",
+          "query": "dumplings chinese",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/14457519/pexels-photo-14457519.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/dumplings-and-red-sauce-on-black-plate-14457519/",
+            "photographer": "tanish  pathania",
+            "photographer_url": "https://www.pexels.com/@tanish-pathania-201200952",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "包子",
-          "pinyin": "bāozi",
+          "pinyin": "bāo zi",
           "meaning": "bánh bao",
-          "image": "68e695653b.jpg"
+          "image": "68e695653b.jpg",
+          "query": "steamed bun chinese",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/24029950/pexels-photo-24029950.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/korean-dumplings-in-wooden-bowl-24029950/",
+            "photographer": "Markus Winkler",
+            "photographer_url": "https://www.pexels.com/@markus-winkler-1430818",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "水果",
-          "pinyin": "shuǐguǒ",
+          "pinyin": "shuǐ guǒ",
           "meaning": "hoa quả",
-          "image": "64254630ba.jpg"
+          "image": "64254630ba.jpg",
+          "query": "fresh fruit colorful",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/33434017/pexels-photo-33434017.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/vibrant-citrus-fruit-arrangement-with-splashing-juice-33434017/",
+            "photographer": "hamzaoui fatma",
+            "photographer_url": "https://www.pexels.com/@hamzaoui-fatma-2153886935",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "蔬菜",
-          "pinyin": "shūcài",
+          "pinyin": "shū cài",
           "meaning": "rau củ",
-          "image": "bf44b741b2.jpg"
+          "image": "bf44b741b2.jpg",
+          "query": "vegetables fresh",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/33622710/pexels-photo-33622710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/fresh-colorful-vegetables-displayed-at-market-33622710/",
+            "photographer": "Rumata E",
+            "photographer_url": "https://www.pexels.com/@rumata",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "苹果",
-          "pinyin": "píngguǒ",
+          "pinyin": "píng guǒ",
           "meaning": "táo",
-          "image": "e6803e21b9.jpg"
+          "image": "e6803e21b9.jpg",
+          "query": "apple red fruit",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/red-and-orange-apple-fruit-102104/",
+            "photographer": "mali maeder",
+            "photographer_url": "https://www.pexels.com/@mali",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "香蕉",
-          "pinyin": "xiāngjiāo",
+          "pinyin": "xiāng jiāo",
           "meaning": "chuối",
-          "image": "b7c03bbf2b.jpg"
+          "image": "b7c03bbf2b.jpg",
+          "query": "banana yellow fruit",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/16829201/pexels-photo-16829201.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/bananas-on-purple-background-16829201/",
+            "photographer": "Carlie Wright",
+            "photographer_url": "https://www.pexels.com/@thesocialsundae",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "茶",
           "pinyin": "chá",
           "meaning": "trà",
-          "image": "a001ed1cf1.jpg"
+          "image": "a001ed1cf1.jpg",
+          "query": "tea cup chinese",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/31956301/pexels-photo-31956301.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/elegant-chinese-tea-set-with-loose-leaf-tea-display-31956301/",
+            "photographer": "荼兰 DSGC",
+            "photographer_url": "https://www.pexels.com/@dsgc-2151967151",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "汤",
           "pinyin": "tāng",
           "meaning": "canh",
-          "image": "9c6d2f2f45.jpg"
+          "image": "9c6d2f2f45.jpg",
+          "query": "soup bowl hot",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/8696758/pexels-photo-8696758.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/a-bowl-of-soup-and-a-basket-of-bread-on-a-table-8696758/",
+            "photographer": "Farhad Ibrahimzade",
+            "photographer_url": "https://www.pexels.com/@farhad",
+            "license": "Pexels License"
+          }
         }
       ]
     },
@@ -145,51 +325,123 @@
       "words": [
         {
           "word": "红色",
-          "pinyin": "hóngsè",
+          "pinyin": "hóng sè",
           "meaning": "màu đỏ",
-          "image": "5263651186.jpg"
+          "image": "5263651186.jpg",
+          "query": "red color abstract",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/30680060/pexels-photo-30680060.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/dynamic-red-and-white-abstract-expressionism-art-30680060/",
+            "photographer": "Steve A Johnson",
+            "photographer_url": "https://www.pexels.com/@steve",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "蓝色",
-          "pinyin": "lánsè",
+          "pinyin": "lán sè",
           "meaning": "màu xanh dương",
-          "image": "9c9aabab3f.jpg"
+          "image": "9c9aabab3f.jpg",
+          "query": "blue color sky",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/246230/pexels-photo-246230.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/low-angle-photography-of-clouds-246230/",
+            "photographer": "napasorn disaraporn",
+            "photographer_url": "https://www.pexels.com/@napasorn-disaraporn-79430",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "绿色",
-          "pinyin": "lǜsè",
+          "pinyin": "lǜ sè",
           "meaning": "màu xanh lá",
-          "image": "b2c712c788.jpg"
+          "image": "b2c712c788.jpg",
+          "query": "green color nature",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/3686297/pexels-photo-3686297.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/macro-photography-of-green-leaf-3686297/",
+            "photographer": "Gilberto Olimpio",
+            "photographer_url": "https://www.pexels.com/@golimpio",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "黄色",
-          "pinyin": "huángsè",
+          "pinyin": "huáng sè",
           "meaning": "màu vàng",
-          "image": "ddb86dd31c.jpg"
+          "image": "ddb86dd31c.jpg",
+          "query": "yellow color sunshine",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/32825899/pexels-photo-32825899.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/vibrant-yellow-african-daisies-in-full-bloom-32825899/",
+            "photographer": "frank minjarez",
+            "photographer_url": "https://www.pexels.com/@frank-minjarez-333886454",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "白色",
-          "pinyin": "báisè",
+          "pinyin": "bái sè",
           "meaning": "màu trắng",
-          "image": "2fc96b2704.jpg"
+          "image": "2fc96b2704.jpg",
+          "query": "white color snow pure",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/19168469/pexels-photo-19168469.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/landscape-showing-empty-skiing-piste-19168469/",
+            "photographer": "Joris Eschalier",
+            "photographer_url": "https://www.pexels.com/@jorischlr",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "黑色",
-          "pinyin": "hēisè",
+          "pinyin": "hēi sè",
           "meaning": "màu đen",
-          "image": "9d2d1f62ae.jpg"
+          "image": "9d2d1f62ae.jpg",
+          "query": "black color dark",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/11285435/pexels-photo-11285435.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/gray-wallpaper-11285435/",
+            "photographer": "Share Textures",
+            "photographer_url": "https://www.pexels.com/@share-textures-3167406",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "粉色",
-          "pinyin": "fěnsè",
+          "pinyin": "fěn sè",
           "meaning": "màu hồng",
-          "image": "97542386a9.jpg"
+          "image": "97542386a9.jpg",
+          "query": "pink color flower",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/14753248/pexels-photo-14753248.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/close-up-of-pink-flowers-on-green-plant-14753248/",
+            "photographer": "Nikolett Emmert",
+            "photographer_url": "https://www.pexels.com/@nikiemmert",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "橙色",
-          "pinyin": "chéngsè",
+          "pinyin": "chéng sè",
           "meaning": "màu cam",
-          "image": "d9bbeb4427.jpg"
+          "image": "d9bbeb4427.jpg",
+          "query": "orange color fruit",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/35810222/pexels-photo-35810222.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/fresh-oranges-with-green-leaves-on-display-35810222/",
+            "photographer": "MAURO FOSSATI",
+            "photographer_url": "https://www.pexels.com/@fox70",
+            "license": "Pexels License"
+          }
         }
       ]
     },
@@ -201,51 +453,123 @@
       "words": [
         {
           "word": "爸爸",
-          "pinyin": "bàba",
+          "pinyin": "bà bà",
           "meaning": "bố",
-          "image": "0d00c80f61.jpg"
+          "image": "0d00c80f61.jpg",
+          "query": "father family man",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/19284179/pexels-photo-19284179.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/smiling-father-holding-daughter-19284179/",
+            "photographer": "Keila Almeida",
+            "photographer_url": "https://www.pexels.com/@keila-almeida-809439650",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "妈妈",
-          "pinyin": "māma",
+          "pinyin": "mā mā",
           "meaning": "mẹ",
-          "image": "e6c7ee6003.jpg"
+          "image": "e6c7ee6003.jpg",
+          "query": "mother family woman",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/18689091/pexels-photo-18689091.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/a-woman-in-a-white-dress-with-two-boys-18689091/",
+            "photographer": "Yakup  Polat",
+            "photographer_url": "https://www.pexels.com/@yakup-polat-420882786",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "哥哥",
-          "pinyin": "gēgē",
+          "pinyin": "gē gē",
           "meaning": "anh trai",
-          "image": "39af35e7b7.jpg"
+          "image": "39af35e7b7.jpg",
+          "query": "brother boy teenager",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/16160902/pexels-photo-16160902.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/portrait-of-a-teenage-boy-standing-in-the-garden-16160902/",
+            "photographer": "pessoas uem",
+            "photographer_url": "https://www.pexels.com/@pessoas-uem-503045317",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "姐姐",
-          "pinyin": "jiějie",
+          "pinyin": "jiě jiě",
           "meaning": "chị gái",
-          "image": "033e1fb01c.jpg"
+          "image": "033e1fb01c.jpg",
+          "query": "sister girl teenager",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/2469645/pexels-photo-2469645.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/twin-girls-standing-side-by-side-2469645/",
+            "photographer": "Janko Ferlic",
+            "photographer_url": "https://www.pexels.com/@itfeelslikefilm",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "弟弟",
-          "pinyin": "dìdi",
+          "pinyin": "dì di",
           "meaning": "em trai",
-          "image": "427034659a.jpg"
+          "image": "427034659a.jpg",
+          "query": "little brother boy child",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/33871402/pexels-photo-33871402.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/portrait-of-a-young-boy-in-lao-cai-vietnam-33871402/",
+            "photographer": "Son Hoa Nguyen",
+            "photographer_url": "https://www.pexels.com/@son-hoa-nguyen-2155579462",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "妹妹",
-          "pinyin": "mèimei",
+          "pinyin": "mèi mèi",
           "meaning": "em gái",
-          "image": "1c097b12de.jpg"
+          "image": "1c097b12de.jpg",
+          "query": "little sister girl child",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/11782227/pexels-photo-11782227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/a-cute-girl-riding-a-bicycle-11782227/",
+            "photographer": "Rahul Sapra",
+            "photographer_url": "https://www.pexels.com/@rsapmech",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "爷爷",
-          "pinyin": "yéye",
+          "pinyin": "yé yé",
           "meaning": "ông nội",
-          "image": "e571dca2d0.jpg"
+          "image": "e571dca2d0.jpg",
+          "query": "grandfather old man smiling",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/13430312/pexels-photo-13430312.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/portrait-of-smiling-elderly-man-13430312/",
+            "photographer": "Andy Urdaneta",
+            "photographer_url": "https://www.pexels.com/@andy-urdaneta-294961611",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "奶奶",
-          "pinyin": "nǎinai",
+          "pinyin": "nǎi nǎi",
           "meaning": "bà nội",
-          "image": "2144381ade.jpg"
+          "image": "2144381ade.jpg",
+          "query": "grandmother old woman smiling",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/18671527/pexels-photo-18671527.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/portrait-of-an-elderly-woman-18671527/",
+            "photographer": "Q. Hưng Phạm",
+            "photographer_url": "https://www.pexels.com/@qhung999",
+            "license": "Pexels License"
+          }
         }
       ]
     },
@@ -257,51 +581,123 @@
       "words": [
         {
           "word": "眼睛",
-          "pinyin": "yǎnjing",
+          "pinyin": "yǎn jīng",
           "meaning": "mắt",
-          "image": "946f5c8c69.jpg"
+          "image": "946f5c8c69.jpg",
+          "query": "eye closeup",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/3750717/pexels-photo-3750717.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/grayscale-photo-of-woman-s-face-3750717/",
+            "photographer": "Elizaveta Dushechkina",
+            "photographer_url": "https://www.pexels.com/@elizaveta-dushechkina-2099536",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "耳朵",
-          "pinyin": "ěrduo",
+          "pinyin": "ěr duǒ",
           "meaning": "tai",
-          "image": "62507462c9.jpg"
+          "image": "62507462c9.jpg",
+          "query": "ear closeup",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/18285649/pexels-photo-18285649.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/close-up-of-a-woman-wearing-a-large-pearl-earring-18285649/",
+            "photographer": "Arif khan",
+            "photographer_url": "https://www.pexels.com/@arif",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "鼻子",
-          "pinyin": "bízi",
+          "pinyin": "bí zi",
           "meaning": "mũi",
-          "image": "e6134a2993.jpg"
+          "image": "e6134a2993.jpg",
+          "query": "nose face closeup",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/16069403/pexels-photo-16069403.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/close-up-of-face-16069403/",
+            "photographer": "Ran Lu",
+            "photographer_url": "https://www.pexels.com/@ran-lu-499464116",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "嘴",
           "pinyin": "zuǐ",
           "meaning": "miệng",
-          "image": "3697bfcf41.jpg"
+          "image": "3697bfcf41.jpg",
+          "query": "mouth smile lips",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/11956948/pexels-photo-11956948.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/close-up-photo-of-person-s-lips-11956948/",
+            "photographer": "Amir SeilSepour",
+            "photographer_url": "https://www.pexels.com/@amiresel",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "手",
           "pinyin": "shǒu",
           "meaning": "tay",
-          "image": "3c7d183f1b.jpg"
+          "image": "3c7d183f1b.jpg",
+          "query": "hand fingers",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/1454797/pexels-photo-1454797.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/person-s-hand-in-shallow-photo-1454797/",
+            "photographer": "Min An",
+            "photographer_url": "https://www.pexels.com/@minan1398",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "脚",
           "pinyin": "jiǎo",
           "meaning": "chân",
-          "image": "5297c01727.jpg"
+          "image": "5297c01727.jpg",
+          "query": "foot barefoot",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/356175/pexels-photo-356175.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/person-in-blue-pants-standing-356175/",
+            "photographer": "Pixabay",
+            "photographer_url": "https://www.pexels.com/@pixabay",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "头",
           "pinyin": "tóu",
           "meaning": "đầu",
-          "image": "4be2abbcf7.jpg"
+          "image": "4be2abbcf7.jpg",
+          "query": "head silhouette",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/16251528/pexels-photo-16251528.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/a-silhouette-of-a-womans-head-16251528/",
+            "photographer": "Alex Urezkov",
+            "photographer_url": "https://www.pexels.com/@instasky",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "心",
           "pinyin": "xīn",
           "meaning": "tim",
-          "image": "bf08c05e00.jpg"
+          "image": "bf08c05e00.jpg",
+          "query": "heart love",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/880843/pexels-photo-880843.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/photography-of-heart-digital-wallpaper-880843/",
+            "photographer": "Tim Mossholder",
+            "photographer_url": "https://www.pexels.com/@timmossholder",
+            "license": "Pexels License"
+          }
         }
       ]
     },
@@ -313,51 +709,2255 @@
       "words": [
         {
           "word": "汽车",
-          "pinyin": "qìchē",
+          "pinyin": "qì chē",
           "meaning": "ô tô",
-          "image": "b64c412083.jpg"
+          "image": "b64c412083.jpg",
+          "query": "car automobile",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/24800195/pexels-photo-24800195.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/blue-bmw-car-24800195/",
+            "photographer": "Furkan  Aktaş",
+            "photographer_url": "https://www.pexels.com/@furkanakt",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "公共汽车",
-          "pinyin": "gōnggòng qìchē",
+          "pinyin": "gōng gòng qì chē",
           "meaning": "xe buýt",
-          "image": "b24186f7c7.jpg"
+          "image": "b24186f7c7.jpg",
+          "query": "bus city transport",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/3829175/pexels-photo-3829175.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/photo-of-a-bus-3829175/",
+            "photographer": "Elijah O'Donnell",
+            "photographer_url": "https://www.pexels.com/@elijahsad",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "地铁",
-          "pinyin": "dìtiě",
+          "pinyin": "dì tiě",
           "meaning": "tàu điện ngầm",
-          "image": "9266202469.jpg"
+          "image": "9266202469.jpg",
+          "query": "subway metro train",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/5059248/pexels-photo-5059248.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/trains-at-the-metro-station-5059248/",
+            "photographer": "Max Avans",
+            "photographer_url": "https://www.pexels.com/@maxavans",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "火车",
-          "pinyin": "huǒchē",
+          "pinyin": "huǒ chē",
           "meaning": "tàu hỏa",
-          "image": "e7e95e6813.jpg"
+          "image": "e7e95e6813.jpg",
+          "query": "train railway",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/32208748/pexels-photo-32208748.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/train-crossing-road-with-signal-lights-on-a-sunny-day-32208748/",
+            "photographer": "Xanx1et Raw",
+            "photographer_url": "https://www.pexels.com/@xanx1et-raw-2152427550",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "飞机",
-          "pinyin": "fēijī",
+          "pinyin": "fēi jī",
           "meaning": "máy bay",
-          "image": "16678800cf.jpg"
+          "image": "16678800cf.jpg",
+          "query": "airplane sky flying",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/16757167/pexels-photo-16757167.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/airplane-on-sky-16757167/",
+            "photographer": "abdullah shareef6602",
+            "photographer_url": "https://www.pexels.com/@abdullah-shareef6602-3226145",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "自行车",
-          "pinyin": "zìxíngchē",
+          "pinyin": "zì xíng chē",
           "meaning": "xe đạp",
-          "image": "b73c6e34a1.jpg"
+          "image": "b73c6e34a1.jpg",
+          "query": "bicycle cycling",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/16778082/pexels-photo-16778082.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/bicycle-handle-with-metal-bell-16778082/",
+            "photographer": "Hortobágyi Marcell",
+            "photographer_url": "https://www.pexels.com/@hortobagyi-marcell-537667380",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "摩托车",
-          "pinyin": "mótuōchē",
+          "pinyin": "mó tuō chē",
           "meaning": "xe máy",
-          "image": "fed19a817b.jpg"
+          "image": "fed19a817b.jpg",
+          "query": "motorcycle",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/15036850/pexels-photo-15036850.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/motorcyclist-on-road-at-sunset-15036850/",
+            "photographer": "eduardo199o9",
+            "photographer_url": "https://www.pexels.com/@eduardo199o9-178988127",
+            "license": "Pexels License"
+          }
         },
         {
           "word": "船",
           "pinyin": "chuán",
           "meaning": "thuyền",
-          "image": "7def9ee0ca.jpg"
+          "image": "7def9ee0ca.jpg",
+          "query": "boat ship water",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/1636500/pexels-photo-1636500.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/white-cruise-ship-on-calm-water-photography-1636500/",
+            "photographer": "Abdulmomen Bsruki",
+            "photographer_url": "https://www.pexels.com/@bluemix",
+            "license": "Pexels License"
+          }
+        }
+      ]
+    },
+    {
+      "id": "greeting",
+      "name": "Chào hỏi cơ bản",
+      "nameCn": "问候",
+      "color": "#E0A326",
+      "words": [
+        {
+          "word": "你好",
+          "pinyin": "nǐ hǎo",
+          "meaning": "xin chào",
+          "image": "7eca689f0d.jpg",
+          "query": "friendly people saying hello",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/17060523/pexels-photo-17060523.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/laughing-man-in-traditional-clothing-17060523/",
+            "photographer": "Saraí Carrasco",
+            "photographer_url": "https://www.pexels.com/@sarai-carrasco-582280545",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "谢谢",
+          "pinyin": "xiè xiè",
+          "meaning": "cảm ơn",
+          "image": "a34490b593.jpg",
+          "query": "person saying thank you smiling",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/11579595/pexels-photo-11579595.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/a-bearded-man-wearing-eyeglasses-11579595/",
+            "photographer": "Val Kilmer Donadillo",
+            "photographer_url": "https://www.pexels.com/@val-kilmer-donadillo-181572755",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "再见",
+          "pinyin": "zài jiàn",
+          "meaning": "tạm biệt",
+          "image": "8e5c0a1e46.jpg",
+          "query": "friends waving goodbye",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/5288826/pexels-photo-5288826.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/young-women-sitting-together-on-road-in-park-5288826/",
+            "photographer": "Khoa Võ",
+            "photographer_url": "https://www.pexels.com/@khoa-vo-2347168",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "对不起",
+          "pinyin": "duì bù qǐ",
+          "meaning": "xin lỗi",
+          "image": "cd51c8c91e.jpg",
+          "query": "apology sorry person",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/29615996/pexels-photo-29615996.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/smiling-young-man-in-outdoor-setting-29615996/",
+            "photographer": "Cesar  Lalangui Eras",
+            "photographer_url": "https://www.pexels.com/@cesar-lalangui-eras-97607631",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "没关系",
+          "pinyin": "méi guān xì",
+          "meaning": "không sao",
+          "image": "ac85b3780c.jpg",
+          "query": "friends forgiving smiling",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/2386192/pexels-photo-2386192.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/photo-of-two-smiling-women-standing-together-2386192/",
+            "photographer": "Gitz",
+            "photographer_url": "https://www.pexels.com/@gitzhq",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "请",
+          "pinyin": "qǐng",
+          "meaning": "xin mời",
+          "image": "d1a34a5779.jpg",
+          "query": "polite welcome gesture open door",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/28908752/pexels-photo-28908752.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/open-doorway-with-sunlit-exterior-view-28908752/",
+            "photographer": "travelers_tw",
+            "photographer_url": "https://www.pexels.com/@travelers_tw-1445512897",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "你",
+          "pinyin": "nǐ",
+          "meaning": "bạn",
+          "image": "df1fd91011.jpg",
+          "query": "person portrait smiling",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/3936894/pexels-photo-3936894.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/selective-focus-photo-of-woman-smiling-3936894/",
+            "photographer": "Татьяна Танатова",
+            "photographer_url": "https://www.pexels.com/@2192742",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "我",
+          "pinyin": "wǒ",
+          "meaning": "tôi",
+          "image": "1681525453.jpg",
+          "query": "person pointing to self",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/14997034/pexels-photo-14997034.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/shocked-man-pointing-finger-14997034/",
+            "photographer": "Brandon Athey",
+            "photographer_url": "https://www.pexels.com/@brandon-athey-150336",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "他",
+          "pinyin": "tā",
+          "meaning": "anh ấy",
+          "image": "5fe86c60de.jpg",
+          "query": "smiling man portrait",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/6102841/pexels-photo-6102841.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/portrait-of-a-man-with-a-hat-smiling-6102841/",
+            "photographer": "Amir SeilSepour",
+            "photographer_url": "https://www.pexels.com/@amiresel",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "她",
+          "pinyin": "tā",
+          "meaning": "cô ấy",
+          "image": "92f3ca76d5.jpg",
+          "query": "smiling woman portrait",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/36287434/pexels-photo-36287434.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/elderly-woman-in-traditional-vietnamese-attire-36287434/",
+            "photographer": "Christine Blanchet",
+            "photographer_url": "https://www.pexels.com/@christine-blanchet-817371637",
+            "license": "Pexels License"
+          }
+        }
+      ]
+    },
+    {
+      "id": "school",
+      "name": "Trường học",
+      "nameCn": "学校",
+      "color": "#2563A9",
+      "words": [
+        {
+          "word": "学习",
+          "pinyin": "xué xí",
+          "meaning": "học tập",
+          "image": "4ef520d6cd.jpg",
+          "query": "student studying books desk",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/9489771/pexels-photo-9489771.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/girl-student-studying-in-the-library-9489771/",
+            "photographer": "Yaroslav Shuraev",
+            "photographer_url": "https://www.pexels.com/@yaroslav-shuraev",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "学生",
+          "pinyin": "xué shēng",
+          "meaning": "học sinh",
+          "image": "35d9969dfa.jpg",
+          "query": "student classroom",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/8617961/pexels-photo-8617961.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/students-looking-at-their-teacher-8617961/",
+            "photographer": "Yan Krukau",
+            "photographer_url": "https://www.pexels.com/@yankrukov",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "老师",
+          "pinyin": "lǎo shī",
+          "meaning": "giáo viên",
+          "image": "295af37e05.jpg",
+          "query": "teacher classroom",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/8617961/pexels-photo-8617961.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/students-looking-at-their-teacher-8617961/",
+            "photographer": "Yan Krukau",
+            "photographer_url": "https://www.pexels.com/@yankrukov",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "学校",
+          "pinyin": "xué xiào",
+          "meaning": "trường học",
+          "image": "413b738061.jpg",
+          "query": "school building",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/2676888/pexels-photo-2676888.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/photo-of-man-and-woman-walking-in-campus-2676888/",
+            "photographer": "PixelPanda",
+            "photographer_url": "https://www.pexels.com/@pixelpanda-1386402",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "书",
+          "pinyin": "shū",
+          "meaning": "sách",
+          "image": "2f3703e427.jpg",
+          "query": "books stack",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/8207315/pexels-photo-8207315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/a-person-holding-books-8207315/",
+            "photographer": "Alexandra Krainyukhova",
+            "photographer_url": "https://www.pexels.com/@alexakrain",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "汉语",
+          "pinyin": "hàn yǔ",
+          "meaning": "tiếng Trung",
+          "image": "25cf96268e.jpg",
+          "query": "chinese language book",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/17050931/pexels-photo-17050931.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/photo-of-a-pensive-young-man-in-a-suit-sitting-at-a-table-with-books-17050931/",
+            "photographer": "Tran Nhu Tuan",
+            "photographer_url": "https://www.pexels.com/@kooldark",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "写",
+          "pinyin": "xiě",
+          "meaning": "viết",
+          "image": "4d7dc6c5f8.jpg",
+          "query": "writing notebook pen",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/31396700/pexels-photo-31396700.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/close-up-of-hand-writing-in-notebook-31396700/",
+            "photographer": "Biekir Litovchenko",
+            "photographer_url": "https://www.pexels.com/@biekir-litovchenko-2148554792",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "读",
+          "pinyin": "dú",
+          "meaning": "đọc",
+          "image": "75769d1ac8.jpg",
+          "query": "reading book",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/30845677/pexels-photo-30845677.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/relaxed-reading-with-coffee-on-bed-30845677/",
+            "photographer": "Filipa Moreira",
+            "photographer_url": "https://www.pexels.com/@filipa-moreira-2149871975",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "字",
+          "pinyin": "zì",
+          "meaning": "chữ",
+          "image": "a95dbb0ea4.jpg",
+          "query": "chinese characters calligraphy",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/31069603/pexels-photo-31069603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/woman-practicing-calligraphy-in-sunlit-room-31069603/",
+            "photographer": "Jesse R",
+            "photographer_url": "https://www.pexels.com/@jesserphotonyc",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "作业",
+          "pinyin": "zuò yè",
+          "meaning": "bài tập",
+          "image": "116e077219.jpg",
+          "query": "homework notebook desk",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/5321357/pexels-photo-5321357.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/brown-notebook-on-the-laptop-5321357/",
+            "photographer": "seyfi durmaz",
+            "photographer_url": "https://www.pexels.com/@seyfidurmaz",
+            "license": "Pexels License"
+          }
+        }
+      ]
+    },
+    {
+      "id": "shopping",
+      "name": "Mua sắm",
+      "nameCn": "购物",
+      "color": "#C83E35",
+      "words": [
+        {
+          "word": "买",
+          "pinyin": "mǎi",
+          "meaning": "mua",
+          "image": "8be34d50fd.jpg",
+          "query": "shopping bag purchase",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/9070118/pexels-photo-9070118.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/a-person-holding-a-basket-9070118/",
+            "photographer": "Tara Clark",
+            "photographer_url": "https://www.pexels.com/@tara-clark-89384110",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "卖",
+          "pinyin": "mài",
+          "meaning": "bán",
+          "image": "821d5fce78.jpg",
+          "query": "shop seller market",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/12298301/pexels-photo-12298301.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/man-on-the-street-selling-fresh-vegetables-12298301/",
+            "photographer": "Rahul Sapra",
+            "photographer_url": "https://www.pexels.com/@rsapmech",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "钱",
+          "pinyin": "qián",
+          "meaning": "tiền",
+          "image": "d23513f09b.jpg",
+          "query": "money cash coins",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/210600/pexels-photo-210600.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/coins-on-brown-wood-210600/",
+            "photographer": "Pixabay",
+            "photographer_url": "https://www.pexels.com/@pixabay",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "贵",
+          "pinyin": "guì",
+          "meaning": "đắt",
+          "image": "0a0f0a1307.jpg",
+          "query": "expensive luxury price tag",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/30077330/pexels-photo-30077330.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/luxury-breitling-watch-in-elegant-presentation-box-30077330/",
+            "photographer": "Heidi Daniëls",
+            "photographer_url": "https://www.pexels.com/@heidi-daniels-2308315",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "便宜",
+          "pinyin": "pián yi",
+          "meaning": "rẻ",
+          "image": "86194baed3.jpg",
+          "query": "sale discount price tag",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/19952690/pexels-photo-19952690.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/display-of-merchandise-19952690/",
+            "photographer": "Yunus  Kılıç",
+            "photographer_url": "https://www.pexels.com/@yunus-kilic-55235055",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "商店",
+          "pinyin": "shāng diàn",
+          "meaning": "cửa hàng",
+          "image": "f303c10a9f.jpg",
+          "query": "small shop store front",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/13768940/pexels-photo-13768940.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/a-woman-sitting-on-a-stool-in-front-of-a-shop-13768940/",
+            "photographer": "Markus Winkler",
+            "photographer_url": "https://www.pexels.com/@markus-winkler-1430818",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "东西",
+          "pinyin": "dōng xī",
+          "meaning": "đồ vật",
+          "image": "a026c722b2.jpg",
+          "query": "everyday objects on table",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/29651242/pexels-photo-29651242.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/vintage-flea-market-in-nancy-france-29651242/",
+            "photographer": "Alexis B",
+            "photographer_url": "https://www.pexels.com/@alexis-b-1699196",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "打折",
+          "pinyin": "dǎ zhé",
+          "meaning": "giảm giá",
+          "image": "ce1c94b64c.jpg",
+          "query": "discount sale sign",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/27639078/pexels-photo-27639078.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/a-street-light-27639078/",
+            "photographer": "Alexa V. Mato",
+            "photographer_url": "https://www.pexels.com/@alexa-v-mato-1162295356",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "买单",
+          "pinyin": "mǎi dān",
+          "meaning": "thanh toán",
+          "image": "554003c7ff.jpg",
+          "query": "paying restaurant bill",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/6816369/pexels-photo-6816369.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/close-up-of-a-man-paying-a-bill-at-a-glass-table-6816369/",
+            "photographer": "Yan Krukau",
+            "photographer_url": "https://www.pexels.com/@yankrukov",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "点菜",
+          "pinyin": "diǎn cài",
+          "meaning": "gọi món",
+          "image": "d85522beda.jpg",
+          "query": "ordering food menu restaurant",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/28251611/pexels-photo-28251611.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/fujifilm-x-pro-2-28251611/",
+            "photographer": "Onur Kaya",
+            "photographer_url": "https://www.pexels.com/@kayaartsss",
+            "license": "Pexels License"
+          }
+        }
+      ]
+    },
+    {
+      "id": "health",
+      "name": "Sức khỏe và cơ thể",
+      "nameCn": "健康",
+      "color": "#197A62",
+      "words": [
+        {
+          "word": "身体",
+          "pinyin": "shēn tǐ",
+          "meaning": "cơ thể",
+          "image": "7be627ccbd.jpg",
+          "query": "healthy body exercise",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/31293814/pexels-photo-31293814.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/group-outdoor-fitness-training-session-31293814/",
+            "photographer": "Arsov Ivan",
+            "photographer_url": "https://www.pexels.com/@arsov-ivan-461429481",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "眼睛",
+          "pinyin": "yǎn jīng",
+          "meaning": "mắt",
+          "image": "946f5c8c69.jpg",
+          "query": "eye closeup",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/3750717/pexels-photo-3750717.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/grayscale-photo-of-woman-s-face-3750717/",
+            "photographer": "Elizaveta Dushechkina",
+            "photographer_url": "https://www.pexels.com/@elizaveta-dushechkina-2099536",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "耳朵",
+          "pinyin": "ěr duǒ",
+          "meaning": "tai",
+          "image": "62507462c9.jpg",
+          "query": "ear closeup",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/18285649/pexels-photo-18285649.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/close-up-of-a-woman-wearing-a-large-pearl-earring-18285649/",
+            "photographer": "Arif khan",
+            "photographer_url": "https://www.pexels.com/@arif",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "鼻子",
+          "pinyin": "bí zi",
+          "meaning": "mũi",
+          "image": "e6134a2993.jpg",
+          "query": "nose face closeup",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/16069403/pexels-photo-16069403.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/close-up-of-face-16069403/",
+            "photographer": "Ran Lu",
+            "photographer_url": "https://www.pexels.com/@ran-lu-499464116",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "手",
+          "pinyin": "shǒu",
+          "meaning": "tay",
+          "image": "3c7d183f1b.jpg",
+          "query": "hands closeup",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/10154712/pexels-photo-10154712.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/black-and-white-photo-of-hands-10154712/",
+            "photographer": "Anderson Portella",
+            "photographer_url": "https://www.pexels.com/@andersonportella",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "脚",
+          "pinyin": "jiǎo",
+          "meaning": "chân",
+          "image": "5297c01727.jpg",
+          "query": "feet walking",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/35549360/pexels-photo-35549360.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/feet-on-a-stone-path-with-wildflowers-35549360/",
+            "photographer": "Jayce Q",
+            "photographer_url": "https://www.pexels.com/@jayce-q-132128526",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "生病",
+          "pinyin": "shēng bìng",
+          "meaning": "bị bệnh",
+          "image": "75d80e662b.jpg",
+          "query": "sick person thermometer",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/14530635/pexels-photo-14530635.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/man-lying-down-in-hospital-14530635/",
+            "photographer": "Valentin Angel Fernandez",
+            "photographer_url": "https://www.pexels.com/@vafphotos",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "医院",
+          "pinyin": "yī yuàn",
+          "meaning": "bệnh viện",
+          "image": "071bd02a36.jpg",
+          "query": "hospital building",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/16901852/pexels-photo-16901852.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/overcast-over-building-in-city-16901852/",
+            "photographer": "Gansharm Bdk",
+            "photographer_url": "https://www.pexels.com/@gansharm-bdk-93674348",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "医生",
+          "pinyin": "yī shēng",
+          "meaning": "bác sĩ",
+          "image": "6d7c1afb07.jpg",
+          "query": "doctor portrait",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/37272329/pexels-photo-37272329.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/portrait-of-confident-female-doctor-with-hijab-37272329/",
+            "photographer": "Layth Mushreq",
+            "photographer_url": "https://www.pexels.com/@layth-mushreq-2148270719",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "休息",
+          "pinyin": "xiū xī",
+          "meaning": "nghỉ ngơi",
+          "image": "3a991a4ca5.jpg",
+          "query": "resting on sofa",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/20830465/pexels-photo-20830465.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/black-and-white-photo-of-a-cat-lying-on-a-sofa-20830465/",
+            "photographer": "Q. Hưng Phạm",
+            "photographer_url": "https://www.pexels.com/@qhung999",
+            "license": "Pexels License"
+          }
+        }
+      ]
+    },
+    {
+      "id": "weather",
+      "name": "Thời tiết",
+      "nameCn": "天气",
+      "color": "#FF9800",
+      "words": [
+        {
+          "word": "天气",
+          "pinyin": "tiān qì",
+          "meaning": "thời tiết",
+          "image": "265f273cf1.jpg",
+          "query": "weather sky clouds",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/29036754/pexels-photo-29036754.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/dramatic-cumulus-clouds-in-mumbai-sky-29036754/",
+            "photographer": "Shifa Khan",
+            "photographer_url": "https://www.pexels.com/@shifa-khan-846187085",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "热",
+          "pinyin": "rè",
+          "meaning": "nóng",
+          "image": "2044c27397.jpg",
+          "query": "hot sunny day",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/14310443/pexels-photo-14310443.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/crowd-of-people-on-shore-14310443/",
+            "photographer": "Stefan Maritz",
+            "photographer_url": "https://www.pexels.com/@stefan-maritz-1452486",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "冷",
+          "pinyin": "lěng",
+          "meaning": "lạnh",
+          "image": "74eaee9656.jpg",
+          "query": "cold winter snow",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/29826612/pexels-photo-29826612.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/tranquil-snowy-landscape-with-falling-snowflakes-29826612/",
+            "photographer": "travelers_tw",
+            "photographer_url": "https://www.pexels.com/@travelers_tw-1445512897",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "下雨",
+          "pinyin": "xià yǔ",
+          "meaning": "mưa",
+          "image": "060e263e4b.jpg",
+          "query": "rainy day umbrella",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/29996403/pexels-photo-29996403.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/black-and-white-street-scene-with-umbrellas-29996403/",
+            "photographer": "Alexis B",
+            "photographer_url": "https://www.pexels.com/@alexis-b-1699196",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "雪",
+          "pinyin": "xuě",
+          "meaning": "tuyết",
+          "image": "c4fccd8dd1.jpg",
+          "query": "snow falling",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/36956476/pexels-photo-36956476.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/autumn-tree-with-vivid-orange-leaves-in-snow-36956476/",
+            "photographer": "Talena Reese",
+            "photographer_url": "https://www.pexels.com/@talenareese",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "风",
+          "pinyin": "fēng",
+          "meaning": "gió",
+          "image": "b24891983d.jpg",
+          "query": "windy trees",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/2600903/pexels-photo-2600903.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/monochrome-photo-of-tree-on-grass-field-2600903/",
+            "photographer": "Hugh Anderson",
+            "photographer_url": "https://www.pexels.com/@hugh-anderson-1345520",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "晴",
+          "pinyin": "qíng",
+          "meaning": "trời nắng",
+          "image": "eabe42f713.jpg",
+          "query": "clear sunny sky",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/9940016/pexels-photo-9940016.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/white-clouds-form-in-the-sky-9940016/",
+            "photographer": "Алексей  Виноградов",
+            "photographer_url": "https://www.pexels.com/@75705723",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "阴",
+          "pinyin": "yīn",
+          "meaning": "âm u",
+          "image": "ca4062ed6b.jpg",
+          "query": "cloudy overcast sky",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/4255723/pexels-photo-4255723.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/gray-and-white-clouds-in-sky-4255723/",
+            "photographer": "Gleb  Vasylynka",
+            "photographer_url": "https://www.pexels.com/@gleb-vasylynka-2703485",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "春天",
+          "pinyin": "chūn tiān",
+          "meaning": "mùa xuân",
+          "image": "3a864e53ae.jpg",
+          "query": "spring flowers",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/1075960/pexels-photo-1075960.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/bed-of-assorted-color-flowers-1075960/",
+            "photographer": "Jos van Ouwerkerk",
+            "photographer_url": "https://www.pexels.com/@jos-van-ouwerkerk-377363",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "夏天",
+          "pinyin": "xià tiān",
+          "meaning": "mùa hè",
+          "image": "860176ffdb.jpg",
+          "query": "summer beach sun",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/4075456/pexels-photo-4075456.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/coconut-trees-on-beach-under-blue-sky-and-white-clouds-4075456/",
+            "photographer": "Enzo",
+            "photographer_url": "https://www.pexels.com/@enzocarada",
+            "license": "Pexels License"
+          }
+        }
+      ]
+    },
+    {
+      "id": "home",
+      "name": "Nhà cửa",
+      "nameCn": "家居",
+      "color": "#7E4C8B",
+      "words": [
+        {
+          "word": "房间",
+          "pinyin": "fáng jiān",
+          "meaning": "phòng",
+          "image": "9bdfe95fda.jpg",
+          "query": "cozy room interior",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/12506515/pexels-photo-12506515.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/vintage-tv-in-room-12506515/",
+            "photographer": "Yusuf P",
+            "photographer_url": "https://www.pexels.com/@artyusufpatel",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "门",
+          "pinyin": "mén",
+          "meaning": "cửa",
+          "image": "a4960087a9.jpg",
+          "query": "front door",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/8646429/pexels-photo-8646429.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/wooden-doors-of-a-building-8646429/",
+            "photographer": "Anna Vershinkina",
+            "photographer_url": "https://www.pexels.com/@anna-vershinkina-77351027",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "窗户",
+          "pinyin": "chuāng hù",
+          "meaning": "cửa sổ",
+          "image": "56c15f3b40.jpg",
+          "query": "window sunlight room",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/14987344/pexels-photo-14987344.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/light-coming-through-windows-in-old-abandoned-building-14987344/",
+            "photographer": "Yiğit  KARAALİOĞLU",
+            "photographer_url": "https://www.pexels.com/@ygtphoto",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "桌子",
+          "pinyin": "zhuō zi",
+          "meaning": "cái bàn",
+          "image": "9e2fde20b6.jpg",
+          "query": "wooden table",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/9290603/pexels-photo-9290603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/long-table-and-chairs-9290603/",
+            "photographer": "Alexandra Kollstrem",
+            "photographer_url": "https://www.pexels.com/@alexandra-kollstrem-77751824",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "椅子",
+          "pinyin": "yǐ zi",
+          "meaning": "cái ghế",
+          "image": "43876e0825.jpg",
+          "query": "chair furniture",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/3104526/pexels-photo-3104526.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/empty-chairs-3104526/",
+            "photographer": "Vicky Tran",
+            "photographer_url": "https://www.pexels.com/@vicky",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "床",
+          "pinyin": "chuáng",
+          "meaning": "giường",
+          "image": "1696a59602.jpg",
+          "query": "bed bedroom",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/16951262/pexels-photo-16951262.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/bed-in-bedroom-16951262/",
+            "photographer": "Moises Arias",
+            "photographer_url": "https://www.pexels.com/@moii",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "杯子",
+          "pinyin": "bēi zi",
+          "meaning": "cốc",
+          "image": "51baa713ed.jpg",
+          "query": "cup mug table",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/30742323/pexels-photo-30742323.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/cozy-evening-with-a-steaming-cup-of-tea-30742323/",
+            "photographer": "Anzor Dukaev",
+            "photographer_url": "https://www.pexels.com/@anzor-dukaev-1624292017",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "电视",
+          "pinyin": "diàn shì",
+          "meaning": "tivi",
+          "image": "3a2f904027.jpg",
+          "query": "television living room",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/28195650/pexels-photo-28195650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/a-modern-tv-stand-with-a-blue-wall-behind-it-28195650/",
+            "photographer": "Pușcaș Adryan",
+            "photographer_url": "https://www.pexels.com/@pu-ca-adryan-163345030",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "电脑",
+          "pinyin": "diàn nǎo",
+          "meaning": "máy tính",
+          "image": "e855972ea9.jpg",
+          "query": "computer laptop desk",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/29283981/pexels-photo-29283981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/colorful-home-office-with-computer-setup-and-lighting-29283981/",
+            "photographer": "Kenneth Surillo",
+            "photographer_url": "https://www.pexels.com/@kenzero14",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "家",
+          "pinyin": "jiā",
+          "meaning": "nhà",
+          "image": "a6cdd2a00b.jpg",
+          "query": "happy home house",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/31674740/pexels-photo-31674740.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/traditional-rural-house-surrounded-by-greenery-31674740/",
+            "photographer": "V_shnu Srv_n",
+            "photographer_url": "https://www.pexels.com/@v_shnu-srv_n-1458996854",
+            "license": "Pexels License"
+          }
+        }
+      ]
+    },
+    {
+      "id": "clothes",
+      "name": "Quần áo",
+      "nameCn": "衣服",
+      "color": "#9C27B0",
+      "words": [
+        {
+          "word": "衣服",
+          "pinyin": "yī fú",
+          "meaning": "quần áo",
+          "image": "6e06060b48.jpg",
+          "query": "clothes on rack",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/5771897/pexels-photo-5771897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/grayscale-photograph-of-shirts-on-clothes-hangers-5771897/",
+            "photographer": "Jake \"Sulli\" Swoyer",
+            "photographer_url": "https://www.pexels.com/@sullidise",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "裤子",
+          "pinyin": "kù zi",
+          "meaning": "quần",
+          "image": "f2bdf96832.jpg",
+          "query": "pants jeans",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/6439226/pexels-photo-6439226.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/a-woman-in-denim-pants-sitting-on-concrete-wall-6439226/",
+            "photographer": "Lucas Castro",
+            "photographer_url": "https://www.pexels.com/@lucas-castro-17629060",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "鞋",
+          "pinyin": "xié",
+          "meaning": "giày",
+          "image": "db695b39ed.jpg",
+          "query": "shoes pair",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/32644170/pexels-photo-32644170.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/stylish-tan-leather-shoes-with-sunglasses-32644170/",
+            "photographer": "ALOK DAS",
+            "photographer_url": "https://www.pexels.com/@alokkd1",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "帽子",
+          "pinyin": "mào zi",
+          "meaning": "mũ",
+          "image": "5cb80710c3.jpg",
+          "query": "hat cap",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/6342793/pexels-photo-6342793.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/portrait-of-man-wearing-sunglasses-6342793/",
+            "photographer": "Mungai Mutugi",
+            "photographer_url": "https://www.pexels.com/@mungai-mutugi-3669723",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "袜子",
+          "pinyin": "wà zi",
+          "meaning": "tất",
+          "image": "b23963f121.jpg",
+          "query": "socks pair",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/10557895/pexels-photo-10557895.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/directly-above-view-of-socks-in-knitted-container-10557895/",
+            "photographer": "Ron Lach",
+            "photographer_url": "https://www.pexels.com/@ron-lach",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "衬衫",
+          "pinyin": "chèn shān",
+          "meaning": "áo sơ mi",
+          "image": "e91bb131a2.jpg",
+          "query": "shirt on hanger",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/13381986/pexels-photo-13381986.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/gray-button-up-shirt-hanging-near-white-wall-13381986/",
+            "photographer": "Fahmi Garna",
+            "photographer_url": "https://www.pexels.com/@fahmi-garna-249814583",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "裙子",
+          "pinyin": "qún zi",
+          "meaning": "váy",
+          "image": "556b6f00f4.jpg",
+          "query": "dress skirt fashion",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/6061727/pexels-photo-6061727.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/woman-in-white-shirt-and-floral-skirt-sitting-on-brown-wooden-chair-6061727/",
+            "photographer": "Nugroho  Wahyu",
+            "photographer_url": "https://www.pexels.com/@whynugrohou",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "外套",
+          "pinyin": "wài tào",
+          "meaning": "áo khoác",
+          "image": "5d9141eafd.jpg",
+          "query": "jacket coat",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/4398944/pexels-photo-4398944.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/man-wearing-brown-coat-4398944/",
+            "photographer": "PIZHONBY",
+            "photographer_url": "https://www.pexels.com/@pizhonby-2864032",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "包",
+          "pinyin": "bāo",
+          "meaning": "túi",
+          "image": "5442dfce9b.jpg",
+          "query": "bag backpack",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/20094394/pexels-photo-20094394.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/man-wearing-backpack-by-the-shore-20094394/",
+            "photographer": "Thomas Richard",
+            "photographer_url": "https://www.pexels.com/@thomas-richard-945930195",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "颜色",
+          "pinyin": "yán sè",
+          "meaning": "màu sắc",
+          "image": "6b36c6f7ec.jpg",
+          "query": "colorful fabric",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/34131689/pexels-photo-34131689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/colorful-traditional-rugs-and-textiles-displayed-outdoors-34131689/",
+            "photographer": "Aysegul Aytoren",
+            "photographer_url": "https://www.pexels.com/@aysegul-aytoren-46790226",
+            "license": "Pexels License"
+          }
+        }
+      ]
+    },
+    {
+      "id": "places",
+      "name": "Địa điểm",
+      "nameCn": "地点",
+      "color": "#2563A9",
+      "words": [
+        {
+          "word": "学校",
+          "pinyin": "xué xiào",
+          "meaning": "trường học",
+          "image": "413b738061.jpg",
+          "query": "school building",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/2676888/pexels-photo-2676888.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/photo-of-man-and-woman-walking-in-campus-2676888/",
+            "photographer": "PixelPanda",
+            "photographer_url": "https://www.pexels.com/@pixelpanda-1386402",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "医院",
+          "pinyin": "yī yuàn",
+          "meaning": "bệnh viện",
+          "image": "071bd02a36.jpg",
+          "query": "hospital building",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/16901852/pexels-photo-16901852.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/overcast-over-building-in-city-16901852/",
+            "photographer": "Gansharm Bdk",
+            "photographer_url": "https://www.pexels.com/@gansharm-bdk-93674348",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "商店",
+          "pinyin": "shāng diàn",
+          "meaning": "cửa hàng",
+          "image": "f303c10a9f.jpg",
+          "query": "shop store front",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/5987826/pexels-photo-5987826.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/kitchen-accessories-for-sale-5987826/",
+            "photographer": "Suzy Hazelwood",
+            "photographer_url": "https://www.pexels.com/@suzyhazelwood",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "饭馆",
+          "pinyin": "fàn guǎn",
+          "meaning": "nhà hàng",
+          "image": "0d4a883fd2.jpg",
+          "query": "restaurant dining room",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/33314766/pexels-photo-33314766.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/modern-restaurant-interior-with-cozy-dining-area-33314766/",
+            "photographer": "The Ghazi",
+            "photographer_url": "https://www.pexels.com/@the-ghazi-2152398165",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "公司",
+          "pinyin": "gōng sī",
+          "meaning": "công ty",
+          "image": "41716f87c3.jpg",
+          "query": "office company building",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/33020857/pexels-photo-33020857.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/modern-skyscraper-architecture-in-urban-setting-33020857/",
+            "photographer": "Blackcurrant Great",
+            "photographer_url": "https://www.pexels.com/@blackcurrant-great-2016663774",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "机场",
+          "pinyin": "jī chǎng",
+          "meaning": "sân bay",
+          "image": "9fb66e93bc.jpg",
+          "query": "airport terminal",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/3140204/pexels-photo-3140204.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/photo-of-airplanes-at-airport-3140204/",
+            "photographer": "Brett Sayles",
+            "photographer_url": "https://www.pexels.com/@brett-sayles",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "车站",
+          "pinyin": "chē zhàn",
+          "meaning": "bến ga",
+          "image": "9726ca980a.jpg",
+          "query": "train station platform",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/37191492/pexels-photo-37191492.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/monochrome-train-station-in-butterworth-malaysia-37191492/",
+            "photographer": "DuaEnam KosongLima",
+            "photographer_url": "https://www.pexels.com/@duaenam-kosonglima-424968847",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "公园",
+          "pinyin": "gōng yuán",
+          "meaning": "công viên",
+          "image": "249bdde955.jpg",
+          "query": "city park",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/20728274/pexels-photo-20728274.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/group-relaxing-in-park-20728274/",
+            "photographer": "mitbg000",
+            "photographer_url": "https://www.pexels.com/@mitbg000",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "银行",
+          "pinyin": "yín háng",
+          "meaning": "ngân hàng",
+          "image": "f14b4f28c4.jpg",
+          "query": "bank building",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/17574763/pexels-photo-17574763.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/facade-of-a-traditional-building-in-city-17574763/",
+            "photographer": "Gloable",
+            "photographer_url": "https://www.pexels.com/@gloable-275577655",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "市场",
+          "pinyin": "shì chǎng",
+          "meaning": "chợ",
+          "image": "552cacb804.jpg",
+          "query": "local market",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/12436198/pexels-photo-12436198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/men-selling-vegetables-12436198/",
+            "photographer": "Rahul Sapra",
+            "photographer_url": "https://www.pexels.com/@rsapmech",
+            "license": "Pexels License"
+          }
+        }
+      ]
+    },
+    {
+      "id": "sports",
+      "name": "Thể thao",
+      "nameCn": "运动",
+      "color": "#4CAF50",
+      "words": [
+        {
+          "word": "运动",
+          "pinyin": "yùn dòng",
+          "meaning": "thể thao",
+          "image": "37b6debeb4.jpg",
+          "query": "people exercising outdoors",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/5965907/pexels-photo-5965907.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/runners-and-a-biker-at-a-bike-lane-5965907/",
+            "photographer": "Rosivan  Morais",
+            "photographer_url": "https://www.pexels.com/@rosivanmorais",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "跑步",
+          "pinyin": "pǎo bù",
+          "meaning": "chạy bộ",
+          "image": "7b385d0284.jpg",
+          "query": "running jogging",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/24913608/pexels-photo-24913608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/a-sidewalk-in-a-city-24913608/",
+            "photographer": "Alexis B",
+            "photographer_url": "https://www.pexels.com/@alexis-b-1699196",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "游泳",
+          "pinyin": "yóu yǒng",
+          "meaning": "bơi lội",
+          "image": "221486055c.jpg",
+          "query": "swimming pool",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/14027344/pexels-photo-14027344.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/people-bathing-in-a-river-14027344/",
+            "photographer": "Rahul Sapra",
+            "photographer_url": "https://www.pexels.com/@rsapmech",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "足球",
+          "pinyin": "zú qiú",
+          "meaning": "bóng đá",
+          "image": "ed05233ac8.jpg",
+          "query": "soccer ball field",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/28222529/pexels-photo-28222529.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/adidas-soccer-ball-28222529/",
+            "photographer": "Tunahan KALAYCI",
+            "photographer_url": "https://www.pexels.com/@tunahan-kalayci-469309432",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "篮球",
+          "pinyin": "lán qiú",
+          "meaning": "bóng rổ",
+          "image": "ea2eed1fb5.jpg",
+          "query": "basketball court",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/5785714/pexels-photo-5785714.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/boys-in-uniform-playing-basketball-indoors-5785714/",
+            "photographer": "Dayvison Tadeu",
+            "photographer_url": "https://www.pexels.com/@kobe",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "走路",
+          "pinyin": "zǒu lù",
+          "meaning": "đi bộ",
+          "image": "a315706916.jpg",
+          "query": "walking path",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/31264821/pexels-photo-31264821.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/tranquil-forest-path-in-skane-sweden-31264821/",
+            "photographer": "Henrik Tuvesson",
+            "photographer_url": "https://www.pexels.com/@henriktuvessonphotography",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "健康",
+          "pinyin": "jiàn kāng",
+          "meaning": "khỏe mạnh",
+          "image": "fbc026c9fb.jpg",
+          "query": "healthy lifestyle exercise",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/5965907/pexels-photo-5965907.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/runners-and-a-biker-at-a-bike-lane-5965907/",
+            "photographer": "Rosivan  Morais",
+            "photographer_url": "https://www.pexels.com/@rosivanmorais",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "比赛",
+          "pinyin": "bǐ sài",
+          "meaning": "trận đấu",
+          "image": "a5c5d0dc90.jpg",
+          "query": "sports competition",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/37219538/pexels-photo-37219538.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/intense-soccer-match-in-myawaddy-myanmar-37219538/",
+            "photographer": "Kyi HtetLinn",
+            "photographer_url": "https://www.pexels.com/@kyi-htetlinn-2160738647",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "跳舞",
+          "pinyin": "tiào wǔ",
+          "meaning": "nhảy múa",
+          "image": "fad50bfdcb.jpg",
+          "query": "dancing people",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/28424057/pexels-photo-28424057.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/joyful-dance-party-in-sunlit-street-28424057/",
+            "photographer": "Roman Biernacki",
+            "photographer_url": "https://www.pexels.com/@szafran",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "休息",
+          "pinyin": "xiū xī",
+          "meaning": "nghỉ ngơi",
+          "image": "3a991a4ca5.jpg",
+          "query": "rest after exercise",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/8436471/pexels-photo-8436471.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/young-woman-sitting-on-a-yoga-mat-leaning-against-the-wall-8436471/",
+            "photographer": "Yan Krukau",
+            "photographer_url": "https://www.pexels.com/@yankrukov",
+            "license": "Pexels License"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nature",
+      "name": "Thiên nhiên",
+      "nameCn": "自然",
+      "color": "#009688",
+      "words": [
+        {
+          "word": "山",
+          "pinyin": "shān",
+          "meaning": "núi",
+          "image": "86fa9c82d8.jpg",
+          "query": "mountain landscape",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/12784538/pexels-photo-12784538.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/spiky-snowed-mountains-12784538/",
+            "photographer": "Alexander Popovkin",
+            "photographer_url": "https://www.pexels.com/@popovkin",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "河",
+          "pinyin": "hé",
+          "meaning": "sông",
+          "image": "5ea03ddf50.jpg",
+          "query": "river landscape",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/28491928/pexels-photo-28491928.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/scenic-sunrise-over-mississippi-river-in-wabasha-28491928/",
+            "photographer": "Tom Fisk",
+            "photographer_url": "https://www.pexels.com/@tomfisk",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "海",
+          "pinyin": "hǎi",
+          "meaning": "biển",
+          "image": "9aa7f82989.jpg",
+          "query": "ocean sea",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/32267455/pexels-photo-32267455.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/dramatic-ocean-waves-with-white-foam-32267455/",
+            "photographer": "Orange Ocean",
+            "photographer_url": "https://www.pexels.com/@orange-ocean-243774902",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "花",
+          "pinyin": "huā",
+          "meaning": "hoa",
+          "image": "22dbba75b9.jpg",
+          "query": "flower closeup",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/20954403/pexels-photo-20954403.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/delicate-purple-flower-20954403/",
+            "photographer": "Petr Ganaj",
+            "photographer_url": "https://www.pexels.com/@ganajp",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "树",
+          "pinyin": "shù",
+          "meaning": "cây",
+          "image": "302f276a93.jpg",
+          "query": "tree forest",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/1635905/pexels-photo-1635905.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/photo-of-forest-1635905/",
+            "photographer": "zhugewala",
+            "photographer_url": "https://www.pexels.com/@zhugewala-605070",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "草",
+          "pinyin": "cǎo",
+          "meaning": "cỏ",
+          "image": "7d3cfe8c4e.jpg",
+          "query": "green grass",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/12079623/pexels-photo-12079623.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/grass-growing-in-summer-12079623/",
+            "photographer": "Nguyen Hung",
+            "photographer_url": "https://www.pexels.com/@mh92",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "天空",
+          "pinyin": "tiān kōng",
+          "meaning": "bầu trời",
+          "image": "1667312395.jpg",
+          "query": "blue sky clouds",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/246230/pexels-photo-246230.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/low-angle-photography-of-clouds-246230/",
+            "photographer": "napasorn disaraporn",
+            "photographer_url": "https://www.pexels.com/@napasorn-disaraporn-79430",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "风景",
+          "pinyin": "fēng jǐng",
+          "meaning": "phong cảnh",
+          "image": "fc30335a73.jpg",
+          "query": "beautiful landscape",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/10405779/pexels-photo-10405779.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/silhouette-of-mountains-and-a-sea-of-clouds-10405779/",
+            "photographer": "Ferencz Istvan",
+            "photographer_url": "https://www.pexels.com/@20hertz",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "太阳",
+          "pinyin": "tài yáng",
+          "meaning": "mặt trời",
+          "image": "d32b766612.jpg",
+          "query": "sun in sky",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/10205403/pexels-photo-10205403.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/the-sun-behind-dark-clouds-10205403/",
+            "photographer": "Shashwat Goyar",
+            "photographer_url": "https://www.pexels.com/@shashwatgoyar",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "雨",
+          "pinyin": "yǔ",
+          "meaning": "mưa",
+          "image": "95433763b3.jpg",
+          "query": "rain drops window",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/13986935/pexels-photo-13986935.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/raindrops-on-glass-13986935/",
+            "photographer": "Lindsey Garrett",
+            "photographer_url": "https://www.pexels.com/@lindseygarrett",
+            "license": "Pexels License"
+          }
+        }
+      ]
+    },
+    {
+      "id": "entertainment",
+      "name": "Giải trí",
+      "nameCn": "娱乐",
+      "color": "#C83E35",
+      "words": [
+        {
+          "word": "电影",
+          "pinyin": "diàn yǐng",
+          "meaning": "phim",
+          "image": "51e9743451.jpg",
+          "query": "movie theater cinema",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/18440206/pexels-photo-18440206.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/illuminated-building-at-night-18440206/",
+            "photographer": "Tori Pezzulla❤️",
+            "photographer_url": "https://www.pexels.com/@toritherose",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "音乐",
+          "pinyin": "yīn yuè",
+          "meaning": "âm nhạc",
+          "image": "95521bb744.jpg",
+          "query": "music headphones",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/9058883/pexels-photo-9058883.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/close-up-shot-of-black-headphones-9058883/",
+            "photographer": "Saeed Khokhar",
+            "photographer_url": "https://www.pexels.com/@vip-foto",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "唱歌",
+          "pinyin": "chàng gē",
+          "meaning": "hát",
+          "image": "d49c9b66f6.jpg",
+          "query": "person singing microphone",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/6201175/pexels-photo-6201175.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/man-in-black-t-shirt-singing-near-microphone-6201175/",
+            "photographer": "YAUHENI ZAITSAU",
+            "photographer_url": "https://www.pexels.com/@digriz",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "跳舞",
+          "pinyin": "tiào wǔ",
+          "meaning": "nhảy múa",
+          "image": "fad50bfdcb.jpg",
+          "query": "dance performance",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/13557356/pexels-photo-13557356.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/two-people-dancing-gracefully-13557356/",
+            "photographer": "Anderson Portella",
+            "photographer_url": "https://www.pexels.com/@andersonportella",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "照片",
+          "pinyin": "zhào piān",
+          "meaning": "ảnh",
+          "image": "d2fb1e3e17.jpg",
+          "query": "photograph camera",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/13827131/pexels-photo-13827131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/man-holding-camera-in-hand-13827131/",
+            "photographer": "Raqeeb Ahmed",
+            "photographer_url": "https://www.pexels.com/@raqeebkhan",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "游戏",
+          "pinyin": "yóu xì",
+          "meaning": "trò chơi",
+          "image": "ba08216f13.jpg",
+          "query": "video game controller",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/16070479/pexels-photo-16070479.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/close-up-of-a-playstation-joystick-16070479/",
+            "photographer": "Marcelo Verfe",
+            "photographer_url": "https://www.pexels.com/@marceloverfe",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "电视",
+          "pinyin": "diàn shì",
+          "meaning": "tivi",
+          "image": "3a2f904027.jpg",
+          "query": "television living room",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/28195650/pexels-photo-28195650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/a-modern-tv-stand-with-a-blue-wall-behind-it-28195650/",
+            "photographer": "Pușcaș Adryan",
+            "photographer_url": "https://www.pexels.com/@pu-ca-adryan-163345030",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "书",
+          "pinyin": "shū",
+          "meaning": "sách",
+          "image": "2f3703e427.jpg",
+          "query": "reading book cozy",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/10058586/pexels-photo-10058586.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/green-plant-on-sweater-10058586/",
+            "photographer": "Evi",
+            "photographer_url": "https://www.pexels.com/@eviphotography",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "旅行",
+          "pinyin": "lǚ xíng",
+          "meaning": "du lịch",
+          "image": "87483408cf.jpg",
+          "query": "travel suitcase",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/29936876/pexels-photo-29936876.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/stack-of-vintage-suitcases-in-warm-light-29936876/",
+            "photographer": "Ahmet  Kayra",
+            "photographer_url": "https://www.pexels.com/@ahmet-kayra-174853248",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "聚会",
+          "pinyin": "jù huì",
+          "meaning": "tụ họp",
+          "image": "1ff96246c4.jpg",
+          "query": "friends party gathering",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/16617569/pexels-photo-16617569.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/family-having-a-garden-party-16617569/",
+            "photographer": "Samuel Peter",
+            "photographer_url": "https://www.pexels.com/@newmanphotographs",
+            "license": "Pexels License"
+          }
+        }
+      ]
+    },
+    {
+      "id": "daily_life",
+      "name": "Sinh hoạt hằng ngày",
+      "nameCn": "日常生活",
+      "color": "#FF5722",
+      "words": [
+        {
+          "word": "起床",
+          "pinyin": "qǐ chuáng",
+          "meaning": "thức dậy",
+          "image": "59b19552d6.jpg",
+          "query": "waking up morning bed",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/9330891/pexels-photo-9330891.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/bed-sheets-on-the-bed-9330891/",
+            "photographer": "Alena Tamarovskaia",
+            "photographer_url": "https://www.pexels.com/@alena-tamarovskaia-98047836",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "睡觉",
+          "pinyin": "shuì jiào",
+          "meaning": "ngủ",
+          "image": "60cffce1f6.jpg",
+          "query": "sleeping in bed",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/1021051/pexels-photo-1021051.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/family-of-three-lying-on-bed-showing-feet-while-covered-with-yellow-blanket-1021051/",
+            "photographer": "Simon Berger",
+            "photographer_url": "https://www.pexels.com/@simon73",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "洗澡",
+          "pinyin": "xǐ zǎo",
+          "meaning": "tắm",
+          "image": "5ac500cfcc.jpg",
+          "query": "shower bathroom",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/28479469/pexels-photo-28479469.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/modern-white-marble-bathroom-interior-28479469/",
+            "photographer": "Pușcaș Adryan",
+            "photographer_url": "https://www.pexels.com/@pu-ca-adryan-163345030",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "做饭",
+          "pinyin": "zuò fàn",
+          "meaning": "nấu ăn",
+          "image": "e69a3d7106.jpg",
+          "query": "cooking kitchen",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/30795870/pexels-photo-30795870.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/monochrome-kitchen-scene-with-female-chef-30795870/",
+            "photographer": "- landsmann -",
+            "photographer_url": "https://www.pexels.com/@landsmann-803094805",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "吃饭",
+          "pinyin": "chī fàn",
+          "meaning": "ăn cơm",
+          "image": "0068330a10.jpg",
+          "query": "eating meal table",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/8697540/pexels-photo-8697540.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/couple-sitting-and-eating-healthy-meals-on-a-dining-table-8697540/",
+            "photographer": "Farhad Ibrahimzade",
+            "photographer_url": "https://www.pexels.com/@farhad",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "喝水",
+          "pinyin": "hē shuǐ",
+          "meaning": "uống nước",
+          "image": "2c8250acfd.jpg",
+          "query": "drinking water glass",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/9639901/pexels-photo-9639901.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/water-moving-inside-a-drinking-glass-9639901/",
+            "photographer": "Dima Valkov",
+            "photographer_url": "https://www.pexels.com/@dima-valkov-1186343",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "上班",
+          "pinyin": "shàng bān",
+          "meaning": "đi làm",
+          "image": "b4f0388f1e.jpg",
+          "query": "commuting to work office",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/37342792/pexels-photo-37342792.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/black-and-white-urban-crosswalk-scene-of-businessman-37342792/",
+            "photographer": "Mak_ jp",
+            "photographer_url": "https://www.pexels.com/@mak_-jp-107017486",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "下班",
+          "pinyin": "xià bān",
+          "meaning": "tan làm",
+          "image": "96ed60cdcb.jpg",
+          "query": "leaving office work",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/5847812/pexels-photo-5847812.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/grayscale-photo-of-man-walking-near-the-building-5847812/",
+            "photographer": "Tomás Monteiro",
+            "photographer_url": "https://www.pexels.com/@monteiro-online",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "买东西",
+          "pinyin": "mǎi dōng xī",
+          "meaning": "mua đồ",
+          "image": "b6dffff782.jpg",
+          "query": "grocery shopping",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/9070106/pexels-photo-9070106.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/a-person-holding-a-basket-9070106/",
+            "photographer": "Tara Clark",
+            "photographer_url": "https://www.pexels.com/@tara-clark-89384110",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "打电话",
+          "pinyin": "dǎ diàn huà",
+          "meaning": "gọi điện",
+          "image": "575345386c.jpg",
+          "query": "phone call smartphone",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/1796469/pexels-photo-1796469.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/black-and-white-photo-of-person-holding-a-mobile-phone-1796469/",
+            "photographer": "Mwabonje Ringa",
+            "photographer_url": "https://www.pexels.com/@mwabonje",
+            "license": "Pexels License"
+          }
+        }
+      ]
+    },
+    {
+      "id": "city_life",
+      "name": "Đời sống thành phố",
+      "nameCn": "城市生活",
+      "color": "#607D8B",
+      "words": [
+        {
+          "word": "城市",
+          "pinyin": "chéng shì",
+          "meaning": "thành phố",
+          "image": "f7d29dfae0.jpg",
+          "query": "city skyline",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/10992816/pexels-photo-10992816.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/high-rise-buildings-under-blue-sky-10992816/",
+            "photographer": "Bart Walus",
+            "photographer_url": "https://www.pexels.com/@bwalus",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "街道",
+          "pinyin": "jiē dào",
+          "meaning": "đường phố",
+          "image": "716c3dc1bd.jpg",
+          "query": "city street",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/18665837/pexels-photo-18665837.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/people-waiting-at-cable-car-stop-18665837/",
+            "photographer": "Yiğit  KARAALİOĞLU",
+            "photographer_url": "https://www.pexels.com/@ygtphoto",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "交通",
+          "pinyin": "jiāo tōng",
+          "meaning": "giao thông",
+          "image": "c8ace4e283.jpg",
+          "query": "city traffic",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/123007/pexels-photo-123007.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/people-crossing-in-pedestrian-lane-in-city-during-daytime-123007/",
+            "photographer": "Saya Kimura",
+            "photographer_url": "https://www.pexels.com/@lusaya",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "地铁",
+          "pinyin": "dì tiě",
+          "meaning": "tàu điện ngầm",
+          "image": "9266202469.jpg",
+          "query": "subway metro station",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/18016847/pexels-photo-18016847.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/people-on-metro-station-18016847/",
+            "photographer": "Yiğit  KARAALİOĞLU",
+            "photographer_url": "https://www.pexels.com/@ygtphoto",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "市场",
+          "pinyin": "shì chǎng",
+          "meaning": "chợ",
+          "image": "552cacb804.jpg",
+          "query": "urban market",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/15616136/pexels-photo-15616136.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/man-selling-fruits-on-a-street-15616136/",
+            "photographer": "Efe Ersoy",
+            "photographer_url": "https://www.pexels.com/@efe-ersoy-393937500",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "环境",
+          "pinyin": "huán jìng",
+          "meaning": "môi trường",
+          "image": "fa405f5965.jpg",
+          "query": "green city environment",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/20728292/pexels-photo-20728292.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/block-of-flats-behind-pond-20728292/",
+            "photographer": "mitbg000",
+            "photographer_url": "https://www.pexels.com/@mitbg000",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "服务",
+          "pinyin": "fú wù",
+          "meaning": "dịch vụ",
+          "image": "47d68cd0f4.jpg",
+          "query": "customer service desk",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/8867475/pexels-photo-8867475.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/a-woman-standing-beside-an-agent-looking-at-a-clipboard-8867475/",
+            "photographer": "Yan Krukau",
+            "photographer_url": "https://www.pexels.com/@yankrukov",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "文化",
+          "pinyin": "wén huà",
+          "meaning": "văn hóa",
+          "image": "f9f7bb6679.jpg",
+          "query": "cultural festival",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/36719889/pexels-photo-36719889.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/vibrant-cultural-parade-with-traditional-dancing-36719889/",
+            "photographer": "Umar Farouk",
+            "photographer_url": "https://www.pexels.com/@umar-farouk-2153918299",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "社会",
+          "pinyin": "shè huì",
+          "meaning": "xã hội",
+          "image": "ce4ba240fb.jpg",
+          "query": "diverse community people",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/28589238/pexels-photo-28589238.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/smiling-elderly-woman-on-bustling-street-28589238/",
+            "photographer": "Nishant Aneja",
+            "photographer_url": "https://www.pexels.com/@nishantaneja",
+            "license": "Pexels License"
+          }
+        },
+        {
+          "word": "经济",
+          "pinyin": "jīng jì",
+          "meaning": "kinh tế",
+          "image": "70ceb33a9b.jpg",
+          "query": "business economy city",
+          "source": {
+            "provider": "Pexels",
+            "url": "https://images.pexels.com/photos/13457656/pexels-photo-13457656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "photo_url": "https://www.pexels.com/photo/city-buildings-under-the-blue-sky-13457656/",
+            "photographer": "PY Wong",
+            "photographer_url": "https://www.pexels.com/@py-wong-157445",
+            "license": "Pexels License"
+          }
+        }
+      ]
+    },
+    {
+      "id": "media_society",
+      "name": "Truyền thông và xã hội",
+      "nameCn": "媒体与社会",
+      "color": "#7E4C8B",
+      "words": [
+        {
+          "word": "新闻",
+          "pinyin": "xīnwén",
+          "meaning": "tin tức",
+          "image": "d2fb1e3e17.jpg",
+          "query": "news camera media"
+        },
+        {
+          "word": "广告",
+          "pinyin": "guǎnggào",
+          "meaning": "quảng cáo",
+          "image": "70ceb33a9b.jpg",
+          "query": "advertising city business"
+        },
+        {
+          "word": "观众",
+          "pinyin": "guānzhòng",
+          "meaning": "khán giả",
+          "image": "1ff96246c4.jpg",
+          "query": "audience gathering people"
+        },
+        {
+          "word": "网络",
+          "pinyin": "wǎngluò",
+          "meaning": "mạng internet",
+          "image": "95521bb744.jpg",
+          "query": "internet digital media"
+        },
+        {
+          "word": "社会",
+          "pinyin": "shèhuì",
+          "meaning": "xã hội",
+          "image": "ce4ba240fb.jpg",
+          "query": "society community people"
+        },
+        {
+          "word": "文化",
+          "pinyin": "wénhuà",
+          "meaning": "văn hóa",
+          "image": "f9f7bb6679.jpg",
+          "query": "culture festival community"
+        },
+        {
+          "word": "服务",
+          "pinyin": "fúwù",
+          "meaning": "dịch vụ",
+          "image": "47d68cd0f4.jpg",
+          "query": "service customer desk"
+        },
+        {
+          "word": "电视",
+          "pinyin": "diànshì",
+          "meaning": "tivi",
+          "image": "3a2f904027.jpg",
+          "query": "television media"
+        },
+        {
+          "word": "交通",
+          "pinyin": "jiāotōng",
+          "meaning": "giao thông",
+          "image": "c8ace4e283.jpg",
+          "query": "city traffic society"
+        },
+        {
+          "word": "电影",
+          "pinyin": "diànyǐng",
+          "meaning": "phim",
+          "image": "51e9743451.jpg",
+          "query": "movie media"
         }
       ]
     }

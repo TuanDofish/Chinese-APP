@@ -1,0 +1,26 @@
+[31m[Nest] 24136  - [39m06/13/2026, 8:53:10 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mAggregateError [ECONNREFUSED]: 
+[90m    at internalConnectMultiple (node:net:1134:18)[39m
+[90m    at afterConnectMultiple (node:net:1715:7)[39m {
+  code: [32m'ECONNREFUSED'[39m,
+  [errors]: [
+    Error: connect ECONNREFUSED ::1:5433
+    [90m    at createConnectionError (node:net:1678:14)[39m
+    [90m    at afterConnectMultiple (node:net:1708:16)[39m {
+      errno: [33m-4078[39m,
+      code: [32m'ECONNREFUSED'[39m,
+      syscall: [32m'connect'[39m,
+      address: [32m'::1'[39m,
+      port: [33m5433[39m
+    },
+    Error: connect ECONNREFUSED 127.0.0.1:5433
+    [90m    at createConnectionError (node:net:1678:14)[39m
+    [90m    at afterConnectMultiple (node:net:1708:16)[39m {
+      errno: [33m-4078[39m,
+      code: [32m'ECONNREFUSED'[39m,
+      syscall: [32m'connect'[39m,
+      address: [32m'127.0.0.1'[39m,
+      port: [33m5433[39m
+    }
+  ]
+}
+[31m[Nest] 24136  - [39m06/13/2026, 8:53:10 PM [31m  ERROR[39m [38;5;3m[HttpAction] [39m[31m{"action":"http.request","requestId":"http_mqcf13io_nhkzpe","at":"2026-06-13T13:53:10.424Z","method":"POST","path":"/auth/login","statusCode":500,"durationMs":8}[39m

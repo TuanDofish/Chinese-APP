@@ -1,0 +1,158 @@
+{
+  "id": "weather",
+  "name": "Thời tiết",
+  "nameCn": "天气",
+  "color": "#FF9800",
+  "words": [
+    {
+      "word": "天气",
+      "pinyin": "tiān qì",
+      "meaning": "thời tiết",
+      "image": "265f273cf1.jpg",
+      "query": "weather sky clouds",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/29036754/pexels-photo-29036754.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/dramatic-cumulus-clouds-in-mumbai-sky-29036754/",
+        "photographer": "Shifa Khan",
+        "photographer_url": "https://www.pexels.com/@shifa-khan-846187085",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "热",
+      "pinyin": "rè",
+      "meaning": "nóng",
+      "image": "2044c27397.jpg",
+      "query": "hot sunny day",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/14310443/pexels-photo-14310443.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/crowd-of-people-on-shore-14310443/",
+        "photographer": "Stefan Maritz",
+        "photographer_url": "https://www.pexels.com/@stefan-maritz-1452486",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "冷",
+      "pinyin": "lěng",
+      "meaning": "lạnh",
+      "image": "74eaee9656.jpg",
+      "query": "cold winter snow",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/29826612/pexels-photo-29826612.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/tranquil-snowy-landscape-with-falling-snowflakes-29826612/",
+        "photographer": "travelers_tw",
+        "photographer_url": "https://www.pexels.com/@travelers_tw-1445512897",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "下雨",
+      "pinyin": "xià yǔ",
+      "meaning": "mưa",
+      "image": "060e263e4b.jpg",
+      "query": "rainy day umbrella",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/29996403/pexels-photo-29996403.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/black-and-white-street-scene-with-umbrellas-29996403/",
+        "photographer": "Alexis B",
+        "photographer_url": "https://www.pexels.com/@alexis-b-1699196",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "雪",
+      "pinyin": "xuě",
+      "meaning": "tuyết",
+      "image": "c4fccd8dd1.jpg",
+      "query": "snow falling",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/36956476/pexels-photo-36956476.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/autumn-tree-with-vivid-orange-leaves-in-snow-36956476/",
+        "photographer": "Talena Reese",
+        "photographer_url": "https://www.pexels.com/@talenareese",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "风",
+      "pinyin": "fēng",
+      "meaning": "gió",
+      "image": "b24891983d.jpg",
+      "query": "windy trees",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/2600903/pexels-photo-2600903.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/monochrome-photo-of-tree-on-grass-field-2600903/",
+        "photographer": "Hugh Anderson",
+        "photographer_url": "https://www.pexels.com/@hugh-anderson-1345520",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "晴",
+      "pinyin": "qíng",
+      "meaning": "trời nắng",
+      "image": "eabe42f713.jpg",
+      "query": "clear sunny sky",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/9940016/pexels-photo-9940016.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/white-clouds-form-in-the-sky-9940016/",
+        "photographer": "Алексей  Виноградов",
+        "photographer_url": "https://www.pexels.com/@75705723",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "阴",
+      "pinyin": "yīn",
+      "meaning": "âm u",
+      "image": "ca4062ed6b.jpg",
+      "query": "cloudy overcast sky",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/4255723/pexels-photo-4255723.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/gray-and-white-clouds-in-sky-4255723/",
+        "photographer": "Gleb  Vasylynka",
+        "photographer_url": "https://www.pexels.com/@gleb-vasylynka-2703485",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "春天",
+      "pinyin": "chūn tiān",
+      "meaning": "mùa xuân",
+      "image": "3a864e53ae.jpg",
+      "query": "spring flowers",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/1075960/pexels-photo-1075960.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/bed-of-assorted-color-flowers-1075960/",
+        "photographer": "Jos van Ouwerkerk",
+        "photographer_url": "https://www.pexels.com/@jos-van-ouwerkerk-377363",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "夏天",
+      "pinyin": "xià tiān",
+      "meaning": "mùa hè",
+      "image": "860176ffdb.jpg",
+      "query": "summer beach sun",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/4075456/pexels-photo-4075456.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/coconut-trees-on-beach-under-blue-sky-and-white-clouds-4075456/",
+        "photographer": "Enzo",
+        "photographer_url": "https://www.pexels.com/@enzocarada",
+        "license": "Pexels License"
+      }
+    }
+  ]
+}

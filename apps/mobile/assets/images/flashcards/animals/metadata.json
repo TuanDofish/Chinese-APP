@@ -8,61 +8,151 @@
       "word": "猫",
       "pinyin": "māo",
       "meaning": "mèo",
-      "image": "b655de688e.jpg"
+      "image": "b655de688e.jpg",
+      "query": "cat animal cute",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/33444883/pexels-photo-33444883.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/adorable-black-and-white-kitten-portrait-33444883/",
+        "photographer": "Faisal  Hendra",
+        "photographer_url": "https://www.pexels.com/@faisalhendra",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "狗",
       "pinyin": "gǒu",
       "meaning": "chó",
-      "image": "5090e44ef9.jpg"
+      "image": "5090e44ef9.jpg",
+      "query": "dog animal cute",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/16254908/pexels-photo-16254908.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/a-portrait-of-a-cute-dog-16254908/",
+        "photographer": "Sudhir Sangwan",
+        "photographer_url": "https://www.pexels.com/@sudhirsangwan",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "鸟",
       "pinyin": "niǎo",
       "meaning": "chim",
-      "image": "cdd7ce48a9.jpg"
+      "image": "cdd7ce48a9.jpg",
+      "query": "bird colorful",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/31852029/pexels-photo-31852029.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/colorful-turaco-perched-in-lush-green-jungle-31852029/",
+        "photographer": "T6 Adventures",
+        "photographer_url": "https://www.pexels.com/@t6adventures",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "鱼",
       "pinyin": "yú",
       "meaning": "cá",
-      "image": "0857fa4e34.jpg"
+      "image": "0857fa4e34.jpg",
+      "query": "fish underwater",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/4498933/pexels-photo-4498933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/sea-fishes-swimming-in-bottom-in-blue-water-4498933/",
+        "photographer": "wewe yang",
+        "photographer_url": "https://www.pexels.com/@wewe-yang-2383099",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "马",
       "pinyin": "mǎ",
       "meaning": "ngựa",
-      "image": "4e2572e0c7.jpg"
+      "image": "4e2572e0c7.jpg",
+      "query": "horse running",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/10823059/pexels-photo-10823059.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/two-horses-running-on-grass-10823059/",
+        "photographer": "Jose  Fagundes",
+        "photographer_url": "https://www.pexels.com/@jose-fagundes-161733207",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "牛",
       "pinyin": "niú",
       "meaning": "bò",
-      "image": "a933ef6a9b.jpg"
+      "image": "a933ef6a9b.jpg",
+      "query": "cow farm",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/27035492/pexels-photo-27035492.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/black-and-white-photo-of-cows-on-a-pasture-27035492/",
+        "photographer": "Giulia Botan",
+        "photographer_url": "https://www.pexels.com/@botanphotography",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "羊",
       "pinyin": "yáng",
       "meaning": "cừu",
-      "image": "a136f339af.jpg"
+      "image": "a136f339af.jpg",
+      "query": "sheep wool",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/35005847/pexels-photo-35005847.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/close-up-of-sheep-in-a-barnyard-setting-35005847/",
+        "photographer": "Jay Moon",
+        "photographer_url": "https://www.pexels.com/@jay-moon-2149536798",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "兔",
       "pinyin": "tù",
       "meaning": "thỏ",
-      "image": "ff5e0a155e.jpg"
+      "image": "ff5e0a155e.jpg",
+      "query": "rabbit cute",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/36587617/pexels-photo-36587617.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/fluffy-white-rabbit-in-cage-with-human-interaction-36587617/",
+        "photographer": "Blackcurrant Great",
+        "photographer_url": "https://www.pexels.com/@blackcurrant-great-2016663774",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "熊猫",
-      "pinyin": "xióngmāo",
+      "pinyin": "xióng māo",
       "meaning": "gấu trúc",
-      "image": "b1a6effdd5.jpg"
+      "image": "b1a6effdd5.jpg",
+      "query": "panda bear bamboo",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/33710714/pexels-photo-33710714.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/giant-panda-eating-bamboo-in-hong-kong-zoo-33710714/",
+        "photographer": "Jobelle Meana",
+        "photographer_url": "https://www.pexels.com/@jobelle-meana-2154582150",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "老虎",
-      "pinyin": "lǎohǔ",
+      "pinyin": "lǎo hǔ",
       "meaning": "hổ",
-      "image": "38a3d1ca0b.jpg"
+      "image": "38a3d1ca0b.jpg",
+      "query": "tiger wild",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/145971/pexels-photo-145971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/tiger-beside-tree-145971/",
+        "photographer": "Flickr",
+        "photographer_url": "https://www.pexels.com/@flickr",
+        "license": "Pexels License"
+      }
     }
   ]
 }

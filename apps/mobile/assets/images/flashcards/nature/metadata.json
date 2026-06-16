@@ -1,0 +1,158 @@
+{
+  "id": "nature",
+  "name": "Thiên nhiên",
+  "nameCn": "自然",
+  "color": "#009688",
+  "words": [
+    {
+      "word": "山",
+      "pinyin": "shān",
+      "meaning": "núi",
+      "image": "86fa9c82d8.jpg",
+      "query": "mountain landscape",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/12784538/pexels-photo-12784538.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/spiky-snowed-mountains-12784538/",
+        "photographer": "Alexander Popovkin",
+        "photographer_url": "https://www.pexels.com/@popovkin",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "河",
+      "pinyin": "hé",
+      "meaning": "sông",
+      "image": "5ea03ddf50.jpg",
+      "query": "river landscape",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/28491928/pexels-photo-28491928.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/scenic-sunrise-over-mississippi-river-in-wabasha-28491928/",
+        "photographer": "Tom Fisk",
+        "photographer_url": "https://www.pexels.com/@tomfisk",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "海",
+      "pinyin": "hǎi",
+      "meaning": "biển",
+      "image": "9aa7f82989.jpg",
+      "query": "ocean sea",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/32267455/pexels-photo-32267455.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/dramatic-ocean-waves-with-white-foam-32267455/",
+        "photographer": "Orange Ocean",
+        "photographer_url": "https://www.pexels.com/@orange-ocean-243774902",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "花",
+      "pinyin": "huā",
+      "meaning": "hoa",
+      "image": "22dbba75b9.jpg",
+      "query": "flower closeup",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/20954403/pexels-photo-20954403.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/delicate-purple-flower-20954403/",
+        "photographer": "Petr Ganaj",
+        "photographer_url": "https://www.pexels.com/@ganajp",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "树",
+      "pinyin": "shù",
+      "meaning": "cây",
+      "image": "302f276a93.jpg",
+      "query": "tree forest",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/1635905/pexels-photo-1635905.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/photo-of-forest-1635905/",
+        "photographer": "zhugewala",
+        "photographer_url": "https://www.pexels.com/@zhugewala-605070",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "草",
+      "pinyin": "cǎo",
+      "meaning": "cỏ",
+      "image": "7d3cfe8c4e.jpg",
+      "query": "green grass",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/12079623/pexels-photo-12079623.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/grass-growing-in-summer-12079623/",
+        "photographer": "Nguyen Hung",
+        "photographer_url": "https://www.pexels.com/@mh92",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "天空",
+      "pinyin": "tiān kōng",
+      "meaning": "bầu trời",
+      "image": "1667312395.jpg",
+      "query": "blue sky clouds",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/246230/pexels-photo-246230.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/low-angle-photography-of-clouds-246230/",
+        "photographer": "napasorn disaraporn",
+        "photographer_url": "https://www.pexels.com/@napasorn-disaraporn-79430",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "风景",
+      "pinyin": "fēng jǐng",
+      "meaning": "phong cảnh",
+      "image": "fc30335a73.jpg",
+      "query": "beautiful landscape",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/10405779/pexels-photo-10405779.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/silhouette-of-mountains-and-a-sea-of-clouds-10405779/",
+        "photographer": "Ferencz Istvan",
+        "photographer_url": "https://www.pexels.com/@20hertz",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "太阳",
+      "pinyin": "tài yáng",
+      "meaning": "mặt trời",
+      "image": "d32b766612.jpg",
+      "query": "sun in sky",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/10205403/pexels-photo-10205403.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/the-sun-behind-dark-clouds-10205403/",
+        "photographer": "Shashwat Goyar",
+        "photographer_url": "https://www.pexels.com/@shashwatgoyar",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "雨",
+      "pinyin": "yǔ",
+      "meaning": "mưa",
+      "image": "95433763b3.jpg",
+      "query": "rain drops window",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/13986935/pexels-photo-13986935.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/raindrops-on-glass-13986935/",
+        "photographer": "Lindsey Garrett",
+        "photographer_url": "https://www.pexels.com/@lindseygarrett",
+        "license": "Pexels License"
+      }
+    }
+  ]
+}

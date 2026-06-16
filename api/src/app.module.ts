@@ -16,6 +16,12 @@ import { GrammarController } from './grammar.controller';
 import { GrammarCheckController } from './grammar-check.controller';
 import { DictionaryModule } from './dictionary.module';
 import { ReadingController } from './reading.controller';
+import { AuthController } from './auth.controller';
+import { AuthService } from './auth.service';
+import { ContentController } from './content.controller';
+import { ContentService } from './content.service';
+import { LearningController } from './learning.controller';
+import { LearningService } from './learning.service';
 
 @Module({
   imports: [
@@ -38,10 +44,10 @@ import { ReadingController } from './reading.controller';
         QuizQuestion,
         ExampleSentence,
       ],
-      synchronize: true, // Auto-create tables in dev. Set to false in production!
-      logging: true,
+      synchronize: process.env.DB_SYNC === 'true',
+      logging: process.env.DB_LOGGING === 'true',
     }),
-    TypeOrmModule.forFeature([Grammar]),
+    TypeOrmModule.forFeature([Grammar, User]),
     DictionaryModule,
   ],
   controllers: [
@@ -49,7 +55,10 @@ import { ReadingController } from './reading.controller';
     GrammarController,
     GrammarCheckController,
     ReadingController,
+    AuthController,
+    ContentController,
+    LearningController,
   ],
-  providers: [AppService],
+  providers: [AppService, AuthService, ContentService, LearningService],
 })
 export class AppModule {}

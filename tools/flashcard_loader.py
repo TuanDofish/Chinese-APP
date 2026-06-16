@@ -41,11 +41,11 @@ DEFAULT_MANIFEST = SCRIPT_DIR / "flashcard_manifest.json"
 OUTPUT_DIR = PROJECT_ROOT / "apps" / "mobile" / "assets" / "images" / "flashcards"
 TOPICS_DIR = PROJECT_ROOT / "apps" / "mobile" / "assets" / "images" / "topics"
 
-# Kích thước ảnh xuất ra
+# Kich thuoc anh xuat ra. Flashcard chi can anh gon, khong can anh goc 4K.
 IMAGE_SIZES = {
-    "low":    (200, 200),
-    "medium": (400, 400),
-    "high":   (600, 600),
+    "low":    (320, 320),
+    "medium": (512, 512),
+    "high":   (768, 768),
 }
 
 # Nguồn ảnh
@@ -55,8 +55,8 @@ PEXELS_KEY   = os.environ.get("PEXELS_API_KEY",       "")
 
 # ─── Hàm tải ảnh ──────────────────────────────────────────────────────────────
 
-def search_unsplash(query: str, api_key: str) -> Optional[str]:
-    """Tìm ảnh từ Unsplash API, trả về URL ảnh nhỏ."""
+def search_unsplash(query: str, api_key: str) -> Optional[dict[str, str]]:
+    """Tim anh tu Unsplash API, tra ve URL va metadata nguon."""
     if not api_key:
         return None
     q = urllib.parse.quote(query)
@@ -64,63 +64,91 @@ def search_unsplash(query: str, api_key: str) -> Optional[str]:
     req = urllib.request.Request(url, headers={
         "Authorization": f"Client-ID {api_key}",
         "Accept-Version": "v1",
+        "User-Agent": "VNChineseFlashcards/1.0",
     })
     try:
         with urllib.request.urlopen(req, timeout=10) as r:
             data = json.loads(r.read().decode())
             results = data.get("results", [])
             if results:
-                return results[0]["urls"]["small"]
+                item = results[0]
+                return {
+                    "provider": "Unsplash",
+                    "url": item["urls"].get("regular") or item["urls"]["small"],
+                    "photo_url": item.get("links", {}).get("html", ""),
+                    "photographer": item.get("user", {}).get("name", ""),
+                    "photographer_url": item.get("user", {}).get("links", {}).get("html", ""),
+                    "license": "Unsplash License",
+                }
     except Exception as e:
         print(f"   ⚠ Unsplash error: {e}")
     return None
 
 
-def search_pexels(query: str, api_key: str) -> Optional[str]:
-    """Tìm ảnh từ Pexels API, trả về URL ảnh nhỏ."""
+def search_pexels(query: str, api_key: str) -> Optional[dict[str, str]]:
+    """Tim anh tu Pexels API, tra ve URL va metadata nguon."""
     if not api_key:
         return None
     q = urllib.parse.quote(query)
     url = f"https://api.pexels.com/v1/search?query={q}&per_page=1&orientation=square"
-    req = urllib.request.Request(url, headers={"Authorization": api_key})
+    req = urllib.request.Request(url, headers={
+        "Authorization": api_key,
+        "User-Agent": "VNChineseFlashcards/1.0",
+    })
     try:
         with urllib.request.urlopen(req, timeout=10) as r:
             data = json.loads(r.read().decode())
             photos = data.get("photos", [])
             if photos:
-                return photos[0]["src"]["medium"]
+                item = photos[0]
+                src = item.get("src", {})
+                return {
+                    "provider": "Pexels",
+                    "url": src.get("large2x") or src.get("large") or src.get("medium"),
+                    "photo_url": item.get("url", ""),
+                    "photographer": item.get("photographer", ""),
+                    "photographer_url": item.get("photographer_url", ""),
+                    "license": "Pexels License",
+                }
     except Exception as e:
         print(f"   ⚠ Pexels error: {e}")
     return None
 
 
-def download_with_fallback(query: str, word: str, source: str) -> Optional[bytes]:
-    """Thử tải ảnh từ nguồn chính, fallback sang nguồn phụ nếu thất bại."""
-    url = None
+def download_with_fallback(query: str, word: str, source: str) -> tuple[Optional[bytes], dict[str, str]]:
+    """Tai anh tu nguon chinh, fallback sang nguon phu neu that bai."""
+    photo: Optional[dict[str, str]] = None
 
     if source == "pexels":
-        url = search_pexels(query, PEXELS_KEY)
-        if not url:
-            url = search_unsplash(query, UNSPLASH_KEY)
+        photo = search_pexels(query, PEXELS_KEY)
+        if not photo:
+            photo = search_unsplash(query, UNSPLASH_KEY)
     else:  # unsplash (default)
-        url = search_unsplash(query, UNSPLASH_KEY)
-        if not url:
-            url = search_pexels(query, PEXELS_KEY)
+        photo = search_unsplash(query, UNSPLASH_KEY)
+        if not photo:
+            photo = search_pexels(query, PEXELS_KEY)
 
-    if not url:
-        # Fallback: ảnh placeholder từ placehold.co (không cần API key)
+    if not photo:
+        # Fallback: placeholder tu placehold.co (khong can API key).
         word_enc = urllib.parse.quote(word)
-        url = f"https://placehold.co/400x400/E53935/FFFFFF/png?text={word_enc}"
+        photo = {
+            "provider": "placehold.co",
+            "url": f"https://placehold.co/400x400/E53935/FFFFFF/png?text={word_enc}",
+            "photo_url": "",
+            "photographer": "",
+            "photographer_url": "",
+            "license": "Placeholder",
+        }
 
     try:
-        req = urllib.request.Request(url, headers={
+        req = urllib.request.Request(photo["url"], headers={
             "User-Agent": "FlashcardLoader/1.0"
         })
         with urllib.request.urlopen(req, timeout=15) as r:
-            return r.read()
+            return r.read(), photo
     except Exception as e:
-        print(f"   ✗ Không thể tải ảnh ({url[:60]}...): {e}")
-    return None
+        print(f"   ✗ Không thể tải ảnh ({photo['url'][:60]}...): {e}")
+    return None, photo
 
 
 def resize_image(data: bytes, target_size: tuple) -> bytes:
@@ -154,7 +182,7 @@ def load_manifest(path: Path) -> dict:
 
 
 def process_topic(topic: dict, output_dir: Path, quality: str, source: str,
-                  dry_run: bool, delay: float, summary: dict):
+                  dry_run: bool, delay: float, force: bool, summary: dict):
     topic_id = topic["id"]
     topic_dir = output_dir / topic_id
     topic_dir.mkdir(parents=True, exist_ok=True)
@@ -169,6 +197,18 @@ def process_topic(topic: dict, output_dir: Path, quality: str, source: str,
         "color": topic.get("color", "#D32F2F"),
         "words": [],
     }
+    existing_words: dict[str, dict] = {}
+    meta_path = topic_dir / "metadata.json"
+    if meta_path.exists():
+        try:
+            existing_meta = json.loads(meta_path.read_text(encoding="utf-8"))
+            existing_words = {
+                item.get("word", ""): item
+                for item in existing_meta.get("words", [])
+                if isinstance(item, dict)
+            }
+        except Exception:
+            existing_words = {}
 
     for i, word_entry in enumerate(topic["words"], 1):
         word   = word_entry["word"]
@@ -182,19 +222,23 @@ def process_topic(topic: dict, output_dir: Path, quality: str, source: str,
 
         print(f"  [{i:2d}/{len(topic['words'])}] {word} ({pinyin}) --- {meaning}")
 
-        if fpath.exists():
+        source_meta: dict[str, str] = {}
+
+        if fpath.exists() and not force:
+            source_meta = existing_words.get(word, {}).get("source", {})
             print(f"         [OK] Da co anh: {fname}")
             summary["skipped"] += 1
         elif dry_run:
             print(f"         [DRY RUN] se tai: {query}")
             summary["would_download"] += 1
         else:
-            img_data = download_with_fallback(query, word, source)
+            img_data, source_meta = download_with_fallback(query, word, source)
             if img_data:
                 size = IMAGE_SIZES.get(quality, IMAGE_SIZES["medium"])
                 img_data = resize_image(img_data, size)
                 fpath.write_bytes(img_data)
-                print(f"         [OK] Da luu ({len(img_data)//1024} KB)")
+                provider = source_meta.get("provider", source)
+                print(f"         [OK] Da luu ({len(img_data)//1024} KB) tu {provider}")
                 summary["downloaded"] += 1
             else:
                 print(f"         [FAIL] That bai")
@@ -206,10 +250,11 @@ def process_topic(topic: dict, output_dir: Path, quality: str, source: str,
             "pinyin":  pinyin,
             "meaning": meaning,
             "image":   fname if (dry_run or fpath.exists()) else "",
+            "query":   query,
+            "source":  source_meta,
         })
 
     # Lưu metadata.json
-    meta_path = topic_dir / "metadata.json"
     with open(meta_path, "w", encoding="utf-8") as f:
         json.dump(meta, f, ensure_ascii=False, indent=2)
     print(f"  [meta] Da luu metadata: {meta_path.name}")
@@ -266,6 +311,10 @@ def main():
         "--dry-run", action="store_true",
         help="Chạy thử — chỉ hiển thị, không tải ảnh"
     )
+    parser.add_argument(
+        "--force", action="store_true",
+        help="Tai lai va ghi de anh da co san"
+    )
     args = parser.parse_args()
 
     manifest_path = Path(args.manifest)
@@ -308,7 +357,7 @@ def main():
     for topic in topics:
         process_topic(
             topic, output_dir, args.quality, args.source,
-            args.dry_run, args.delay, summary
+            args.dry_run, args.delay, args.force, summary
         )
 
     if not args.dry_run:

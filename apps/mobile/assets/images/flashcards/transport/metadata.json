@@ -6,51 +6,123 @@
   "words": [
     {
       "word": "汽车",
-      "pinyin": "qìchē",
+      "pinyin": "qì chē",
       "meaning": "ô tô",
-      "image": "b64c412083.jpg"
+      "image": "b64c412083.jpg",
+      "query": "car automobile",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/24800195/pexels-photo-24800195.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/blue-bmw-car-24800195/",
+        "photographer": "Furkan  Aktaş",
+        "photographer_url": "https://www.pexels.com/@furkanakt",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "公共汽车",
-      "pinyin": "gōnggòng qìchē",
+      "pinyin": "gōng gòng qì chē",
       "meaning": "xe buýt",
-      "image": "b24186f7c7.jpg"
+      "image": "b24186f7c7.jpg",
+      "query": "bus city transport",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/3829175/pexels-photo-3829175.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/photo-of-a-bus-3829175/",
+        "photographer": "Elijah O'Donnell",
+        "photographer_url": "https://www.pexels.com/@elijahsad",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "地铁",
-      "pinyin": "dìtiě",
+      "pinyin": "dì tiě",
       "meaning": "tàu điện ngầm",
-      "image": "9266202469.jpg"
+      "image": "9266202469.jpg",
+      "query": "subway metro train",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/5059248/pexels-photo-5059248.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/trains-at-the-metro-station-5059248/",
+        "photographer": "Max Avans",
+        "photographer_url": "https://www.pexels.com/@maxavans",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "火车",
-      "pinyin": "huǒchē",
+      "pinyin": "huǒ chē",
       "meaning": "tàu hỏa",
-      "image": "e7e95e6813.jpg"
+      "image": "e7e95e6813.jpg",
+      "query": "train railway",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/32208748/pexels-photo-32208748.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/train-crossing-road-with-signal-lights-on-a-sunny-day-32208748/",
+        "photographer": "Xanx1et Raw",
+        "photographer_url": "https://www.pexels.com/@xanx1et-raw-2152427550",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "飞机",
-      "pinyin": "fēijī",
+      "pinyin": "fēi jī",
       "meaning": "máy bay",
-      "image": "16678800cf.jpg"
+      "image": "16678800cf.jpg",
+      "query": "airplane sky flying",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/16757167/pexels-photo-16757167.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/airplane-on-sky-16757167/",
+        "photographer": "abdullah shareef6602",
+        "photographer_url": "https://www.pexels.com/@abdullah-shareef6602-3226145",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "自行车",
-      "pinyin": "zìxíngchē",
+      "pinyin": "zì xíng chē",
       "meaning": "xe đạp",
-      "image": "b73c6e34a1.jpg"
+      "image": "b73c6e34a1.jpg",
+      "query": "bicycle cycling",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/16778082/pexels-photo-16778082.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/bicycle-handle-with-metal-bell-16778082/",
+        "photographer": "Hortobágyi Marcell",
+        "photographer_url": "https://www.pexels.com/@hortobagyi-marcell-537667380",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "摩托车",
-      "pinyin": "mótuōchē",
+      "pinyin": "mó tuō chē",
       "meaning": "xe máy",
-      "image": "fed19a817b.jpg"
+      "image": "fed19a817b.jpg",
+      "query": "motorcycle",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/15036850/pexels-photo-15036850.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/motorcyclist-on-road-at-sunset-15036850/",
+        "photographer": "eduardo199o9",
+        "photographer_url": "https://www.pexels.com/@eduardo199o9-178988127",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "船",
       "pinyin": "chuán",
       "meaning": "thuyền",
-      "image": "7def9ee0ca.jpg"
+      "image": "7def9ee0ca.jpg",
+      "query": "boat ship water",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/1636500/pexels-photo-1636500.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/white-cruise-ship-on-calm-water-photography-1636500/",
+        "photographer": "Abdulmomen Bsruki",
+        "photographer_url": "https://www.pexels.com/@bluemix",
+        "license": "Pexels License"
+      }
     }
   ]
 }

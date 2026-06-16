@@ -10,9 +10,9 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Post('grammar/check')
-  checkGrammar(@Body('text') text: string) {
-    return this.appService.checkGrammar(text ?? '');
+  @Get('health')
+  getHealth() {
+    return this.appService.getHealth();
   }
 
   @Get('profile')
@@ -25,6 +25,22 @@ export class AppController {
     @Body() body: { level?: string; words?: number; minutes?: number },
   ) {
     return this.appService.updateGoal(body);
+  }
+
+  @Post('ai/chat')
+  chat(
+    @Body()
+    body: {
+      message?: string;
+      level?: string;
+      history?: { role?: string; text?: string }[];
+    },
+  ) {
+    return this.appService.chat(
+      body.message ?? '',
+      body.level ?? 'HSK 2',
+      body.history ?? [],
+    );
   }
 
   @Get('flashcard/image-suggestion')

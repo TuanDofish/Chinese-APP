@@ -1,0 +1,158 @@
+{
+  "id": "greeting",
+  "name": "Chào hỏi cơ bản",
+  "nameCn": "问候",
+  "color": "#E0A326",
+  "words": [
+    {
+      "word": "你好",
+      "pinyin": "nǐ hǎo",
+      "meaning": "xin chào",
+      "image": "7eca689f0d.jpg",
+      "query": "friendly people saying hello",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/17060523/pexels-photo-17060523.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/laughing-man-in-traditional-clothing-17060523/",
+        "photographer": "Saraí Carrasco",
+        "photographer_url": "https://www.pexels.com/@sarai-carrasco-582280545",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "谢谢",
+      "pinyin": "xiè xiè",
+      "meaning": "cảm ơn",
+      "image": "a34490b593.jpg",
+      "query": "person saying thank you smiling",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/11579595/pexels-photo-11579595.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/a-bearded-man-wearing-eyeglasses-11579595/",
+        "photographer": "Val Kilmer Donadillo",
+        "photographer_url": "https://www.pexels.com/@val-kilmer-donadillo-181572755",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "再见",
+      "pinyin": "zài jiàn",
+      "meaning": "tạm biệt",
+      "image": "8e5c0a1e46.jpg",
+      "query": "friends waving goodbye",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/5288826/pexels-photo-5288826.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/young-women-sitting-together-on-road-in-park-5288826/",
+        "photographer": "Khoa Võ",
+        "photographer_url": "https://www.pexels.com/@khoa-vo-2347168",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "对不起",
+      "pinyin": "duì bù qǐ",
+      "meaning": "xin lỗi",
+      "image": "cd51c8c91e.jpg",
+      "query": "apology sorry person",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/29615996/pexels-photo-29615996.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/smiling-young-man-in-outdoor-setting-29615996/",
+        "photographer": "Cesar  Lalangui Eras",
+        "photographer_url": "https://www.pexels.com/@cesar-lalangui-eras-97607631",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "没关系",
+      "pinyin": "méi guān xì",
+      "meaning": "không sao",
+      "image": "ac85b3780c.jpg",
+      "query": "friends forgiving smiling",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/2386192/pexels-photo-2386192.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/photo-of-two-smiling-women-standing-together-2386192/",
+        "photographer": "Gitz",
+        "photographer_url": "https://www.pexels.com/@gitzhq",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "请",
+      "pinyin": "qǐng",
+      "meaning": "xin mời",
+      "image": "d1a34a5779.jpg",
+      "query": "polite welcome gesture open door",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/28908752/pexels-photo-28908752.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/open-doorway-with-sunlit-exterior-view-28908752/",
+        "photographer": "travelers_tw",
+        "photographer_url": "https://www.pexels.com/@travelers_tw-1445512897",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "你",
+      "pinyin": "nǐ",
+      "meaning": "bạn",
+      "image": "df1fd91011.jpg",
+      "query": "person portrait smiling",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/3936894/pexels-photo-3936894.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/selective-focus-photo-of-woman-smiling-3936894/",
+        "photographer": "Татьяна Танатова",
+        "photographer_url": "https://www.pexels.com/@2192742",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "我",
+      "pinyin": "wǒ",
+      "meaning": "tôi",
+      "image": "1681525453.jpg",
+      "query": "person pointing to self",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/14997034/pexels-photo-14997034.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/shocked-man-pointing-finger-14997034/",
+        "photographer": "Brandon Athey",
+        "photographer_url": "https://www.pexels.com/@brandon-athey-150336",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "他",
+      "pinyin": "tā",
+      "meaning": "anh ấy",
+      "image": "5fe86c60de.jpg",
+      "query": "smiling man portrait",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/6102841/pexels-photo-6102841.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/portrait-of-a-man-with-a-hat-smiling-6102841/",
+        "photographer": "Amir SeilSepour",
+        "photographer_url": "https://www.pexels.com/@amiresel",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "她",
+      "pinyin": "tā",
+      "meaning": "cô ấy",
+      "image": "92f3ca76d5.jpg",
+      "query": "smiling woman portrait",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/36287434/pexels-photo-36287434.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/elderly-woman-in-traditional-vietnamese-attire-36287434/",
+        "photographer": "Christine Blanchet",
+        "photographer_url": "https://www.pexels.com/@christine-blanchet-817371637",
+        "license": "Pexels License"
+      }
+    }
+  ]
+}

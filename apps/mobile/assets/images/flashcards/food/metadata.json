@@ -6,63 +6,153 @@
   "words": [
     {
       "word": "米饭",
-      "pinyin": "mǐfàn",
+      "pinyin": "mǐ fàn",
       "meaning": "cơm",
-      "image": "edfec00f07.jpg"
+      "image": "edfec00f07.jpg",
+      "query": "rice bowl steamed",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/343871/pexels-photo-343871.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/selective-focus-photography-of-fried-rice-in-bowl-343871/",
+        "photographer": "Jay Abrantes",
+        "photographer_url": "https://www.pexels.com/@meguchi",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "面条",
-      "pinyin": "miàntiáo",
+      "pinyin": "miàn tiáo",
       "meaning": "mì",
-      "image": "814b1c8d80.jpg"
+      "image": "814b1c8d80.jpg",
+      "query": "noodles chinese food",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/14853728/pexels-photo-14853728.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/chopsticks-on-pasta-14853728/",
+        "photographer": "Alan Retano",
+        "photographer_url": "https://www.pexels.com/@alan-retano-369197863",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "饺子",
-      "pinyin": "jiǎozi",
+      "pinyin": "jiǎo zi",
       "meaning": "há cảo",
-      "image": "dc02d72e23.jpg"
+      "image": "dc02d72e23.jpg",
+      "query": "dumplings chinese",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/14457519/pexels-photo-14457519.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/dumplings-and-red-sauce-on-black-plate-14457519/",
+        "photographer": "tanish  pathania",
+        "photographer_url": "https://www.pexels.com/@tanish-pathania-201200952",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "包子",
-      "pinyin": "bāozi",
+      "pinyin": "bāo zi",
       "meaning": "bánh bao",
-      "image": "68e695653b.jpg"
+      "image": "68e695653b.jpg",
+      "query": "steamed bun chinese",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/24029950/pexels-photo-24029950.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/korean-dumplings-in-wooden-bowl-24029950/",
+        "photographer": "Markus Winkler",
+        "photographer_url": "https://www.pexels.com/@markus-winkler-1430818",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "水果",
-      "pinyin": "shuǐguǒ",
+      "pinyin": "shuǐ guǒ",
       "meaning": "hoa quả",
-      "image": "64254630ba.jpg"
+      "image": "64254630ba.jpg",
+      "query": "fresh fruit colorful",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/33434017/pexels-photo-33434017.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/vibrant-citrus-fruit-arrangement-with-splashing-juice-33434017/",
+        "photographer": "hamzaoui fatma",
+        "photographer_url": "https://www.pexels.com/@hamzaoui-fatma-2153886935",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "蔬菜",
-      "pinyin": "shūcài",
+      "pinyin": "shū cài",
       "meaning": "rau củ",
-      "image": "bf44b741b2.jpg"
+      "image": "bf44b741b2.jpg",
+      "query": "vegetables fresh",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/33622710/pexels-photo-33622710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/fresh-colorful-vegetables-displayed-at-market-33622710/",
+        "photographer": "Rumata E",
+        "photographer_url": "https://www.pexels.com/@rumata",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "苹果",
-      "pinyin": "píngguǒ",
+      "pinyin": "píng guǒ",
       "meaning": "táo",
-      "image": "e6803e21b9.jpg"
+      "image": "e6803e21b9.jpg",
+      "query": "apple red fruit",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/red-and-orange-apple-fruit-102104/",
+        "photographer": "mali maeder",
+        "photographer_url": "https://www.pexels.com/@mali",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "香蕉",
-      "pinyin": "xiāngjiāo",
+      "pinyin": "xiāng jiāo",
       "meaning": "chuối",
-      "image": "b7c03bbf2b.jpg"
+      "image": "b7c03bbf2b.jpg",
+      "query": "banana yellow fruit",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/16829201/pexels-photo-16829201.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/bananas-on-purple-background-16829201/",
+        "photographer": "Carlie Wright",
+        "photographer_url": "https://www.pexels.com/@thesocialsundae",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "茶",
       "pinyin": "chá",
       "meaning": "trà",
-      "image": "a001ed1cf1.jpg"
+      "image": "a001ed1cf1.jpg",
+      "query": "tea cup chinese",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/31956301/pexels-photo-31956301.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/elegant-chinese-tea-set-with-loose-leaf-tea-display-31956301/",
+        "photographer": "荼兰 DSGC",
+        "photographer_url": "https://www.pexels.com/@dsgc-2151967151",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "汤",
       "pinyin": "tāng",
       "meaning": "canh",
-      "image": "9c6d2f2f45.jpg"
+      "image": "9c6d2f2f45.jpg",
+      "query": "soup bowl hot",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/8696758/pexels-photo-8696758.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/a-bowl-of-soup-and-a-basket-of-bread-on-a-table-8696758/",
+        "photographer": "Farhad Ibrahimzade",
+        "photographer_url": "https://www.pexels.com/@farhad",
+        "license": "Pexels License"
+      }
     }
   ]
 }

@@ -1,0 +1,158 @@
+{
+  "id": "home",
+  "name": "Nhà cửa",
+  "nameCn": "家居",
+  "color": "#7E4C8B",
+  "words": [
+    {
+      "word": "房间",
+      "pinyin": "fáng jiān",
+      "meaning": "phòng",
+      "image": "9bdfe95fda.jpg",
+      "query": "cozy room interior",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/12506515/pexels-photo-12506515.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/vintage-tv-in-room-12506515/",
+        "photographer": "Yusuf P",
+        "photographer_url": "https://www.pexels.com/@artyusufpatel",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "门",
+      "pinyin": "mén",
+      "meaning": "cửa",
+      "image": "a4960087a9.jpg",
+      "query": "front door",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/8646429/pexels-photo-8646429.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/wooden-doors-of-a-building-8646429/",
+        "photographer": "Anna Vershinkina",
+        "photographer_url": "https://www.pexels.com/@anna-vershinkina-77351027",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "窗户",
+      "pinyin": "chuāng hù",
+      "meaning": "cửa sổ",
+      "image": "56c15f3b40.jpg",
+      "query": "window sunlight room",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/14987344/pexels-photo-14987344.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/light-coming-through-windows-in-old-abandoned-building-14987344/",
+        "photographer": "Yiğit  KARAALİOĞLU",
+        "photographer_url": "https://www.pexels.com/@ygtphoto",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "桌子",
+      "pinyin": "zhuō zi",
+      "meaning": "cái bàn",
+      "image": "9e2fde20b6.jpg",
+      "query": "wooden table",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/9290603/pexels-photo-9290603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/long-table-and-chairs-9290603/",
+        "photographer": "Alexandra Kollstrem",
+        "photographer_url": "https://www.pexels.com/@alexandra-kollstrem-77751824",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "椅子",
+      "pinyin": "yǐ zi",
+      "meaning": "cái ghế",
+      "image": "43876e0825.jpg",
+      "query": "chair furniture",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/3104526/pexels-photo-3104526.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/empty-chairs-3104526/",
+        "photographer": "Vicky Tran",
+        "photographer_url": "https://www.pexels.com/@vicky",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "床",
+      "pinyin": "chuáng",
+      "meaning": "giường",
+      "image": "1696a59602.jpg",
+      "query": "bed bedroom",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/16951262/pexels-photo-16951262.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/bed-in-bedroom-16951262/",
+        "photographer": "Moises Arias",
+        "photographer_url": "https://www.pexels.com/@moii",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "杯子",
+      "pinyin": "bēi zi",
+      "meaning": "cốc",
+      "image": "51baa713ed.jpg",
+      "query": "cup mug table",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/30742323/pexels-photo-30742323.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/cozy-evening-with-a-steaming-cup-of-tea-30742323/",
+        "photographer": "Anzor Dukaev",
+        "photographer_url": "https://www.pexels.com/@anzor-dukaev-1624292017",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "电视",
+      "pinyin": "diàn shì",
+      "meaning": "tivi",
+      "image": "3a2f904027.jpg",
+      "query": "television living room",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/28195650/pexels-photo-28195650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/a-modern-tv-stand-with-a-blue-wall-behind-it-28195650/",
+        "photographer": "Pușcaș Adryan",
+        "photographer_url": "https://www.pexels.com/@pu-ca-adryan-163345030",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "电脑",
+      "pinyin": "diàn nǎo",
+      "meaning": "máy tính",
+      "image": "e855972ea9.jpg",
+      "query": "computer laptop desk",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/29283981/pexels-photo-29283981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/colorful-home-office-with-computer-setup-and-lighting-29283981/",
+        "photographer": "Kenneth Surillo",
+        "photographer_url": "https://www.pexels.com/@kenzero14",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "家",
+      "pinyin": "jiā",
+      "meaning": "nhà",
+      "image": "a6cdd2a00b.jpg",
+      "query": "happy home house",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/31674740/pexels-photo-31674740.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/traditional-rural-house-surrounded-by-greenery-31674740/",
+        "photographer": "V_shnu Srv_n",
+        "photographer_url": "https://www.pexels.com/@v_shnu-srv_n-1458996854",
+        "license": "Pexels License"
+      }
+    }
+  ]
+}

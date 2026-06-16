@@ -1,0 +1,78 @@
+{
+  "id": "media_society",
+  "name": "Truyền thông và xã hội",
+  "nameCn": "媒体与社会",
+  "color": "#7E4C8B",
+  "words": [
+    {
+      "word": "新闻",
+      "pinyin": "xīnwén",
+      "meaning": "tin tức",
+      "image": "d2fb1e3e17.jpg",
+      "query": "news camera media"
+    },
+    {
+      "word": "广告",
+      "pinyin": "guǎnggào",
+      "meaning": "quảng cáo",
+      "image": "70ceb33a9b.jpg",
+      "query": "advertising city business"
+    },
+    {
+      "word": "观众",
+      "pinyin": "guānzhòng",
+      "meaning": "khán giả",
+      "image": "1ff96246c4.jpg",
+      "query": "audience gathering people"
+    },
+    {
+      "word": "网络",
+      "pinyin": "wǎngluò",
+      "meaning": "mạng internet",
+      "image": "95521bb744.jpg",
+      "query": "internet digital media"
+    },
+    {
+      "word": "社会",
+      "pinyin": "shèhuì",
+      "meaning": "xã hội",
+      "image": "ce4ba240fb.jpg",
+      "query": "society community people"
+    },
+    {
+      "word": "文化",
+      "pinyin": "wénhuà",
+      "meaning": "văn hóa",
+      "image": "f9f7bb6679.jpg",
+      "query": "culture festival community"
+    },
+    {
+      "word": "服务",
+      "pinyin": "fúwù",
+      "meaning": "dịch vụ",
+      "image": "47d68cd0f4.jpg",
+      "query": "service customer desk"
+    },
+    {
+      "word": "电视",
+      "pinyin": "diànshì",
+      "meaning": "tivi",
+      "image": "3a2f904027.jpg",
+      "query": "television media"
+    },
+    {
+      "word": "交通",
+      "pinyin": "jiāotōng",
+      "meaning": "giao thông",
+      "image": "c8ace4e283.jpg",
+      "query": "city traffic society"
+    },
+    {
+      "word": "电影",
+      "pinyin": "diànyǐng",
+      "meaning": "phim",
+      "image": "51e9743451.jpg",
+      "query": "movie media"
+    }
+  ]
+}

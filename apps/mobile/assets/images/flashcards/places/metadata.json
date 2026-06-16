@@ -1,0 +1,158 @@
+{
+  "id": "places",
+  "name": "Địa điểm",
+  "nameCn": "地点",
+  "color": "#2563A9",
+  "words": [
+    {
+      "word": "学校",
+      "pinyin": "xué xiào",
+      "meaning": "trường học",
+      "image": "413b738061.jpg",
+      "query": "school building",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/2676888/pexels-photo-2676888.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/photo-of-man-and-woman-walking-in-campus-2676888/",
+        "photographer": "PixelPanda",
+        "photographer_url": "https://www.pexels.com/@pixelpanda-1386402",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "医院",
+      "pinyin": "yī yuàn",
+      "meaning": "bệnh viện",
+      "image": "071bd02a36.jpg",
+      "query": "hospital building",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/16901852/pexels-photo-16901852.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/overcast-over-building-in-city-16901852/",
+        "photographer": "Gansharm Bdk",
+        "photographer_url": "https://www.pexels.com/@gansharm-bdk-93674348",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "商店",
+      "pinyin": "shāng diàn",
+      "meaning": "cửa hàng",
+      "image": "f303c10a9f.jpg",
+      "query": "shop store front",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/5987826/pexels-photo-5987826.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/kitchen-accessories-for-sale-5987826/",
+        "photographer": "Suzy Hazelwood",
+        "photographer_url": "https://www.pexels.com/@suzyhazelwood",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "饭馆",
+      "pinyin": "fàn guǎn",
+      "meaning": "nhà hàng",
+      "image": "0d4a883fd2.jpg",
+      "query": "restaurant dining room",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/33314766/pexels-photo-33314766.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/modern-restaurant-interior-with-cozy-dining-area-33314766/",
+        "photographer": "The Ghazi",
+        "photographer_url": "https://www.pexels.com/@the-ghazi-2152398165",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "公司",
+      "pinyin": "gōng sī",
+      "meaning": "công ty",
+      "image": "41716f87c3.jpg",
+      "query": "office company building",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/33020857/pexels-photo-33020857.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/modern-skyscraper-architecture-in-urban-setting-33020857/",
+        "photographer": "Blackcurrant Great",
+        "photographer_url": "https://www.pexels.com/@blackcurrant-great-2016663774",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "机场",
+      "pinyin": "jī chǎng",
+      "meaning": "sân bay",
+      "image": "9fb66e93bc.jpg",
+      "query": "airport terminal",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/3140204/pexels-photo-3140204.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/photo-of-airplanes-at-airport-3140204/",
+        "photographer": "Brett Sayles",
+        "photographer_url": "https://www.pexels.com/@brett-sayles",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "车站",
+      "pinyin": "chē zhàn",
+      "meaning": "bến ga",
+      "image": "9726ca980a.jpg",
+      "query": "train station platform",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/37191492/pexels-photo-37191492.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/monochrome-train-station-in-butterworth-malaysia-37191492/",
+        "photographer": "DuaEnam KosongLima",
+        "photographer_url": "https://www.pexels.com/@duaenam-kosonglima-424968847",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "公园",
+      "pinyin": "gōng yuán",
+      "meaning": "công viên",
+      "image": "249bdde955.jpg",
+      "query": "city park",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/20728274/pexels-photo-20728274.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/group-relaxing-in-park-20728274/",
+        "photographer": "mitbg000",
+        "photographer_url": "https://www.pexels.com/@mitbg000",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "银行",
+      "pinyin": "yín háng",
+      "meaning": "ngân hàng",
+      "image": "f14b4f28c4.jpg",
+      "query": "bank building",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/17574763/pexels-photo-17574763.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/facade-of-a-traditional-building-in-city-17574763/",
+        "photographer": "Gloable",
+        "photographer_url": "https://www.pexels.com/@gloable-275577655",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "市场",
+      "pinyin": "shì chǎng",
+      "meaning": "chợ",
+      "image": "552cacb804.jpg",
+      "query": "local market",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/12436198/pexels-photo-12436198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/men-selling-vegetables-12436198/",
+        "photographer": "Rahul Sapra",
+        "photographer_url": "https://www.pexels.com/@rsapmech",
+        "license": "Pexels License"
+      }
+    }
+  ]
+}

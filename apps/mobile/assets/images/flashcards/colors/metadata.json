@@ -6,51 +6,123 @@
   "words": [
     {
       "word": "红色",
-      "pinyin": "hóngsè",
+      "pinyin": "hóng sè",
       "meaning": "màu đỏ",
-      "image": "5263651186.jpg"
+      "image": "5263651186.jpg",
+      "query": "red color abstract",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/30680060/pexels-photo-30680060.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/dynamic-red-and-white-abstract-expressionism-art-30680060/",
+        "photographer": "Steve A Johnson",
+        "photographer_url": "https://www.pexels.com/@steve",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "蓝色",
-      "pinyin": "lánsè",
+      "pinyin": "lán sè",
       "meaning": "màu xanh dương",
-      "image": "9c9aabab3f.jpg"
+      "image": "9c9aabab3f.jpg",
+      "query": "blue color sky",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/246230/pexels-photo-246230.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/low-angle-photography-of-clouds-246230/",
+        "photographer": "napasorn disaraporn",
+        "photographer_url": "https://www.pexels.com/@napasorn-disaraporn-79430",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "绿色",
-      "pinyin": "lǜsè",
+      "pinyin": "lǜ sè",
       "meaning": "màu xanh lá",
-      "image": "b2c712c788.jpg"
+      "image": "b2c712c788.jpg",
+      "query": "green color nature",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/3686297/pexels-photo-3686297.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/macro-photography-of-green-leaf-3686297/",
+        "photographer": "Gilberto Olimpio",
+        "photographer_url": "https://www.pexels.com/@golimpio",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "黄色",
-      "pinyin": "huángsè",
+      "pinyin": "huáng sè",
       "meaning": "màu vàng",
-      "image": "ddb86dd31c.jpg"
+      "image": "ddb86dd31c.jpg",
+      "query": "yellow color sunshine",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/32825899/pexels-photo-32825899.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/vibrant-yellow-african-daisies-in-full-bloom-32825899/",
+        "photographer": "frank minjarez",
+        "photographer_url": "https://www.pexels.com/@frank-minjarez-333886454",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "白色",
-      "pinyin": "báisè",
+      "pinyin": "bái sè",
       "meaning": "màu trắng",
-      "image": "2fc96b2704.jpg"
+      "image": "2fc96b2704.jpg",
+      "query": "white color snow pure",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/19168469/pexels-photo-19168469.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/landscape-showing-empty-skiing-piste-19168469/",
+        "photographer": "Joris Eschalier",
+        "photographer_url": "https://www.pexels.com/@jorischlr",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "黑色",
-      "pinyin": "hēisè",
+      "pinyin": "hēi sè",
       "meaning": "màu đen",
-      "image": "9d2d1f62ae.jpg"
+      "image": "9d2d1f62ae.jpg",
+      "query": "black color dark",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/11285435/pexels-photo-11285435.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/gray-wallpaper-11285435/",
+        "photographer": "Share Textures",
+        "photographer_url": "https://www.pexels.com/@share-textures-3167406",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "粉色",
-      "pinyin": "fěnsè",
+      "pinyin": "fěn sè",
       "meaning": "màu hồng",
-      "image": "97542386a9.jpg"
+      "image": "97542386a9.jpg",
+      "query": "pink color flower",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/14753248/pexels-photo-14753248.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/close-up-of-pink-flowers-on-green-plant-14753248/",
+        "photographer": "Nikolett Emmert",
+        "photographer_url": "https://www.pexels.com/@nikiemmert",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "橙色",
-      "pinyin": "chéngsè",
+      "pinyin": "chéng sè",
       "meaning": "màu cam",
-      "image": "d9bbeb4427.jpg"
+      "image": "d9bbeb4427.jpg",
+      "query": "orange color fruit",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/35810222/pexels-photo-35810222.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/fresh-oranges-with-green-leaves-on-display-35810222/",
+        "photographer": "MAURO FOSSATI",
+        "photographer_url": "https://www.pexels.com/@fox70",
+        "license": "Pexels License"
+      }
     }
   ]
 }

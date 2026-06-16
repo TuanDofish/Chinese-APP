@@ -77,9 +77,28 @@ flutter:
     - assets/images/flashcards/animals/
     - assets/images/flashcards/body/
     - assets/images/flashcards/colors/
+    - assets/images/flashcards/city_life/
+    - assets/images/flashcards/clothes/
+    - assets/images/flashcards/daily_life/
+    - assets/images/flashcards/entertainment/
     - assets/images/flashcards/family/
     - assets/images/flashcards/food/
+    - assets/images/flashcards/greeting/
+    - assets/images/flashcards/health/
+    - assets/images/flashcards/home/
+    - assets/images/flashcards/media_society/
+    - assets/images/flashcards/nature/
+    - assets/images/flashcards/places/
+    - assets/images/flashcards/school/
+    - assets/images/flashcards/shopping/
+    - assets/images/flashcards/sports/
     - assets/images/flashcards/transport/
+    - assets/images/flashcards/weather/
+
+  fonts:
+    - family: NotoSansSC
+      fonts:
+        - asset: assets/fonts/NotoSansSC-Variable.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

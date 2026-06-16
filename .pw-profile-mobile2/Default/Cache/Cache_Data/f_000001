@@ -1,0 +1,443 @@
+'use strict';
+const MANIFEST = 'flutter-app-manifest';
+const TEMP = 'flutter-temp-cache';
+const CACHE_NAME = 'flutter-app-cache';
+
+const RESOURCES = {"assets/AssetManifest.bin": "194d97ff0ae1660f7458ad429b80076b",
+"assets/AssetManifest.bin.json": "5c8bd083dab13184988e09e30fb974e3",
+"assets/assets/data/dictionary_hsk14_compact.json": "d77ce3bc23dbfb10873397231970b6a3",
+"assets/assets/data/dictionary_seed_clean.json": "7be3c9b0154b202353dced9a4cf0d06a",
+"assets/assets/data/grammar_hsk.json": "92232fc4d728e0f9e8d7730295fc99ce",
+"assets/assets/data/grammar_hsk14.json": "0ccb293d4e2c05e652e8c4d18dc98918",
+"assets/assets/data/hsk30.csv": "d7b7722e60644e3c38c2fd1743eb33dc",
+"assets/assets/data/hsk_complete.json": "05a465809fdac7a581c13c47f25372d7",
+"assets/assets/data/reading_hsk.json": "3b4e464d530ff9144c58e94861ba3e90",
+"assets/assets/data/reading_news_seed.json": "0034c8dad2902c3447dce71b2a3be6a3",
+"assets/assets/data/video_lessons.json": "f486d256beb6d5a47d43bda111ef4dac",
+"assets/assets/fonts/NotoSansSC-Variable.ttf": "0968e7d36e329171a6034639c88ff718",
+"assets/assets/images/flashcards/animals/0857fa4e34.jpg": "17b75f2638b95afca9273d286c2d3c95",
+"assets/assets/images/flashcards/animals/38a3d1ca0b.jpg": "5c9a2a24ee017cd8d958642eb3d7eec7",
+"assets/assets/images/flashcards/animals/4e2572e0c7.jpg": "d38222264b132505b96e754c1b0e7793",
+"assets/assets/images/flashcards/animals/5090e44ef9.jpg": "66237189cda0236b0343f3c04e8164fe",
+"assets/assets/images/flashcards/animals/a136f339af.jpg": "098093c159d3d6d502c844c0f5f4b6f0",
+"assets/assets/images/flashcards/animals/a933ef6a9b.jpg": "38c9c003d94a3c0246446112f26ffff8",
+"assets/assets/images/flashcards/animals/b1a6effdd5.jpg": "7e2d8f335b80fef3439c37f5a80b9eb8",
+"assets/assets/images/flashcards/animals/b655de688e.jpg": "d06b5c22beee4bcda445ad67caaa7ec2",
+"assets/assets/images/flashcards/animals/cdd7ce48a9.jpg": "7646f8e4bb691222374d9532956af234",
+"assets/assets/images/flashcards/animals/ff5e0a155e.jpg": "ec7f6bb61116368661cdca06483a602c",
+"assets/assets/images/flashcards/animals/metadata.json": "c4503db7d1f38d9f0296d3e40d055997",
+"assets/assets/images/flashcards/body/3697bfcf41.jpg": "a68aca065feb0ce7a27e24137e86db81",
+"assets/assets/images/flashcards/body/3c7d183f1b.jpg": "1b2c144a61aad380581ac5de8fa82e8a",
+"assets/assets/images/flashcards/body/4be2abbcf7.jpg": "4b9a3bc8a25e3f05f248f2e828473c2b",
+"assets/assets/images/flashcards/body/5297c01727.jpg": "d50aa411cb257f2a97be1bb183753a7a",
+"assets/assets/images/flashcards/body/62507462c9.jpg": "3a5d4068609325f3e600de63c3ac2807",
+"assets/assets/images/flashcards/body/946f5c8c69.jpg": "cebd1b06053b59196c629332948e298c",
+"assets/assets/images/flashcards/body/bf08c05e00.jpg": "7eb3acb235cdb391a99488bca693189b",
+"assets/assets/images/flashcards/body/e6134a2993.jpg": "37c8a2609bcdd53007b624148671d45d",
+"assets/assets/images/flashcards/body/metadata.json": "d48b82e84b7384cba21688c6db0d2896",
+"assets/assets/images/flashcards/city_life/47d68cd0f4.jpg": "7df77fd272fe58907b414e33931797f1",
+"assets/assets/images/flashcards/city_life/552cacb804.jpg": "ef8cdb45fdcf2306b610ec53dc0fb39d",
+"assets/assets/images/flashcards/city_life/70ceb33a9b.jpg": "46affe0a13835ed346c6a558ad629f3d",
+"assets/assets/images/flashcards/city_life/716c3dc1bd.jpg": "36916fa11674995c7a15848039eea8a8",
+"assets/assets/images/flashcards/city_life/9266202469.jpg": "25d51ab6e443b37f5610eea7fd58fe41",
+"assets/assets/images/flashcards/city_life/c8ace4e283.jpg": "061da2712bc7f1a925532206a5bfb9cd",
+"assets/assets/images/flashcards/city_life/ce4ba240fb.jpg": "ec9b18b1500695778ae6ad12530ebe85",
+"assets/assets/images/flashcards/city_life/f7d29dfae0.jpg": "3ad9888ec058db3ca99c0947564393c9",
+"assets/assets/images/flashcards/city_life/f9f7bb6679.jpg": "7328ef7518bcf307987abdac14953277",
+"assets/assets/images/flashcards/city_life/fa405f5965.jpg": "ee87b139d6361b744eec64ce2386e01b",
+"assets/assets/images/flashcards/city_life/metadata.json": "8c7e06066c4f7b9c89322923e69d982a",
+"assets/assets/images/flashcards/clothes/5442dfce9b.jpg": "215036aafb82ebc38e731573bf9a8322",
+"assets/assets/images/flashcards/clothes/556b6f00f4.jpg": "2d6c2d263c596959cc15d314d880341c",
+"assets/assets/images/flashcards/clothes/5cb80710c3.jpg": "1574f8559799df5361365b8954852503",
+"assets/assets/images/flashcards/clothes/5d9141eafd.jpg": "4213eac07e3ee392fd895585122fea9a",
+"assets/assets/images/flashcards/clothes/6b36c6f7ec.jpg": "76a1ec130131287a552a665425c70651",
+"assets/assets/images/flashcards/clothes/6e06060b48.jpg": "a7a3bd818023d26f30726e06727e8d7b",
+"assets/assets/images/flashcards/clothes/b23963f121.jpg": "7d5913be969cc41c2e7ceccb66022aa3",
+"assets/assets/images/flashcards/clothes/db695b39ed.jpg": "499a9064dc40c3849b42cccf80757839",
+"assets/assets/images/flashcards/clothes/e91bb131a2.jpg": "ad85b13b1269f803042056fde361ce22",
+"assets/assets/images/flashcards/clothes/f2bdf96832.jpg": "69d371f45b3b9346e6e369fe646408b5",
+"assets/assets/images/flashcards/clothes/metadata.json": "64ce247b525a3bb9141ae739f365ea34",
+"assets/assets/images/flashcards/colors/2fc96b2704.jpg": "37c5339374eede8520f8374ae3b20a3e",
+"assets/assets/images/flashcards/colors/5263651186.jpg": "feb634b79df088c50a6d637f26749978",
+"assets/assets/images/flashcards/colors/97542386a9.jpg": "3e909612357595a3d2940d2d71150a4d",
+"assets/assets/images/flashcards/colors/9c9aabab3f.jpg": "90880273fa2c5ead9557af1c04bb0f39",
+"assets/assets/images/flashcards/colors/9d2d1f62ae.jpg": "3a3f1b338505b14cb7da6f00a3c689d8",
+"assets/assets/images/flashcards/colors/b2c712c788.jpg": "43ace7fb1893ea4fbf88b3b2d5d2a894",
+"assets/assets/images/flashcards/colors/d9bbeb4427.jpg": "df326edf71da03cbdef522caed510936",
+"assets/assets/images/flashcards/colors/ddb86dd31c.jpg": "5fb7d60fb131805f0ac0f3ba9b1f7606",
+"assets/assets/images/flashcards/colors/metadata.json": "574ef28a5c96a654af181ff95716ea33",
+"assets/assets/images/flashcards/daily_life/0068330a10.jpg": "64ab61b387a0670b6239e88e668ad759",
+"assets/assets/images/flashcards/daily_life/2c8250acfd.jpg": "47f4951874a073e925d6aada4cb27265",
+"assets/assets/images/flashcards/daily_life/575345386c.jpg": "a957056200b872145825bdf752c0a488",
+"assets/assets/images/flashcards/daily_life/59b19552d6.jpg": "0f8b93dec566faebec78a82fc8a13ec7",
+"assets/assets/images/flashcards/daily_life/5ac500cfcc.jpg": "53626ec8a413e4ccc8d9d6b7ced30a11",
+"assets/assets/images/flashcards/daily_life/60cffce1f6.jpg": "2ad0ffb23c4b8f9b996869d22aef5ad6",
+"assets/assets/images/flashcards/daily_life/96ed60cdcb.jpg": "8d12e18774ab8a3659aaa20a32f6875c",
+"assets/assets/images/flashcards/daily_life/b4f0388f1e.jpg": "8d422c77837d32674639e76080c05134",
+"assets/assets/images/flashcards/daily_life/b6dffff782.jpg": "cc32da60a3f96f416cfb85cb36b28873",
+"assets/assets/images/flashcards/daily_life/e69a3d7106.jpg": "18b5053d5ef23aec73e2202897b13603",
+"assets/assets/images/flashcards/daily_life/metadata.json": "25ddea7f68a7530cae6bfe4d9ca8ddef",
+"assets/assets/images/flashcards/entertainment/1ff96246c4.jpg": "b606387761741a5bace06fa3af18c2e2",
+"assets/assets/images/flashcards/entertainment/2f3703e427.jpg": "d414a4c96262a5b8ce56ce36d348d9fe",
+"assets/assets/images/flashcards/entertainment/3a2f904027.jpg": "fe46c0b6a1ee7d620441c07af711f461",
+"assets/assets/images/flashcards/entertainment/51e9743451.jpg": "43269e5c9f5dd4eb9a50813e2e774597",
+"assets/assets/images/flashcards/entertainment/87483408cf.jpg": "f95a398ea3c26ace23fd5da087a9e11b",
+"assets/assets/images/flashcards/entertainment/95521bb744.jpg": "e8f38f17c70807e03b92a388d99a3af4",
+"assets/assets/images/flashcards/entertainment/ba08216f13.jpg": "501ee96158617c0bceb81ebee772614e",
+"assets/assets/images/flashcards/entertainment/d2fb1e3e17.jpg": "55c9724921fefc68c448c8acc5aa99dc",
+"assets/assets/images/flashcards/entertainment/d49c9b66f6.jpg": "d73c836e278a2ed00ffce85d77236ca6",
+"assets/assets/images/flashcards/entertainment/fad50bfdcb.jpg": "25206c726bd1d4ac89ad858c7ab7b9b9",
+"assets/assets/images/flashcards/entertainment/metadata.json": "3f630ae4dcef3fd7e9ebfdb402d6ab20",
+"assets/assets/images/flashcards/family/033e1fb01c.jpg": "8db556e662d25777582024a722d4ad12",
+"assets/assets/images/flashcards/family/0d00c80f61.jpg": "112992ba0631ee55fd969dc4ac4b7e47",
+"assets/assets/images/flashcards/family/1c097b12de.jpg": "fa203678a74f79514033a05dd292135b",
+"assets/assets/images/flashcards/family/2144381ade.jpg": "e338322ae9675f4b9da7624e342b2e1f",
+"assets/assets/images/flashcards/family/39af35e7b7.jpg": "930044bfcf6b8bc4d001acc7d8eeef93",
+"assets/assets/images/flashcards/family/427034659a.jpg": "bcdd579148c57de5683cdd8dcca327b7",
+"assets/assets/images/flashcards/family/e571dca2d0.jpg": "4317344a41dbd145a5af3c500a9049f4",
+"assets/assets/images/flashcards/family/e6c7ee6003.jpg": "6722b2660afce034d376a7884bf45210",
+"assets/assets/images/flashcards/family/metadata.json": "48f28576d66800572a5cd1eba8adba8a",
+"assets/assets/images/flashcards/food/64254630ba.jpg": "e41f7741f03cfd15c13a00226108ac4f",
+"assets/assets/images/flashcards/food/68e695653b.jpg": "9a4dafd91f7fdc743fcf151d4935656b",
+"assets/assets/images/flashcards/food/814b1c8d80.jpg": "2b6dc1c6bddea0ca6bf751a451872208",
+"assets/assets/images/flashcards/food/9c6d2f2f45.jpg": "b5a5abaadaa74d49b5c703770addbfea",
+"assets/assets/images/flashcards/food/a001ed1cf1.jpg": "99e9fabf27c33b6d1ffd3acb9ab6f0a6",
+"assets/assets/images/flashcards/food/b7c03bbf2b.jpg": "848184dc3454e5ac717f5b4fa7d9ae7b",
+"assets/assets/images/flashcards/food/bf44b741b2.jpg": "04316b054060f705da32c5abda3f95dc",
+"assets/assets/images/flashcards/food/dc02d72e23.jpg": "58c6ad7ea3552465f7956013d2dc704a",
+"assets/assets/images/flashcards/food/e6803e21b9.jpg": "d0a9efa90bba1fc7e8619e6b29d508b4",
+"assets/assets/images/flashcards/food/edfec00f07.jpg": "755c7780eb4a22d43829dd445fba8b82",
+"assets/assets/images/flashcards/food/metadata.json": "d484bca7bf7c824686d9db1ba676d936",
+"assets/assets/images/flashcards/greeting/1681525453.jpg": "8dbf032f9f852a08ddcdfab23546f4e7",
+"assets/assets/images/flashcards/greeting/5fe86c60de.jpg": "71b44712485cee0560587cc949527b33",
+"assets/assets/images/flashcards/greeting/7eca689f0d.jpg": "cc9b4420d3255425578b1b27cda6b6c7",
+"assets/assets/images/flashcards/greeting/8e5c0a1e46.jpg": "5d4592167a78237a8c88588f8abb6089",
+"assets/assets/images/flashcards/greeting/92f3ca76d5.jpg": "cb1f678ede2c99fd0ecc60c1c86fc86e",
+"assets/assets/images/flashcards/greeting/a34490b593.jpg": "363d0f7fa8781fec4ef45f99ccc79b1a",
+"assets/assets/images/flashcards/greeting/ac85b3780c.jpg": "2ef010db6ffbc05102ee20891faa835b",
+"assets/assets/images/flashcards/greeting/cd51c8c91e.jpg": "e17be32ee76042b5f5d3d99abdc8d621",
+"assets/assets/images/flashcards/greeting/d1a34a5779.jpg": "f805b2db2489c26713860f85661c1db8",
+"assets/assets/images/flashcards/greeting/df1fd91011.jpg": "0db34332d2d35113e8ac405fb5e7e484",
+"assets/assets/images/flashcards/greeting/metadata.json": "7a98df44dff82cbfdc525afbdaef2276",
+"assets/assets/images/flashcards/health/071bd02a36.jpg": "9d9c927fa2f41bb1679d2460ba9a0a9c",
+"assets/assets/images/flashcards/health/3a991a4ca5.jpg": "b9502077cd7c29c7225e8f06562484bf",
+"assets/assets/images/flashcards/health/3c7d183f1b.jpg": "d9895bda595205c76088ce3c5dae428a",
+"assets/assets/images/flashcards/health/5297c01727.jpg": "649c25886434c1dd0ef651ace5591faa",
+"assets/assets/images/flashcards/health/62507462c9.jpg": "3a5d4068609325f3e600de63c3ac2807",
+"assets/assets/images/flashcards/health/6d7c1afb07.jpg": "798126f15ad4567037ca99cbc4fdf0e8",
+"assets/assets/images/flashcards/health/75d80e662b.jpg": "a58f5d2be4d382c814bf589bebb954ad",
+"assets/assets/images/flashcards/health/7be627ccbd.jpg": "0f77be82b5a762b664f5c820507a139f",
+"assets/assets/images/flashcards/health/946f5c8c69.jpg": "cebd1b06053b59196c629332948e298c",
+"assets/assets/images/flashcards/health/e6134a2993.jpg": "37c8a2609bcdd53007b624148671d45d",
+"assets/assets/images/flashcards/health/metadata.json": "d5c1c9ed2d6d95e4bd8741225931cf54",
+"assets/assets/images/flashcards/home/1696a59602.jpg": "9ee1d1d4b4fee7ed18ab0cd34f452f46",
+"assets/assets/images/flashcards/home/3a2f904027.jpg": "fe46c0b6a1ee7d620441c07af711f461",
+"assets/assets/images/flashcards/home/43876e0825.jpg": "c7f9ddfcb9692549ff29242fdfa95ad2",
+"assets/assets/images/flashcards/home/51baa713ed.jpg": "2ae776bce3ab4f674aaa86c83a53fbb7",
+"assets/assets/images/flashcards/home/56c15f3b40.jpg": "7782b54f546ebaf1a60568eaf13287de",
+"assets/assets/images/flashcards/home/9bdfe95fda.jpg": "32618ffd2537619c4ac4432a1ccb6548",
+"assets/assets/images/flashcards/home/9e2fde20b6.jpg": "92e43622e0e7a9b09ccd116b80943baa",
+"assets/assets/images/flashcards/home/a4960087a9.jpg": "856fbde19c7063adb2fd08ad29e61598",
+"assets/assets/images/flashcards/home/a6cdd2a00b.jpg": "2aaa4143715b347b5a09c273c2aec415",
+"assets/assets/images/flashcards/home/e855972ea9.jpg": "22e4af8fdef3ff7c00e661311fde9bc4",
+"assets/assets/images/flashcards/home/metadata.json": "ce14ed16969f8094f0a8703ea2973d05",
+"assets/assets/images/flashcards/index.json": "ccd9d245f2537613c4e03b7d267c0694",
+"assets/assets/images/flashcards/media_society/1ff96246c4.jpg": "b606387761741a5bace06fa3af18c2e2",
+"assets/assets/images/flashcards/media_society/3a2f904027.jpg": "fe46c0b6a1ee7d620441c07af711f461",
+"assets/assets/images/flashcards/media_society/47d68cd0f4.jpg": "7df77fd272fe58907b414e33931797f1",
+"assets/assets/images/flashcards/media_society/51e9743451.jpg": "43269e5c9f5dd4eb9a50813e2e774597",
+"assets/assets/images/flashcards/media_society/70ceb33a9b.jpg": "46affe0a13835ed346c6a558ad629f3d",
+"assets/assets/images/flashcards/media_society/95521bb744.jpg": "e8f38f17c70807e03b92a388d99a3af4",
+"assets/assets/images/flashcards/media_society/c8ace4e283.jpg": "061da2712bc7f1a925532206a5bfb9cd",
+"assets/assets/images/flashcards/media_society/ce4ba240fb.jpg": "ec9b18b1500695778ae6ad12530ebe85",
+"assets/assets/images/flashcards/media_society/d2fb1e3e17.jpg": "55c9724921fefc68c448c8acc5aa99dc",
+"assets/assets/images/flashcards/media_society/f9f7bb6679.jpg": "7328ef7518bcf307987abdac14953277",
+"assets/assets/images/flashcards/media_society/metadata.json": "55f24063ff3a01e8d6c9792803fa4565",
+"assets/assets/images/flashcards/nature/1667312395.jpg": "90880273fa2c5ead9557af1c04bb0f39",
+"assets/assets/images/flashcards/nature/22dbba75b9.jpg": "5039b2185715020a0aac73e1af5cfa47",
+"assets/assets/images/flashcards/nature/302f276a93.jpg": "3f1db8d7e644e4ef29b08b477e295711",
+"assets/assets/images/flashcards/nature/5ea03ddf50.jpg": "05fb25cc89c9930cb7a90c97bf8d75ec",
+"assets/assets/images/flashcards/nature/7d3cfe8c4e.jpg": "29e714baa8bb7ac95a125858df1601c5",
+"assets/assets/images/flashcards/nature/86fa9c82d8.jpg": "c72b9fb458b622ab896ff7116d498389",
+"assets/assets/images/flashcards/nature/95433763b3.jpg": "98f61f1a2dae105697f87be0e2789132",
+"assets/assets/images/flashcards/nature/9aa7f82989.jpg": "62efb634c39baea784aa6356dfd15731",
+"assets/assets/images/flashcards/nature/d32b766612.jpg": "f8d936edafbdafef0bd8ca42152cfc9a",
+"assets/assets/images/flashcards/nature/fc30335a73.jpg": "c7d48bc2cd6cb0531d620d594f4c0c81",
+"assets/assets/images/flashcards/nature/metadata.json": "65acee43bdba276f0846c9e5a35e5a70",
+"assets/assets/images/flashcards/places/071bd02a36.jpg": "9d9c927fa2f41bb1679d2460ba9a0a9c",
+"assets/assets/images/flashcards/places/0d4a883fd2.jpg": "9c2d292c5d196e69eb9d629f9068aeb2",
+"assets/assets/images/flashcards/places/249bdde955.jpg": "f74bba518ceec26c9514e5e58558b2ce",
+"assets/assets/images/flashcards/places/413b738061.jpg": "a5aff739cbf6cfde38a02e4b87216612",
+"assets/assets/images/flashcards/places/41716f87c3.jpg": "6d2ac23c5ddb42fcba19a8c9bb368ed5",
+"assets/assets/images/flashcards/places/552cacb804.jpg": "e3b7e2d3da624d428e053f93cead4d4a",
+"assets/assets/images/flashcards/places/9726ca980a.jpg": "3e15d009c7f79574d4907a094df5ae7f",
+"assets/assets/images/flashcards/places/9fb66e93bc.jpg": "813a1ed5ea23a4cd71d76cceb222a7ae",
+"assets/assets/images/flashcards/places/f14b4f28c4.jpg": "2249fef36f3afdfbd2ca381b9bef3e01",
+"assets/assets/images/flashcards/places/f303c10a9f.jpg": "4822c84f7b386b230dc97e6f3b189e74",
+"assets/assets/images/flashcards/places/metadata.json": "20d138c1e4ca6daf5e1a31a13216a204",
+"assets/assets/images/flashcards/school/116e077219.jpg": "775dda097830439a244a9c977b12e663",
+"assets/assets/images/flashcards/school/25cf96268e.jpg": "db92fe71e5a00b1736dfb28f774737ad",
+"assets/assets/images/flashcards/school/295af37e05.jpg": "cf7ef415174823980729b698c0aa9608",
+"assets/assets/images/flashcards/school/2f3703e427.jpg": "ac0a68c41364b1f75dbb7d332718557f",
+"assets/assets/images/flashcards/school/35d9969dfa.jpg": "cf7ef415174823980729b698c0aa9608",
+"assets/assets/images/flashcards/school/413b738061.jpg": "a5aff739cbf6cfde38a02e4b87216612",
+"assets/assets/images/flashcards/school/4d7dc6c5f8.jpg": "2af19c3012d5fda3fce2cc479cd7a737",
+"assets/assets/images/flashcards/school/4ef520d6cd.jpg": "4bd399cadefdce94aef9609bb74c018b",
+"assets/assets/images/flashcards/school/75769d1ac8.jpg": "5d2322d0f73f7b6134442c7a50937255",
+"assets/assets/images/flashcards/school/a95dbb0ea4.jpg": "2c309a8ba70439c1cf59b670b0c12027",
+"assets/assets/images/flashcards/school/metadata.json": "3cf8bfacc1bef6f714cead7ca73de273",
+"assets/assets/images/flashcards/shopping/0a0f0a1307.jpg": "aa2e76f9a342c5b188339119b257b805",
+"assets/assets/images/flashcards/shopping/554003c7ff.jpg": "e4e1573d3a2f5bcef4e4db9327384b23",
+"assets/assets/images/flashcards/shopping/821d5fce78.jpg": "ae24cfc8bd5a79f9839a6bd7b1ce41a2",
+"assets/assets/images/flashcards/shopping/86194baed3.jpg": "dc2060d79b0b4a8287146bc2aa6d3eb0",
+"assets/assets/images/flashcards/shopping/8be34d50fd.jpg": "14dae5494891e7c8acc1b911beec6016",
+"assets/assets/images/flashcards/shopping/a026c722b2.jpg": "a6e1ae608e640ecdfdc71fef0180f5a4",
+"assets/assets/images/flashcards/shopping/ce1c94b64c.jpg": "20920bc6aa233b7b1c02f4f6e33fc026",
+"assets/assets/images/flashcards/shopping/d23513f09b.jpg": "65f8595898494c9b9b317c197a5a7b53",
+"assets/assets/images/flashcards/shopping/d85522beda.jpg": "9f8d57a28d30d1463df980a0a4f0c520",
+"assets/assets/images/flashcards/shopping/f303c10a9f.jpg": "da4c963f8de1ec895298eaaadd92986f",
+"assets/assets/images/flashcards/shopping/metadata.json": "96eb1614435095de1d44626f87f64ee5",
+"assets/assets/images/flashcards/sports/221486055c.jpg": "2f9923ebbc74af6a5df8e039dcf39daa",
+"assets/assets/images/flashcards/sports/37b6debeb4.jpg": "ea4b840f887a86188eda4e7e5bba99c5",
+"assets/assets/images/flashcards/sports/3a991a4ca5.jpg": "4862baf31355c75f1315373828ef38cf",
+"assets/assets/images/flashcards/sports/7b385d0284.jpg": "9dfbd7788dd849f01a34479efa263da6",
+"assets/assets/images/flashcards/sports/a315706916.jpg": "beff33f129d8dc958a47f655973e62b7",
+"assets/assets/images/flashcards/sports/a5c5d0dc90.jpg": "9ce2f4ca30516c4b4fd387caf75135a7",
+"assets/assets/images/flashcards/sports/ea2eed1fb5.jpg": "bd5e6e2fa46c62bcb8c38d1c5837f257",
+"assets/assets/images/flashcards/sports/ed05233ac8.jpg": "f3e61dc44fe7b3c7f5fc4f925b32f745",
+"assets/assets/images/flashcards/sports/fad50bfdcb.jpg": "15ee090efec2c7eae516b63c501cef76",
+"assets/assets/images/flashcards/sports/fbc026c9fb.jpg": "ea4b840f887a86188eda4e7e5bba99c5",
+"assets/assets/images/flashcards/sports/metadata.json": "39161b117e7b91f50679527921933239",
+"assets/assets/images/flashcards/transport/16678800cf.jpg": "1b661723e651fa64baca7521742de267",
+"assets/assets/images/flashcards/transport/7def9ee0ca.jpg": "5095ec0650e9be9fe2d1413edf9b0adc",
+"assets/assets/images/flashcards/transport/9266202469.jpg": "2450468b5dad4878753bd9414af82689",
+"assets/assets/images/flashcards/transport/b24186f7c7.jpg": "784ca942e8247ff5abd4e50601d3b128",
+"assets/assets/images/flashcards/transport/b64c412083.jpg": "025511b721543cf2c2a30f9d719d6e5f",
+"assets/assets/images/flashcards/transport/b73c6e34a1.jpg": "c35cd6e86870671c2e7f534e255f4d20",
+"assets/assets/images/flashcards/transport/e7e95e6813.jpg": "53264f40872e21b09e37b6348b215965",
+"assets/assets/images/flashcards/transport/fed19a817b.jpg": "cc4c5d2472b4492d7cf2115a52558e01",
+"assets/assets/images/flashcards/transport/metadata.json": "d84df9bfe5e4c8a790b86181f05447c0",
+"assets/assets/images/flashcards/weather/060e263e4b.jpg": "d42b04b384b2061bd77ddc1d0c12af17",
+"assets/assets/images/flashcards/weather/2044c27397.jpg": "d4aa2f41e1eb746ee9bc8d9eb9240e21",
+"assets/assets/images/flashcards/weather/265f273cf1.jpg": "08e49e6548a0c24696c9e45c5842c70b",
+"assets/assets/images/flashcards/weather/3a864e53ae.jpg": "210b99ef6b1442c2a1cc5ec49a4e613c",
+"assets/assets/images/flashcards/weather/74eaee9656.jpg": "d2ee2def4c4ca869d8f3586abc42ddc6",
+"assets/assets/images/flashcards/weather/860176ffdb.jpg": "c55888df5fc502f623303ac3d2fb405a",
+"assets/assets/images/flashcards/weather/b24891983d.jpg": "8c6bb422aa36a6e05dd6af6df8153463",
+"assets/assets/images/flashcards/weather/c4fccd8dd1.jpg": "85ec13167faa7caa0e2058725b265712",
+"assets/assets/images/flashcards/weather/ca4062ed6b.jpg": "9cb412c5a62a0a71f107101359cf2a35",
+"assets/assets/images/flashcards/weather/eabe42f713.jpg": "4539a52b4519927633f479c4c7a1e7d6",
+"assets/assets/images/flashcards/weather/metadata.json": "974c93ff2684b3e6635c08feab080cc8",
+"assets/assets/images/README.md": "9adf1959406b9c2993ca973d53b0634e",
+"assets/assets/images/topics/country.png": "31973ac2e21301411478b584f79aa8f5",
+"assets/assets/images/topics/README.md": "e9cb59d341125028476eecb43857b00e",
+"assets/assets/images/words/china.png": "b4a241ab7581cec5290118ceddb37bd1",
+"assets/assets/images/words/germany.png": "fef93917798b66b9407e9e2774f69713",
+"assets/assets/images/words/japan.png": "183f76e8fe090672afb6154905c297e5",
+"assets/assets/images/words/README.md": "935c3964010e547613692fb520f5c32f",
+"assets/assets/images/words/united-kingdom.png": "e667999048e9c8c5c5610d1d33908e52",
+"assets/assets/images/words/united-states-of-america.png": "2822f08635ba028c6928d633a4416951",
+"assets/assets/images/words/vietnam.png": "fc99f5e77ee5733071178217db5a5376",
+"assets/FontManifest.json": "6db0a93fffac9f874c7570a7203c25a7",
+"assets/fonts/MaterialIcons-Regular.otf": "8d831ecb6d124a91ec627d3d835192d5",
+"assets/NOTICES": "b59a4c5d3320760a8c70145b58c97d22",
+"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "33b7d9392238c04c131b6ce224e13711",
+"assets/packages/youtube_player_iframe/assets/player.html": "3029933f550279de9450d4e7327a3473",
+"assets/shaders/ink_sparkle.frag": "ecc85a2e95f5e9f53123dcaf8cb9b6ce",
+"assets/shaders/stretch_effect.frag": "40d68efbbf360632f614c731219e95f0",
+"canvaskit/canvaskit.js": "8331fe38e66b3a898c4f37648aaf7ee2",
+"canvaskit/canvaskit.js.symbols": "a3c9f77715b642d0437d9c275caba91e",
+"canvaskit/canvaskit.wasm": "9b6a7830bf26959b200594729d73538e",
+"canvaskit/chromium/canvaskit.js": "a80c765aaa8af8645c9fb1aae53f9abf",
+"canvaskit/chromium/canvaskit.js.symbols": "e2d09f0e434bc118bf67dae526737d07",
+"canvaskit/chromium/canvaskit.wasm": "a726e3f75a84fcdf495a15817c63a35d",
+"canvaskit/skwasm.js": "8060d46e9a4901ca9991edd3a26be4f0",
+"canvaskit/skwasm.js.symbols": "3a4aadf4e8141f284bd524976b1d6bdc",
+"canvaskit/skwasm.wasm": "7e5f3afdd3b0747a1fd4517cea239898",
+"canvaskit/skwasm_heavy.js": "740d43a6b8240ef9e23eed8c48840da4",
+"canvaskit/skwasm_heavy.js.symbols": "0755b4fb399918388d71b59ad390b055",
+"canvaskit/skwasm_heavy.wasm": "b0be7910760d205ea4e011458df6ee01",
+"favicon.png": "5dcef449791fa27946b3d35ad8803796",
+"flutter.js": "24bc71911b75b5f8135c949e27a2984e",
+"flutter_bootstrap.js": "2bceb0eabd5f6cc4633ede4964d4a9d3",
+"icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
+"icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
+"icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
+"icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
+"index.html": "f59e32d024d9aa293128e10e9a30a343",
+"/": "f59e32d024d9aa293128e10e9a30a343",
+"main.dart.js": "e8200153dc281d1d53f91cf289dfb111",
+"manifest.json": "6818dc0048f086a6849c17ab04b5b189",
+"server.error.log": "28866aa4f50c125ec6912f191f1b04fb",
+"server.log": "d41d8cd98f00b204e9800998ecf8427e",
+"version.json": "9ed43ffa08b5c3b81f0154dc4943c58e"};
+// The application shell files that are downloaded before a service worker can
+// start.
+const CORE = ["main.dart.js",
+"index.html",
+"flutter_bootstrap.js",
+"assets/AssetManifest.bin.json",
+"assets/FontManifest.json"];
+
+// During install, the TEMP cache is populated with the application shell files.
+self.addEventListener("install", (event) => {
+  self.skipWaiting();
+  return event.waitUntil(
+    caches.open(TEMP).then((cache) => {
+      return cache.addAll(
+        CORE.map((value) => new Request(value, {'cache': 'reload'})));
+    })
+  );
+});
+// During activate, the cache is populated with the temp files downloaded in
+// install. If this service worker is upgrading from one with a saved
+// MANIFEST, then use this to retain unchanged resource files.
+self.addEventListener("activate", function(event) {
+  return event.waitUntil(async function() {
+    try {
+      var contentCache = await caches.open(CACHE_NAME);
+      var tempCache = await caches.open(TEMP);
+      var manifestCache = await caches.open(MANIFEST);
+      var manifest = await manifestCache.match('manifest');
+      // When there is no prior manifest, clear the entire cache.
+      if (!manifest) {
+        await caches.delete(CACHE_NAME);
+        contentCache = await caches.open(CACHE_NAME);
+        for (var request of await tempCache.keys()) {
+          var response = await tempCache.match(request);
+          await contentCache.put(request, response);
+        }
+        await caches.delete(TEMP);
+        // Save the manifest to make future upgrades efficient.
+        await manifestCache.put('manifest', new Response(JSON.stringify(RESOURCES)));
+        // Claim client to enable caching on first launch
+        self.clients.claim();
+        return;
+      }
+      var oldManifest = await manifest.json();
+      var origin = self.location.origin;
+      for (var request of await contentCache.keys()) {
+        var key = request.url.substring(origin.length + 1);
+        if (key == "") {
+          key = "/";
+        }
+        // If a resource from the old manifest is not in the new cache, or if
+        // the MD5 sum has changed, delete it. Otherwise the resource is left
+        // in the cache and can be reused by the new service worker.
+        if (!RESOURCES[key] || RESOURCES[key] != oldManifest[key]) {
+          await contentCache.delete(request);
+        }
+      }
+      // Populate the cache with the app shell TEMP files, potentially overwriting
+      // cache files preserved above.
+      for (var request of await tempCache.keys()) {
+        var response = await tempCache.match(request);
+        await contentCache.put(request, response);
+      }
+      await caches.delete(TEMP);
+      // Save the manifest to make future upgrades efficient.
+      await manifestCache.put('manifest', new Response(JSON.stringify(RESOURCES)));
+      // Claim client to enable caching on first launch
+      self.clients.claim();
+      return;
+    } catch (err) {
+      // On an unhandled exception the state of the cache cannot be guaranteed.
+      console.error('Failed to upgrade service worker: ' + err);
+      await caches.delete(CACHE_NAME);
+      await caches.delete(TEMP);
+      await caches.delete(MANIFEST);
+    }
+  }());
+});
+// The fetch handler redirects requests for RESOURCE files to the service
+// worker cache.
+self.addEventListener("fetch", (event) => {
+  if (event.request.method !== 'GET') {
+    return;
+  }
+  var origin = self.location.origin;
+  var key = event.request.url.substring(origin.length + 1);
+  // Redirect URLs to the index.html
+  if (key.indexOf('?v=') != -1) {
+    key = key.split('?v=')[0];
+  }
+  if (event.request.url == origin || event.request.url.startsWith(origin + '/#') || key == '') {
+    key = '/';
+  }
+  // If the URL is not the RESOURCE list then return to signal that the
+  // browser should take over.
+  if (!RESOURCES[key]) {
+    return;
+  }
+  // If the URL is the index.html, perform an online-first request.
+  if (key == '/') {
+    return onlineFirst(event);
+  }
+  event.respondWith(caches.open(CACHE_NAME)
+    .then((cache) =>  {
+      return cache.match(event.request).then((response) => {
+        // Either respond with the cached resource, or perform a fetch and
+        // lazily populate the cache only if the resource was successfully fetched.
+        return response || fetch(event.request).then((response) => {
+          if (response && Boolean(response.ok)) {
+            cache.put(event.request, response.clone());
+          }
+          return response;
+        });
+      })
+    })
+  );
+});
+self.addEventListener('message', (event) => {
+  // SkipWaiting can be used to immediately activate a waiting service worker.
+  // This will also require a page refresh triggered by the main worker.
+  if (event.data === 'skipWaiting') {
+    self.skipWaiting();
+    return;
+  }
+  if (event.data === 'downloadOffline') {
+    downloadOffline();
+    return;
+  }
+});
+// Download offline will check the RESOURCES for all files not in the cache
+// and populate them.
+async function downloadOffline() {
+  var resources = [];
+  var contentCache = await caches.open(CACHE_NAME);
+  var currentContent = {};
+  for (var request of await contentCache.keys()) {
+    var key = request.url.substring(origin.length + 1);
+    if (key == "") {
+      key = "/";
+    }
+    currentContent[key] = true;
+  }
+  for (var resourceKey of Object.keys(RESOURCES)) {
+    if (!currentContent[resourceKey]) {
+      resources.push(resourceKey);
+    }
+  }
+  return contentCache.addAll(resources);
+}
+// Attempt to download the resource online before falling back to
+// the offline cache.
+function onlineFirst(event) {
+  return event.respondWith(
+    fetch(event.request).then((response) => {
+      return caches.open(CACHE_NAME).then((cache) => {
+        cache.put(event.request, response.clone());
+        return response;
+      });
+    }).catch((error) => {
+      return caches.open(CACHE_NAME).then((cache) => {
+        return cache.match(event.request).then((response) => {
+          if (response != null) {
+            return response;
+          }
+          throw error;
+        });
+      });
+    })
+  );
+}

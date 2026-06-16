@@ -8,26 +8,73 @@
     "source": "Little Fox Chinese",
     "subtitles": [
       {
+        "start": 8.3,
+        "end": 9.98,
         "cn": "你好，你好。",
-        "py": "Nǐ hǎo, nǐ hǎo.",
+        "py": "Nǐ hǎo， nǐ hǎo。",
         "vi": "Xin chào, xin chào."
       },
       {
-        "cn": "大家一起说你好。",
-        "py": "Dàjiā yìqǐ shuō nǐ hǎo.",
-        "vi": "Mọi người cùng nói xin chào."
+        "start": 10.1,
+        "end": 11.1,
+        "cn": "你好吗？",
+        "py": "Nǐ hǎo ma？",
+        "vi": "Bạn có khỏe không?"
       },
       {
-        "cn": "一二三四五。",
-        "py": "Yī èr sān sì wǔ.",
-        "vi": "Một, hai, ba, bốn, năm."
+        "start": 11.42,
+        "end": 13.8,
+        "cn": "早上好，早上好。",
+        "py": "Zǎo shàng hǎo， zǎo shàng hǎo。",
+        "vi": "Chào buổi sáng, chào buổi sáng."
       },
       {
-        "cn": "我们一起唱歌。",
-        "py": "Wǒmen yìqǐ chànggē.",
-        "vi": "Chúng ta cùng hát."
+        "start": 13.84,
+        "end": 16.34,
+        "cn": "你好，你好，你好吗？",
+        "py": "Nǐ hǎo， nǐ hǎo， nǐ hǎo ma？",
+        "vi": "Xin chào, xin chào, bạn có khỏe không?"
+      },
+      {
+        "start": 16.74,
+        "end": 19.18,
+        "cn": "晚上好，晚上好。",
+        "py": "Wǎn shàng hǎo， wǎn shàng hǎo。",
+        "vi": "Chào buổi tối, chào buổi tối."
+      },
+      {
+        "start": 30.0,
+        "end": 32.44,
+        "cn": "你好，你好，你好吗？",
+        "py": "Nǐ hǎo， nǐ hǎo， nǐ hǎo ma？",
+        "vi": "Xin chào, xin chào, bạn có khỏe không?"
+      },
+      {
+        "start": 32.44,
+        "end": 35.12,
+        "cn": "早上好，早上好。",
+        "py": "Zǎo shàng hǎo， zǎo shàng hǎo。",
+        "vi": "Chào buổi sáng, chào buổi sáng."
+      },
+      {
+        "start": 35.12,
+        "end": 37.78,
+        "cn": "你好，你好，你好吗？",
+        "py": "Nǐ hǎo， nǐ hǎo， nǐ hǎo ma？",
+        "vi": "Xin chào, xin chào, bạn có khỏe không?"
+      },
+      {
+        "start": 37.78,
+        "end": 40.6,
+        "cn": "晚上好，晚上好。",
+        "py": "Wǎn shàng hǎo， wǎn shàng hǎo。",
+        "vi": "Chào buổi tối, chào buổi tối."
       }
-    ]
+    ],
+    "transcriptStatus": "timed",
+    "transcriptSource": "Verified audio timing",
+    "reviewStatus": "reviewed",
+    "status": "published"
   },
   {
     "id": "lf_hsk1_my_day",
@@ -57,7 +104,8 @@
         "py": "Wǎnshang wǒ shuìjiào.",
         "vi": "Buổi tối tôi đi ngủ."
       }
-    ]
+    ],
+    "status": "draft"
   },
   {
     "id": "lf_hsk1_name",
@@ -87,7 +135,8 @@
         "py": "Wǒmen shì péngyou.",
         "vi": "Chúng ta là bạn."
       }
-    ]
+    ],
+    "status": "draft"
   },
   {
     "id": "lf_hsk2_job",
@@ -117,7 +166,8 @@
         "py": "Tā shì yīshēng.",
         "vi": "Cô ấy là bác sĩ."
       }
-    ]
+    ],
+    "status": "draft"
   },
   {
     "id": "lf_hsk2_doing",
@@ -147,7 +197,8 @@
         "py": "Wǒmen zài xuéxí Zhōngwén.",
         "vi": "Chúng tôi đang học tiếng Trung."
       }
-    ]
+    ],
+    "status": "draft"
   },
   {
     "id": "lf_hsk2_market",
@@ -177,7 +228,8 @@
         "py": "Wǒ mǎi liǎng jīn.",
         "vi": "Tôi mua hai cân."
       }
-    ]
+    ],
+    "status": "draft"
   },
   {
     "id": "lf_hsk3_guitar",
@@ -207,7 +259,8 @@
         "py": "Yīnyuè ràng wǒ hěn kāixīn.",
         "vi": "Âm nhạc làm tôi rất vui."
       }
-    ]
+    ],
+    "status": "draft"
   },
   {
     "id": "lf_hsk3_family",
@@ -237,7 +290,8 @@
         "py": "Wǒmen jiā hěn xìngfú.",
         "vi": "Gia đình chúng tôi rất hạnh phúc."
       }
-    ]
+    ],
+    "status": "draft"
   },
   {
     "id": "lf_hsk3_weather",
@@ -267,7 +321,8 @@
         "py": "Qiūtiān de fēngjǐng hěn piàoliang.",
         "vi": "Phong cảnh mùa thu rất đẹp."
       }
-    ]
+    ],
+    "status": "draft"
   },
   {
     "id": "lf_hsk4_kids_central_12",
@@ -278,26 +333,668 @@
     "source": "Little Fox Chinese",
     "subtitles": [
       {
-        "cn": "今天我们参加一个有趣的活动。",
-        "py": "Jīntiān wǒmen cānjiā yí ge yǒuqù de huódòng.",
-        "vi": "Hôm nay chúng tôi tham gia một hoạt động thú vị."
+        "start": 0.27,
+        "end": 13.87,
+        "cn": "《趣味儿童中心》第十二集，主题是鸟儿冬天的食物。",
+        "py": "《 qù wèi ér tóng zhōng xīn 》 dì shí èr jí， zhǔ tí shì niǎo ér dōng tiān de shí wù。",
+        "vi": "Tập thứ mười hai của \"Trung tâm thú vị dành cho trẻ em\" có chủ đề về thức ăn mùa đông cho các loài chim."
       },
       {
-        "cn": "老师先介绍了活动规则。",
-        "py": "Lǎoshī xiān jièshào le huódòng guīzé.",
-        "vi": "Cô giáo giới thiệu luật hoạt động trước."
+        "start": 13.87,
+        "end": 20.45,
+        "cn": "莉琪躺在雪地上。",
+        "py": "Lì qí tǎng zài xuě dì shàng。",
+        "vi": "Lizzie đang nằm trên tuyết."
       },
       {
-        "cn": "大家需要互相帮助。",
-        "py": "Dàjiā xūyào hùxiāng bāngzhù.",
-        "vi": "Mọi người cần giúp đỡ lẫn nhau."
+        "start": 20.45,
+        "end": 23.45,
+        "cn": "她和妮娜在做雪天使。",
+        "py": "Tā hé nī nà zài zuò xuě tiān shǐ。",
+        "vi": "Cô bé và Nina đang làm hình thiên thần tuyết."
       },
       {
-        "cn": "最后我们完成了任务。",
-        "py": "Zuìhòu wǒmen wánchéng le rènwu.",
-        "vi": "Cuối cùng chúng tôi hoàn thành nhiệm vụ."
+        "start": 23.45,
+        "end": 28.45,
+        "cn": "雪莉老师正在准备儿童中心的活动。",
+        "py": "Xuě lì lǎo shī zhèng zài zhǔn bèi ér tóng zhōng xīn de huó dòng。",
+        "vi": "Cô giáo Shirley đang chuẩn bị cho các hoạt động ở trung tâm trẻ em."
+      },
+      {
+        "start": 28.45,
+        "end": 34.71,
+        "cn": "天空很晴朗。",
+        "py": "Tiān kōng hěn qíng lǎng。",
+        "vi": "Bầu trời trong xanh."
+      },
+      {
+        "start": 34.71,
+        "end": 40.71,
+        "cn": "莉琪看到一只红色的小鸟停在树枝上。",
+        "py": "Lì qí kàn dào yī zhī hóng sè de xiǎo niǎo tíng zài shù zhī shàng。",
+        "vi": "Lizzie thấy một chú chim đỏ đậu trên cành cây."
+      },
+      {
+        "start": 40.71,
+        "end": 42.71,
+        "cn": "叽叽叽。",
+        "py": "Jī jī jī。",
+        "vi": "Chíp chíp chíp."
+      },
+      {
+        "start": 42.71,
+        "end": 46.6,
+        "cn": "莉琪对小鸟叫。",
+        "py": "Lì qí duì xiǎo niǎo jiào。",
+        "vi": "Lizzie gọi chú chim nhỏ."
+      },
+      {
+        "start": 46.6,
+        "end": 47.6,
+        "cn": "妮娜，",
+        "py": "Nī nà，",
+        "vi": "Nina,"
+      },
+      {
+        "start": 47.6,
+        "end": 50.6,
+        "cn": "鸟儿是不是吃蚯蚓和昆虫？",
+        "py": "Niǎo ér shì bú shì chī qiū yǐn hé kūn chóng？",
+        "vi": "Chim có ăn giun đất và côn trùng không?"
+      },
+      {
+        "start": 50.6,
+        "end": 52.6,
+        "cn": "莉琪问。",
+        "py": "Lì qí wèn。",
+        "vi": "Lizzie hỏi."
+      },
+      {
+        "start": 52.6,
+        "end": 53.6,
+        "cn": "是呀。",
+        "py": "Shì ya。",
+        "vi": "Đúng."
+      },
+      {
+        "start": 53.6,
+        "end": 55.6,
+        "cn": "妮娜回答。",
+        "py": "Nī nà huí dá。",
+        "vi": "Nina đã trả lời."
+      },
+      {
+        "start": 55.6,
+        "end": 58.6,
+        "cn": "那下雪时它们吃什么呢？",
+        "py": "Nà xià xuě shí tā men chī shén me ne？",
+        "vi": "Vậy khi trời có tuyết chúng ăn gì?"
+      },
+      {
+        "start": 58.6,
+        "end": 61.6,
+        "cn": "女生们想了一会儿。",
+        "py": "Nǚ shēng men xiǎng le yī huì er。",
+        "vi": "Các cô gái suy nghĩ một lúc."
+      },
+      {
+        "start": 61.6,
+        "end": 65.6,
+        "cn": "她们决定去问问雪莉老师。",
+        "py": "Tā men jué dìng qù wèn wèn xuě lì lǎo shī。",
+        "vi": "Hai bạn quyết định đi hỏi cô Shirley."
+      },
+      {
+        "start": 65.6,
+        "end": 68.6,
+        "cn": "你们一定是知道我心里想什么了。",
+        "py": "Nǐ men yí dìng shì zhī dào wǒ xīn lǐ xiǎng shén me le。",
+        "vi": "Bạn phải biết tôi đang nghĩ gì."
+      },
+      {
+        "start": 68.6,
+        "end": 70.6,
+        "cn": "雪莉老师说。",
+        "py": "Xuě lì lǎo shī shuō。",
+        "vi": "Cô giáo Shirley nói."
+      },
+      {
+        "start": 70.6,
+        "end": 73.6,
+        "cn": "我刚好要问你们同样的问题。",
+        "py": "Wǒ gāng hǎo yào wèn nǐ men tóng yàng de wèn tí。",
+        "vi": "Tôi chỉ cần hỏi bạn câu hỏi tương tự."
+      },
+      {
+        "start": 73.6,
+        "end": 77.33,
+        "cn": "莉琪问。",
+        "py": "Lì qí wèn。",
+        "vi": "Lizzie hỏi."
+      },
+      {
+        "start": 77.33,
+        "end": 80.33,
+        "cn": "雪莉老师吹了吹哨子。",
+        "py": "Xuě lì lǎo shī chuī le chuī shào zi。",
+        "vi": "Cô giáo Shirley thổi còi."
+      },
+      {
+        "start": 80.33,
+        "end": 84.33,
+        "cn": "杰森和波比停止打雪仗。",
+        "py": "Jié sēn hé bō bǐ tíng zhǐ dǎ xuě zhàng。",
+        "vi": "Jason và Bobby dừng ném tuyết."
+      },
+      {
+        "start": 84.33,
+        "end": 86.33,
+        "cn": "走了过来。",
+        "py": "Zǒu le guò lái。",
+        "vi": "Đã đến."
+      },
+      {
+        "start": 86.33,
+        "end": 88.33,
+        "cn": "鸟儿一般吃蚯蚓。",
+        "py": "Niǎo ér yì bān chī qiū yǐn。",
+        "vi": "Chim thường ăn giun đất."
+      },
+      {
+        "start": 88.33,
+        "end": 91.33,
+        "cn": "昆虫和莓果。",
+        "py": "Kūn chóng hé méi guǒ。",
+        "vi": "Côn trùng và quả mọng."
+      },
+      {
+        "start": 91.33,
+        "end": 94.33,
+        "cn": "但是这些在冬天很难找到。",
+        "py": "Dàn shì zhè xiē zài dōng tiān hěn nán zhǎo dào。",
+        "vi": "Nhưng những thứ này rất khó tìm thấy vào mùa đông."
+      },
+      {
+        "start": 94.33,
+        "end": 96.33,
+        "cn": "雪莉老师说。",
+        "py": "Xuě lì lǎo shī shuō。",
+        "vi": "Cô giáo Shirley nói."
+      },
+      {
+        "start": 96.33,
+        "end": 98.33,
+        "cn": "冬天太冷了。",
+        "py": "Dōng tiān tài lěng le。",
+        "vi": "Mùa đông lạnh quá."
+      },
+      {
+        "start": 98.33,
+        "end": 100.33,
+        "cn": "还有很多雪。",
+        "py": "Hái yǒu hěn duō xuě。",
+        "vi": "Vẫn còn rất nhiều tuyết."
+      },
+      {
+        "start": 100.33,
+        "end": 102.33,
+        "cn": "莉琪说。",
+        "py": "Lì qí shuō。",
+        "vi": "Lizzie nói."
+      },
+      {
+        "start": 102.33,
+        "end": 107.33,
+        "cn": "人们可以在外面放喂食器来帮助鸟儿。",
+        "py": "Rén men kě yǐ zài wài miàn fàng wèi shí qì lái bāng zhù niǎo ér。",
+        "vi": "Mọi người có thể giúp đỡ chim bằng cách đặt máng ăn bên ngoài."
+      },
+      {
+        "start": 107.33,
+        "end": 111.33,
+        "cn": "今天我们要在操场上为鸟儿做喂食器。",
+        "py": "Jīn tiān wǒ men yào zài cāo chǎng shàng wèi niǎo ér zuò wèi shí qì。",
+        "vi": "Hôm nay chúng ta sẽ làm máng ăn cho chim ở sân chơi."
+      },
+      {
+        "start": 111.33,
+        "end": 113.33,
+        "cn": "雪莉老师说。",
+        "py": "Xuě lì lǎo shī shuō。",
+        "vi": "Cô giáo Shirley nói."
+      },
+      {
+        "start": 113.33,
+        "end": 117.02,
+        "cn": "莉琪说。",
+        "py": "Lì qí shuō。",
+        "vi": "Lizzie nói."
+      },
+      {
+        "start": 117.02,
+        "end": 120.02,
+        "cn": "要怎么做呢。",
+        "py": "Yào zěn me zuò ne。",
+        "vi": "Làm thế nào để làm điều đó."
+      },
+      {
+        "start": 120.02,
+        "end": 125.02,
+        "cn": "首先在那边的松树下找一颗松果。",
+        "py": "Shǒu xiān zài nà biān de sōng shù xià zhǎo yī kē sōng guǒ。",
+        "vi": "Đầu tiên hãy tìm một quả thông dưới gốc cây thông đằng kia."
+      },
+      {
+        "start": 125.02,
+        "end": 129.02,
+        "cn": "雪莉老师指了指操场旁边的一排树。",
+        "py": "Xuě lì lǎo shī zhǐ le zhǐ cāo chǎng páng biān de yī pái shù。",
+        "vi": "Cô Shirley chỉ vào hàng cây cạnh sân chơi."
+      },
+      {
+        "start": 129.02,
+        "end": 133.3,
+        "cn": "几分钟后。",
+        "py": "Jǐ fēn zhōng hòu。",
+        "vi": "Sau vài phút."
+      },
+      {
+        "start": 133.3,
+        "end": 136.3,
+        "cn": "孩子们就带着松果跑了回来。",
+        "py": "Hái zi men jiù dài zhe sōng guǒ pǎo le huí lái。",
+        "vi": "Bọn trẻ chạy lại với những quả thông."
+      },
+      {
+        "start": 136.3,
+        "end": 138.3,
+        "cn": "我的最大！",
+        "py": "Wǒ de zuì dà！",
+        "vi": "Của em là lớn nhất!"
+      },
+      {
+        "start": 138.3,
+        "end": 142.6,
+        "cn": "波比大喊。",
+        "py": "Bō bǐ dà hǎn。",
+        "vi": "Bobby hét lên."
+      },
+      {
+        "start": 142.6,
+        "end": 143.6,
+        "cn": "接下来。",
+        "py": "Jiē xià lái。",
+        "vi": "Kế tiếp."
+      },
+      {
+        "start": 143.6,
+        "end": 145.6,
+        "cn": "选一条扭扭棒。",
+        "py": "Xuǎn yī tiáo niǔ niǔ bàng。",
+        "vi": "Chọn một thanh xoắn."
+      },
+      {
+        "start": 145.6,
+        "end": 148.6,
+        "cn": "把一边绑在你的松果上。",
+        "py": "Bǎ yī biān bǎng zài nǐ de sōng guǒ shàng。",
+        "vi": "Buộc một bên xung quanh quả thông của bạn."
+      },
+      {
+        "start": 148.6,
+        "end": 150.6,
+        "cn": "雪莉老师说。",
+        "py": "Xuě lì lǎo shī shuō。",
+        "vi": "Cô giáo Shirley nói."
+      },
+      {
+        "start": 150.6,
+        "end": 152.6,
+        "cn": "请给我绿色的。",
+        "py": "Qǐng gěi wǒ lǜ sè de。",
+        "vi": "Cho em xin cái màu xanh nhé"
+      },
+      {
+        "start": 152.6,
+        "end": 154.6,
+        "cn": "莉琪说。",
+        "py": "Lì qí shuō。",
+        "vi": "Lizzie nói."
+      },
+      {
+        "start": 154.6,
+        "end": 156.6,
+        "cn": "请给我蓝色的。",
+        "py": "Qǐng gěi wǒ lán sè de。",
+        "vi": "Cho mình xin cái màu xanh nhé"
+      },
+      {
+        "start": 156.6,
+        "end": 158.6,
+        "cn": "杰森说。",
+        "py": "Jié sēn shuō。",
+        "vi": "Jason nói."
+      },
+      {
+        "start": 158.6,
+        "end": 160.6,
+        "cn": "我要用紫色的。",
+        "py": "Wǒ yào yòng zǐ sè de。",
+        "vi": "Tôi sẽ sử dụng cái màu tím."
+      },
+      {
+        "start": 160.6,
+        "end": 162.6,
+        "cn": "妮娜说。",
+        "py": "Nī nà shuō。",
+        "vi": "Nina nói."
+      },
+      {
+        "start": 163.6,
+        "end": 165.0,
+        "cn": "当然了。",
+        "py": "Dāng rán le。",
+        "vi": "Tất nhiên rồi."
+      },
+      {
+        "start": 165.0,
+        "end": 166.2,
+        "cn": "波比说。",
+        "py": "Bō bǐ shuō。",
+        "vi": "Bobby nói."
+      },
+      {
+        "start": 166.9,
+        "end": 168.5,
+        "cn": "你什么意思。",
+        "py": "Nǐ shén me yì si。",
+        "vi": "Ý anh là gì."
+      },
+      {
+        "start": 168.5,
+        "end": 169.7,
+        "cn": "妮娜问。",
+        "py": "Nī nà wèn。",
+        "vi": "Nina hỏi."
+      },
+      {
+        "start": 170.5,
+        "end": 171.9,
+        "cn": "没什么。",
+        "py": "Méi shén me。",
+        "vi": "Không có gì."
+      },
+      {
+        "start": 171.9,
+        "end": 173.4,
+        "cn": "紫色小姐。",
+        "py": "Zǐ sè xiǎo jiě。",
+        "vi": "Cô Tím."
+      },
+      {
+        "start": 173.4,
+        "end": 175.3,
+        "cn": "波比咧嘴笑了。",
+        "py": "Bō bǐ liě zuǐ xiào le。",
+        "vi": "Bobby nhe răng cười."
+      },
+      {
+        "start": 176.7,
+        "end": 179.9,
+        "cn": "现在我们用它粘满花生酱。",
+        "py": "Xiàn zài wǒ men yòng tā zhān mǎn huā shēng jiàng。",
+        "vi": "Bây giờ chúng ta phủ nó bằng bơ đậu phộng."
+      },
+      {
+        "start": 179.9,
+        "end": 181.5,
+        "cn": "雪莉老师说。",
+        "py": "Xuě lì lǎo shī shuō。",
+        "vi": "Cô giáo Shirley nói."
+      },
+      {
+        "start": 183.0,
+        "end": 189.27,
+        "cn": "“哇！好黏呀！”莉琪大喊。",
+        "py": "“ wa！ hǎo nián ya！ ” lì qí dà hǎn。",
+        "vi": "“Oa! Dính quá!” Lizzie hét lên."
+      },
+      {
+        "start": 189.97,
+        "end": 191.07,
+        "cn": "没错。",
+        "py": "Méi cuò。",
+        "vi": "Đúng vậy."
+      },
+      {
+        "start": 191.67,
+        "end": 193.87,
+        "cn": "我们要让松果变粘。",
+        "py": "Wǒ men yào ràng sōng guǒ biàn zhān。",
+        "vi": "Chúng ta sẽ làm những quả thông dính nhớt."
+      },
+      {
+        "start": 193.87,
+        "end": 197.27,
+        "cn": "这样就可以让鸟食粘到上面。",
+        "py": "Zhè yàng jiù kě yǐ ràng niǎo shí zhān dào shàng miàn。",
+        "vi": "Như vậy thức ăn cho chim có thể dính lên trên."
+      },
+      {
+        "start": 197.27,
+        "end": 200.27,
+        "cn": "接下来我们用它粘满鸟食。",
+        "py": "Jiē xià lái wǒ men yòng tā zhān mǎn niǎo shí。",
+        "vi": "Tiếp theo chúng tôi lấp đầy nó bằng hạt giống chim."
+      },
+      {
+        "start": 200.27,
+        "end": 202.27,
+        "cn": "雪莉老师说。",
+        "py": "Xuě lì lǎo shī shuō。",
+        "vi": "Cô giáo Shirley nói."
+      },
+      {
+        "start": 202.27,
+        "end": 207.03,
+        "cn": "这很漂亮。",
+        "py": "Zhè hěn piào liàng。",
+        "vi": "Điều này thật đẹp."
+      },
+      {
+        "start": 207.03,
+        "end": 210.53,
+        "cn": "莉琪拿起她的松果说。",
+        "py": "Lì qí ná qǐ tā de sōng guǒ shuō。",
+        "vi": "Lizzie cầm quả thông của mình lên và nói."
+      },
+      {
+        "start": 210.53,
+        "end": 214.53,
+        "cn": "松果上粘满了不同颜色的鸟食。",
+        "py": "Sōng guǒ shàng zhān mǎn le bù tóng yán sè de niǎo shí。",
+        "vi": "Những quả thông được bao phủ bởi những hạt chim có màu sắc khác nhau."
+      },
+      {
+        "start": 214.53,
+        "end": 216.03,
+        "cn": "我的也是。",
+        "py": "Wǒ de yě shì。",
+        "vi": "Của tôi cũng vậy."
+      },
+      {
+        "start": 216.03,
+        "end": 218.03,
+        "cn": "妮娜说。",
+        "py": "Nī nà shuō。",
+        "vi": "Nina nói."
+      },
+      {
+        "start": 218.03,
+        "end": 221.03,
+        "cn": "我希望那只红色的小鸟会吃它。",
+        "py": "Wǒ xī wàng nà zhǐ hóng sè de xiǎo niǎo huì chī tā。",
+        "vi": "Tôi hy vọng con chim nhỏ màu đỏ sẽ ăn nó."
+      },
+      {
+        "start": 221.03,
+        "end": 223.53,
+        "cn": "莉琪说。",
+        "py": "Lì qí shuō。",
+        "vi": "Lizzie nói."
+      },
+      {
+        "start": 223.53,
+        "end": 226.03,
+        "cn": "我们把喂食器挂起来看看吧。",
+        "py": "Wǒ men bǎ wèi shí qì guà qǐ lái kàn kàn ba。",
+        "vi": "Hãy treo máng ăn lên và xem xét."
+      },
+      {
+        "start": 226.03,
+        "end": 228.53,
+        "cn": "雪莉老师说。",
+        "py": "Xuě lì lǎo shī shuō。",
+        "vi": "Cô giáo Shirley nói."
+      },
+      {
+        "start": 228.53,
+        "end": 231.13,
+        "cn": "我们挂在哪一棵树上呢。",
+        "py": "Wǒ men guà zài nǎ yī kē shù shàng ne。",
+        "vi": "Chúng ta đang treo trên cây nào?"
+      },
+      {
+        "start": 231.13,
+        "end": 239.28,
+        "cn": "“那棵。”莉琪指着刚才红色小鸟停过的树。",
+        "py": "“ nà kē。 ” lì qí zhǐ zhe gāng cái hóng sè xiǎo niǎo tíng guò de shù。",
+        "vi": "“Cây kia.” Lizzie chỉ vào cây mà chú chim đỏ vừa đậu."
+      },
+      {
+        "start": 239.28,
+        "end": 247.49,
+        "cn": "雪莉老师用梯子爬到树上。",
+        "py": "Xuě lì lǎo shī yòng tī zi pá dào shù shàng。",
+        "vi": "Cô Shirley dùng thang leo lên cây."
+      },
+      {
+        "start": 247.49,
+        "end": 249.89,
+        "cn": "请把你们的喂食器给我。",
+        "py": "Qǐng bǎ nǐ men de wèi shí qì gěi wǒ。",
+        "vi": "Xin vui lòng cho tôi thức ăn của bạn."
+      },
+      {
+        "start": 249.89,
+        "end": 251.49,
+        "cn": "她说。",
+        "py": "Tā shuō。",
+        "vi": "Cô giáo nói."
+      },
+      {
+        "start": 251.49,
+        "end": 257.89,
+        "cn": "雪莉老师把喂食器绑在不同的树枝上。",
+        "py": "Xuě lì lǎo shī bǎ wèi shí qì bǎng zài bù tóng de shù zhī shàng。",
+        "vi": "Cô Shirley buộc máng ăn vào các cành khác nhau."
+      },
+      {
+        "start": 257.89,
+        "end": 264.09,
+        "cn": "莉琪觉得他们看上去就像圣诞树上的装饰。",
+        "py": "Lì qí jué de tā men kàn shàng qù jiù xiàng shèng dàn shù shàng de zhuāng shì。",
+        "vi": "Lizzie nghĩ chúng trông giống đồ trang trí cây thông Noel."
+      },
+      {
+        "start": 264.09,
+        "end": 267.53,
+        "cn": "现在我们坐下来边等边看。",
+        "py": "Xiàn zài wǒ men zuò xià lái biān děng biān kàn。",
+        "vi": "Bây giờ chúng ta ngồi chờ và quan sát."
+      },
+      {
+        "start": 267.53,
+        "end": 270.01,
+        "cn": "雪莉老师说。",
+        "py": "Xuě lì lǎo shī shuō。",
+        "vi": "Cô giáo Shirley nói."
+      },
+      {
+        "start": 270.01,
+        "end": 273.17,
+        "cn": "他们回到野餐桌旁坐下。",
+        "py": "Tā men huí dào yě cān zhuō páng zuò xià。",
+        "vi": "Họ quay lại bàn picnic và ngồi xuống."
+      },
+      {
+        "start": 273.17,
+        "end": 277.25,
+        "cn": "雪莉老师给大家倒热可可。",
+        "py": "Xuě lì lǎo shī gěi dà jiā dào rè kě kě。",
+        "vi": "Cô Shirley rót cacao nóng cho mọi người."
+      },
+      {
+        "start": 277.25,
+        "end": 281.31,
+        "cn": "大家看着树。",
+        "py": "Dà jiā kàn zhe shù。",
+        "vi": "Mọi người nhìn lên cây."
+      },
+      {
+        "start": 281.31,
+        "end": 285.03,
+        "cn": "“它来了！”莉琪开心地小声说。",
+        "py": "“ tā lái le！ ” lì qí kāi xīn dì xiǎo shēng shuō。",
+        "vi": "“Nó đến rồi!” Lizzie vui vẻ nói nhỏ."
+      },
+      {
+        "start": 285.03,
+        "end": 289.19,
+        "cn": "莉琪指着树上的一只红鸟。",
+        "py": "Lì qí zhǐ zhe shù shàng de yī zhī hóng niǎo。",
+        "vi": "Lizzie chỉ vào một chú chim đỏ trên cây."
+      },
+      {
+        "start": 289.19,
+        "end": 291.99,
+        "cn": "它跳到一根树枝上。",
+        "py": "Tā tiào dào yī gēn shù zhī shàng。",
+        "vi": "Nó nhảy lên một cành cây."
+      },
+      {
+        "start": 291.99,
+        "end": 295.79,
+        "cn": "然后飞下来啄莉琪的松果。",
+        "py": "Rán hòu fēi xià lái zhuó lì qí de sōng guǒ。",
+        "vi": "Sau đó nó bay xuống mổ quả thông của Lizzie."
+      },
+      {
+        "start": 295.79,
+        "end": 297.29,
+        "cn": "“我要叫你樱桃。”",
+        "py": "“ wǒ yào jiào nǐ yīng táo。 ”",
+        "vi": "“Mình sẽ gọi bạn là Anh Đào.”"
+      },
+      {
+        "start": 297.29,
+        "end": 298.09,
+        "cn": "她说。",
+        "py": "Tā shuō。",
+        "vi": "Cô bé nói."
+      },
+      {
+        "start": 299.19,
+        "end": 301.29,
+        "cn": "小鸟飞上了天空。",
+        "py": "Xiǎo niǎo fēi shàng le tiān kōng。",
+        "vi": "Con chim bay lên trời."
       }
-    ]
+    ],
+    "transcriptStatus": "timed",
+    "transcriptSource": "Faster Whisper ASR + burned-in subtitle review",
+    "reviewStatus": "reviewed",
+    "status": "published"
   },
   {
     "id": "lf_hsk4_kids_central_25",
@@ -327,7 +1024,8 @@
         "py": "Zhège guòchéng fēicháng yǒuyìsi.",
         "vi": "Quá trình này rất thú vị."
       }
-    ]
+    ],
+    "status": "draft"
   },
   {
     "id": "lf_hsk4_kids_central_29",
@@ -357,31 +1055,141 @@
         "py": "Wǒmen duì jiéguǒ hěn mǎnyì.",
         "vi": "Chúng tôi rất hài lòng với kết quả."
       }
-    ]
+    ],
+    "status": "draft"
   },
   {
     "id": "new_vid_1",
-    "title": "Everyday Chinese Conversation",
-    "titleCn": "日常中文对话",
+    "title": "Bookstore Listening Practice",
+    "titleCn": "书店听力练习",
     "level": "HSK 2",
     "youtubeId": "rYeGfLwkK08",
     "source": "Mandarin Corner",
     "subtitles": [
       {
-        "cn": "你好，最近怎么样？",
-        "py": "Nǐ hǎo, zuìjìn zěnmeyàng?",
-        "vi": "Xin chào, dạo này thế nào?",
-        "start": 0,
-        "end": 3
+        "start": 27.9,
+        "end": 31.4,
+        "cn": "一个女人正在书店向店员问问题。",
+        "py": "Yí gè nǚ rén zhèng zài shū diàn xiàng diàn yuán wèn wèn tí。",
+        "vi": "Một người phụ nữ đang hỏi nhân viên trong hiệu sách."
       },
       {
-        "cn": "我很好，谢谢。",
-        "py": "Wǒ hěn hǎo, xièxie.",
-        "vi": "Tôi rất khỏe, cảm ơn.",
-        "start": 3,
-        "end": 5
+        "start": 32.64,
+        "end": 34.8,
+        "cn": "女人想看哪本书？",
+        "py": "Nǚ rén xiǎng kàn nǎ běn shū？",
+        "vi": "Người phụ nữ muốn xem cuốn sách nào?"
+      },
+      {
+        "start": 38.12,
+        "end": 41.78,
+        "cn": "不好意思，我想看一下那个书架上的书。",
+        "py": "Bù hǎo yì sī， wǒ xiǎng kàn yī xià nà ge shū jià shàng de shū。",
+        "vi": "Xin lỗi, tôi muốn xem cuốn sách trên giá kia."
+      },
+      {
+        "start": 42.6,
+        "end": 43.94,
+        "cn": "您想看哪本？",
+        "py": "Nín xiǎng kàn nǎ běn？",
+        "vi": "Chị muốn xem cuốn nào?"
+      },
+      {
+        "start": 44.76,
+        "end": 46.56,
+        "cn": "那本关于汽车的书。",
+        "py": "Nà běn guān yú qì chē de shū。",
+        "vi": "Cuốn sách về ô tô kia."
+      },
+      {
+        "start": 47.32,
+        "end": 49.02,
+        "cn": "请等一下，是这本吗？",
+        "py": "Qǐng děng yí xià， shì zhè běn ma？",
+        "vi": "Xin chờ một chút, có phải cuốn này không?"
+      },
+      {
+        "start": 49.76,
+        "end": 50.14,
+        "cn": "是的。",
+        "py": "Shì de。",
+        "vi": "Đúng rồi."
+      },
+      {
+        "start": 51.14,
+        "end": 51.58,
+        "cn": "给您。",
+        "py": "Gěi nín。",
+        "vi": "Của chị đây."
+      },
+      {
+        "start": 55.22,
+        "end": 57.12,
+        "cn": "女人想看哪本书？",
+        "py": "Nǚ rén xiǎng kàn nǎ běn shū？",
+        "vi": "Người phụ nữ muốn xem cuốn sách nào?"
+      },
+      {
+        "start": 62.87,
+        "end": 66.23,
+        "cn": "一个女人正在书店向店员问问题。",
+        "py": "Yí gè nǚ rén zhèng zài shū diàn xiàng diàn yuán wèn wèn tí。",
+        "vi": "Một người phụ nữ đang hỏi nhân viên trong hiệu sách."
+      },
+      {
+        "start": 67.65,
+        "end": 69.65,
+        "cn": "女人想看哪本书？",
+        "py": "Nǚ rén xiǎng kàn nǎ běn shū？",
+        "vi": "Người phụ nữ muốn xem cuốn sách nào?"
+      },
+      {
+        "start": 70.95,
+        "end": 74.69,
+        "cn": "不好意思，我想看一下那个书架上的书。",
+        "py": "Bù hǎo yì sī， wǒ xiǎng kàn yī xià nà ge shū jià shàng de shū。",
+        "vi": "Xin lỗi, tôi muốn xem cuốn sách trên giá kia."
+      },
+      {
+        "start": 75.45,
+        "end": 76.83,
+        "cn": "您想看哪本？",
+        "py": "Nín xiǎng kàn nǎ běn？",
+        "vi": "Chị muốn xem cuốn nào?"
+      },
+      {
+        "start": 77.53,
+        "end": 79.45,
+        "cn": "那本关于汽车的书。",
+        "py": "Nà běn guān yú qì chē de shū。",
+        "vi": "Cuốn sách về ô tô kia."
+      },
+      {
+        "start": 80.09,
+        "end": 81.89,
+        "cn": "请等一下，是这本吗？",
+        "py": "Qǐng děng yí xià， shì zhè běn ma？",
+        "vi": "Xin chờ một chút, có phải cuốn này không?"
+      },
+      {
+        "start": 82.63,
+        "end": 83.01,
+        "cn": "是的。",
+        "py": "Shì de。",
+        "vi": "Đúng rồi."
+      },
+      {
+        "start": 83.95,
+        "end": 84.41,
+        "cn": "给您。",
+        "py": "Gěi nín。",
+        "vi": "Của chị đây."
       }
-    ]
+    ],
+    "transcriptStatus": "timed",
+    "transcriptSource": "Verified audio timing",
+    "reviewStatus": "reviewed",
+    "status": "published"
   },
   {
     "id": "new_vid_2",
@@ -392,20 +1200,2726 @@
     "source": "Everyday Chinese",
     "subtitles": [
       {
-        "cn": "今天天气真不错。",
-        "py": "Jīntiān tiānqì zhēn bùcuò.",
-        "vi": "Hôm nay thời tiết thật đẹp.",
-        "start": 0,
-        "end": 4
+        "cn": "小美, 你好！",
+        "vi": "Tiểu Mai, chào bạn!",
+        "start": 2.13,
+        "end": 4.33,
+        "py": "Xiǎo měi, nǐ hǎo！"
       },
       {
-        "cn": "我们去爬山吧。",
-        "py": "Wǒmen qù páshān ba.",
-        "vi": "Chúng ta đi leo núi đi.",
-        "start": 4,
-        "end": 7
+        "cn": "这个周末你有什么事吗？",
+        "vi": "Cuối tuần này bạn làm gì?",
+        "start": 4.596,
+        "end": 7.163,
+        "py": "Zhè ge zhōu mò nǐ yǒu shén me shì ma？"
+      },
+      {
+        "cn": "我没有事, 怎么了？",
+        "vi": "Mình khỏe, có chuyện gì thế?",
+        "start": 7.396,
+        "end": 9.596,
+        "py": "Wǒ méi yǒu shì, zěn me le？"
+      },
+      {
+        "cn": "我想出去玩玩。",
+        "vi": "Mình muốn ra ngoài chơi.",
+        "start": 9.863,
+        "end": 11.629999999999999,
+        "py": "Wǒ xiǎng chū qù wán wán。"
+      },
+      {
+        "cn": "好啊, 我也想出去。",
+        "vi": "Tuyệt! Mình cũng muốn ra ngoài.",
+        "start": 11.896,
+        "end": 14.263000000000002,
+        "py": "Hǎo a, wǒ yě xiǎng chū qù。"
+      },
+      {
+        "cn": "我们去旅游, 怎么样？",
+        "vi": "Hay là chúng ta đi du lịch nhỉ?",
+        "start": 14.496,
+        "end": 16.763,
+        "py": "Wǒ men qù lǚ yóu, zěn me yàng？"
+      },
+      {
+        "cn": "太好了! 我们去哪儿？",
+        "vi": "Tuyệt vời! Chúng ta nên đi đâu?",
+        "start": 17.063,
+        "end": 19.563,
+        "py": "Tài hǎo le! wǒ men qù nǎ ér？"
+      },
+      {
+        "cn": "我们去北京, 好不好？",
+        "vi": "Bắc Kinh thì sao?",
+        "start": 19.83,
+        "end": 22.195999999999998,
+        "py": "Wǒ men qù běi jīng, hǎo bù hǎo？"
+      },
+      {
+        "cn": "去北京？我很喜欢北京。",
+        "vi": "Bắc Kinh à? Mình rất thích Bắc Kinh.",
+        "start": 22.463,
+        "end": 25.73,
+        "py": "Qù běi jīng？ wǒ hěn xǐ huān běi jīng。"
+      },
+      {
+        "cn": "北京有很多好玩的地方。",
+        "vi": "Có rất nhiều nơi vui chơi ở Bắc Kinh.",
+        "start": 25.996,
+        "end": 28.962999999999997,
+        "py": "Běi jīng yǒu hěn duō hǎo wán de dì fāng。"
+      },
+      {
+        "cn": "对, 还有很多好吃的东西。",
+        "vi": "Vâng, và cũng rất nhiều đồ ăn ngon nữa. Được rồi,",
+        "start": 29.196,
+        "end": 31.830000000000002,
+        "py": "Duì, hái yǒu hěn duō hǎo chī de dōng xī。"
+      },
+      {
+        "cn": "那我们就决定去北京了。",
+        "vi": "vậy chúng ta đi Bắc Kinh nhé.",
+        "start": 32.13,
+        "end": 34.963,
+        "py": "Nà wǒ men jiù jué dìng qù běi jīng le。"
+      },
+      {
+        "cn": "好的, 我们什么时候去？",
+        "vi": "Được rồi, khi nào chúng ta nên đi?",
+        "start": 35.23,
+        "end": 37.895999999999994,
+        "py": "Hǎo de, wǒ men shén me shí hòu qù？"
+      },
+      {
+        "cn": "这个周末, 星期六去。",
+        "vi": "Cuối tuần này, thứ Bảy. Chúng ta sẽ",
+        "start": 38.163,
+        "end": 40.83,
+        "py": "Zhè ge zhōu mò, xīng qī liù qù。"
+      },
+      {
+        "cn": "星期天晚上回来, 可以吗？",
+        "vi": "quay lại vào tối Chủ Nhật, được không?",
+        "start": 41.096,
+        "end": 43.863,
+        "py": "Xīng qī tiān wǎn shàng huí lái, kě yǐ ma？"
+      },
+      {
+        "cn": "可以, 两天时间够了。",
+        "vi": "Chắc chắn rồi, hai ngày là đủ.",
+        "start": 44.13,
+        "end": 46.93,
+        "py": "Kě yǐ, liǎng tiān shí jiān gòu le。"
+      },
+      {
+        "cn": "那我们现在计划一下吧。",
+        "vi": "Bây giờ chúng ta hãy lên kế hoạch.",
+        "start": 47.163,
+        "end": 49.596,
+        "py": "Nà wǒ men xiàn zài jì huà yī xià ba。"
+      },
+      {
+        "cn": "好, 我们先说什么？",
+        "vi": "Được rồi, chúng ta nên nói về điều gì trước?",
+        "start": 49.863,
+        "end": 52.363,
+        "py": "Hǎo, wǒ men xiān shuō shén me？"
+      },
+      {
+        "cn": "先说怎么去北京吧。",
+        "vi": "Hãy nói về cách đến Bắc Kinh.",
+        "start": 52.663,
+        "end": 54.93,
+        "py": "Xiān shuō zěn me qù běi jīng ba。"
+      },
+      {
+        "cn": "我们可以坐火车去。",
+        "vi": "Chúng ta có thể đi tàu. Chúng ta",
+        "start": 55.196,
+        "end": 57.562999999999995,
+        "py": "Wǒ men kě yǐ zuò huǒ chē qù。"
+      },
+      {
+        "cn": "坐飞机也可以, 飞机快。",
+        "vi": "cũng có thể đi máy bay, máy bay nhanh hơn.",
+        "start": 57.83,
+        "end": 61.03,
+        "py": "Zuò fēi jī yě kě yǐ, fēi jī kuài。"
+      },
+      {
+        "cn": "但是飞机票比火车票贵。",
+        "vi": "Nhưng vé máy bay đắt hơn vé tàu.",
+        "start": 61.296,
+        "end": 64.73,
+        "py": "Dàn shì fēi jī piào bǐ huǒ chē piào guì。"
+      },
+      {
+        "cn": "我们看看票多少钱。",
+        "vi": "Hãy kiểm tra xem giá vé là bao nhiêu.",
+        "start": 64.996,
+        "end": 67.196,
+        "py": "Wǒ men kàn kàn piào duō shǎo qián。"
+      },
+      {
+        "cn": "好, 我现在看手机。",
+        "vi": "Được rồi, bây giờ mình sẽ kiểm tra điện thoại.",
+        "start": 67.43,
+        "end": 70.93,
+        "py": "Hǎo, wǒ xiàn zài kàn shǒu jī。"
+      },
+      {
+        "cn": "我也看看我的手机。",
+        "vi": "Mình cũng sẽ kiểm tra điện thoại.",
+        "start": 71.23,
+        "end": 73.63000000000001,
+        "py": "Wǒ yě kàn kàn wǒ de shǒu jī。"
+      },
+      {
+        "cn": "周末的飞机票有点儿贵。",
+        "vi": "Vé máy bay hơi đắt vào cuối tuần này.",
+        "start": 73.896,
+        "end": 76.73,
+        "py": "Zhōu mò de fēi jī piào yǒu diǎn ér guì。"
+      },
+      {
+        "cn": "是吗？火车票呢？",
+        "vi": "Thật sao? Vé tàu thì sao? Để",
+        "start": 76.996,
+        "end": 79.696,
+        "py": "Shì ma？ huǒ chē piào ne？"
+      },
+      {
+        "cn": "我看看, 火车票便宜一点儿。",
+        "vi": "mình xem nào, vé tàu rẻ hơn.",
+        "start": 79.963,
+        "end": 83.59599999999999,
+        "py": "Wǒ kàn kàn, huǒ chē piào pián yi yì diǎn ér。"
+      },
+      {
+        "cn": "那我们坐火车吧。",
+        "vi": "Vậy thì chúng ta đi tàu nhé.",
+        "start": 83.863,
+        "end": 86.23,
+        "py": "Nà wǒ men zuò huǒ chē ba。"
+      },
+      {
+        "cn": "好, 我们坐高铁。",
+        "vi": "Được rồi, đi tàu cao tốc nhé.",
+        "start": 86.496,
+        "end": 88.76299999999999,
+        "py": "Hǎo, wǒ men zuò gāo tiě。"
+      },
+      {
+        "cn": "高铁很快, 也舒服。",
+        "vi": "Tàu cao tốc nhanh và thoải mái.",
+        "start": 89.03,
+        "end": 91.63,
+        "py": "Gāo tiě hěn kuài, yě shū fú。"
+      },
+      {
+        "cn": "我们买几点的票？",
+        "vi": "Chúng ta nên mua vé lúc mấy giờ?",
+        "start": 91.896,
+        "end": 93.963,
+        "py": "Wǒ men mǎi jǐ diǎn de piào？"
+      },
+      {
+        "cn": "星期六早上早点儿走。",
+        "vi": "Chúng ta khởi hành sớm vào sáng thứ Bảy nhé.",
+        "start": 94.23,
+        "end": 96.63000000000001,
+        "py": "Xīng qī liù zǎo shàng zǎo diǎn ér zǒu。"
+      },
+      {
+        "cn": "早上七点的票, 怎么样？",
+        "vi": "Vé 7 giờ sáng thì sao?",
+        "start": 96.896,
+        "end": 99.396,
+        "py": "Zǎo shàng qī diǎn de piào, zěn me yàng？"
+      },
+      {
+        "cn": "七点太早了, 我起不来。",
+        "vi": "7 giờ sáng thì quá sớm, tôi không dậy nổi.",
+        "start": 99.663,
+        "end": 103.096,
+        "py": "Qī diǎn tài zǎo le, wǒ qǐ bù lái。"
+      },
+      {
+        "cn": "那八点的可以吗？",
+        "vi": "8 giờ sáng thì sao?",
+        "start": 103.363,
+        "end": 105.463,
+        "py": "Nà bā diǎn de kě yǐ ma？"
+      },
+      {
+        "cn": "八点的可以, 不早不晚。",
+        "vi": "8 giờ sáng cũng được, không quá sớm, không quá muộn.",
+        "start": 105.763,
+        "end": 108.596,
+        "py": "Bā diǎn de kě yǐ, bù zǎo bù wǎn。"
+      },
+      {
+        "cn": "到北京是中午十二点。",
+        "vi": "Chúng ta đến Bắc Kinh vào buổi trưa.",
+        "start": 108.863,
+        "end": 112.096,
+        "py": "Dào běi jīng shì zhōng wǔ shí èr diǎn。"
+      },
+      {
+        "cn": "这个时间很好。",
+        "vi": "Đó là thời điểm tốt.",
+        "start": 112.363,
+        "end": 114.163,
+        "py": "Zhè ge shí jiān hěn hǎo。"
+      },
+      {
+        "cn": "那我们现在买票吗？",
+        "vi": "Chúng ta mua vé bây giờ nhé?",
+        "start": 114.43,
+        "end": 116.596,
+        "py": "Nà wǒ men xiàn zài mǎi piào ma？"
+      },
+      {
+        "cn": "现在就买吧, 晚了就没有了。",
+        "vi": "Mua ngay đi, nếu không chúng sẽ hết mất.",
+        "start": 116.83,
+        "end": 119.896,
+        "py": "Xiàn zài jiù mǎi ba, wǎn le jiù méi yǒu le。"
+      },
+      {
+        "cn": "好的, 我来买两张票。",
+        "vi": "Được rồi, tôi sẽ mua hai vé.",
+        "start": 120.196,
+        "end": 122.963,
+        "py": "Hǎo de, wǒ lái mǎi liǎng zhāng piào。"
+      },
+      {
+        "cn": "我把我的钱给你。",
+        "vi": "Tôi sẽ đưa tiền cho bạn.",
+        "start": 123.196,
+        "end": 125.196,
+        "py": "Wǒ bǎ wǒ de qián gěi nǐ。"
+      },
+      {
+        "cn": "不用, 你回来再给我。",
+        "vi": "Không cần đâu, bạn có thể trả lại tôi khi bạn quay lại.",
+        "start": 125.463,
+        "end": 127.696,
+        "py": "Bù yòng, nǐ huí lái zài gěi wǒ。"
+      },
+      {
+        "cn": "太谢谢你了, 小美。",
+        "vi": "Cảm ơn bạn rất nhiều, Xiaomei.",
+        "start": 127.963,
+        "end": 130.23,
+        "py": "Tài xiè xiè nǐ le, xiǎo měi。"
+      },
+      {
+        "cn": "没关系, 我们是好朋友。",
+        "vi": "Không sao đâu, chúng ta là bạn tốt.",
+        "start": 130.496,
+        "end": 133.39600000000002,
+        "py": "Méi guān xì, wǒ men shì hǎo péng yǒu。"
+      },
+      {
+        "cn": "回来的票也一起买吗？",
+        "vi": "Chúng ta cũng mua vé khứ hồi chứ?",
+        "start": 133.696,
+        "end": 136.096,
+        "py": "Huí lái de piào yě yì qǐ mǎi ma？"
+      },
+      {
+        "cn": "对, 回来的票也买。",
+        "vi": "Vâng, chúng ta cũng sẽ mua vé khứ hồi.",
+        "start": 136.363,
+        "end": 138.863,
+        "py": "Duì, huí lái de piào yě mǎi。"
+      },
+      {
+        "cn": "我们星期天几点回来？",
+        "vi": "Chúng ta sẽ về lúc mấy giờ vào Chủ Nhật?",
+        "start": 139.13,
+        "end": 142.096,
+        "py": "Wǒ men xīng qī tiān jǐ diǎn huí lái？"
+      },
+      {
+        "cn": "晚上七点的火车, 好吗？",
+        "vi": "Tàu 7 giờ tối, được không?",
+        "start": 142.363,
+        "end": 145.33,
+        "py": "Wǎn shàng qī diǎn de huǒ chē, hǎo ma？"
+      },
+      {
+        "cn": "好, 这样我们能玩一天。",
+        "vi": "Được rồi, như vậy chúng ta có thể có cả một ngày để chơi.",
+        "start": 145.563,
+        "end": 148.66299999999998,
+        "py": "Hǎo, zhè yàng wǒ men néng wán yī tiān。"
+      },
+      {
+        "cn": "晚上十点到家, 不太晚。",
+        "vi": "Chúng ta sẽ về nhà lúc 10 giờ tối, không quá muộn.",
+        "start": 148.963,
+        "end": 152.16299999999998,
+        "py": "Wǎn shàng shí diǎn dào jiā, bù tài wǎn。"
+      },
+      {
+        "cn": "好的, 就买这个时间的。",
+        "vi": "Được rồi, mua vé thôi.",
+        "start": 152.396,
+        "end": 154.896,
+        "py": "Hǎo de, jiù mǎi zhè ge shí jiān de。"
+      },
+      {
+        "cn": "票买好了, 我发给你。",
+        "vi": "Vé đã mua rồi, tôi sẽ gửi cho bạn.",
+        "start": 155.196,
+        "end": 157.496,
+        "py": "Piào mǎi hǎo le, wǒ fā gěi nǐ。"
+      },
+      {
+        "cn": "我收到了, 谢谢你。",
+        "vi": "Tôi nhận được rồi, cảm ơn bạn. Không",
+        "start": 157.763,
+        "end": 159.93,
+        "py": "Wǒ shōu dào le, xiè xiè nǐ。"
+      },
+      {
+        "cn": "不客气。我们解决了交通。",
+        "vi": "có gì. Chúng ta đã giải quyết được vấn đề đi lại.",
+        "start": 160.196,
+        "end": 163.096,
+        "py": "Bú kè qì。 wǒ men jiě jué le jiāo tōng。"
+      },
+      {
+        "cn": "对, 解决了第一件大事。",
+        "vi": "Vâng, chúng ta đã giải quyết được vấn đề lớn đầu tiên.",
+        "start": 163.363,
+        "end": 166.13,
+        "py": "Duì, jiě jué le dì yī jiàn dà shì。"
+      },
+      {
+        "cn": "下面我们说住的地方。",
+        "vi": "Bây giờ chúng ta hãy nói về chỗ ở.",
+        "start": 166.396,
+        "end": 168.863,
+        "py": "Xià miàn wǒ men shuō zhù de dì fāng。"
+      },
+      {
+        "cn": "好, 我们住在哪儿呢？",
+        "vi": "Được rồi, chúng ta nên ở đâu?",
+        "start": 169.13,
+        "end": 171.763,
+        "py": "Hǎo, wǒ men zhù zài nǎ ér ne？"
+      },
+      {
+        "cn": "我们要不要订一个酒店？",
+        "vi": "Chúng ta có nên đặt khách sạn không?",
+        "start": 172.03,
+        "end": 174.863,
+        "py": "Wǒ men yào bù yào dìng yí gè jiǔ diàn？"
+      },
+      {
+        "cn": "酒店方便, 但是有点儿贵。",
+        "vi": "Khách sạn rất tiện lợi, nhưng hơi đắt.",
+        "start": 175.13,
+        "end": 178.53,
+        "py": "Jiǔ diàn fāng biàn, dàn shì yǒu diǎn ér guì。"
+      },
+      {
+        "cn": "你在北京有朋友吗？",
+        "vi": "Bạn có bạn nào ở Bắc Kinh không?",
+        "start": 178.796,
+        "end": 181.096,
+        "py": "Nǐ zài běi jīng yǒu péng yǒu ma？"
+      },
+      {
+        "cn": "我有一个朋友在北京工作。",
+        "vi": "Tôi có một người bạn làm việc ở Bắc Kinh.",
+        "start": 181.396,
+        "end": 184.16299999999998,
+        "py": "Wǒ yǒu yí gè péng yǒu zài běi jīng gōng zuò。"
+      },
+      {
+        "cn": "我们可以住在他家吗？",
+        "vi": "Chúng ta có thể ở nhà anh ấy không?",
+        "start": 184.396,
+        "end": 187.063,
+        "py": "Wǒ men kě yǐ zhù zài tā jiā ma？"
+      },
+      {
+        "cn": "我问问他, 可能不方便。",
+        "vi": "Tôi sẽ hỏi anh ấy, nhưng có thể sẽ không tiện.",
+        "start": 187.33,
+        "end": 189.93,
+        "py": "Wǒ wèn wèn tā, kě néng bù fāng biàn。"
+      },
+      {
+        "cn": "好的, 你现在问他吧。",
+        "vi": "Được rồi, bạn có thể hỏi anh ấy ngay bây giờ.",
+        "start": 190.196,
+        "end": 192.496,
+        "py": "Hǎo de, nǐ xiàn zài wèn tā ba。"
+      },
+      {
+        "cn": "我正在给他打电话。",
+        "vi": "Tôi đang gọi cho anh ấy đây.",
+        "start": 192.796,
+        "end": 195.16299999999998,
+        "py": "Wǒ zhèng zài gěi tā dǎ diàn huà。"
+      },
+      {
+        "cn": "他怎么说？",
+        "vi": "Anh ấy nói gì?",
+        "start": 195.396,
+        "end": 196.896,
+        "py": "Tā zěn me shuō？"
+      },
+      {
+        "cn": "他说他家太小了。",
+        "vi": "Anh ấy nói rằng chỗ của anh ấy quá nhỏ.",
+        "start": 197.196,
+        "end": 199.396,
+        "py": "Tā shuō tā jiā tài xiǎo le。"
+      },
+      {
+        "cn": "啊, 那我们还是住酒店吧。",
+        "vi": "À, vậy thì chúng ta hãy ở khách sạn nhé.",
+        "start": 199.663,
+        "end": 202.763,
+        "py": "A, nà wǒ men hái shì zhù jiǔ diàn ba。"
+      },
+      {
+        "cn": "好的, 找一个不贵的酒店。",
+        "vi": "Được rồi, chúng ta hãy tìm một khách sạn giá rẻ.",
+        "start": 203.03,
+        "end": 205.996,
+        "py": "Hǎo de, zhǎo yí gè bù guì de jiǔ diàn。"
+      },
+      {
+        "cn": "我知道一个网站可以订酒店。",
+        "vi": "Tôi biết một trang web nơi chúng ta có thể đặt phòng khách sạn.",
+        "start": 206.263,
+        "end": 209.696,
+        "py": "Wǒ zhī dào yí gè wǎng zhàn kě yǐ dìng jiǔ diàn。"
+      },
+      {
+        "cn": "哪个网站？你告诉我。",
+        "vi": "Trang web nào vậy? Nói cho tôi biết.",
+        "start": 209.963,
+        "end": 212.463,
+        "py": "Nǎ ge wǎng zhàn？ nǐ gào sù wǒ。"
+      },
+      {
+        "cn": "我把网站发给你了。",
+        "vi": "Tôi đã gửi cho bạn trang web.",
+        "start": 212.73,
+        "end": 214.82999999999998,
+        "py": "Wǒ bǎ wǎng zhàn fā gěi nǐ le。"
+      },
+      {
+        "cn": "谢谢, 我看看。",
+        "vi": "Cảm ơn, tôi sẽ xem thử.",
+        "start": 215.13,
+        "end": 217.13,
+        "py": "Xiè xiè, wǒ kàn kàn。"
+      },
+      {
+        "cn": "我们想住在哪儿附近？",
+        "vi": "Chúng ta muốn ở đâu?",
+        "start": 217.363,
+        "end": 219.863,
+        "py": "Wǒ men xiǎng zhù zài nǎ ér fù jìn？"
+      },
+      {
+        "cn": "住在市中心方便一些。",
+        "vi": "Ở trong trung tâm thành phố sẽ thuận tiện hơn.",
+        "start": 220.163,
+        "end": 222.63000000000002,
+        "py": "Zhù zài shì zhōng xīn fāng biàn yī xiē。"
+      },
+      {
+        "cn": "对, 离地铁站近一点儿。",
+        "vi": "Vâng, gần ga tàu điện ngầm hơn.",
+        "start": 222.896,
+        "end": 225.76299999999998,
+        "py": "Duì, lí dì tiě zhàn jìn yì diǎn ér。"
+      },
+      {
+        "cn": "这样我们去哪儿都方便。",
+        "vi": "Như vậy sẽ thuận tiện cho chúng ta đi bất cứ đâu.",
+        "start": 226.03,
+        "end": 228.663,
+        "py": "Zhè yàng wǒ men qù nǎ ér dōu fāng biàn。"
+      },
+      {
+        "cn": "我找到了一个, 价格不错。",
+        "vi": "Tôi tìm được một khách sạn rồi, giá tốt đấy.",
+        "start": 228.93,
+        "end": 231.79600000000002,
+        "py": "Wǒ zhǎo dào le yí gè, jià gé bù cuò。"
+      },
+      {
+        "cn": "是吗？叫什么名字？",
+        "vi": "Thật sao? Khách sạn này tên gì nhỉ?",
+        "start": 232.063,
+        "end": 234.296,
+        "py": "Shì ma？ jiào shén me míng zì？"
+      },
+      {
+        "cn": "叫“快乐酒店”。",
+        "vi": "Khách sạn này tên là \"Happy Hotel\".",
+        "start": 234.596,
+        "end": 236.83,
+        "py": "Jiào “ kuài lè jiǔ diàn ”。"
+      },
+      {
+        "cn": "哈哈, 名字很有意思。",
+        "vi": "Haha, tên nghe thú vị đấy.",
+        "start": 237.096,
+        "end": 239.89600000000002,
+        "py": "Hā hā, míng zì hěn yǒu yì si。"
+      },
+      {
+        "cn": "评价也很好, 很多人喜欢。",
+        "vi": "Đánh giá cũng tốt lắm, nhiều người thích lắm.",
+        "start": 240.13,
+        "end": 243.363,
+        "py": "Píng jià yě hěn hǎo, hěn duō rén xǐ huān。"
+      },
+      {
+        "cn": "你觉得这个酒店怎么样？",
+        "vi": "Bạn nghĩ sao về khách sạn này?",
+        "start": 243.63,
+        "end": 246.096,
+        "py": "Nǐ jué de zhè ge jiǔ diàn zěn me yàng？"
+      },
+      {
+        "cn": "我觉得可以, 房间很干净。",
+        "vi": "Tôi thấy tốt, phòng rất sạch sẽ.",
+        "start": 246.396,
+        "end": 249.363,
+        "py": "Wǒ jué de kě yǐ, fáng jiān hěn gān jìng。"
+      },
+      {
+        "cn": "那就订这个酒店吧。",
+        "vi": "Vậy thì đặt khách sạn này nhé.",
+        "start": 249.596,
+        "end": 251.696,
+        "py": "Nà jiù dìng zhè ge jiǔ diàn ba。"
+      },
+      {
+        "cn": "我们订一个房间就可以。",
+        "vi": "Chúng ta chỉ cần một phòng thôi.",
+        "start": 251.996,
+        "end": 254.39600000000002,
+        "py": "Wǒ men dìng yí gè fáng jiān jiù kě yǐ。"
+      },
+      {
+        "cn": "对, 一个双人房。",
+        "vi": "Vâng, một phòng đôi.",
+        "start": 254.663,
+        "end": 257.03000000000003,
+        "py": "Duì, yí gè shuāng rén fáng。"
+      },
+      {
+        "cn": "我们只住一个晚上。",
+        "vi": "Chúng ta chỉ ở một đêm thôi.",
+        "start": 257.263,
+        "end": 259.46299999999997,
+        "py": "Wǒ men zhǐ zhù yí gè wǎn shàng。"
+      },
+      {
+        "cn": "是的, 星期六晚上。",
+        "vi": "Vâng, tối thứ Bảy.",
+        "start": 259.73,
+        "end": 262.03000000000003,
+        "py": "Shì de, xīng qī liù wǎn shàng。"
+      },
+      {
+        "cn": "好的, 你来订吗？",
+        "vi": "Được rồi, bạn đặt nhé?",
+        "start": 262.296,
+        "end": 264.363,
+        "py": "Hǎo de, nǐ lái dìng ma？"
+      },
+      {
+        "cn": "还是你来订吧, 你有网站账户。",
+        "vi": "Bạn có thể đặt, bạn có tài khoản trên trang web mà.",
+        "start": 264.663,
+        "end": 268.163,
+        "py": "Hái shì nǐ lái dìng ba, nǐ yǒu wǎng zhàn zhàng hù。"
+      },
+      {
+        "cn": "好的, 我来订。不麻烦。",
+        "vi": "Được rồi, tôi sẽ đặt. Không vấn đề gì cả.",
+        "start": 268.43,
+        "end": 271.13,
+        "py": "Hǎo de, wǒ lái dìng。 bù má fán。"
+      },
+      {
+        "cn": "好的, 太谢谢你了。",
+        "vi": "Được rồi, cảm ơn bạn rất nhiều. Không",
+        "start": 271.396,
+        "end": 273.563,
+        "py": "Hǎo de, tài xiè xiè nǐ le。"
+      },
+      {
+        "cn": "别客气。已经订好了。",
+        "vi": "có gì. Đã đặt rồi.",
+        "start": 273.83,
+        "end": 276.53,
+        "py": "Bié kè qì。 yǐ jīng dìng hǎo le。"
+      },
+      {
+        "cn": "太快了! 谢谢你!",
+        "vi": "Nhanh quá! Cảm ơn bạn!",
+        "start": 276.83,
+        "end": 279.063,
+        "py": "Tài kuài le! xiè xiè nǐ!"
+      },
+      {
+        "cn": "住的问题也解决了。",
+        "vi": "Vấn đề chỗ ở cũng đã được giải quyết rồi.",
+        "start": 279.33,
+        "end": 281.72999999999996,
+        "py": "Zhù de wèn tí yě jiě jué le。"
+      },
+      {
+        "cn": "现在我们可以计划去哪儿玩了。",
+        "vi": "Giờ chúng ta có thể lên kế hoạch đi đâu rồi.",
+        "start": 281.963,
+        "end": 285.363,
+        "py": "Xiàn zài wǒ men kě yǐ jì huà qù nǎ ér wán le。"
+      },
+      {
+        "cn": "对, 我最喜欢这个部分。",
+        "vi": "Vâng, tôi thích phần này nhất.",
+        "start": 285.63,
+        "end": 288.396,
+        "py": "Duì, wǒ zuì xǐ huān zhè ge bù fèn。"
+      },
+      {
+        "cn": "星期六我们去哪里玩？",
+        "vi": "Thứ Bảy này chúng ta nên đi đâu?",
+        "start": 288.663,
+        "end": 291.296,
+        "py": "Xīng qī liù wǒ men qù nǎ lǐ wán？"
+      },
+      {
+        "cn": "我们上午去天安门广场。",
+        "vi": "Chúng ta sẽ đến Quảng trường Thiên An Môn vào buổi sáng.",
+        "start": 291.563,
+        "end": 294.83,
+        "py": "Wǒ men shàng wǔ qù tiān ān mén guǎng chǎng。"
+      },
+      {
+        "cn": "好啊, 我一直想去那里看看。",
+        "vi": "Tuyệt vời, tôi luôn muốn đến đó.",
+        "start": 295.096,
+        "end": 298.263,
+        "py": "Hǎo a, wǒ yì zhí xiǎng qù nà lǐ kàn kàn。"
+      },
+      {
+        "cn": "天安门广场非常大, 很漂亮。",
+        "vi": "Quảng trường Thiên An Môn rất lớn và đẹp.",
+        "start": 298.53,
+        "end": 302.563,
+        "py": "Tiān ān mén guǎng chǎng fēi cháng dà, hěn piào liàng。"
+      },
+      {
+        "cn": "我们可以照很多照片。",
+        "vi": "Chúng ta có thể chụp rất nhiều ảnh.",
+        "start": 302.83,
+        "end": 305.296,
+        "py": "Wǒ men kě yǐ zhào hěn duō zhào piān。"
+      },
+      {
+        "cn": "当然! 还要去看故宫。",
+        "vi": "Tất nhiên rồi! Chúng ta cũng cần tham quan Tử Cấm Thành nữa.",
+        "start": 305.563,
+        "end": 308.163,
+        "py": "Dāng rán! hái yào qù kàn gù gōng。"
+      },
+      {
+        "cn": "故宫就在天安门后面, 对吗？",
+        "vi": "Tử Cấm Thành nằm ngay sau Quảng trường Thiên An Môn, phải không?",
+        "start": 308.43,
+        "end": 311.596,
+        "py": "Gù gōng jiù zài tiān ān mén hòu miàn, duì ma？"
+      },
+      {
+        "cn": "对, 走路就能到, 很近。",
+        "vi": "Vâng, chỉ cần đi bộ là đến, rất gần.",
+        "start": 311.83,
+        "end": 314.43,
+        "py": "Duì, zǒu lù jiù néng dào, hěn jìn。"
+      },
+      {
+        "cn": "故宫里面大不大？",
+        "vi": "Tử Cấm Thành có lớn không?",
+        "start": 314.696,
+        "end": 316.896,
+        "py": "Gù gōng lǐ miàn dà bù dà？"
+      },
+      {
+        "cn": "非常大, 我们可能走不完。",
+        "vi": "Rất lớn, có lẽ chúng ta sẽ không thể tham quan hết được.",
+        "start": 317.163,
+        "end": 320.33,
+        "py": "Fēi cháng dà, wǒ men kě néng zǒu bù wán。"
+      },
+      {
+        "cn": "那我们就看最有名的地方。",
+        "vi": "Vậy thì chúng ta chỉ có thể tham quan những nơi nổi tiếng nhất.",
+        "start": 320.596,
+        "end": 323.696,
+        "py": "Nà wǒ men jiù kàn zuì yǒu míng de dì fāng。"
+      },
+      {
+        "cn": "好, 故宫的门票要提前买。",
+        "vi": "Được rồi, vé vào Tử Cấm Thành cần phải mua trước.",
+        "start": 323.963,
+        "end": 328.33000000000004,
+        "py": "Hǎo, gù gōng de mén piào yào tí qián mǎi。"
+      },
+      {
+        "cn": "我们可以现在在网上买吗？",
+        "vi": "Chúng ta có thể mua trực tuyến ngay bây giờ không?",
+        "start": 328.596,
+        "end": 331.763,
+        "py": "Wǒ men kě yǐ xiàn zài zài wǎng shàng mǎi ma？"
+      },
+      {
+        "cn": "可以, 我来找找怎么买。",
+        "vi": "Vâng, để tôi tìm hiểu cách thức.",
+        "start": 331.996,
+        "end": 334.63,
+        "py": "Kě yǐ, wǒ lái zhǎo zhǎo zěn me mǎi。"
+      },
+      {
+        "cn": "好的, 门票贵不贵？",
+        "vi": "Được rồi, vé có đắt không?",
+        "start": 334.896,
+        "end": 337.596,
+        "py": "Hǎo de, mén piào guì bù guì？"
+      },
+      {
+        "cn": "不太贵, 学生可能更便宜。",
+        "vi": "Không quá đắt, sinh viên có thể mua được giá rẻ hơn.",
+        "start": 337.896,
+        "end": 341.096,
+        "py": "Bù tài guì, xué shēng kě néng gèng pián yi。"
+      },
+      {
+        "cn": "可惜我们已经不是学生了。",
+        "vi": "Tiếc là chúng ta không còn là sinh viên nữa.",
+        "start": 341.363,
+        "end": 344.263,
+        "py": "Kě xī wǒ men yǐ jīng bú shì xué shēng le。"
+      },
+      {
+        "cn": "是啊。门票我来买吧。",
+        "vi": "Vâng. Tôi sẽ mua vé.",
+        "start": 344.53,
+        "end": 347.296,
+        "py": "Shì a。 mén piào wǒ lái mǎi ba。"
+      },
+      {
+        "cn": "好, 钱我跟你一起付。",
+        "vi": "Được rồi, tôi sẽ trả tiền cùng bạn.",
+        "start": 347.563,
+        "end": 350.13,
+        "py": "Hǎo, qián wǒ gēn nǐ yì qǐ fù。"
+      },
+      {
+        "cn": "没事。上午就看这两个地方。",
+        "vi": "Không vấn đề gì. Sáng nay chúng ta hãy cùng tham quan hai địa điểm này.",
+        "start": 350.363,
+        "end": 353.663,
+        "py": "Méi shì。 shàng wǔ jiù kàn zhè liǎng gè dì fāng。"
+      },
+      {
+        "cn": "看完故宫会很累。",
+        "vi": "Chúng ta sẽ mệt mỏi sau khi tham quan Tử Cấm Thành.",
+        "start": 353.963,
+        "end": 356.596,
+        "py": "Kàn wán gù gōng huì hěn lèi。"
+      },
+      {
+        "cn": "是的, 我们中午吃点儿好的。",
+        "vi": "Vâng, hãy ăn một món gì đó ngon cho bữa trưa.",
+        "start": 356.863,
+        "end": 359.93,
+        "py": "Shì de, wǒ men zhōng wǔ chī diǎn ér hǎo de。"
+      },
+      {
+        "cn": "我们吃什么呢？",
+        "vi": "Chúng ta nên ăn gì?",
+        "start": 360.196,
+        "end": 361.896,
+        "py": "Wǒ men chī shén me ne？"
+      },
+      {
+        "cn": "来到北京, 当然要吃北京烤鸭。",
+        "vi": "Vì chúng ta đang ở Bắc Kinh, chúng ta phải ăn Vịt quay Bắc Kinh!",
+        "start": 362.196,
+        "end": 365.83000000000004,
+        "py": "Lái dào běi jīng, dāng rán yào chī běi jīng kǎo yā。"
+      },
+      {
+        "cn": "对对对! 我最喜欢吃烤鸭。",
+        "vi": "Vâng, vâng, vâng! Tôi thích vịt quay Bắc Kinh nhất.",
+        "start": 366.096,
+        "end": 369.563,
+        "py": "Duì duì duì! wǒ zuì xǐ huān chī kǎo yā。"
+      },
+      {
+        "cn": "我知道一家有名的烤鸭店。",
+        "vi": "Tôi biết một nhà hàng vịt quay Bắc Kinh nổi tiếng.",
+        "start": 369.83,
+        "end": 372.89599999999996,
+        "py": "Wǒ zhī dào yī jiā yǒu míng de kǎo yā diàn。"
+      },
+      {
+        "cn": "叫什么名字？离故宫远吗？",
+        "vi": "Nó tên là gì? Có xa Tử Cấm Thành không?",
+        "start": 373.163,
+        "end": 376.73,
+        "py": "Jiào shén me míng zì？ lí gù gōng yuǎn ma？"
+      },
+      {
+        "cn": "不太远, 我们可以坐出租车去。",
+        "vi": "Không quá xa, chúng ta có thể đi taxi.",
+        "start": 376.996,
+        "end": 380.096,
+        "py": "Bù tài yuǎn, wǒ men kě yǐ zuò chū zū chē qù。"
+      },
+      {
+        "cn": "好, 我已经想吃了。",
+        "vi": "Được rồi, tôi đã nghĩ về điều đó rồi.",
+        "start": 380.363,
+        "end": 382.93,
+        "py": "Hǎo, wǒ yǐ jīng xiǎng chī le。"
+      },
+      {
+        "cn": "吃完饭, 我们下午去哪儿？",
+        "vi": "Sau bữa trưa, chiều nay chúng ta nên đi đâu?",
+        "start": 383.196,
+        "end": 386.163,
+        "py": "Chī wán fàn, wǒ men xià wǔ qù nǎ ér？"
+      },
+      {
+        "cn": "下午休息一下吧, 我怕太累。",
+        "vi": "Chúng ta hãy nghỉ ngơi chiều nay, tôi sợ rằng tôi sẽ quá mệt.",
+        "start": 386.396,
+        "end": 389.696,
+        "py": "Xià wǔ xiū xī yī xià ba, wǒ pà tài lèi。"
+      },
+      {
+        "cn": "我们可以去公园坐一坐。",
+        "vi": "Chúng ta có thể đến công viên ngồi một lúc.",
+        "start": 389.996,
+        "end": 392.796,
+        "py": "Wǒ men kě yǐ qù gōng yuán zuò yī zuò。"
+      },
+      {
+        "cn": "好主意。去哪个公园？",
+        "vi": "Ý tưởng hay đấy. Công viên nào?",
+        "start": 393.063,
+        "end": 395.72999999999996,
+        "py": "Hǎo zhǔ yì。 qù nǎ ge gōng yuán？"
+      },
+      {
+        "cn": "故宫北边有个景山公园。",
+        "vi": "Có Công viên Tĩnh Sơn ở phía bắc Tử Cấm Thành.",
+        "start": 395.996,
+        "end": 399.263,
+        "py": "Gù gōng běi biān yǒu gè jǐng shān gōng yuán。"
+      },
+      {
+        "cn": "景山公园？我没听过。",
+        "vi": "Công viên Tĩnh Sơn? Tôi chưa bao giờ nghe nói đến nó.",
+        "start": 399.53,
+        "end": 402.363,
+        "py": "Jǐng shān gōng yuán？ wǒ méi tīng guò。"
+      },
+      {
+        "cn": "在山上能看到整个故宫。",
+        "vi": "Bạn có thể nhìn thấy toàn bộ Tử Cấm Thành từ trên đồi.",
+        "start": 402.63,
+        "end": 405.83,
+        "py": "Zài shān shàng néng kàn dào zhěng gè gù gōng。"
+      },
+      {
+        "cn": "哇, 那一定要去看看。",
+        "vi": "Wow, chúng ta nhất định phải đến đó xem.",
+        "start": 406.096,
+        "end": 408.663,
+        "py": "Wa, nà yí dìng yào qù kàn kàn。"
+      },
+      {
+        "cn": "风景非常漂亮。",
+        "vi": "Phong cảnh rất đẹp.",
+        "start": 408.93,
+        "end": 411.563,
+        "py": "Fēng jǐng fēi cháng piào liàng。"
+      },
+      {
+        "cn": "好的, 我们下午就去那里。",
+        "vi": "Được rồi, chúng ta sẽ đến đó vào chiều nay.",
+        "start": 411.83,
+        "end": 414.69599999999997,
+        "py": "Hǎo de, wǒ men xià wǔ jiù qù nà lǐ。"
+      },
+      {
+        "cn": "在公园里喝杯茶, 怎么样？",
+        "vi": "Uống một tách trà trong công viên nhé?",
+        "start": 414.963,
+        "end": 418.06300000000005,
+        "py": "Zài gōng yuán lǐ hē bēi chá, zěn me yàng？"
+      },
+      {
+        "cn": "太好了, 很舒服。",
+        "vi": "Tuyệt lắm, rất thoải mái.",
+        "start": 418.33,
+        "end": 420.89599999999996,
+        "py": "Tài hǎo le, hěn shū fú。"
+      },
+      {
+        "cn": "那晚上呢？我们做什么？",
+        "vi": "Còn tối nay thì sao? Chúng ta nên làm gì?",
+        "start": 421.163,
+        "end": 423.963,
+        "py": "Nà wǎn shàng ne？ wǒ men zuò shén me？"
+      },
+      {
+        "cn": "晚上去王府井大街逛逛吧。",
+        "vi": "Tối nay chúng ta đi dạo quanh phố Vương Phủ Tỉnh.",
+        "start": 424.23,
+        "end": 427.73,
+        "py": "Wǎn shàng qù wáng fǔ jǐng dà jiē guàng guàng ba。"
+      },
+      {
+        "cn": "王府井？那里很热闹吗？",
+        "vi": "Vương Phủ Tỉnh? Ở đó có nhộn nhịp không?",
+        "start": 427.996,
+        "end": 431.43,
+        "py": "Wáng fǔ jǐng？ nà lǐ hěn rè nào ma？"
+      },
+      {
+        "cn": "非常热闹, 有很多商店。",
+        "vi": "Rất nhộn nhịp, có nhiều cửa hàng.",
+        "start": 431.696,
+        "end": 434.963,
+        "py": "Fēi cháng rè nào, yǒu hěn duō shāng diàn。"
+      },
+      {
+        "cn": "我们可以买一些东西。",
+        "vi": "Chúng ta có thể mua một số thứ.",
+        "start": 435.23,
+        "end": 437.596,
+        "py": "Wǒ men kě yǐ mǎi yī xiē dōng xī。"
+      },
+      {
+        "cn": "还有一条小吃街。",
+        "vi": "Ngoài ra còn có một phố đồ ăn nhẹ.",
+        "start": 437.863,
+        "end": 440.096,
+        "py": "Hái yǒu yī tiáo xiǎo chī jiē。"
+      },
+      {
+        "cn": "太棒了, 我喜欢吃小吃。",
+        "vi": "Tuyệt vời! Tôi thích đồ ăn nhẹ.",
+        "start": 440.363,
+        "end": 443.396,
+        "py": "Tài bàng le, wǒ xǐ huān chī xiǎo chī。"
+      },
+      {
+        "cn": "我们可以尝尝那里的东西。",
+        "vi": "Chúng ta có thể thử một số món ăn của họ.",
+        "start": 443.663,
+        "end": 446.26300000000003,
+        "py": "Wǒ men kě yǐ cháng cháng nà lǐ de dōng xī。"
+      },
+      {
+        "cn": "好的, 晚饭就在那儿解决。",
+        "vi": "Được rồi, chúng ta sẽ ăn tối ở đó.",
+        "start": 446.53,
+        "end": 449.296,
+        "py": "Hǎo de, wǎn fàn jiù zài nà ér jiě jué。"
+      },
+      {
+        "cn": "星期六的计划很不错。",
+        "vi": "Kế hoạch cho thứ Bảy rất tuyệt.",
+        "start": 449.563,
+        "end": 452.13,
+        "py": "Xīng qī liù de jì huà hěn bú cuò。"
+      },
+      {
+        "cn": "是的, 我觉得很完美。",
+        "vi": "Vâng, tôi nghĩ là hoàn hảo.",
+        "start": 452.363,
+        "end": 454.963,
+        "py": "Shì de, wǒ jué de hěn wán měi。"
+      },
+      {
+        "cn": "我很期待这一天。",
+        "vi": "Tôi rất mong chờ nó.",
+        "start": 455.23,
+        "end": 457.396,
+        "py": "Wǒ hěn qī dài zhè yī tiān。"
+      },
+      {
+        "cn": "我也是, 一定会很有意思。",
+        "vi": "Tôi cũng vậy, sẽ rất vui.",
+        "start": 457.663,
+        "end": 460.563,
+        "py": "Wǒ yě shì, yí dìng huì hěn yǒu yì si。"
+      },
+      {
+        "cn": "那么星期天呢？",
+        "vi": "Vậy còn Chủ Nhật thì sao?",
+        "start": 460.83,
+        "end": 462.63,
+        "py": "Nà me xīng qī tiān ne？"
+      },
+      {
+        "cn": "我们来计划一下星期天。",
+        "vi": "Hãy lên kế hoạch cho Chủ Nhật.",
+        "start": 462.896,
+        "end": 465.463,
+        "py": "Wǒ men lái jì huà yī xià xīng qī tiān。"
+      },
+      {
+        "cn": "星期天上午去哪里？",
+        "vi": "Sáng Chủ Nhật đi đâu?",
+        "start": 465.696,
+        "end": 468.06300000000005,
+        "py": "Xīng qī tiān shàng wǔ qù nǎ lǐ？"
+      },
+      {
+        "cn": "星期天我们去长城！",
+        "vi": "Hãy đến Vạn Lý Trường Thành vào Chủ Nhật!",
+        "start": 468.33,
+        "end": 470.72999999999996,
+        "py": "Xīng qī tiān wǒ men qù cháng chéng！"
+      },
+      {
+        "cn": "长城! 太伟大了!",
+        "vi": "Vạn Lý Trường Thành! Thật hùng vĩ!",
+        "start": 470.996,
+        "end": 473.69599999999997,
+        "py": "Cháng chéng! tài wěi dà le!"
+      },
+      {
+        "cn": "不到长城非好汉。",
+        "vi": "Bạn không phải là một anh hùng thực sự cho đến khi bạn leo lên Vạn Lý Trường Thành.",
+        "start": 473.963,
+        "end": 476.963,
+        "py": "Bú dào cháng chéng fēi hǎo hàn。"
+      },
+      {
+        "cn": "是的, 我们一定要去。",
+        "vi": "Vâng, chúng ta nhất định phải đi.",
+        "start": 477.23,
+        "end": 480.03000000000003,
+        "py": "Shì de, wǒ men yí dìng yào qù。"
+      },
+      {
+        "cn": "但是长城离市区很远。",
+        "vi": "Nhưng Vạn Lý Trường Thành cách xa thành phố.",
+        "start": 480.296,
+        "end": 484.063,
+        "py": "Dàn shì cháng chéng lí shì qū hěn yuǎn。"
+      },
+      {
+        "cn": "我们怎么去呢？",
+        "vi": "Chúng ta sẽ đến đó bằng cách nào?",
+        "start": 484.33,
+        "end": 485.996,
+        "py": "Wǒ men zěn me qù ne？"
+      },
+      {
+        "cn": "我们可以坐公共汽车。",
+        "vi": "Chúng ta có thể đi xe buýt. Đi xe",
+        "start": 486.263,
+        "end": 488.763,
+        "py": "Wǒ men kě yǐ zuò gōng gòng qì chē。"
+      },
+      {
+        "cn": "坐公共汽车要多长时间？",
+        "vi": "buýt sẽ mất bao lâu?",
+        "start": 489.03,
+        "end": 492.53,
+        "py": "Zuò gōng gòng qì chē yào duō zhǎng shí jiān？"
+      },
+      {
+        "cn": "可能要一个多小时。",
+        "vi": "Có thể hơn một giờ.",
+        "start": 492.83,
+        "end": 495.096,
+        "py": "Kě néng yào yí gè duō xiǎo shí。"
+      },
+      {
+        "cn": "那我们要早点儿起床。",
+        "vi": "Sau đó, chúng ta cần phải dậy sớm.",
+        "start": 495.363,
+        "end": 497.763,
+        "py": "Nà wǒ men yào zǎo diǎn ér qǐ chuáng。"
+      },
+      {
+        "cn": "对, 早上七点就要出门。",
+        "vi": "Vâng, chúng ta cần phải khởi hành lúc bảy giờ sáng.",
+        "start": 498.03,
+        "end": 501.03,
+        "py": "Duì, zǎo shàng qī diǎn jiù yào chū mén。"
+      },
+      {
+        "cn": "没问题, 为了长城！",
+        "vi": "Không vấn đề gì, vì Vạn Lý Trường Thành!",
+        "start": 501.296,
+        "end": 503.796,
+        "py": "Méi wèn tí, wèi le cháng chéng！"
+      },
+      {
+        "cn": "长城上走路会很累。",
+        "vi": "Đi bộ trên Vạn Lý Trường Thành sẽ rất mệt.",
+        "start": 504.063,
+        "end": 507.163,
+        "py": "Cháng chéng shàng zǒu lù huì hěn lèi。"
+      },
+      {
+        "cn": "我们要穿舒服的鞋。",
+        "vi": "Chúng ta cần phải đi giày thoải mái.",
+        "start": 507.43,
+        "end": 509.996,
+        "py": "Wǒ men yào chuān shū fú de xié。"
+      },
+      {
+        "cn": "对, 还要带一些水。",
+        "vi": "Vâng, và mang theo một ít nước.",
+        "start": 510.263,
+        "end": 512.53,
+        "py": "Duì, hái yào dài yī xiē shuǐ。"
+      },
+      {
+        "cn": "好的, 我会记得。",
+        "vi": "Được rồi, tôi sẽ nhớ.",
+        "start": 512.796,
+        "end": 514.9630000000001,
+        "py": "Hǎo de, wǒ huì jì de。"
+      },
+      {
+        "cn": "我们去八达岭长城, 怎么样？",
+        "vi": "Hay là chúng ta đi đến Vạn Lý Trường Thành Bát Đạt Lĩnh?",
+        "start": 515.23,
+        "end": 518.463,
+        "py": "Wǒ men qù bā dá lǐng cháng chéng, zěn me yàng？"
+      },
+      {
+        "cn": "好, 八达岭长城最有名。",
+        "vi": "Tuyệt, Vạn Lý Trường Thành Bát Đạt Lĩnh là nổi tiếng nhất.",
+        "start": 518.73,
+        "end": 522.196,
+        "py": "Hǎo, bā dá lǐng cháng chéng zuì yǒu míng。"
+      },
+      {
+        "cn": "在长城上能看到很美的风景。",
+        "vi": "Chúng ta có thể ngắm nhìn phong cảnh tuyệt đẹp trên Vạn Lý Trường Thành.",
+        "start": 522.463,
+        "end": 526.2629999999999,
+        "py": "Zài cháng chéng shàng néng kàn dào hěn měi de fēng jǐng。"
+      },
+      {
+        "cn": "我们要多拍些照片。",
+        "vi": "Chúng ta cần phải chụp rất nhiều ảnh.",
+        "start": 526.53,
+        "end": 528.63,
+        "py": "Wǒ men yào duō pāi xiē zhào piān。"
+      },
+      {
+        "cn": "当然了, 这是必须的。",
+        "vi": "Tất nhiên, đó là điều bắt buộc.",
+        "start": 528.896,
+        "end": 531.2959999999999,
+        "py": "Dāng rán le, zhè shì bì xū de。"
+      },
+      {
+        "cn": "中午我们在长城附近吃饭吗？",
+        "vi": "Chúng ta có ăn trưa gần Vạn Lý Trường Thành không?",
+        "start": 531.563,
+        "end": 534.996,
+        "py": "Zhōng wǔ wǒ men zài cháng chéng fù jìn chī fàn ma？"
+      },
+      {
+        "cn": "对, 简单吃一点儿就行。",
+        "vi": "Vâng, chỉ cần một bữa ăn đơn giản là được.",
+        "start": 535.263,
+        "end": 537.83,
+        "py": "Duì, jiǎn dān chī yì diǎn ér jiù xíng。"
+      },
+      {
+        "cn": "好, 不用吃得太好。",
+        "vi": "Được rồi, không cần gì cầu kỳ cả.",
+        "start": 538.096,
+        "end": 541.063,
+        "py": "Hǎo, bù yòng chī dé tài hǎo。"
+      },
+      {
+        "cn": "下午我们还有别的地方要去。",
+        "vi": "Chiều nay chúng ta còn phải đi những nơi khác nữa.",
+        "start": 541.33,
+        "end": 544.163,
+        "py": "Xià wǔ wǒ men hái yǒu bié de dì fāng yào qù。"
+      },
+      {
+        "cn": "还有地方？我们不累吗？",
+        "vi": "Còn nhiều nơi nữa sao? Chúng ta không thấy mệt sao?",
+        "start": 544.43,
+        "end": 547.396,
+        "py": "Hái yǒu dì fāng？ wǒ men bù lèi ma？"
+      },
+      {
+        "cn": "下午去颐和园, 怎么样？",
+        "vi": "Chiều nay đi Cung điện Mùa hè thì sao?",
+        "start": 547.63,
+        "end": 550.33,
+        "py": "Xià wǔ qù yí hé yuán, zěn me yàng？"
+      },
+      {
+        "cn": "颐和园？那里漂亮吗？",
+        "vi": "Cung điện Mùa hè à? Đẹp không?",
+        "start": 550.63,
+        "end": 553.33,
+        "py": "Yí hé yuán？ nà lǐ piào liàng ma？"
+      },
+      {
+        "cn": "非常漂亮, 是一个大公园。",
+        "vi": "Đẹp lắm, công viên rộng lắm.",
+        "start": 553.596,
+        "end": 557.096,
+        "py": "Fēi cháng piào liàng, shì yí gè dà gōng yuán。"
+      },
+      {
+        "cn": "里面有山有水, 对吗？",
+        "vi": "Có cả núi và nước nữa, đúng không?",
+        "start": 557.396,
+        "end": 560.596,
+        "py": "Lǐ miàn yǒu shān yǒu shuǐ, duì ma？"
+      },
+      {
+        "cn": "对, 还有一个很大的湖。",
+        "vi": "À, còn có cả hồ nước rất rộng nữa.",
+        "start": 560.83,
+        "end": 563.73,
+        "py": "Duì, hái yǒu yí gè hěn dà de hú。"
+      },
+      {
+        "cn": "我们可以在湖上坐船。",
+        "vi": "Chúng ta có thể đi thuyền trên hồ nữa.",
+        "start": 564.03,
+        "end": 566.696,
+        "py": "Wǒ men kě yǐ zài hú shàng zuò chuán。"
+      },
+      {
+        "cn": "好主意, 坐船不累。",
+        "vi": "Ý tưởng hay đấy, đi thuyền không mệt.",
+        "start": 566.963,
+        "end": 569.7629999999999,
+        "py": "Hǎo zhǔ yì, zuò chuán bù lèi。"
+      },
+      {
+        "cn": "我喜欢这个安排。",
+        "vi": "Tôi thích cách sắp xếp này.",
+        "start": 570.03,
+        "end": 571.7959999999999,
+        "py": "Wǒ xǐ huān zhè ge ān pái。"
+      },
+      {
+        "cn": "我查一下地图。",
+        "vi": "Để tôi xem bản đồ nhé.",
+        "start": 572.03,
+        "end": 573.7959999999999,
+        "py": "Wǒ chá yī xià dì tú。"
+      },
+      {
+        "cn": "好的, 你看看。",
+        "vi": "Được rồi, xem thử nhé.",
+        "start": 574.063,
+        "end": 576.163,
+        "py": "Hǎo de, nǐ kàn kàn。"
+      },
+      {
+        "cn": "有一点儿远, 但是有车。",
+        "vi": "Hơi xa một chút, nhưng có xe.",
+        "start": 576.463,
+        "end": 579.463,
+        "py": "Yǒu yì diǎn ér yuǎn, dàn shì yǒu chē。"
+      },
+      {
+        "cn": "那还好, 交通方便就行。",
+        "vi": "Không sao cả, miễn là phương tiện di chuyển thuận tiện.",
+        "start": 579.696,
+        "end": 582.53,
+        "py": "Nà hái hǎo, jiāo tōng fāng biàn jiù xíng。"
+      },
+      {
+        "cn": "我们在颐和园玩到几点？",
+        "vi": "Chúng ta sẽ kết thúc ở Cung điện Mùa hè lúc mấy giờ?",
+        "start": 582.796,
+        "end": 585.83,
+        "py": "Wǒ men zài yí hé yuán wán dào jǐ diǎn？"
+      },
+      {
+        "cn": "玩到下午五点左右吧。",
+        "vi": "Khoảng 5 giờ chiều.",
+        "start": 586.096,
+        "end": 588.73,
+        "py": "Wán dào xià wǔ wǔ diǎn zuǒ yòu ba。"
+      },
+      {
+        "cn": "然后我们就去火车站。",
+        "vi": "Sau đó, chúng ta sẽ đến ga tàu.",
+        "start": 588.996,
+        "end": 591.63,
+        "py": "Rán hòu wǒ men jiù qù huǒ chē zhàn。"
+      },
+      {
+        "cn": "对, 我们的火车是七点。",
+        "vi": "Vâng, tàu của chúng ta khởi hành lúc 7 giờ tối.",
+        "start": 591.896,
+        "end": 594.663,
+        "py": "Duì, wǒ men de huǒ chē shì qī diǎn。"
+      },
+      {
+        "cn": "时间上可以吗？",
+        "vi": "Giờ đó được không?",
+        "start": 594.93,
+        "end": 596.7959999999999,
+        "py": "Shí jiān shàng kě yǐ ma？"
+      },
+      {
+        "cn": "我觉得可以, 时间够。",
+        "vi": "Tôi nghĩ là được, chúng ta có đủ thời gian.",
+        "start": 597.063,
+        "end": 599.463,
+        "py": "Wǒ jué de kě yǐ, shí jiān gòu。"
+      },
+      {
+        "cn": "那星期天的计划也好了。",
+        "vi": "Vậy, kế hoạch cho Chủ nhật cũng đã sẵn sàng.",
+        "start": 599.73,
+        "end": 602.496,
+        "py": "Nà xīng qī tiān de jì huà yě hǎo le。"
+      },
+      {
+        "cn": "是的, 两天的计划都有了。",
+        "vi": "Vâng, chúng ta có kế hoạch hai ngày.",
+        "start": 602.763,
+        "end": 605.863,
+        "py": "Shì de, liǎng tiān de jì huà dōu yǒu le。"
+      },
+      {
+        "cn": "我觉得这个计划很棒。",
+        "vi": "Tôi nghĩ kế hoạch này rất tuyệt.",
+        "start": 606.13,
+        "end": 608.696,
+        "py": "Wǒ jué de zhè ge jì huà hěn bàng。"
+      },
+      {
+        "cn": "我也很喜欢, 很丰富。",
+        "vi": "Tôi rất thích nó, nó rất toàn diện.",
+        "start": 608.963,
+        "end": 611.53,
+        "py": "Wǒ yě hěn xǐ huān, hěn fēng fù。"
+      },
+      {
+        "cn": "但是两天会不会太累了？",
+        "vi": "Nhưng hai ngày không phải là quá mệt mỏi sao?",
+        "start": 611.763,
+        "end": 614.23,
+        "py": "Dàn shì liǎng tiān huì bú huì tài lèi le？"
+      },
+      {
+        "cn": "可能会有点儿累。",
+        "vi": "Có thể hơi mệt một chút.",
+        "start": 614.53,
+        "end": 616.63,
+        "py": "Kě néng huì yǒu diǎn ér lèi。"
+      },
+      {
+        "cn": "但是我们年轻人, 没关系。",
+        "vi": "Nhưng chúng ta còn trẻ, không sao cả.",
+        "start": 616.896,
+        "end": 619.93,
+        "py": "Dàn shì wǒ men nián qīng rén, méi guān xì。"
+      },
+      {
+        "cn": "对, 旅游就是会累一点儿。",
+        "vi": "Vâng, đi du lịch hơi mệt một chút. Chúng ta có thể",
+        "start": 620.196,
+        "end": 623.696,
+        "py": "Duì, lǚ yóu jiù shì huì lèi yì diǎn ér。"
+      },
+      {
+        "cn": "回来以后好好休息就行。",
+        "vi": "nghỉ ngơi thoải mái khi trở về.",
+        "start": 623.996,
+        "end": 626.763,
+        "py": "Huí lái yǐ hòu hǎo hǎo xiū xī jiù xíng。"
+      },
+      {
+        "cn": "是的。我们说说别的。",
+        "vi": "Vâng. Hãy nói về một điều khác.",
+        "start": 626.996,
+        "end": 629.563,
+        "py": "Shì de。 wǒ men shuō shuō bié de。"
+      },
+      {
+        "cn": "说什么？还有什么要准备？",
+        "vi": "Chúng ta nên nói về điều gì? Chúng ta cần chuẩn bị thêm điều gì nữa?",
+        "start": 629.83,
+        "end": 632.596,
+        "py": "Shuō shén me？ hái yǒu shén me yào zhǔn bèi？"
+      },
+      {
+        "cn": "我们要看看北京的天气。",
+        "vi": "Chúng ta cần kiểm tra thời tiết ở Bắc Kinh.",
+        "start": 632.863,
+        "end": 635.73,
+        "py": "Wǒ men yào kàn kàn běi jīng de tiān qì。"
+      },
+      {
+        "cn": "对, 这个很重要。",
+        "vi": "Vâng, điều đó rất quan trọng.",
+        "start": 635.996,
+        "end": 637.996,
+        "py": "Duì, zhè ge hěn zhòng yào。"
+      },
+      {
+        "cn": "不知道周末天气怎么样。",
+        "vi": "Tôi tự hỏi thời tiết sẽ như thế nào vào cuối tuần này.",
+        "start": 638.263,
+        "end": 640.9300000000001,
+        "py": "Bù zhī dào zhōu mò tiān qì zěn me yàng。"
+      },
+      {
+        "cn": "我现在就查一下天气预报。",
+        "vi": "Tôi sẽ kiểm tra dự báo thời tiết bây giờ.",
+        "start": 641.196,
+        "end": 644.096,
+        "py": "Wǒ xiàn zài jiù chá yī xià tiān qì yù bào。"
+      },
+      {
+        "cn": "好的, 快看看。",
+        "vi": "Được rồi, chúng ta hãy xem thử.",
+        "start": 644.363,
+        "end": 646.5300000000001,
+        "py": "Hǎo de, kuài kàn kàn。"
+      },
+      {
+        "cn": "手机上说, 周末是晴天。",
+        "vi": "Điện thoại của tôi nói rằng trời sẽ nắng vào cuối tuần này.",
+        "start": 646.796,
+        "end": 650.196,
+        "py": "Shǒu jī shàng shuō, zhōu mò shì qíng tiān。"
+      },
+      {
+        "cn": "真的吗？太好了！",
+        "vi": "Thật sao? Tuyệt!",
+        "start": 650.463,
+        "end": 652.7629999999999,
+        "py": "Zhēn de ma？ tài hǎo le！"
+      },
+      {
+        "cn": "是的, 没有雨。",
+        "vi": "Vâng, không có mưa.",
+        "start": 653.03,
+        "end": 655.2629999999999,
+        "py": "Shì de, méi yǒu yǔ。"
+      },
+      {
+        "cn": "晴天旅游最好了, 拍照好看。",
+        "vi": "Những ngày nắng là tốt nhất để đi du lịch; ảnh sẽ rất đẹp.",
+        "start": 655.53,
+        "end": 659.23,
+        "py": "Qíng tiān lǚ yóu zuì hǎo le, pāi zhào hǎo kàn。"
+      },
+      {
+        "cn": "白天温度有多少度？",
+        "vi": "Nhiệt độ",
+        "start": 659.53,
+        "end": 662.23,
+        "py": "Bái tiān wēn dù yǒu duō shǎo dù？"
+      },
+      {
+        "cn": "白天大概二十五度。",
+        "vi": "ban ngày là bao nhiêu? Khoảng 25 độ C.",
+        "start": 662.496,
+        "end": 664.963,
+        "py": "Bái tiān dà gài èr shí wǔ dù。"
+      },
+      {
+        "cn": "二十五度, 很舒服。",
+        "vi": "25 độ là rất thoải mái.",
+        "start": 665.23,
+        "end": 668.063,
+        "py": "Èr shí wǔ dù, hěn shū fú。"
+      },
+      {
+        "cn": "不冷也不热。",
+        "vi": "Không quá nóng hoặc quá lạnh.",
+        "start": 668.33,
+        "end": 670.296,
+        "py": "Bù lěng yě bù rè。"
+      },
+      {
+        "cn": "那晚上呢？晚上会冷吗？",
+        "vi": "Còn ban đêm thì sao? Trời có lạnh vào ban đêm không?",
+        "start": 670.563,
+        "end": 673.663,
+        "py": "Nà wǎn shàng ne？ wǎn shàng huì lěng ma？"
+      },
+      {
+        "cn": "晚上可能会凉一点儿。",
+        "vi": "Có thể hơi lạnh một chút vào ban đêm.",
+        "start": 673.93,
+        "end": 676.7629999999999,
+        "py": "Wǎn shàng kě néng huì liáng yì diǎn ér。"
+      },
+      {
+        "cn": "那我要带一件外套。",
+        "vi": "Tôi sẽ mang theo áo khoác.",
+        "start": 677.03,
+        "end": 679.43,
+        "py": "Nà wǒ yào dài yī jiàn wài tào。"
+      },
+      {
+        "cn": "对, 带一件薄外套。",
+        "vi": "Vâng, hãy mang theo một chiếc áo khoác nhẹ.",
+        "start": 679.696,
+        "end": 682.33,
+        "py": "Duì, dài yī jiàn báo wài tào。"
+      },
+      {
+        "cn": "我们应该穿什么衣服？",
+        "vi": "Chúng ta nên mặc gì?",
+        "start": 682.596,
+        "end": 685.03,
+        "py": "Wǒ men yīng gāi chuān shén me yī fú？"
+      },
+      {
+        "cn": "白天穿T恤和长裤就行。",
+        "vi": "Áo phông và quần dài là được vào ban ngày.",
+        "start": 685.296,
+        "end": 688.5300000000001,
+        "py": "Bái tiān chuān T xù hé cháng kù jiù xíng。"
+      },
+      {
+        "cn": "我想穿运动鞋, 走路舒服。",
+        "vi": "Tôi muốn đi giày thể thao;",
+        "start": 688.796,
+        "end": 692.4630000000001,
+        "py": "Wǒ xiǎng chuān yùn dòng xié, zǒu lù shū fú。"
+      },
+      {
+        "cn": "当然, 一定要穿舒服的鞋。",
+        "vi": "chúng thoải mái để đi bộ. Tất nhiên, giày thoải mái là điều cần thiết.",
+        "start": 692.73,
+        "end": 695.996,
+        "py": "Dāng rán, yí dìng yào chuān shū fú de xié。"
+      },
+      {
+        "cn": "我们要走很多路。",
+        "vi": "Chúng ta sẽ đi bộ rất nhiều,",
+        "start": 696.296,
+        "end": 698.5300000000001,
+        "py": "Wǒ men yào zǒu hěn duō lù。"
+      },
+      {
+        "cn": "特别是去长城那天。",
+        "vi": "đặc biệt là vào ngày chúng ta đến Vạn Lý Trường Thành.",
+        "start": 698.796,
+        "end": 701.263,
+        "py": "Tè bié shì qù cháng chéng nà tiān。"
+      },
+      {
+        "cn": "对, 鞋子很重要。",
+        "vi": "Vâng, giày rất quan trọng.",
+        "start": 701.53,
+        "end": 703.7959999999999,
+        "py": "Duì, xié zi hěn zhòng yào。"
+      },
+      {
+        "cn": "我也穿我的运动鞋。",
+        "vi": "Tôi cũng sẽ đi giày thể thao của mình.",
+        "start": 704.063,
+        "end": 706.496,
+        "py": "Wǒ yě chuān wǒ de yùn dòng xié。"
+      },
+      {
+        "cn": "我们还需要带什么东西？",
+        "vi": "Chúng ta cần mang theo những gì nữa?",
+        "start": 706.763,
+        "end": 709.196,
+        "py": "Wǒ men hái xū yào dài shén me dōng xī？"
+      },
+      {
+        "cn": "带上我们的身份证。",
+        "vi": "Thẻ căn cước của chúng ta.",
+        "start": 709.463,
+        "end": 711.63,
+        "py": "Dài shàng wǒ men de shēn fèn zhèng。"
+      },
+      {
+        "cn": "对, 买票和住酒店都要用。",
+        "vi": "Vâng, chúng ta cần chúng để mua vé và nhận phòng khách sạn.",
+        "start": 711.896,
+        "end": 715.2959999999999,
+        "py": "Duì, mǎi piào hé zhù jiǔ diàn dōu yào yòng。"
+      },
+      {
+        "cn": "还要带手机和充电宝。",
+        "vi": "Chúng ta cũng cần mang theo điện thoại và sạc dự phòng.",
+        "start": 715.563,
+        "end": 718.196,
+        "py": "Hái yào dài shǒu jī hé chōng diàn bǎo。"
+      },
+      {
+        "cn": "充电宝必须带, 我怕没电。",
+        "vi": "Sạc dự phòng là điều bắt buộc; tôi lo lắng về việc hết pin.",
+        "start": 718.463,
+        "end": 721.6959999999999,
+        "py": "Chōng diàn bǎo bì xū dài, wǒ pà méi diàn。"
+      },
+      {
+        "cn": "我们要用手机看地图。",
+        "vi": "Chúng ta sẽ cần điện thoại để xem bản đồ",
+        "start": 721.963,
+        "end": 724.596,
+        "py": "Wǒ men yào yòng shǒu jī kàn dì tú。"
+      },
+      {
+        "cn": "还要用手机拍照。",
+        "vi": "và chụp ảnh.",
+        "start": 724.863,
+        "end": 727.263,
+        "py": "Hái yào yòng shǒu jī pāi zhào。"
+      },
+      {
+        "cn": "我会带我的相机, 拍照更好看。",
+        "vi": "Tôi sẽ mang theo máy ảnh; nó sẽ làm cho ảnh trông đẹp hơn nữa.",
+        "start": 727.53,
+        "end": 731.13,
+        "py": "Wǒ huì dài wǒ de xiàng jī, pāi zhào gèng hǎo kàn。"
+      },
+      {
+        "cn": "好啊, 你是摄影师。",
+        "vi": "Tuyệt! Bạn là nhiếp ảnh gia mà!",
+        "start": 731.363,
+        "end": 734.163,
+        "py": "Hǎo a, nǐ shì shè yǐng shī。"
+      },
+      {
+        "cn": "哈哈, 我喜欢拍照。",
+        "vi": "Haha, tôi thích chụp ảnh.",
+        "start": 734.43,
+        "end": 737.3299999999999,
+        "py": "Hā hā, wǒ xǐ huān pāi zhào。"
+      },
+      {
+        "cn": "牙刷和毛巾要带吗？",
+        "vi": "Chúng ta có nên mang theo bàn chải đánh răng và khăn tắm không?",
+        "start": 737.63,
+        "end": 740.13,
+        "py": "Yá shuā hé máo jīn yào dài ma？"
+      },
+      {
+        "cn": "酒店里应该有。",
+        "vi": "Khách sạn nên có những thứ đó.",
+        "start": 740.396,
+        "end": 742.496,
+        "py": "Jiǔ diàn lǐ yīng gāi yǒu。"
+      },
+      {
+        "cn": "但是我喜欢用自己的。",
+        "vi": "Nhưng tôi thích dùng đồ của mình hơn.",
+        "start": 742.796,
+        "end": 745.263,
+        "py": "Dàn shì wǒ xǐ huān yòng zì jǐ de。"
+      },
+      {
+        "cn": "那你就带着吧, 也不重。",
+        "vi": "Bạn có thể mang theo đồ của mình; chúng không nặng.",
+        "start": 745.53,
+        "end": 748.03,
+        "py": "Nà nǐ jiù dài zhe ba, yě bù zhòng。"
+      },
+      {
+        "cn": "好的, 我会准备好。",
+        "vi": "Được rồi, tôi sẽ sẵn sàng.",
+        "start": 748.296,
+        "end": 750.663,
+        "py": "Hǎo de, wǒ huì zhǔn bèi hǎo。"
+      },
+      {
+        "cn": "还要带一点儿钱。",
+        "vi": "Tôi cũng sẽ mang theo một ít tiền mặt.",
+        "start": 750.93,
+        "end": 753.03,
+        "py": "Hái yào dài yì diǎn ér qián。"
+      },
+      {
+        "cn": "虽然现在都用手机付钱。",
+        "vi": "Mặc dù bây giờ chúng ta thanh toán bằng điện thoại, nhưng",
+        "start": 753.296,
+        "end": 756.4630000000001,
+        "py": "Suī rán xiàn zài dōu yòng shǒu jī fù qián。"
+      },
+      {
+        "cn": "但是带点儿现金更方便。",
+        "vi": "mang theo tiền mặt sẽ tiện hơn.",
+        "start": 756.73,
+        "end": 759.73,
+        "py": "Dàn shì dài diǎn ér xiàn jīn gèng fāng biàn。"
+      },
+      {
+        "cn": "好的, 我会去银行取钱。",
+        "vi": "Được rồi, tôi sẽ đến ngân hàng rút một ít tiền.",
+        "start": 759.996,
+        "end": 762.7959999999999,
+        "py": "Hǎo de, wǒ huì qù yín háng qǔ qián。"
+      },
+      {
+        "cn": "不用太多, 几百块就够了。",
+        "vi": "Không nhiều lắm, vài trăm nhân dân tệ là đủ.",
+        "start": 763.063,
+        "end": 765.963,
+        "py": "Bù yòng tài duō, jǐ bǎi kuài jiù gòu le。"
+      },
+      {
+        "cn": "明白了。还有别的吗？",
+        "vi": "Tôi hiểu rồi. Còn gì nữa không?",
+        "start": 766.23,
+        "end": 768.663,
+        "py": "Míng bái le。 hái yǒu bié de ma？"
+      },
+      {
+        "cn": "我想带一个双肩包。",
+        "vi": "Tôi muốn mang theo một chiếc ba lô.",
+        "start": 768.93,
+        "end": 771.3299999999999,
+        "py": "Wǒ xiǎng dài yí gè shuāng jiān bāo。"
+      },
+      {
+        "cn": "对, 双肩包可以放东西。",
+        "vi": "Vâng, một chiếc ba lô có thể đựng được nhiều thứ.",
+        "start": 771.596,
+        "end": 774.296,
+        "py": "Duì, shuāng jiān bāo kě yǐ fàng dōng xī。"
+      },
+      {
+        "cn": "比如水, 还有雨伞。",
+        "vi": "Như nước và một chiếc ô.",
+        "start": 774.563,
+        "end": 777.43,
+        "py": "Bǐ rú shuǐ, hái yǒu yǔ sǎn。"
+      },
+      {
+        "cn": "天气预报不是说晴天吗？",
+        "vi": "Dự báo thời tiết không phải nói là trời sẽ nắng sao?",
+        "start": 777.696,
+        "end": 780.563,
+        "py": "Tiān qì yù bào bú shì shuō qíng tiān ma？"
+      },
+      {
+        "cn": "是晴天, 但是天气会变。",
+        "vi": "Trời nắng, nhưng thời tiết có thể thay đổi.",
+        "start": 780.863,
+        "end": 784.4630000000001,
+        "py": "Shì qíng tiān, dàn shì tiān qì huì biàn。"
+      },
+      {
+        "cn": "你说的对, 带着更好。",
+        "vi": "Bạn nói đúng, tốt hơn là nên mang theo thứ gì đó.",
+        "start": 784.73,
+        "end": 787.296,
+        "py": "Nǐ shuō de duì, dài zhe gèng hǎo。"
+      },
+      {
+        "cn": "准备好了, 就没有问题。",
+        "vi": "Một khi bạn đã chuẩn bị xong thì không có vấn đề gì.",
+        "start": 787.53,
+        "end": 790.2959999999999,
+        "py": "Zhǔn bèi hǎo le, jiù méi yǒu wèn tí。"
+      },
+      {
+        "cn": "好的, 我都记下了。",
+        "vi": "Được rồi, tôi đã ghi lại tất cả.",
+        "start": 790.563,
+        "end": 792.73,
+        "py": "Hǎo de, wǒ dōu jì xià le。"
+      },
+      {
+        "cn": "我们再确认一下时间吧。",
+        "vi": "Chúng ta hãy xác nhận lại thời gian một lần nữa.",
+        "start": 792.963,
+        "end": 795.596,
+        "py": "Wǒ men zài què rèn yī xià shí jiān ba。"
+      },
+      {
+        "cn": "好, 我们星期六早上见。",
+        "vi": "Được rồi, gặp bạn vào sáng thứ Bảy.",
+        "start": 795.863,
+        "end": 798.33,
+        "py": "Hǎo, wǒ men xīng qī liù zǎo shàng jiàn。"
+      },
+      {
+        "cn": "我们在哪儿见面？",
+        "vi": "Chúng ta sẽ gặp nhau ở đâu?",
+        "start": 798.63,
+        "end": 800.596,
+        "py": "Wǒ men zài nǎ ér jiàn miàn？"
+      },
+      {
+        "cn": "就在火车站门口, 怎么样？",
+        "vi": "Ngay tại lối vào nhà ga xe lửa, thế nào?",
+        "start": 800.83,
+        "end": 803.4960000000001,
+        "py": "Jiù zài huǒ chē zhàn mén kǒu, zěn me yàng？"
+      },
+      {
+        "cn": "哪个门口？火车站很大。",
+        "vi": "Lối vào nào? Nhà ga xe lửa lớn lắm.",
+        "start": 803.796,
+        "end": 806.9960000000001,
+        "py": "Nǎ ge mén kǒu？ huǒ chē zhàn hěn dà。"
+      },
+      {
+        "cn": "我们在东进站口见。",
+        "vi": "Chúng ta gặp nhau ở lối vào phía đông nhé.",
+        "start": 807.23,
+        "end": 809.53,
+        "py": "Wǒ men zài dōng jìn zhàn kǒu jiàn。"
+      },
+      {
+        "cn": "好的, 东进站口。",
+        "vi": "Được rồi, lối vào phía đông.",
+        "start": 809.83,
+        "end": 812.263,
+        "py": "Hǎo de, dōng jìn zhàn kǒu。"
+      },
+      {
+        "cn": "我们早上七点半见, 可以吗？",
+        "vi": "Chúng ta có thể gặp nhau lúc 7:30 sáng không?",
+        "start": 812.53,
+        "end": 815.896,
+        "py": "Wǒ men zǎo shàng qī diǎn bàn jiàn, kě yǐ ma？"
+      },
+      {
+        "cn": "七点半, 好的, 没问题。",
+        "vi": "7:30, được rồi, không vấn đề gì.",
+        "start": 816.13,
+        "end": 819.096,
+        "py": "Qī diǎn bàn, hǎo de, méi wèn tí。"
+      },
+      {
+        "cn": "我们的火车是八点的。",
+        "vi": "Chuyến tàu của chúng ta lúc 8:00.",
+        "start": 819.363,
+        "end": 821.9960000000001,
+        "py": "Wǒ men de huǒ chē shì bā diǎn de。"
+      },
+      {
+        "cn": "早点儿到, 不会迟到。",
+        "vi": "Đến sớm sẽ không làm chúng ta đến muộn.",
+        "start": 822.263,
+        "end": 824.83,
+        "py": "Zǎo diǎn ér dào, bú huì chí dào。"
+      },
+      {
+        "cn": "好的, 我一定准时到。",
+        "vi": "Được rồi, tôi chắc chắn sẽ đến đó đúng giờ.",
+        "start": 825.096,
+        "end": 827.563,
+        "py": "Hǎo de, wǒ yí dìng zhǔn shí dào。"
+      },
+      {
+        "cn": "然后我们中午到北京。",
+        "vi": "Sau đó, chúng ta sẽ đến Bắc Kinh vào buổi trưa.",
+        "start": 827.83,
+        "end": 830.4300000000001,
+        "py": "Rán hòu wǒ men zhōng wǔ dào běi jīng。"
+      },
+      {
+        "cn": "先去酒店放行李。",
+        "vi": "Chúng ta hãy đến khách sạn để gửi hành lý trước.",
+        "start": 830.696,
+        "end": 832.663,
+        "py": "Xiān qù jiǔ diàn fàng xíng lǐ。"
+      },
+      {
+        "cn": "对, 然后去吃午饭。",
+        "vi": "Được rồi, sau đó chúng ta sẽ đi ăn trưa.",
+        "start": 832.896,
+        "end": 835.2959999999999,
+        "py": "Duì, rán hòu qù chī wǔ fàn。"
+      },
+      {
+        "cn": "吃午饭前要去故宫吗？",
+        "vi": "Chúng ta sẽ đến Tử Cấm Thành trước bữa trưa phải không?",
+        "start": 835.563,
+        "end": 838.263,
+        "py": "Chī wǔ fàn qián yào qù gù gōng ma？"
+      },
+      {
+        "cn": "不, 上午是天安门和故宫。",
+        "vi": "Không, buổi sáng là Quảng trường Thiên An Môn và Tử Cấm Thành",
+        "start": 838.563,
+        "end": 842.13,
+        "py": "Bù, shàng wǔ shì tiān ān mén hé gù gōng。"
+      },
+      {
+        "cn": "哦, 对, 我记错了。我们先吃饭。",
+        "vi": ". À, đúng rồi, tôi nhớ nhầm. Chúng ta sẽ ăn trước.",
+        "start": 842.363,
+        "end": 845.763,
+        "py": "Ó, duì, wǒ jì cuò le。 wǒ men xiān chī fàn。"
+      },
+      {
+        "cn": "先去酒店, 然后吃饭, 然后故宫。",
+        "vi": "Đầu tiên đến khách sạn, sau đó ăn trưa, sau đó đến Tử Cấm Thành.",
+        "start": 846.03,
+        "end": 849.663,
+        "py": "Xiān qù jiǔ diàn, rán hòu chī fàn, rán hòu gù gōng。"
+      },
+      {
+        "cn": "下午去景山公园, 晚上王府井。",
+        "vi": "Buổi chiều chúng ta sẽ đến Công viên Tĩnh Sơn, và buổi tối là Vương Phủ Tỉnh.",
+        "start": 849.93,
+        "end": 854.1629999999999,
+        "py": "Xià wǔ qù jǐng shān gōng yuán, wǎn shàng wáng fǔ jǐng。"
+      },
+      {
+        "cn": "对, 这次你记对了。",
+        "vi": "Đúng vậy, lần này bạn đoán đúng rồi.",
+        "start": 854.43,
+        "end": 857.096,
+        "py": "Duì, zhè cì nǐ jì duì le。"
+      },
+      {
+        "cn": "哈哈, 地方太多了。",
+        "vi": "Haha, nhiều nơi quá!",
+        "start": 857.363,
+        "end": 859.9960000000001,
+        "py": "Hā hā, dì fāng tài duō le。"
+      },
+      {
+        "cn": "星期天早上我们去长城。",
+        "vi": "Sáng Chủ Nhật chúng ta sẽ đến Vạn Lý Trường Thành.",
+        "start": 860.263,
+        "end": 863.0300000000001,
+        "py": "Xīng qī tiān zǎo shàng wǒ men qù cháng chéng。"
+      },
+      {
+        "cn": "要很早起床, 对吗？",
+        "vi": "Chúng ta sẽ phải dậy rất sớm, phải không?",
+        "start": 863.296,
+        "end": 865.763,
+        "py": "Yào hěn zǎo qǐ chuáng, duì ma？"
+      },
+      {
+        "cn": "对, 六点半就要起床。",
+        "vi": "Vâng, chúng ta phải dậy lúc 6:30.",
+        "start": 866.03,
+        "end": 868.996,
+        "py": "Duì, liù diǎn bàn jiù yào qǐ chuáng。"
+      },
+      {
+        "cn": "好的, 我会设一个闹钟。",
+        "vi": "Được rồi, tôi sẽ đặt báo thức.",
+        "start": 869.263,
+        "end": 872.063,
+        "py": "Hǎo de, wǒ huì shè yí gè nào zhōng。"
+      },
+      {
+        "cn": "从长城回来去颐和园。",
+        "vi": "Sau khi đi qua Vạn Lý Trường Thành, chúng ta sẽ đến Cung điện Mùa hè.",
+        "start": 872.33,
+        "end": 875.23,
+        "py": "Cóng cháng chéng huí lái qù yí hé yuán。"
+      },
+      {
+        "cn": "然后去火车站回家。",
+        "vi": "Sau đó, chúng ta sẽ đến ga tàu để về nhà.",
+        "start": 875.496,
+        "end": 878.263,
+        "py": "Rán hòu qù huǒ chē zhàn huí jiā。"
+      },
+      {
+        "cn": "计划很清楚了。",
+        "vi": "Kế hoạch đã rõ ràng.",
+        "start": 878.53,
+        "end": 880.496,
+        "py": "Jì huà hěn qīng chǔ le。"
+      },
+      {
+        "cn": "是的, 我都明白了。",
+        "vi": "Vâng, tôi hiểu.",
+        "start": 880.73,
+        "end": 882.963,
+        "py": "Shì de, wǒ dōu míng bái le。"
+      },
+      {
+        "cn": "我真的非常期待。",
+        "vi": "Tôi thực sự mong chờ điều đó.",
+        "start": 883.263,
+        "end": 885.73,
+        "py": "Wǒ zhēn de fēi cháng qī dài。"
+      },
+      {
+        "cn": "我也是, 已经等不及了。",
+        "vi": "Tôi cũng vậy, tôi không thể chờ đợi được nữa.",
+        "start": 885.996,
+        "end": 888.763,
+        "py": "Wǒ yě shì, yǐ jīng děng bù jí le。"
+      },
+      {
+        "cn": "这是我们第一次一起旅游。",
+        "vi": "Đây là chuyến đi đầu tiên của chúng ta cùng nhau.",
+        "start": 888.996,
+        "end": 892.03,
+        "py": "Zhè shì wǒ men dì yī cì yì qǐ lǚ yóu。"
+      },
+      {
+        "cn": "对, 一定会很有意思。",
+        "vi": "Vâng, nó sẽ rất thú vị.",
+        "start": 892.296,
+        "end": 894.796,
+        "py": "Duì, yí dìng huì hěn yǒu yì si。"
+      },
+      {
+        "cn": "我们会拍很多好看的照片。",
+        "vi": "Chúng ta sẽ chụp rất nhiều ảnh đẹp.",
+        "start": 895.096,
+        "end": 897.93,
+        "py": "Wǒ men huì pāi hěn duō hǎo kàn de zhào piān。"
+      },
+      {
+        "cn": "回来可以给朋友们看。",
+        "vi": "Chúng ta có thể cho bạn bè xem khi chúng ta trở về.",
+        "start": 898.196,
+        "end": 900.63,
+        "py": "Huí lái kě yǐ gěi péng yǒu men kàn。"
+      },
+      {
+        "cn": "北京一定很漂亮。",
+        "vi": "Bắc Kinh chắc hẳn rất đẹp.",
+        "start": 900.896,
+        "end": 903.2629999999999,
+        "py": "Běi jīng yí dìng hěn piào liàng。"
+      },
+      {
+        "cn": "我听说秋天的北京最美。",
+        "vi": "Tôi nghe nói rằng Bắc Kinh đẹp nhất vào mùa thu.",
+        "start": 903.53,
+        "end": 906.7629999999999,
+        "py": "Wǒ tīng shuō qiū tiān de běi jīng zuì měi。"
+      },
+      {
+        "cn": "现在就是秋天, 天气最好。",
+        "vi": "Bây giờ là mùa thu, thời tiết là tốt nhất.",
+        "start": 907.03,
+        "end": 910.896,
+        "py": "Xiàn zài jiù shì qiū tiān, tiān qì zuì hǎo。"
+      },
+      {
+        "cn": "我们去的时间刚刚好。",
+        "vi": "Chúng ta sẽ đi vào thời điểm hoàn hảo.",
+        "start": 911.163,
+        "end": 913.63,
+        "py": "Wǒ men qù de shí jiān gāng gāng hǎo。"
+      },
+      {
+        "cn": "希望周末玩得开心。",
+        "vi": "Tôi hy vọng bạn sẽ có một kỳ nghỉ cuối tuần tuyệt vời.",
+        "start": 913.896,
+        "end": 916.1959999999999,
+        "py": "Xī wàng zhōu mò wán dé kāi xīn。"
+      },
+      {
+        "cn": "一定会的, 我相信。",
+        "vi": "Bạn chắc chắn sẽ như vậy, tôi tin vậy.",
+        "start": 916.463,
+        "end": 918.963,
+        "py": "Yí dìng huì de, wǒ xiāng xìn。"
+      },
+      {
+        "cn": "大明, 等一下。",
+        "vi": "Daming, đợi một chút.",
+        "start": 919.263,
+        "end": 921.23,
+        "py": "Dà míng, děng yí xià。"
+      },
+      {
+        "cn": "怎么了？还有事吗？",
+        "vi": "Có chuyện gì vậy? Có chuyện gì khác không?",
+        "start": 921.463,
+        "end": 923.7629999999999,
+        "py": "Zěn me le？ hái yǒu shì ma？"
+      },
+      {
+        "cn": "我突然想起来一件事。",
+        "vi": "Tôi đột nhiên nhớ ra điều gì đó.",
+        "start": 924.063,
+        "end": 926.3629999999999,
+        "py": "Wǒ tū rán xiǎng qǐ lái yī jiàn shì。"
+      },
+      {
+        "cn": "我们酒店的地址我还没看。",
+        "vi": "Tôi vẫn chưa kiểm tra địa chỉ khách sạn của chúng ta.",
+        "start": 926.63,
+        "end": 929.196,
+        "py": "Wǒ men jiǔ diàn de dì zhǐ wǒ hái méi kàn。"
+      },
+      {
+        "cn": "对, 我们得知道在哪儿。",
+        "vi": "Phải rồi, chúng ta cần biết nó ở đâu.",
+        "start": 929.463,
+        "end": 931.7629999999999,
+        "py": "Duì, wǒ men dé zhī dào zài nǎ ér。"
+      },
+      {
+        "cn": "我现在看一下预订信息。",
+        "vi": "Tôi sẽ kiểm tra thông tin đặt phòng ngay bây giờ.",
+        "start": 932.03,
+        "end": 934.8299999999999,
+        "py": "Wǒ xiàn zài kàn yī xià yù dìng xìn xī。"
+      },
+      {
+        "cn": "好, 看看离地铁站远不远。",
+        "vi": "Được rồi, chúng ta hãy xem nó cách ga tàu điện ngầm bao xa.",
+        "start": 935.096,
+        "end": 938.596,
+        "py": "Hǎo, kàn kàn lí dì tiě zhàn yuǎn bù yuǎn。"
+      },
+      {
+        "cn": "好的, 找到了。",
+        "vi": "Được rồi, tìm thấy rồi.",
+        "start": 938.896,
+        "end": 940.7299999999999,
+        "py": "Hǎo de, zhǎo dào le。"
+      },
+      {
+        "cn": "地址是什么？",
+        "vi": "Địa chỉ là gì?",
+        "start": 940.996,
+        "end": 943.063,
+        "py": "Dì zhǐ shì shén me？"
+      },
+      {
+        "cn": "在东城区, 离地铁站很近。",
+        "vi": "Nó ở quận Đông Thành, rất gần ga tàu điện ngầm.",
+        "start": 943.33,
+        "end": 946.63,
+        "py": "Zài dōng chéng qū, lí dì tiě zhàn hěn jìn。"
+      },
+      {
+        "cn": "太好了, 走路五分钟就到。",
+        "vi": "Tuyệt, chỉ mất năm phút đi bộ.",
+        "start": 946.896,
+        "end": 950.2959999999999,
+        "py": "Tài hǎo le, zǒu lù wǔ fēn zhōng jiù dào。"
+      },
+      {
+        "cn": "这样我们出行就方便多了。",
+        "vi": "Điều này làm cho việc đi lại của chúng ta thuận tiện hơn nhiều.",
+        "start": 950.563,
+        "end": 953.763,
+        "py": "Zhè yàng wǒ men chū xíng jiù fāng biàn duō le。"
+      },
+      {
+        "cn": "我把地址记在手机里。",
+        "vi": "Tôi đã lưu địa chỉ trên điện thoại.",
+        "start": 954.03,
+        "end": 956.53,
+        "py": "Wǒ bǎ dì zhǐ jì zài shǒu jī lǐ。"
+      },
+      {
+        "cn": "我已经发给你了。",
+        "vi": "Tôi đã gửi nó cho bạn.",
+        "start": 956.796,
+        "end": 958.763,
+        "py": "Wǒ yǐ jīng fā gěi nǐ le。"
+      },
+      {
+        "cn": "收到了, 这下我放心了。",
+        "vi": "Đã nhận được, giờ tôi nhẹ nhõm rồi.",
+        "start": 959.03,
+        "end": 961.8299999999999,
+        "py": "Shōu dào le, zhè xià wǒ fàng xīn le。"
+      },
+      {
+        "cn": "从火车站怎么去酒店？",
+        "vi": "Làm thế nào để chúng ta đến khách sạn từ ga tàu?",
+        "start": 962.096,
+        "end": 965.196,
+        "py": "Cóng huǒ chē zhàn zěn me qù jiǔ diàn？"
+      },
+      {
+        "cn": "我查一下路线。",
+        "vi": "Để tôi kiểm tra tuyến đường.",
+        "start": 965.463,
+        "end": 967.13,
+        "py": "Wǒ chá yī xià lù xiàn。"
+      },
+      {
+        "cn": "好的, 谢谢你。",
+        "vi": "Được rồi, cảm ơn bạn.",
+        "start": 967.43,
+        "end": 969.03,
+        "py": "Hǎo de, xiè xiè nǐ。"
+      },
+      {
+        "cn": "我们可以坐地铁二号线。",
+        "vi": "Chúng ta có thể đi tàu điện ngầm tuyến số 2.",
+        "start": 969.263,
+        "end": 971.763,
+        "py": "Wǒ men kě yǐ zuò dì tiě èr hào xiàn。"
+      },
+      {
+        "cn": "大概坐五站就到了。",
+        "vi": "Khoảng năm điểm dừng.",
+        "start": 972.063,
+        "end": 974.3629999999999,
+        "py": "Dà gài zuò wǔ zhàn jiù dào le。"
+      },
+      {
+        "cn": "很方便, 不用换车。",
+        "vi": "Rất thuận tiện, không cần phải đổi tàu.",
+        "start": 974.63,
+        "end": 977.063,
+        "py": "Hěn fāng biàn, bù yòng huàn chē。"
+      },
+      {
+        "cn": "是的, 非常方便。",
+        "vi": "Vâng, rất thuận tiện.",
+        "start": 977.33,
+        "end": 979.696,
+        "py": "Shì de, fēi cháng fāng biàn。"
+      },
+      {
+        "cn": "还有故宫的门票。",
+        "vi": "Và vé Tử Cấm Thành.",
+        "start": 979.963,
+        "end": 981.996,
+        "py": "Hái yǒu gù gōng de mén piào。"
+      },
+      {
+        "cn": "你买好了吗？",
+        "vi": "Bạn đã mua chúng chưa?",
+        "start": 982.263,
+        "end": 983.696,
+        "py": "Nǐ mǎi hǎo le ma？"
+      },
+      {
+        "cn": "还没, 我现在就买。",
+        "vi": "Chưa, tôi sẽ mua chúng ngay.",
+        "start": 983.963,
+        "end": 986.43,
+        "py": "Hái méi, wǒ xiàn zài jiù mǎi。"
+      },
+      {
+        "cn": "好的, 需要我的身份证号码吗？",
+        "vi": "Được rồi, bạn có cần số CMND của tôi không?",
+        "start": 986.696,
+        "end": 989.796,
+        "py": "Hǎo de, xū yào wǒ de shēn fèn zhèng hào mǎ ma？"
+      },
+      {
+        "cn": "需要, 你发给我一下。",
+        "vi": "Vâng, vui lòng gửi cho tôi.",
+        "start": 990.096,
+        "end": 992.463,
+        "py": "Xū yào, nǐ fā gěi wǒ yī xià。"
+      },
+      {
+        "cn": "好的, 我马上发给你。",
+        "vi": "Được rồi, tôi sẽ gửi cho bạn ngay.",
+        "start": 992.696,
+        "end": 995.096,
+        "py": "Hǎo de, wǒ mǎ shàng fā gěi nǐ。"
+      },
+      {
+        "cn": "收到了, 我正在买。",
+        "vi": "Đã nhận được, tôi sẽ mua ngay.",
+        "start": 995.363,
+        "end": 997.6300000000001,
+        "py": "Shōu dào le, wǒ zhèng zài mǎi。"
+      },
+      {
+        "cn": "好的, 麻烦你了。",
+        "vi": "Được rồi, cảm ơn sự giúp đỡ của bạn. Không có",
+        "start": 997.896,
+        "end": 999.7959999999999,
+        "py": "Hǎo de, má fán nǐ le。"
+      },
+      {
+        "cn": "别客气。买好了！",
+        "vi": "gì. Đã mua!",
+        "start": 1000.096,
+        "end": 1002.496,
+        "py": "Bié kè qì。 mǎi hǎo le！"
+      },
+      {
+        "cn": "太棒了, 谢谢小美。",
+        "vi": "Tuyệt vời, cảm ơn Xiaomei.",
+        "start": 1002.763,
+        "end": 1005.196,
+        "py": "Tài bàng le, xiè xiè xiǎo měi。"
+      },
+      {
+        "cn": "我们解决了所有问题。",
+        "vi": "Chúng tôi đã giải quyết tất cả các vấn đề.",
+        "start": 1005.463,
+        "end": 1008.096,
+        "py": "Wǒ men jiě jué le suǒ yǒu wèn tí。"
+      },
+      {
+        "cn": "是的, 现在一切都准备好了。",
+        "vi": "Vâng, mọi thứ đã sẵn sàng.",
+        "start": 1008.363,
+        "end": 1011.596,
+        "py": "Shì de, xiàn zài yī qiè dōu zhǔn bèi hǎo le。"
+      },
+      {
+        "cn": "我开始有点儿兴奋了。",
+        "vi": "Tôi bắt đầu thấy phấn khích rồi.",
+        "start": 1011.863,
+        "end": 1014.263,
+        "py": "Wǒ kāi shǐ yǒu diǎn ér xīng fèn le。"
+      },
+      {
+        "cn": "我也是, 好像现在就想出发。",
+        "vi": "Tôi cũng vậy, tôi cảm thấy muốn đi ngay bây giờ.",
+        "start": 1014.496,
+        "end": 1017.563,
+        "py": "Wǒ yě shì, hǎo xiàng xiàn zài jiù xiǎng chū fā。"
+      },
+      {
+        "cn": "哈哈, 还要等两天。",
+        "vi": "Haha, chúng ta vẫn phải đợi thêm hai ngày nữa.",
+        "start": 1017.863,
+        "end": 1020.5300000000001,
+        "py": "Hā hā, hái yào děng liǎng tiān。"
+      },
+      {
+        "cn": "这两天我会好好工作。",
+        "vi": "Tôi sẽ làm việc chăm chỉ trong hai ngày này.",
+        "start": 1020.796,
+        "end": 1023.63,
+        "py": "Zhè liǎng tiān wǒ huì hǎo hǎo gōng zuò。"
+      },
+      {
+        "cn": "我也是, 周末好好玩。",
+        "vi": "Tôi cũng vậy, hãy vui vẻ vào cuối tuần này.",
+        "start": 1023.896,
+        "end": 1026.863,
+        "py": "Wǒ yě shì, zhōu mò hǎo hǎo wán。"
+      },
+      {
+        "cn": "你觉得我们预算要多少钱？",
+        "vi": "Bạn nghĩ chúng ta nên lập ngân sách bao nhiêu?",
+        "start": 1027.13,
+        "end": 1029.7630000000001,
+        "py": "Nǐ jué de wǒ men yù suàn yào duō shǎo qián？"
+      },
+      {
+        "cn": "我算一下。",
+        "vi": "Để tôi tính.",
+        "start": 1030.03,
+        "end": 1031.4959999999999,
+        "py": "Wǒ suàn yī xià。"
+      },
+      {
+        "cn": "好的, 看看大概要多少。",
+        "vi": "Được rồi, hãy xem sẽ tốn bao nhiêu.",
+        "start": 1031.763,
+        "end": 1034.7959999999998,
+        "py": "Hǎo de, kàn kàn dà gài yào duō shǎo。"
+      },
+      {
+        "cn": "火车票和酒店是大头。",
+        "vi": "Vé tàu và khách sạn là những khoản chi lớn nhất.",
+        "start": 1035.063,
+        "end": 1037.863,
+        "py": "Huǒ chē piào hé jiǔ diàn shì dà tóu。"
+      },
+      {
+        "cn": "这两样我们已经付了。",
+        "vi": "Chúng tôi đã trả tiền cho những thứ đó rồi.",
+        "start": 1038.13,
+        "end": 1040.43,
+        "py": "Zhè liǎng yàng wǒ men yǐ jīng fù le。"
+      },
+      {
+        "cn": "吃饭和门票也要一些钱。",
+        "vi": "Thức ăn và phí vào cửa cũng sẽ tốn một ít tiền.",
+        "start": 1040.696,
+        "end": 1043.963,
+        "py": "Chī fàn hé mén piào yě yào yī xiē qián。"
+      },
+      {
+        "cn": "我觉得一千块钱够了吗？",
+        "vi": "Tôi nghĩ 1.000 nhân dân tệ có đủ không?",
+        "start": 1044.23,
+        "end": 1046.896,
+        "py": "Wǒ jué de yī qiān kuài qián gòu le ma？"
+      },
+      {
+        "cn": "一个人一千块应该够了。",
+        "vi": "1.000 nhân dân tệ mỗi người là đủ.",
+        "start": 1047.196,
+        "end": 1050.263,
+        "py": "Yí gè rén yī qiān kuài yīng gāi gòu le。"
+      },
+      {
+        "cn": "那我准备一千块现金。",
+        "vi": "Sau đó, tôi sẽ chuẩn bị 1.000 nhân dân tệ tiền mặt.",
+        "start": 1050.53,
+        "end": 1053.096,
+        "py": "Nà wǒ zhǔn bèi yī qiān kuài xiàn jīn。"
+      },
+      {
+        "cn": "不用都带现金, 手机支付可以。",
+        "vi": "Bạn không cần phải mang theo tất cả tiền mặt, thanh toán di động là được.",
+        "start": 1053.33,
+        "end": 1057.096,
+        "py": "Bù yòng dōu dài xiàn jīn, shǒu jī zhī fù kě yǐ。"
+      },
+      {
+        "cn": "好的, 我知道了。",
+        "vi": "Được rồi, tôi hiểu rồi.",
+        "start": 1057.363,
+        "end": 1059.2630000000001,
+        "py": "Hǎo de, wǒ zhī dào le。"
+      },
+      {
+        "cn": "我们还可以买点儿礼物。",
+        "vi": "Chúng ta cũng có thể mua một số quà tặng.",
+        "start": 1059.53,
+        "end": 1061.963,
+        "py": "Wǒ men hái kě yǐ mǎi diǎn ér lǐ wù。"
+      },
+      {
+        "cn": "对, 给家人和朋友带礼物。",
+        "vi": "Vâng, quà tặng cho gia đình và bạn bè.",
+        "start": 1062.263,
+        "end": 1065.73,
+        "py": "Duì, gěi jiā rén hé péng yǒu dài lǐ wù。"
+      },
+      {
+        "cn": "北京有什么特产吗？",
+        "vi": "Một số đặc sản từ Bắc Kinh là gì?",
+        "start": 1065.996,
+        "end": 1068.43,
+        "py": "Běi jīng yǒu shén me tè chǎn ma？"
+      },
+      {
+        "cn": "我知道北京烤鸭可以带。",
+        "vi": "Tôi biết chúng ta có thể mang theo vịt quay Bắc Kinh.",
+        "start": 1068.696,
+        "end": 1072.0629999999999,
+        "py": "Wǒ zhī dào běi jīng kǎo yā kě yǐ dài。"
+      },
+      {
+        "cn": "还有一些点心也很有名。",
+        "vi": "Ngoài ra còn có một số món ăn nhẹ nổi tiếng.",
+        "start": 1072.296,
+        "end": 1075.13,
+        "py": "Hái yǒu yī xiē diǎn xīn yě hěn yǒu míng。"
+      },
+      {
+        "cn": "好的, 我们到时候看看。",
+        "vi": "Được rồi, chúng ta sẽ xem khi đến đó.",
+        "start": 1075.396,
+        "end": 1078.163,
+        "py": "Hǎo de, wǒ men dào shí hòu kàn kàn。"
+      },
+      {
+        "cn": "行李不要带太多, 会很重。",
+        "vi": "Đừng mang quá nhiều hành lý, sẽ rất nặng.",
+        "start": 1078.43,
+        "end": 1081.8300000000002,
+        "py": "Xíng lǐ bú yào dài tài duō, huì hěn zhòng。"
+      },
+      {
+        "cn": "我知道了, 就带必需品。",
+        "vi": "Tôi hiểu rồi, chỉ cần mang theo những thứ cần thiết.",
+        "start": 1082.096,
+        "end": 1084.896,
+        "py": "Wǒ zhī dào le, jiù dài bì xū pǐn。"
+      },
+      {
+        "cn": "我也是, 一个小包就够了。",
+        "vi": "Tôi cũng vậy, một chiếc túi nhỏ là đủ.",
+        "start": 1085.163,
+        "end": 1087.863,
+        "py": "Wǒ yě shì, yí gè xiǎo bāo jiù gòu le。"
+      },
+      {
+        "cn": "我真的很佩服你的计划能力。",
+        "vi": "Tôi thực sự ngưỡng mộ khả năng lên kế hoạch của bạn.",
+        "start": 1088.13,
+        "end": 1091.096,
+        "py": "Wǒ zhēn de hěn pèi fú nǐ de jì huà néng lì。"
+      },
+      {
+        "cn": "哈哈, 是我们一起计划的。",
+        "vi": "Haha, chúng ta đã cùng nhau lên kế hoạch.",
+        "start": 1091.363,
+        "end": 1094.23,
+        "py": "Hā hā, shì wǒ men yì qǐ jì huà de。"
+      },
+      {
+        "cn": "没有你, 我肯定不行。",
+        "vi": "Tôi chắc chắn không thể làm được nếu không có bạn.",
+        "start": 1094.496,
+        "end": 1097.063,
+        "py": "Méi yǒu nǐ, wǒ kěn dìng bù xíng。"
+      },
+      {
+        "cn": "别这么说, 你也想了很多。",
+        "vi": "Đừng nói vậy, bạn cũng đã suy nghĩ rất nhiều.",
+        "start": 1097.33,
+        "end": 1100.396,
+        "py": "Bié zhè me shuō, nǐ yě xiǎng le hěn duō。"
+      },
+      {
+        "cn": "我们是最好的旅游伙伴。",
+        "vi": "Chúng ta là những người bạn đồng hành tuyệt vời nhất.",
+        "start": 1100.663,
+        "end": 1103.496,
+        "py": "Wǒ men shì zuì hǎo de lǚ yóu huǒ bàn。"
+      },
+      {
+        "cn": "希望以后还有机会一起旅游。",
+        "vi": "Tôi hy vọng chúng ta sẽ có cơ hội đi du lịch cùng nhau lần nữa trong tương lai.",
+        "start": 1103.763,
+        "end": 1107.0629999999999,
+        "py": "Xī wàng yǐ hòu hái yǒu jī huì yì qǐ lǚ yóu。"
+      },
+      {
+        "cn": "当然, 中国有很多好玩的地方。",
+        "vi": "Tất nhiên, Trung Quốc có rất nhiều nơi thú vị.",
+        "start": 1107.33,
+        "end": 1110.963,
+        "py": "Dāng rán, zhōng guó yǒu hěn duō hǎo wán de dì fāng。"
+      },
+      {
+        "cn": "我们可以先完成这次北京之旅。",
+        "vi": "Chúng ta có thể bắt đầu bằng việc hoàn thành chuyến đi đến Bắc Kinh này.",
+        "start": 1111.23,
+        "end": 1114.863,
+        "py": "Wǒ men kě yǐ xiān wán chéng zhè cì běi jīng zhī lǚ。"
+      },
+      {
+        "cn": "对, 一步一步来。",
+        "vi": "Vâng, từng bước một.",
+        "start": 1115.13,
+        "end": 1117.1960000000001,
+        "py": "Duì, yí bù yí bù lái。"
+      },
+      {
+        "cn": "我今天晚上就收拾东西。",
+        "vi": "Tối nay tôi sẽ thu dọn đồ đạc.",
+        "start": 1117.496,
+        "end": 1120.163,
+        "py": "Wǒ jīn tiān wǎn shàng jiù shōu shí dōng xī。"
+      },
+      {
+        "cn": "我也是, 怕早上时间不够。",
+        "vi": "Tôi cũng vậy, tôi lo sáng mai sẽ không đủ thời gian.",
+        "start": 1120.43,
+        "end": 1123.2630000000001,
+        "py": "Wǒ yě shì, pà zǎo shàng shí jiān bù gòu。"
+      },
+      {
+        "cn": "那你早点儿休息。",
+        "vi": "Vậy thì anh nên nghỉ ngơi đi.",
+        "start": 1123.53,
+        "end": 1125.53,
+        "py": "Nà nǐ zǎo diǎn ér xiū xī。"
+      },
+      {
+        "cn": "你也是, 晚安。",
+        "vi": "Chúc anh ngủ ngon.",
+        "start": 1125.796,
+        "end": 1127.8300000000002,
+        "py": "Nǐ yě shì, wǎn ān。"
+      },
+      {
+        "cn": "那真的没什么事了。",
+        "vi": "Vậy thôi.",
+        "start": 1128.096,
+        "end": 1130.296,
+        "py": "Nà zhēn de méi shén me shì le。"
+      },
+      {
+        "cn": "好的, 我要去准备行李了。",
+        "vi": "Được rồi, tôi sẽ thu dọn hành lý",
+        "start": 1130.563,
+        "end": 1133.1960000000001,
+        "py": "Hǎo de, wǒ yào qù zhǔn bèi xíng lǐ le。"
+      },
+      {
+        "cn": "我们分头准备吧。",
+        "vi": ". Chúng ta chia nhau ra",
+        "start": 1133.463,
+        "end": 1135.463,
+        "py": "Wǒ men fēn tóu zhǔn bèi ba。"
+      },
+      {
+        "cn": "有事随时打电话。",
+        "vi": "đóng gói nhé. Nếu anh cần gì thì cứ gọi cho tôi nhé",
+        "start": 1135.696,
+        "end": 1137.8629999999998,
+        "py": "Yǒu shì suí shí dǎ diàn huà。"
+      },
+      {
+        "cn": "好的, 你也是。",
+        "vi": ". Được rồi, anh cũng vậy.",
+        "start": 1138.13,
+        "end": 1139.996,
+        "py": "Hǎo de, nǐ yě shì。"
+      },
+      {
+        "cn": "那, 星期六见！",
+        "vi": "Hẹn gặp lại vào thứ Bảy!",
+        "start": 1140.263,
+        "end": 1142.23,
+        "py": "Nà, xīng qī liù jiàn！"
+      },
+      {
+        "cn": "再见, 小美。",
+        "vi": "Tạm biệt, Tiểu Mỹ.",
+        "start": 1142.496,
+        "end": 1144.6960000000001,
+        "py": "Zài jiàn, xiǎo měi。"
+      },
+      {
+        "cn": "好的，今天就到这里。",
+        "vi": "Được rồi, hôm nay đến đây thôi.",
+        "start": 1144.963,
+        "end": 1147.1299999999999,
+        "py": "Hǎo de， jīn tiān jiù dào zhè lǐ。"
       }
-    ]
+    ],
+    "transcriptStatus": "timed",
+    "transcriptSource": "YouTube captions",
+    "reviewStatus": "reviewed",
+    "status": "published"
   },
   {
     "id": "vn_hsk1_classroom_shadowing",
@@ -450,7 +3964,8 @@
         "start": 12.6,
         "end": 16.1
       }
-    ]
+    ],
+    "status": "draft"
   },
   {
     "id": "vn_hsk2_food_dialogue",
@@ -495,7 +4010,8 @@
         "start": 13.4,
         "end": 16.5
       }
-    ]
+    ],
+    "status": "draft"
   },
   {
     "id": "vn_hsk3_work_meeting",
@@ -540,7 +4056,8 @@
         "start": 17,
         "end": 21
       }
-    ]
+    ],
+    "status": "draft"
   },
   {
     "id": "vn_hsk4_news_shadowing",
@@ -585,6 +4102,7 @@
         "start": 20,
         "end": 24.8
       }
-    ]
+    ],
+    "status": "draft"
   }
 ]

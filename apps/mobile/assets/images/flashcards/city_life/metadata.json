@@ -1,0 +1,158 @@
+{
+  "id": "city_life",
+  "name": "Đời sống thành phố",
+  "nameCn": "城市生活",
+  "color": "#607D8B",
+  "words": [
+    {
+      "word": "城市",
+      "pinyin": "chéng shì",
+      "meaning": "thành phố",
+      "image": "f7d29dfae0.jpg",
+      "query": "city skyline",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/10992816/pexels-photo-10992816.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/high-rise-buildings-under-blue-sky-10992816/",
+        "photographer": "Bart Walus",
+        "photographer_url": "https://www.pexels.com/@bwalus",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "街道",
+      "pinyin": "jiē dào",
+      "meaning": "đường phố",
+      "image": "716c3dc1bd.jpg",
+      "query": "city street",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/18665837/pexels-photo-18665837.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/people-waiting-at-cable-car-stop-18665837/",
+        "photographer": "Yiğit  KARAALİOĞLU",
+        "photographer_url": "https://www.pexels.com/@ygtphoto",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "交通",
+      "pinyin": "jiāo tōng",
+      "meaning": "giao thông",
+      "image": "c8ace4e283.jpg",
+      "query": "city traffic",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/123007/pexels-photo-123007.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/people-crossing-in-pedestrian-lane-in-city-during-daytime-123007/",
+        "photographer": "Saya Kimura",
+        "photographer_url": "https://www.pexels.com/@lusaya",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "地铁",
+      "pinyin": "dì tiě",
+      "meaning": "tàu điện ngầm",
+      "image": "9266202469.jpg",
+      "query": "subway metro station",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/18016847/pexels-photo-18016847.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/people-on-metro-station-18016847/",
+        "photographer": "Yiğit  KARAALİOĞLU",
+        "photographer_url": "https://www.pexels.com/@ygtphoto",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "市场",
+      "pinyin": "shì chǎng",
+      "meaning": "chợ",
+      "image": "552cacb804.jpg",
+      "query": "urban market",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/15616136/pexels-photo-15616136.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/man-selling-fruits-on-a-street-15616136/",
+        "photographer": "Efe Ersoy",
+        "photographer_url": "https://www.pexels.com/@efe-ersoy-393937500",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "环境",
+      "pinyin": "huán jìng",
+      "meaning": "môi trường",
+      "image": "fa405f5965.jpg",
+      "query": "green city environment",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/20728292/pexels-photo-20728292.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/block-of-flats-behind-pond-20728292/",
+        "photographer": "mitbg000",
+        "photographer_url": "https://www.pexels.com/@mitbg000",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "服务",
+      "pinyin": "fú wù",
+      "meaning": "dịch vụ",
+      "image": "47d68cd0f4.jpg",
+      "query": "customer service desk",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/8867475/pexels-photo-8867475.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/a-woman-standing-beside-an-agent-looking-at-a-clipboard-8867475/",
+        "photographer": "Yan Krukau",
+        "photographer_url": "https://www.pexels.com/@yankrukov",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "文化",
+      "pinyin": "wén huà",
+      "meaning": "văn hóa",
+      "image": "f9f7bb6679.jpg",
+      "query": "cultural festival",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/36719889/pexels-photo-36719889.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/vibrant-cultural-parade-with-traditional-dancing-36719889/",
+        "photographer": "Umar Farouk",
+        "photographer_url": "https://www.pexels.com/@umar-farouk-2153918299",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "社会",
+      "pinyin": "shè huì",
+      "meaning": "xã hội",
+      "image": "ce4ba240fb.jpg",
+      "query": "diverse community people",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/28589238/pexels-photo-28589238.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/smiling-elderly-woman-on-bustling-street-28589238/",
+        "photographer": "Nishant Aneja",
+        "photographer_url": "https://www.pexels.com/@nishantaneja",
+        "license": "Pexels License"
+      }
+    },
+    {
+      "word": "经济",
+      "pinyin": "jīng jì",
+      "meaning": "kinh tế",
+      "image": "70ceb33a9b.jpg",
+      "query": "business economy city",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/13457656/pexels-photo-13457656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/city-buildings-under-the-blue-sky-13457656/",
+        "photographer": "PY Wong",
+        "photographer_url": "https://www.pexels.com/@py-wong-157445",
+        "license": "Pexels License"
+      }
+    }
+  ]
+}

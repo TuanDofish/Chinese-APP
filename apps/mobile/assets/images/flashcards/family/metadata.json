@@ -6,51 +6,123 @@
   "words": [
     {
       "word": "爸爸",
-      "pinyin": "bàba",
+      "pinyin": "bà bà",
       "meaning": "bố",
-      "image": "0d00c80f61.jpg"
+      "image": "0d00c80f61.jpg",
+      "query": "father family man",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/19284179/pexels-photo-19284179.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/smiling-father-holding-daughter-19284179/",
+        "photographer": "Keila Almeida",
+        "photographer_url": "https://www.pexels.com/@keila-almeida-809439650",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "妈妈",
-      "pinyin": "māma",
+      "pinyin": "mā mā",
       "meaning": "mẹ",
-      "image": "e6c7ee6003.jpg"
+      "image": "e6c7ee6003.jpg",
+      "query": "mother family woman",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/18689091/pexels-photo-18689091.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/a-woman-in-a-white-dress-with-two-boys-18689091/",
+        "photographer": "Yakup  Polat",
+        "photographer_url": "https://www.pexels.com/@yakup-polat-420882786",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "哥哥",
-      "pinyin": "gēgē",
+      "pinyin": "gē gē",
       "meaning": "anh trai",
-      "image": "39af35e7b7.jpg"
+      "image": "39af35e7b7.jpg",
+      "query": "brother boy teenager",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/16160902/pexels-photo-16160902.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/portrait-of-a-teenage-boy-standing-in-the-garden-16160902/",
+        "photographer": "pessoas uem",
+        "photographer_url": "https://www.pexels.com/@pessoas-uem-503045317",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "姐姐",
-      "pinyin": "jiějie",
+      "pinyin": "jiě jiě",
       "meaning": "chị gái",
-      "image": "033e1fb01c.jpg"
+      "image": "033e1fb01c.jpg",
+      "query": "sister girl teenager",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/2469645/pexels-photo-2469645.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/twin-girls-standing-side-by-side-2469645/",
+        "photographer": "Janko Ferlic",
+        "photographer_url": "https://www.pexels.com/@itfeelslikefilm",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "弟弟",
-      "pinyin": "dìdi",
+      "pinyin": "dì di",
       "meaning": "em trai",
-      "image": "427034659a.jpg"
+      "image": "427034659a.jpg",
+      "query": "little brother boy child",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/33871402/pexels-photo-33871402.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/portrait-of-a-young-boy-in-lao-cai-vietnam-33871402/",
+        "photographer": "Son Hoa Nguyen",
+        "photographer_url": "https://www.pexels.com/@son-hoa-nguyen-2155579462",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "妹妹",
-      "pinyin": "mèimei",
+      "pinyin": "mèi mèi",
       "meaning": "em gái",
-      "image": "1c097b12de.jpg"
+      "image": "1c097b12de.jpg",
+      "query": "little sister girl child",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/11782227/pexels-photo-11782227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/a-cute-girl-riding-a-bicycle-11782227/",
+        "photographer": "Rahul Sapra",
+        "photographer_url": "https://www.pexels.com/@rsapmech",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "爷爷",
-      "pinyin": "yéye",
+      "pinyin": "yé yé",
       "meaning": "ông nội",
-      "image": "e571dca2d0.jpg"
+      "image": "e571dca2d0.jpg",
+      "query": "grandfather old man smiling",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/13430312/pexels-photo-13430312.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/portrait-of-smiling-elderly-man-13430312/",
+        "photographer": "Andy Urdaneta",
+        "photographer_url": "https://www.pexels.com/@andy-urdaneta-294961611",
+        "license": "Pexels License"
+      }
     },
     {
       "word": "奶奶",
-      "pinyin": "nǎinai",
+      "pinyin": "nǎi nǎi",
       "meaning": "bà nội",
-      "image": "2144381ade.jpg"
+      "image": "2144381ade.jpg",
+      "query": "grandmother old woman smiling",
+      "source": {
+        "provider": "Pexels",
+        "url": "https://images.pexels.com/photos/18671527/pexels-photo-18671527.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "photo_url": "https://www.pexels.com/photo/portrait-of-an-elderly-woman-18671527/",
+        "photographer": "Q. Hưng Phạm",
+        "photographer_url": "https://www.pexels.com/@qhung999",
+        "license": "Pexels License"
+      }
     }
   ]
 }
