@@ -202,11 +202,12 @@ class _NewsReaderScreenState extends State<NewsReaderScreen>
     setState(() => _isAnalyzing = true);
     await Future.delayed(const Duration(milliseconds: 400));
     final score = _calculateSimilarity(_currentLesson.chinese, _recognizedText);
-    if (mounted)
+    if (mounted) {
       setState(() {
         _scoreResult = _buildScoreResult(score);
         _isAnalyzing = false;
       });
+    }
   }
 
   double _calculateSimilarity(String target, String recognized) {
@@ -1367,7 +1368,7 @@ class _NewsReaderScreenState extends State<NewsReaderScreen>
               border: Border.all(color: const Color(0xFFEAE0D4)),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.02),
+                  color: Colors.black.withValues(alpha: 0.02),
                   blurRadius: 8,
                   offset: const Offset(0, 2),
                 ),

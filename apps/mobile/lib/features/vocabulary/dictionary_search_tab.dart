@@ -128,51 +128,56 @@ class _DictionarySearchTabState extends State<DictionarySearchTab> {
       if (!_hasChineseText(q)) {
         final viResult = await _searchLocalDB(q);
         if (viResult != null) {
-          if (mounted)
+          if (mounted) {
             setState(() {
               _isSearching = false;
               _searchResult = viResult;
             });
+          }
           return;
         }
         chineseWord = await VocabDataHelper.translateViToZhAsync(q);
       }
 
       if (chineseWord.isEmpty) {
-        if (mounted)
+        if (mounted) {
           setState(() {
             _isSearching = false;
             _errorMessage = 'Không tìm thấy kết quả.';
           });
+        }
         return;
       }
 
       final detail = await _fetchDetail(chineseWord);
       if (detail != null) {
-        if (mounted)
+        if (mounted) {
           setState(() {
             _isSearching = false;
             _searchResult = detail;
           });
+        }
         return;
       }
 
       final dbResult = await _searchLocalDB(chineseWord);
       if (dbResult != null) {
-        if (mounted)
+        if (mounted) {
           setState(() {
             _isSearching = false;
             _searchResult = dbResult;
           });
+        }
         return;
       }
       final bundled = _fallbackFromBundledData(chineseWord);
       if (bundled != null) {
-        if (mounted)
+        if (mounted) {
           setState(() {
             _isSearching = false;
             _searchResult = bundled;
           });
+        }
         return;
       }
 
@@ -211,8 +216,9 @@ class _DictionarySearchTabState extends State<DictionarySearchTab> {
       final res = await http.get(uri).timeout(const Duration(seconds: 4));
       if (res.statusCode == 200) {
         final data = json.decode(res.body);
-        if (data != null && data is Map<String, dynamic>)
+        if (data != null && data is Map<String, dynamic>) {
           return _normalizeVocab(data);
+        }
       }
     } catch (_) {}
     return null;
@@ -226,8 +232,9 @@ class _DictionarySearchTabState extends State<DictionarySearchTab> {
       final res = await http.get(uri).timeout(const Duration(seconds: 4));
       if (res.statusCode == 200) {
         final List<dynamic> list = json.decode(res.body);
-        if (list.isNotEmpty)
+        if (list.isNotEmpty) {
           return _normalizeVocab(list[0] as Map<String, dynamic>);
+        }
       }
     } catch (_) {}
     return null;

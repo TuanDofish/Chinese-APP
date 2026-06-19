@@ -453,7 +453,7 @@ class _PronunciationScreenState extends State<PronunciationScreen>
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0xFFD32F2F).withOpacity(0.3),
+                    color: const Color(0xFFD32F2F).withValues(alpha: 0.3),
                     blurRadius: 20,
                     offset: const Offset(0, 8),
                   ),
@@ -583,7 +583,7 @@ class _PronunciationScreenState extends State<PronunciationScreen>
                                   BoxShadow(
                                     color: const Color(
                                       0xFFD32F2F,
-                                    ).withOpacity(0.4),
+                                    ).withValues(alpha: 0.4),
                                     blurRadius: 20,
                                     spreadRadius: 5,
                                   ),
@@ -693,12 +693,12 @@ class _PronunciationScreenState extends State<PronunciationScreen>
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: gradeColor.withOpacity(0.15),
+            color: gradeColor.withValues(alpha: 0.15),
             blurRadius: 20,
             offset: const Offset(0, 6),
           ),
         ],
-        border: Border.all(color: gradeColor.withOpacity(0.3)),
+        border: Border.all(color: gradeColor.withValues(alpha: 0.3)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -710,7 +710,7 @@ class _PronunciationScreenState extends State<PronunciationScreen>
                 width: 80,
                 height: 80,
                 decoration: BoxDecoration(
-                  color: gradeColor.withOpacity(0.1),
+                  color: gradeColor.withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                   border: Border.all(color: gradeColor, width: 3),
                 ),

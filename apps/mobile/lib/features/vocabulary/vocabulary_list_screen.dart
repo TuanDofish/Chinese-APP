@@ -4,8 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:mobile/features/vocabulary/vocabulary_detail_screen.dart';
 import 'package:mobile/core/services/progress_service.dart';
 import 'package:mobile/features/games/quiz_screen.dart';
-import 'package:mobile/features/vocabulary/vocab_data_helper.dart';
-import 'package:mobile/core/utils/pinyin_utils.dart';
 
 class VocabularyListScreen extends StatefulWidget {
   const VocabularyListScreen({super.key});
@@ -833,7 +831,7 @@ class _VocabularyListScreenState extends State<VocabularyListScreen>
           physics: const NeverScrollableScrollPhysics(),
           padding: const EdgeInsets.only(bottom: 24),
           itemCount: topics.length,
-          separatorBuilder: (_, __) => const SizedBox(height: 12),
+          separatorBuilder: (context, index) => const SizedBox(height: 12),
           itemBuilder: (context, index) {
             final topic = topics[index];
             final List<String> wordList = List<String>.from(topic['words']);
@@ -867,14 +865,14 @@ class _VocabularyListScreenState extends State<VocabularyListScreen>
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [color, color.withOpacity(0.7)],
+          colors: [color, color.withValues(alpha: 0.7)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: color.withOpacity(0.35),
+            color: color.withValues(alpha: 0.35),
             blurRadius: 14,
             offset: const Offset(0, 6),
           ),
@@ -899,7 +897,7 @@ class _VocabularyListScreenState extends State<VocabularyListScreen>
                 '$learned/$total từ',
                 style: TextStyle(
                   fontSize: 14,
-                  color: Colors.white.withOpacity(0.85),
+                  color: Colors.white.withValues(alpha: 0.85),
                 ),
               ),
               const SizedBox(width: 10),
@@ -909,7 +907,7 @@ class _VocabularyListScreenState extends State<VocabularyListScreen>
                 child: Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.2),
+                    color: Colors.white.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Icon(
@@ -926,7 +924,7 @@ class _VocabularyListScreenState extends State<VocabularyListScreen>
                   vertical: 6,
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
+                  color: Colors.white.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Text(
@@ -945,7 +943,7 @@ class _VocabularyListScreenState extends State<VocabularyListScreen>
             borderRadius: BorderRadius.circular(6),
             child: LinearProgressIndicator(
               value: progress,
-              backgroundColor: Colors.white.withOpacity(0.3),
+              backgroundColor: Colors.white.withValues(alpha: 0.3),
               valueColor: const AlwaysStoppedAnimation<Color>(Colors.white),
               minHeight: 6,
             ),
@@ -955,7 +953,7 @@ class _VocabularyListScreenState extends State<VocabularyListScreen>
             desc,
             style: TextStyle(
               fontSize: 13,
-              color: Colors.white.withOpacity(0.9),
+              color: Colors.white.withValues(alpha: 0.9),
             ),
           ),
           const SizedBox(height: 8),
@@ -963,7 +961,7 @@ class _VocabularyListScreenState extends State<VocabularyListScreen>
             'Moi chu de: Flashcard + nghe + quiz mini game.',
             style: TextStyle(
               fontSize: 12,
-              color: Colors.white.withOpacity(0.95),
+              color: Colors.white.withValues(alpha: 0.95),
             ),
           ),
         ],
@@ -990,7 +988,7 @@ class _VocabularyListScreenState extends State<VocabularyListScreen>
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.05),
+              color: Colors.black.withValues(alpha: 0.05),
               blurRadius: 8,
               offset: const Offset(0, 3),
             ),
@@ -1020,11 +1018,12 @@ class _VocabularyListScreenState extends State<VocabularyListScreen>
                     child: Image.asset(
                       'assets/images/topics/$imageFile',
                       fit: BoxFit.cover,
-                      errorBuilder: (_, __, ___) => _TopicVisualFallback(
-                        topicName: topic['name'] as String? ?? '',
-                        levelColor: levelColor,
-                        completed: completed,
-                      ),
+                      errorBuilder: (context, error, stackTrace) =>
+                          _TopicVisualFallback(
+                            topicName: topic['name'] as String? ?? '',
+                            levelColor: levelColor,
+                            completed: completed,
+                          ),
                     ),
                   ),
                 ),
@@ -1271,10 +1270,10 @@ class _TopicVisualFallback extends StatelessWidget {
 
     final start = completed
         ? const Color(0xFFE8F5E9)
-        : levelColor.withOpacity(0.2);
+        : levelColor.withValues(alpha: 0.2);
     final end = completed
         ? const Color(0xFFDFF0E1)
-        : levelColor.withOpacity(0.35);
+        : levelColor.withValues(alpha: 0.35);
 
     return Container(
       decoration: BoxDecoration(
@@ -1306,9 +1305,9 @@ class _TagPill extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(999),
-        border: Border.all(color: color.withOpacity(0.3)),
+        border: Border.all(color: color.withValues(alpha: 0.3)),
       ),
       child: Text(
         label,
@@ -1419,11 +1418,11 @@ class _VocabularyLearningFlowState extends State<VocabularyLearningFlow>
                       padding: const EdgeInsets.symmetric(horizontal: 4),
                       child: AnimatedBuilder(
                         animation: _progressAnim,
-                        builder: (_, __) => ClipRRect(
+                        builder: (context, child) => ClipRRect(
                           borderRadius: BorderRadius.circular(6),
                           child: LinearProgressIndicator(
                             value: _progressAnim.value,
-                            backgroundColor: Colors.grey.withOpacity(0.2),
+                            backgroundColor: Colors.grey.withValues(alpha: 0.2),
                             valueColor: AlwaysStoppedAnimation<Color>(
                               isOnQuiz ? const Color(0xFF4CAF50) : amberColor,
                             ),
@@ -1440,7 +1439,7 @@ class _VocabularyLearningFlowState extends State<VocabularyLearningFlow>
                       vertical: 4,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(0.08),
+                      color: Colors.grey.withValues(alpha: 0.08),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Text(

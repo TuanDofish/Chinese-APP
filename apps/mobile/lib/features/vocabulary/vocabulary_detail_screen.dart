@@ -11,7 +11,6 @@ const _kSurface = Color(0xFFF8F0E8); // warm cream background
 const _kCard = Color(0xFFFFFFFF);
 const _kInk = Color(0xFF1A1A2E);
 const _kMuted = Color(0xFF94A3B8);
-const _kGreen = Color(0xFF4CAF50);
 const _kCinnabar = Color(0xFFC83E35);
 
 // ─── Pexels keyword mapping for common Chinese words ────────────────────────
@@ -250,7 +249,7 @@ class _VocabularyDetailScreenState extends State<VocabularyDetailScreen>
                           borderRadius: BorderRadius.circular(20),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withOpacity(0.06),
+                              color: Colors.black.withValues(alpha: 0.06),
                               blurRadius: 16,
                               offset: const Offset(0, 4),
                             ),
@@ -288,7 +287,7 @@ class _VocabularyDetailScreenState extends State<VocabularyDetailScreen>
                               width: 60,
                               height: 2,
                               decoration: BoxDecoration(
-                                color: _kAmber.withOpacity(0.5),
+                                color: _kAmber.withValues(alpha: 0.5),
                                 borderRadius: BorderRadius.circular(1),
                               ),
                             ),
@@ -303,7 +302,7 @@ class _VocabularyDetailScreenState extends State<VocabularyDetailScreen>
                                   vertical: 3,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: _kAmber.withOpacity(0.13),
+                                  color: _kAmber.withValues(alpha: 0.13),
                                   borderRadius: BorderRadius.circular(6),
                                 ),
                                 child: Text(
@@ -331,9 +330,13 @@ class _VocabularyDetailScreenState extends State<VocabularyDetailScreen>
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 _CircleActionBtn(
-                                  icon: Icons.volume_up_rounded,
-                                  color: _kCinnabar,
-                                  onTap: () => _speak(simplified),
+                                  icon: _isSpeaking
+                                      ? Icons.graphic_eq_rounded
+                                      : Icons.volume_up_rounded,
+                                  color: _isSpeaking ? _kAmberDeep : _kCinnabar,
+                                  onTap: _isSpeaking
+                                      ? () {}
+                                      : () => _speak(simplified),
                                   tooltip: 'Nghe bình thường',
                                 ),
                                 const SizedBox(width: 16),
@@ -349,31 +352,32 @@ class _VocabularyDetailScreenState extends State<VocabularyDetailScreen>
                                     final v = await _progressService.isFavorite(
                                       simplified,
                                     );
-                                    if (mounted) {
-                                      setState(() => _isFavorite = v);
-                                      ScaffoldMessenger.of(
-                                        context,
-                                      ).showSnackBar(
-                                        SnackBar(
-                                          content: Text(
-                                            v
-                                                ? 'Đã lưu "$simplified" vào Sổ tay ⭐'
-                                                : 'Đã xóa khỏi Sổ tay',
-                                          ),
-                                          duration: const Duration(seconds: 1),
-                                          behavior: SnackBarBehavior.floating,
-                                          backgroundColor: _kInk,
+                                    if (!context.mounted) return;
+                                    setState(() => _isFavorite = v);
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          v
+                                              ? 'Đã lưu "$simplified" vào Sổ tay ⭐'
+                                              : 'Đã xóa khỏi Sổ tay',
                                         ),
-                                      );
-                                    }
+                                        duration: const Duration(seconds: 1),
+                                        behavior: SnackBarBehavior.floating,
+                                        backgroundColor: _kInk,
+                                      ),
+                                    );
                                   },
                                   tooltip: 'Lưu vào Sổ tay',
                                 ),
                                 const SizedBox(width: 16),
                                 _CircleActionBtn(
                                   icon: Icons.speed_rounded,
-                                  color: const Color(0xFF78909C),
-                                  onTap: () => _speak(simplified, slow: true),
+                                  color: _isSpeaking
+                                      ? _kAmberDeep
+                                      : const Color(0xFF78909C),
+                                  onTap: _isSpeaking
+                                      ? () {}
+                                      : () => _speak(simplified, slow: true),
                                   tooltip: 'Nghe chậm',
                                 ),
                               ],
@@ -431,15 +435,13 @@ class _PexelsImageBox extends StatelessWidget {
           height: 200,
           width: double.infinity,
           fit: BoxFit.cover,
-          errorBuilder: (_, __, ___) => _buildFallback(),
+          errorBuilder: (context, error, stackTrace) => _buildFallback(),
         ),
       );
     }
 
     // Use Pexels via free image source
     final query = _getPexelsQuery(simplified, meaning);
-    final imageUrl =
-        'https://images.pexels.com/photos/${_pexelsPhotoId(query)}/pexels-photo-${_pexelsPhotoId(query)}.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&dpr=1';
 
     // Use a curated Unsplash-style URL that doesn't need API key
     final unsplashUrl =
@@ -455,7 +457,7 @@ class _PexelsImageBox extends StatelessWidget {
           if (loadingProgress == null) return child;
           return _buildLoading();
         },
-        errorBuilder: (_, __, ___) => _buildFallback(),
+        errorBuilder: (context, error, stackTrace) => _buildFallback(),
       ),
     );
   }
@@ -468,7 +470,7 @@ class _PexelsImageBox extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.12),
+            color: Colors.black.withValues(alpha: 0.12),
             blurRadius: 16,
             offset: const Offset(0, 6),
           ),
@@ -491,7 +493,10 @@ class _PexelsImageBox extends StatelessWidget {
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    colors: [Colors.transparent, Colors.black.withOpacity(0.3)],
+                    colors: [
+                      Colors.transparent,
+                      Colors.black.withValues(alpha: 0.3),
+                    ],
                   ),
                 ),
               ),
@@ -503,7 +508,7 @@ class _PexelsImageBox extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                 decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.4),
+                  color: Colors.black.withValues(alpha: 0.4),
                   borderRadius: BorderRadius.circular(4),
                 ),
                 child: const Row(
@@ -560,7 +565,7 @@ class _PexelsImageBox extends StatelessWidget {
             Icon(
               Icons.image_outlined,
               size: 48,
-              color: _kAmber.withOpacity(0.5),
+              color: _kAmber.withValues(alpha: 0.5),
             ),
             const SizedBox(height: 8),
             Text(
@@ -568,23 +573,13 @@ class _PexelsImageBox extends StatelessWidget {
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.w900,
-                color: _kAmberDeep.withOpacity(0.6),
+                color: _kAmberDeep.withValues(alpha: 0.6),
               ),
             ),
           ],
         ),
       ),
     );
-  }
-
-  // Simple hash to generate a deterministic but varied photo ID
-  static int _pexelsPhotoId(String query) {
-    int hash = 0;
-    for (int i = 0; i < query.length; i++) {
-      hash = ((hash << 5) - hash) + query.codeUnitAt(i);
-      hash = hash & 0xFFFFFF;
-    }
-    return 1000000 + (hash % 5000000);
   }
 }
 
@@ -607,7 +602,7 @@ class _CircleActionBtn extends StatelessWidget {
     return Tooltip(
       message: tooltip,
       child: Material(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         shape: const CircleBorder(),
         child: InkWell(
           onTap: onTap,
@@ -617,7 +612,10 @@ class _CircleActionBtn extends StatelessWidget {
             height: 52,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(color: color.withOpacity(0.25), width: 1.5),
+              border: Border.all(
+                color: color.withValues(alpha: 0.25),
+                width: 1.5,
+              ),
             ),
             child: Icon(icon, color: color, size: 24),
           ),
@@ -649,7 +647,7 @@ class _ExamplesCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.04),
+            color: Colors.black.withValues(alpha: 0.04),
             blurRadius: 12,
             offset: const Offset(0, 4),
           ),
@@ -662,7 +660,7 @@ class _ExamplesCard extends StatelessWidget {
             children: [
               Icon(
                 Icons.format_quote_rounded,
-                color: _kAmber.withOpacity(0.6),
+                color: _kAmber.withValues(alpha: 0.6),
                 size: 20,
               ),
               const SizedBox(width: 6),

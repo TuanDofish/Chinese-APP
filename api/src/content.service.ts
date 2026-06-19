@@ -55,13 +55,7 @@ export class ContentService {
       readingSources,
       grammar,
       articles,
-      games: Array.isArray(metadata.games)
-        ? metadata.games.filter(
-            (game: any) =>
-              !publishedOnly ||
-              String(game?.status || 'published').toLowerCase() === 'published',
-          )
-        : [],
+      games: this.catalogGames(metadata, publishedOnly),
       aiSettings:
         metadata.aiSettings &&
         typeof metadata.aiSettings === 'object' &&
@@ -328,9 +322,14 @@ export class ContentService {
 
   async getGames() {
     const metadata = await this.getPublishedMetadata();
+    return this.catalogGames(metadata, true);
+  }
+
+  private catalogGames(metadata: Record<string, any>, publishedOnly: boolean) {
     if (Array.isArray(metadata.games) && metadata.games.length) {
       return metadata.games.filter(
         (game: any) =>
+          !publishedOnly ||
           String(game?.status || 'published').toLowerCase() === 'published',
       );
     }
@@ -339,8 +338,34 @@ export class ContentService {
         id: 'flashcard_quiz',
         title: 'Quiz nghĩa từ',
         type: 'multiple_choice',
+        level: 'HSK 1-4',
+        source: 'Flashcard đã published',
         scope: 'Theo chủ đề flashcard',
+        generation: 'auto',
+        questionCount: 10,
         status: 'published',
+      },
+      {
+        id: 'listening_pick_word',
+        title: 'Nghe và chọn từ',
+        type: 'listening',
+        level: 'HSK 1-4',
+        source: 'Từ vựng đã published',
+        scope: 'HSK 1-4',
+        generation: 'auto',
+        questionCount: 10,
+        status: publishedOnly ? 'published' : 'draft',
+      },
+      {
+        id: 'sentence_order',
+        title: 'Xếp câu đúng',
+        type: 'sentence_order',
+        level: 'HSK 1-4',
+        source: 'Ngữ pháp đã published',
+        scope: 'Ngữ pháp',
+        generation: 'auto',
+        questionCount: 8,
+        status: publishedOnly ? 'published' : 'draft',
       },
     ];
   }

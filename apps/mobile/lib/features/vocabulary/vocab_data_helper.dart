@@ -15,6 +15,7 @@ class VocabDataHelper {
   static bool _bundleLoaded = false;
 
   // High-quality manual map for common HSK 1 & 2 words
+  // ignore: unused_field
   static final Map<String, Map<String, dynamic>> _manualMap = {
     // === HSK 1: Ã„ï¿½Ã¡ÂºÂ¡i tÃ¡Â»Â« ===
     "我": {
@@ -218,6 +219,7 @@ class VocabDataHelper {
         {"cn": "Ã¤Â¹ï¿½Ã¦Å“Ë†Ã£â‚¬â€š", "py": "Jiǔyuè.", "vi": "Tháng chín."},
       ],
     },
+    // ignore: equal_keys_in_map
     "Ã¥ï¿½ï¿½": {
       "meaning": "MÃ†Â°Ã¡Â»ï¿½i (10)",
       "examples": [
@@ -886,6 +888,7 @@ class VocabDataHelper {
         },
       ],
     },
+    // ignore: equal_keys_in_map
     "学习": {
       "meaning": "HÃ¡Â»ï¿½c tÃ¡ÂºÂ­p",
       "examples": [
@@ -1194,6 +1197,7 @@ class VocabDataHelper {
       ],
     },
     // === HSK 1: Giao thông ===
+    // ignore: equal_keys_in_map
     "Ã¥ï¿½ï¿½": {
       "meaning": "Ngồi, đi (xe)",
       "examples": [
@@ -1256,6 +1260,7 @@ class VocabDataHelper {
         },
       ],
     },
+    // ignore: equal_keys_in_map
     "学习": {
       "meaning": "HÃ¡Â»ï¿½c tÃ¡ÂºÂ­p",
       "examples": [
@@ -1359,10 +1364,11 @@ class VocabDataHelper {
       if (data is! List) return;
       for (final item in data) {
         if (item is! Map) continue;
-        final row = Map<String, dynamic>.from(item as Map);
+        final row = Map<String, dynamic>.from(item);
         final simplified = _cleanText((row['simplified'] ?? '').toString());
-        if (simplified.isEmpty || _bundleIndex.containsKey(simplified))
+        if (simplified.isEmpty || _bundleIndex.containsKey(simplified)) {
           continue;
+        }
 
         final forms = row['forms'] is List ? row['forms'] as List : const [];
         final first = forms.isNotEmpty && forms.first is Map
@@ -1764,7 +1770,7 @@ class VocabDataHelper {
               'examples': examples,
             }),
           )
-          .catchError((_) {}); // Ignore errors - best effort only
+          .catchError((_) => http.Response('', 0)); // Best effort only.
     } catch (_) {}
   }
 

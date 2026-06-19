@@ -45,7 +45,7 @@ class _ReadingPracticeScreenState extends State<ReadingPracticeScreen> {
     super.initState();
     _tts.setLanguage('zh-CN');
     _tts.setSpeechRate(0.45);
-    _loadContent(includeLiveNews: true);
+    _loadContent();
   }
 
   @override
@@ -126,10 +126,9 @@ class _ReadingPracticeScreenState extends State<ReadingPracticeScreen> {
   Widget build(BuildContext context) {
     return ScreenShell(
       title: 'Luyện đọc và phát âm',
-      subtitle:
-          'Đọc báo tiếng Trung, tra từ trong bài và luyện phụ đề video ngắn.',
+      subtitle: 'Đọc bài HSK ngắn, click từ chưa biết để xem pinyin và nghĩa.',
       trailing: IconButton.filledTonal(
-        tooltip: 'Làm mới',
+        tooltip: 'Tải nguồn mới',
         onPressed: () {
           setState(() {
             _recognized = '';
@@ -142,7 +141,7 @@ class _ReadingPracticeScreenState extends State<ReadingPracticeScreen> {
       ),
       children: [
         SegmentTabs(
-          labels: const ['Phát âm', 'Đọc báo', 'Video'],
+          labels: const ['Phát âm', 'Đọc hiểu', 'Video'],
           selectedIndex: _tab,
           onChanged: (index) => setState(() => _tab = index),
         ),
@@ -246,7 +245,7 @@ class _ReadingPracticeScreenState extends State<ReadingPracticeScreen> {
             .where((article) => article.live || article.level == _level)
             .toList()
           ..sort((left, right) {
-            if (left.live != right.live) return left.live ? -1 : 1;
+            if (left.live != right.live) return left.live ? 1 : -1;
             return right.publishedAt.compareTo(left.publishedAt);
           });
     final sources = [
@@ -269,16 +268,16 @@ class _ReadingPracticeScreenState extends State<ReadingPracticeScreen> {
         ),
         const SizedBox(height: 16),
         AppCard(
-          color: const Color(0xFFFFFAEA),
+          color: const Color(0xFFEAF6F0),
           child: Row(
             children: [
-              const Icon(Icons.rss_feed, color: AppColors.amber),
+              const Icon(Icons.menu_book_outlined, color: AppColors.jade),
               const SizedBox(width: 10),
               Expanded(
                 child: Text(
                   liveCount > 0
-                      ? 'Đã cập nhật $liveCount tin mới từ RSS/API. Mở bài để đọc bản gốc và tra từ khi cần.'
-                      : 'Đọc bài theo cấp HSK hoặc tải nguồn RSS/API mới từ các kênh báo đang bật.',
+                      ? 'Đang có $liveCount nguồn mới từ RSS/API ở cuối danh sách. Bài HSK vẫn được ưu tiên để học dễ hơn.'
+                      : 'Bài đọc được chia theo HSK, mỗi câu có thể nghe và bấm vào từ Hán để xem pinyin, nghĩa tiếng Việt.',
                   style: const TextStyle(fontWeight: FontWeight.w700),
                 ),
               ),
@@ -288,7 +287,7 @@ class _ReadingPracticeScreenState extends State<ReadingPracticeScreen> {
                   _loadContent(includeLiveNews: true);
                 },
                 icon: const Icon(Icons.sync),
-                label: const Text('Tải mới'),
+                label: const Text('Nguồn mới'),
               ),
             ],
           ),
@@ -348,7 +347,7 @@ class _ReadingPracticeScreenState extends State<ReadingPracticeScreen> {
                           Row(
                             children: [
                               StatusPill(
-                                label: item.live ? 'Tin mới' : item.level,
+                                label: item.live ? 'Nguồn mới' : item.level,
                                 color: item.live
                                     ? AppColors.jade
                                     : _levelColor(item.level),
@@ -429,9 +428,9 @@ class _ReadingPracticeScreenState extends State<ReadingPracticeScreen> {
         }),
         if (!_contentLoading && items.isEmpty)
           const EmptyState(
-            icon: Icons.newspaper_outlined,
+            icon: Icons.menu_book_outlined,
             title: 'Chưa có bài đọc',
-            message: 'Nguồn đọc báo cho cấp này đang được cập nhật.',
+            message: 'Bài đọc cho cấp này đang được cập nhật.',
           ),
       ],
     );

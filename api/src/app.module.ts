@@ -22,6 +22,8 @@ import { ContentController } from './content.controller';
 import { ContentService } from './content.service';
 import { LearningController } from './learning.controller';
 import { LearningService } from './learning.service';
+import { MediaController } from './media.controller';
+import { AdminAuthGuard } from './admin-auth.guard';
 
 @Module({
   imports: [
@@ -46,6 +48,7 @@ import { LearningService } from './learning.service';
       ],
       synchronize: process.env.DB_SYNC === 'true',
       logging: process.env.DB_LOGGING === 'true',
+      manualInitialization: true,
     }),
     TypeOrmModule.forFeature([Grammar, User]),
     DictionaryModule,
@@ -58,7 +61,14 @@ import { LearningService } from './learning.service';
     AuthController,
     ContentController,
     LearningController,
+    MediaController,
   ],
-  providers: [AppService, AuthService, ContentService, LearningService],
+  providers: [
+    AppService,
+    AuthService,
+    ContentService,
+    LearningService,
+    AdminAuthGuard,
+  ],
 })
 export class AppModule {}

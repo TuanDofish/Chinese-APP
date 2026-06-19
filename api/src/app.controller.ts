@@ -43,6 +43,28 @@ export class AppController {
     );
   }
 
+  @Post('pronunciation/score')
+  scorePronunciation(
+    @Body()
+    body: {
+      target?: string;
+      targetPinyin?: string;
+      recognized?: string;
+      lessonId?: string;
+      lineIndex?: number;
+    },
+  ) {
+    return this.appService.scorePronunciation(
+      body.target ?? '',
+      body.recognized ?? '',
+      {
+        targetPinyin: body.targetPinyin,
+        lessonId: body.lessonId,
+        lineIndex: body.lineIndex,
+      },
+    );
+  }
+
   @Get('flashcard/image-suggestion')
   getFlashcardImageSuggestion(
     @Query('q') q = '',

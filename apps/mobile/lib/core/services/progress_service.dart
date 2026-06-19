@@ -12,7 +12,6 @@ class ProgressService {
   static const String _keyDailyGoalWords = 'daily_goal_words';
   static const String _keyDailyGoalMinutes = 'daily_goal_minutes';
   static const String _keyStreak = 'streak_count';
-  static const String _keyLastStudyDate = 'last_study_date';
   static const String _keyTodayWordsCount = 'today_words_count';
   static const String _keyTodayMinutes = 'today_minutes';
   static const String _keyTodayDate = 'today_date';
@@ -169,8 +168,8 @@ class ProgressService {
     if (words != null) await prefs.setInt(_keyDailyGoalWords, words);
     if (minutes != null) await prefs.setInt(_keyDailyGoalMinutes, minutes);
     await _send('/learning/goal', 'PUT', {
-      if (words != null) 'words': words,
-      if (minutes != null) 'minutes': minutes,
+      'words': ?words,
+      'minutes': ?minutes,
     });
   }
 
@@ -251,8 +250,8 @@ class ProgressService {
       'correctCount': correctCount,
       'totalCount': totalCount,
       'durationSeconds': durationSeconds,
-      if (targetType != null) 'targetType': targetType,
-      if (targetId != null) 'targetId': targetId,
+      'targetType': ?targetType,
+      'targetId': ?targetId,
       'result': result ?? const <String, dynamic>{},
     });
   }

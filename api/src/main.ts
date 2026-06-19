@@ -1,8 +1,9 @@
 import { NestFactory } from '@nestjs/core';
 import { Logger } from '@nestjs/common';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { json, urlencoded } from 'express';
+import express, { json, urlencoded } from 'express';
+import { DataSource } from 'typeorm';
 import { AppModule } from './app.module';
 
 function loadLocalEnv() {
@@ -23,12 +24,39 @@ function loadLocalEnv() {
   }
 }
 
+async function tryInitializeDatabase(
+  dataSource: DataSource,
+  logger: Logger,
+  announceOnlyFailures = false,
+) {
+  if (dataSource.isInitialized) return;
+  try {
+    await dataSource.initialize();
+    logger.log(
+      JSON.stringify({
+        action: 'database.connected',
+        at: new Date().toISOString(),
+      }),
+    );
+  } catch (error) {
+    const payload = {
+      action: 'database.unavailable',
+      at: new Date().toISOString(),
+      message: error instanceof Error ? error.message : String(error),
+    };
+    if (!announceOnlyFailures) logger.warn(JSON.stringify(payload));
+  }
+}
+
 async function bootstrap() {
   loadLocalEnv();
   const logger = new Logger('HttpAction');
   const app = await NestFactory.create(AppModule, { bodyParser: false });
   app.use(json({ limit: '10mb' }));
   app.use(urlencoded({ extended: true, limit: '10mb' }));
+  const uploadRoot = process.env.UPLOAD_DIR || join(process.cwd(), 'uploads');
+  if (!existsSync(uploadRoot)) mkdirSync(uploadRoot, { recursive: true });
+  app.use('/uploads', express.static(uploadRoot));
   app.use((req, res, next) => {
     const startedAt = Date.now();
     const requestId = `http_${Date.now().toString(36)}_${Math.random()
@@ -56,6 +84,15 @@ async function bootstrap() {
     methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   });
+
+  const dataSource = app.get(DataSource, { strict: false });
+  void tryInitializeDatabase(dataSource, logger);
+  const retryTimer = setInterval(
+    () => void tryInitializeDatabase(dataSource, logger, true),
+    15000,
+  );
+  retryTimer.unref?.();
+
   await app.listen(process.env.PORT ?? 3001);
 }
 bootstrap();

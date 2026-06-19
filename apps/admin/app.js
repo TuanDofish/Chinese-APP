@@ -1,4 +1,5 @@
 const STORAGE_KEY = 'vnchinese_admin_state_v2';
+const DEFAULT_API_BASE_URL = 'http://127.0.0.1:3001';
 
 const seedState = {
   vocabulary: [
@@ -185,12 +186,81 @@ let state = loadState();
 let activeView = 'dashboard';
 let globalQuery = '';
 let vocabularyFilter = 'Tất cả';
+let flashcardLevelFilter = 'Tất cả';
 let lessonFilter = 'Tất cả';
+let lessonLevelFilter = 'Tất cả';
 let grammarFilter = 'Tất cả';
 let articleFilter = 'Tất cả';
 let userFilter = 'Tất cả';
+let videoLevelFilter = 'Tất cả';
+let videoVisibilityFilter = 'Tất cả';
+let reviewFilter = 'Tất cả';
+let gameLevelFilter = 'Tất cả';
 let adminToken = sessionStorage.getItem('vnchinese_admin_token') || '';
 let currentAdmin = JSON.parse(sessionStorage.getItem('vnchinese_admin_user') || 'null');
+
+const VIDEO_UNAVAILABLE_IDS = new Set([
+  'NjKooVPp8-s',
+  'YmTB_nQxJQj',
+  'Aqs0VrMEeXQ',
+  'jMEW0KcwBdY',
+  'MPuvcZCu5f9',
+  '8K7BNGGjGiA',
+  'hYM-F05V02A',
+]);
+const VIDEO_MIN_SUBTITLES = 8;
+const VIDEO_MIN_SPAN_SECONDS = 20;
+
+function normalizeApiBaseUrl(value) {
+  const raw = String(value || '').trim().replace(/\/+$/, '');
+  if (!raw) return DEFAULT_API_BASE_URL;
+  return raw;
+}
+
+function unique(values) {
+  return [...new Set(values.filter(Boolean))];
+}
+
+function apiBaseCandidates() {
+  const host = window.location.hostname || '127.0.0.1';
+  const protocol = window.location.protocol === 'https:' ? 'https:' : 'http:';
+  return unique([
+    normalizeApiBaseUrl(state.settings?.apiBaseUrl),
+    '/api',
+    `${protocol}//${host}:3001`,
+    DEFAULT_API_BASE_URL,
+    'http://localhost:3001',
+  ]);
+}
+
+function rememberApiBaseUrl(baseUrl) {
+  if (!baseUrl || baseUrl === state.settings.apiBaseUrl) return;
+  state.settings.apiBaseUrl = baseUrl;
+  saveState();
+}
+
+function apiConnectionError(lastError) {
+  const detail = lastError?.message ? ` (${lastError.message})` : '';
+  return `Khong ket noi duoc API VNChinese${detail}. Hay chay scripts/start-vnchinese-dev.ps1 de bat backend.`;
+}
+
+async function fetchApi(path, options = {}) {
+  let lastError = null;
+  for (const baseUrl of apiBaseCandidates()) {
+    try {
+      const response = await fetch(`${baseUrl}${path}`, options);
+      if (response.status === 404) {
+        lastError = new Error(`${baseUrl}${path} HTTP 404`);
+        continue;
+      }
+      rememberApiBaseUrl(baseUrl);
+      return response;
+    } catch (error) {
+      lastError = error;
+    }
+  }
+  throw new Error(apiConnectionError(lastError));
+}
 
 const appShell = document.querySelector('#appShell');
 const adminLogin = document.querySelector('#adminLogin');
@@ -267,9 +337,8 @@ if (adminToken) {
 async function loginAdmin(event) {
   event.preventDefault();
   adminLoginError.textContent = '';
-  const baseUrl = String(state.settings.apiBaseUrl || '').replace(/\/+$/, '');
   try {
-    const response = await fetch(`${baseUrl}/auth/login`, {
+    const response = await fetchApi('/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -284,10 +353,29 @@ async function loginAdmin(event) {
     currentAdmin = data.user;
     sessionStorage.setItem('vnchinese_admin_token', adminToken);
     sessionStorage.setItem('vnchinese_admin_user', JSON.stringify(data.user));
-    await enterAdmin(true);
+    adminLogin.classList.add('is-hidden');
+    appShell.classList.remove('is-hidden');
+    enterAdmin(true).catch((loadError) => {
+      showToast(`Da dang nhap, nhung chua tai xong du lieu admin: ${loadError.message}`);
+      render();
+      refreshApiStatus();
+    });
   } catch (error) {
-    adminLoginError.textContent = error.message;
+    adminLoginError.textContent = formatLoginError(error.message);
   }
+}
+
+function formatLoginError(message) {
+  if (/failed to fetch|network|khong ket noi|không kết nối|Khong ket noi/i.test(message)) {
+    return 'Admin chua ket noi duoc API. He thong da thu localhost va 127.0.0.1:3001; hay chay scripts/start-vnchinese-dev.ps1 neu backend dang tat.';
+  }
+  if (/database|postgres|docker|503/i.test(message)) {
+    return 'Database chua san sang. Hay bat Docker/PostgreSQL, sau do dang nhap lai bang admin123456.';
+  }
+  if (/401|Unauthorized|chua dung|chÆ°a Ä‘Ãºng/i.test(message)) {
+    return 'Email hoac mat khau chua dung. Mat khau admin mac dinh la admin123456, viet lien.';
+  }
+  return message || 'Khong the dang nhap admin.';
 }
 
 async function enterAdmin(syncUsers) {
@@ -420,6 +508,10 @@ function renderFlashcards() {
     el('div', {}, [el('strong', {}, '3. Đưa sang app'), el('p', {}, 'Chuyển trạng thái published, xuất index rồi đặt file và ảnh vào assets/images/flashcards/<mã-topic>/.')]),
   ])));
   root.appendChild(toolbar('Chủ đề flashcard', [
+    select(['Tất cả', ...hskLevelOptions(state.flashcards)], flashcardLevelFilter, (value) => {
+      flashcardLevelFilter = value;
+      render();
+    }),
     button('⇧ Import JSON', 'ghost-button', () => importJsonInput.click()),
     button('↻ Nạp từ app user', 'ghost-button', loadMobileFlashcardIndex),
     button('＋ Thêm topic', 'primary-button', () => openTopicEditor()),
@@ -428,6 +520,7 @@ function renderFlashcards() {
 
   const grid = el('div', { class: 'topic-grid' });
   state.flashcards
+    .filter((topic) => flashcardLevelFilter === 'Tất cả' || topic.level === flashcardLevelFilter)
     .filter((topic) => matchesQuery([topic.name, topic.level, topic.status, topic.words.map((w) => w.word).join(' ')]))
     .forEach((topic) => {
       const media = topicImage(topic);
@@ -448,7 +541,7 @@ function renderFlashcards() {
       grid.appendChild(el('article', { class: 'topic-tile' }, [
         media,
         meta,
-        el('p', { class: 'topic-note' }, topic.imagePath ? `Ảnh: ${imageFileName(topic.imagePath) || 'data upload'}` : 'Chưa có ảnh đại diện'),
+        el('p', { class: 'topic-note' }, topicImageUrl(topic) ? `Ảnh: ${imageFileName(topicImageUrl(topic)) || topicImageUrl(topic)}` : 'Chưa có ảnh đại diện'),
         words,
         actions,
       ]));
@@ -460,28 +553,21 @@ function renderFlashcards() {
 
 function renderLessons() {
   const root = el('div', { class: 'view-root' });
+  const components = lessonComponentInventory();
   root.appendChild(toolbar('Bài học tổng hợp', [
+    select(['Tất cả', ...hskLevelOptions(components)], lessonLevelFilter, (value) => {
+      lessonLevelFilter = value;
+      render();
+    }),
     select(['Tất cả', 'Ngữ pháp', 'Đọc hiểu', 'Video'], lessonFilter, (value) => {
       lessonFilter = value;
       render();
     }),
+    button('⇩ Xuất lesson map', 'ghost-button', exportLessonMap),
     button('＋ Thêm bài', 'primary-button', () => openLessonEditor()),
   ]));
-  const rows = state.lessons
-    .filter((lesson) => lessonFilter === 'Tất cả' || lesson.type === lessonFilter)
-    .filter((lesson) => matchesQuery([lesson.title, lesson.level, lesson.type, lesson.status]));
-  root.appendChild(tablePanel(['Loại', 'Tiêu đề', 'Level', 'Số mục', 'Trạng thái', ''], rows.map((lesson) => [
-    lesson.type,
-    strongText(lesson.title),
-    lesson.level,
-    lesson.items,
-    status(lesson.status),
-    rowActions([
-      ['Sửa', () => openLessonEditor(lesson)],
-      ['Xóa', () => deleteItem('lessons', lesson.id)],
-    ]),
-  ])));
-  root.appendChild(toolbar('Mẫu ngữ pháp HSK', [
+  root.appendChild(lessonWorkspace(components));
+  root.appendChild(toolbar('Thư viện ngữ pháp', [
     select(['Tất cả', 'HSK 1', 'HSK 2', 'HSK 3', 'HSK 4', 'HSK 5', 'HSK 6'], grammarFilter, (value) => {
       grammarFilter = value;
       render();
@@ -505,40 +591,403 @@ function renderLessons() {
   return root;
 }
 
+function lessonWorkspace(components) {
+  const filtered = components
+    .filter((item) => lessonLevelFilter === 'Tất cả' || item.level === lessonLevelFilter)
+    .filter((item) => lessonFilter === 'Tất cả' || item.type === lessonFilter)
+    .filter((item) => matchesQuery([item.level, item.subject, item.type, item.title, item.status]));
+  const tree = lessonTree(filtered);
+  const rows = filtered.map((item) => [
+    el('div', { class: 'lesson-title-cell' }, [
+      strongText(item.title),
+      el('span', {}, `${item.subject} · ${item.source}`),
+    ]),
+    item.level,
+    item.type,
+    item.items,
+    status(item.status),
+    rowActions([
+      ['Sửa', () => editLessonComponent(item)],
+      ['Preview', () => previewLessonComponent(item)],
+      ['Xóa', () => deleteLessonComponent(item)],
+    ]),
+  ]);
+  return el('section', { class: 'lesson-workspace panel' }, [
+    el('div', { class: 'lesson-workspace-head' }, [
+      el('div', {}, [
+        el('h2', {}, 'Lesson-centric workspace'),
+        el('p', { class: 'topic-note' }, 'Quản lý theo container: HSK → Chủ đề → Loại nội dung. Mỗi dòng bên phải có thể sửa trực tiếp component gốc.'),
+      ]),
+      metricGrid([
+        ['Container', countLessonContainers(filtered), 'HSK/chủ đề'],
+        ['Component', filtered.length, 'đang quản lý'],
+        ['Published', filtered.filter((item) => item.status === 'published').length, 'đã xuất bản'],
+      ]),
+    ]),
+    el('div', { class: 'lesson-workspace-grid' }, [
+      tree,
+      tablePanel(['Bài học / Component', 'HSK', 'Loại', 'Số mục', 'Trạng thái', ''], rows),
+    ]),
+  ]);
+}
+
+function lessonTree(components) {
+  const grouped = new Map();
+  components.forEach((item) => {
+    const level = item.level || 'HSK ?';
+    const subject = item.subject || 'Chưa phân loại';
+    const type = item.type || 'Component';
+    if (!grouped.has(level)) grouped.set(level, new Map());
+    const subjects = grouped.get(level);
+    if (!subjects.has(subject)) subjects.set(subject, new Map());
+    const types = subjects.get(subject);
+    if (!types.has(type)) types.set(type, []);
+    types.get(type).push(item);
+  });
+
+  const levels = [...grouped.keys()].sort((a, b) => a.localeCompare(b, 'vi'));
+  if (!levels.length) return emptyState('Không có component phù hợp.');
+  return el('aside', { class: 'lesson-tree' }, levels.map((level, levelIndex) => {
+    const subjects = grouped.get(level);
+    return el('details', { class: 'lesson-node', open: levelIndex < 2 ? 'open' : '' }, [
+      el('summary', {}, [
+        el('strong', {}, level),
+        el('span', {}, `${countNestedItems(subjects)} nội dung`),
+      ]),
+      el('div', { class: 'lesson-branches' }, [...subjects.entries()].map(([subject, types]) => (
+        el('details', { class: 'lesson-node subject-node', open: 'open' }, [
+          el('summary', {}, [
+            el('strong', {}, subject),
+            el('span', {}, `${countNestedItems(types)} mục`),
+          ]),
+          el('div', { class: 'lesson-type-grid' }, [...types.entries()].map(([type, items]) => (
+            el('section', { class: 'lesson-type-card' }, [
+              el('div', { class: 'lesson-type-head' }, [
+                el('strong', {}, type),
+                status(`${items.length}`),
+              ]),
+              el('ul', { class: 'lesson-component-list' }, items.map((item) => (
+                el('li', {}, [
+                  el('span', { class: 'component-title' }, item.title),
+                  el('span', { class: 'component-meta' }, `${item.status} · ${item.items || 0} mục`),
+                  button('Sửa', 'text-action', () => editLessonComponent(item)),
+                ])
+              ))),
+            ])
+          ))),
+        ])
+      ))),
+    ]);
+  }));
+}
+
+function lessonComponentInventory() {
+  const fromLessons = state.lessons.map((lesson) => ({
+    id: lesson.id,
+    title: lesson.title,
+    level: lesson.level,
+    subject: lesson.subject || subjectFromText(`${lesson.title} ${lesson.type}`),
+    type: lesson.type,
+    status: lesson.status,
+    items: lesson.items || (Array.isArray(lesson.transcript) ? lesson.transcript.length : 0),
+    source: 'lessons',
+  }));
+  const fromFlashcards = state.flashcards.map((topic) => ({
+    id: topic.id,
+    title: topic.name,
+    level: topic.level,
+    subject: topic.subject || subjectFromText(`${topic.name} ${topic.id}`),
+    type: 'Flashcard',
+    status: topic.status,
+    items: topic.words?.length || 0,
+    source: 'flashcards',
+  }));
+  const fromGrammar = (state.grammar || []).map((item) => ({
+    id: item.id,
+    title: item.title,
+    level: item.level,
+    subject: item.subject || subjectFromText(`${item.title} ${item.pattern}`),
+    type: 'Ngữ pháp',
+    status: item.status,
+    items: Array.isArray(item.examples) ? item.examples.length : 0,
+    source: 'grammar',
+  }));
+  return [...fromLessons, ...fromFlashcards, ...fromGrammar]
+    .filter((item) => item.status !== 'archived')
+    .sort((a, b) => `${a.level}${a.subject}${a.type}${a.title}`.localeCompare(`${b.level}${b.subject}${b.type}${b.title}`, 'vi'));
+}
+
+function subjectFromText(text) {
+  const raw = String(text || '').toLowerCase();
+  const rules = [
+    ['Chào hỏi', ['chào', 'greeting', 'hello', '你好']],
+    ['Gia đình', ['gia đình', 'family', '爸爸', '妈妈']],
+    ['Đồ ăn', ['ăn', 'food', 'mua sắm', 'shopping', '米饭', '点菜']],
+    ['Trường học', ['trường', 'school', 'học', '学习']],
+    ['Giao thông', ['giao thông', 'transport', 'du lịch', 'travel', '车', '飞机']],
+    ['Sức khỏe', ['sức khỏe', 'health', 'body', '身体']],
+    ['Công việc', ['công việc', 'business', 'work', 'kinh doanh']],
+    ['Truyền thông', ['truyền thông', 'media', 'news', '新闻']],
+    ['Ngữ pháp nền tảng', ['吗', 'ngữ pháp', 'grammar']],
+    ['Video shadowing', ['video', 'song', 'shadowing']],
+  ];
+  const found = rules.find(([, keys]) => keys.some((key) => raw.includes(String(key).toLowerCase())));
+  return found ? found[0] : 'Tổng hợp';
+}
+
+function countNestedItems(map) {
+  let count = 0;
+  map.forEach((value) => {
+    if (value instanceof Map) count += countNestedItems(value);
+    else if (Array.isArray(value)) count += value.length;
+  });
+  return count;
+}
+
+function countLessonContainers(items) {
+  return new Set(items.map((item) => `${item.level}|${item.subject}`)).size;
+}
+
+function editLessonComponent(item) {
+  if (item.source === 'flashcards') {
+    const topic = state.flashcards.find((entry) => entry.id === item.id);
+    if (topic) openTopicEditor(topic);
+    return;
+  }
+  if (item.source === 'grammar') {
+    const grammar = (state.grammar || []).find((entry) => entry.id === item.id);
+    if (grammar) openGrammarEditor(grammar);
+    return;
+  }
+  if (item.source === 'lessons') {
+    const lesson = state.lessons.find((entry) => entry.id === item.id);
+    if (!lesson) return;
+    if (lesson.type === 'Video') openVideoEditor(lesson);
+    else openLessonEditor(lesson);
+  }
+}
+
+function previewLessonComponent(item) {
+  const payload = {
+    level: item.level,
+    subject: item.subject,
+    type: item.type,
+    title: item.title,
+    status: item.status,
+    items: item.items,
+    source: item.source,
+    id: item.id,
+  };
+  downloadJson(`${slug(item.title || item.id)}.lesson-preview.json`, payload);
+}
+
+function deleteLessonComponent(item) {
+  if (!confirm(`Xóa "${item.title}" khỏi ${item.source}?`)) return;
+  if (item.source === 'flashcards') deleteItem('flashcards', item.id);
+  else if (item.source === 'grammar') deleteItem('grammar', item.id);
+  else deleteItem('lessons', item.id);
+}
+
 function renderVideos() {
   const root = el('div', { class: 'view-root' });
   const videos = state.lessons.filter((lesson) => lesson.type === 'Video');
   const timed = videos.filter((video) => video.transcriptStatus === 'timed').length;
+  const readyVideos = videos.filter((video) => videoUserVisibility(video).ready);
+  const needsTranscript = videos.filter((video) => {
+    const result = videoUserVisibility(video);
+    return !result.ready && result.reasons.some((reason) => /phụ đề|timing|span|câu/i.test(reason));
+  }).length;
+  const deadOrMissing = videos.filter((video) => ['dead', 'missing'].includes(String(video.youtubeStatus || '').toLowerCase()) || !String(video.youtubeId || '').trim()).length;
+  const filteredVideos = videos
+    .filter((video) => videoLevelFilter === 'Tất cả' || video.level === videoLevelFilter)
+    .filter((video) => {
+      const visibility = videoUserVisibility(video);
+      if (videoVisibilityFilter === 'Tất cả') return true;
+      if (videoVisibilityFilter === 'Hiện trong app') return visibility.ready;
+      if (videoVisibilityFilter === 'Chưa hiện trong app') return !visibility.ready;
+      return video.status === videoVisibilityFilter || video.transcriptStatus === videoVisibilityFilter;
+    })
+    .filter((video) => matchesQuery([video.title, video.titleCn, video.level, video.youtubeId, video.status, video.transcriptStatus]));
   root.appendChild(metricGrid([
     ['Video', videos.length, 'YouTube lessons'],
     ['Đã khớp câu', timed, 'có start/end'],
-    ['Cần timing', videos.length - timed, 'không tự dừng'],
-    ['Đang publish', videos.filter((video) => video.status === 'published').length, 'hiển thị cho user'],
+    ['Hiện trong app', readyVideos.length, 'đủ điều kiện mobile'],
+    ['Cần bổ sung', needsTranscript + deadOrMissing, 'timing, câu hoặc link'],
   ]));
   root.appendChild(toolbar('Thư viện video shadowing', [
+    select(['Tất cả', ...hskLevelOptions(videos)], videoLevelFilter, (value) => {
+      videoLevelFilter = value;
+      render();
+    }),
+    select(['Tất cả', 'Hiện trong app', 'Chưa hiện trong app', 'published', 'draft', 'review', 'timed', 'untimed'], videoVisibilityFilter, (value) => {
+      videoVisibilityFilter = value;
+      render();
+    }),
+    button('↻ Đồng bộ & kiểm tra video', 'ghost-button', checkAllYoutubeVideos),
     button('⇩ Xuất video catalog', 'ghost-button', exportVideoCatalog),
     button('＋ Thêm video', 'primary-button', () => openVideoEditor()),
   ]));
   root.appendChild(tablePanel(
-    ['Tiêu đề', 'YouTube ID', 'HSK', 'Phụ đề', 'Đồng bộ', 'Trạng thái', ''],
-    videos.map((video) => [
-      strongText(video.title),
+    ['Tiêu đề', 'YouTube ID', 'HSK', 'Phụ đề', 'User app', 'YouTube', 'Timing', 'Trạng thái', ''],
+    filteredVideos.map((video) => {
+      const visibility = videoUserVisibility(video);
+      const transcript = videoTranscript(video);
+      const span = transcriptSpanSeconds(transcript);
+      return [
+      el('div', { class: 'lesson-title-cell' }, [
+        strongText(video.title),
+        el('span', {}, video.titleCn || video.source || 'YouTube'),
+      ]),
       video.youtubeId || 'Chưa có',
       video.level,
-      `${video.items || 0} câu`,
+      el('div', { class: 'video-density-cell' }, [
+        strongText(`${transcript.length || video.items || 0} câu`),
+        el('span', {}, span ? `${Math.round(span)} giây transcript` : 'chưa có span'),
+        transcript.length < VIDEO_MIN_SUBTITLES ? status('ít câu') : '',
+      ]),
+      videoVisibilityCell(visibility),
+      youtubeStatusCell(video),
       status(video.transcriptStatus === 'timed' ? 'approved' : 'pending'),
       status(video.status),
       rowActions([
+        ['Check', () => checkYoutubeVideo(video)],
         ['Transcript', () => openVideoEditor(video)],
+        ['QA', () => openVideoQa(video)],
         ['Xóa', () => deleteItem('lessons', video.id)],
       ]),
-    ]),
+    ];
+    }),
   ));
   root.appendChild(panel(
-    'Định dạng transcript',
-    el('p', { class: 'topic-note' }, 'Mỗi dòng: start giây | end giây | câu Trung | pinyin có dấu | nghĩa Việt. Chỉ video có timing đầy đủ mới bật tự dừng từng câu trong app.'),
+    'Quy tắc hiển thị video ở app user',
+    el('div', { class: 'admin-guide compact-guide' }, [
+      el('div', {}, [el('strong', {}, 'Hiện trong app'), el('p', {}, `Video phải published, có YouTube ID, không dead link, transcript timed, tối thiểu ${VIDEO_MIN_SUBTITLES} câu và span tối thiểu ${VIDEO_MIN_SPAN_SECONDS} giây.`)]),
+      el('div', {}, [el('strong', {}, 'Video dài nhưng ít câu'), el('p', {}, 'Admin sẽ đánh dấu "ít câu" để bạn bổ sung transcript. Nếu chỉ có 4-5 câu, người học không có đủ điểm dừng để shadowing.')]),
+      el('div', {}, [el('strong', {}, 'Định dạng transcript'), el('p', {}, 'Mỗi dòng: start giây | end giây | câu Trung | pinyin có dấu | nghĩa Việt. Timing không được chồng nhau.')]),
+    ]),
   ));
   return root;
+}
+
+function videoTranscript(video) {
+  if (Array.isArray(video?.transcript)) return video.transcript;
+  if (Array.isArray(video?.subtitles)) return video.subtitles;
+  return [];
+}
+
+function transcriptSpanSeconds(transcript) {
+  const rows = Array.isArray(transcript) ? transcript : [];
+  if (!rows.length) return 0;
+  const starts = rows.map((line) => Number(line.start)).filter(Number.isFinite);
+  const ends = rows.map((line) => Number(line.end)).filter(Number.isFinite);
+  if (!starts.length || !ends.length) return 0;
+  return Math.max(...ends) - Math.min(...starts);
+}
+
+function videoUserVisibility(video) {
+  const transcript = videoTranscript(video);
+  const reasons = [];
+  const statusValue = String(video?.status || '').toLowerCase();
+  const youtubeStatus = String(video?.youtubeStatus || 'unchecked').toLowerCase();
+  const span = transcriptSpanSeconds(transcript);
+  if (statusValue !== 'published') reasons.push('Chưa published');
+  if (!String(video?.youtubeId || '').trim()) reasons.push('Thiếu YouTube ID');
+  if (VIDEO_UNAVAILABLE_IDS.has(String(video?.youtubeId || '').trim())) reasons.push('Video nằm trong danh sách unavailable của mobile');
+  if (youtubeStatus === 'dead') reasons.push('YouTube dead link');
+  if (youtubeStatus === 'missing') reasons.push('Thiếu hoặc sai YouTube ID');
+  if (video?.transcriptStatus !== 'timed' || !isTimedTranscript(transcript)) reasons.push('Chưa đủ timing start/end');
+  if (transcript.length < VIDEO_MIN_SUBTITLES) reasons.push(`Cần ít nhất ${VIDEO_MIN_SUBTITLES} câu phụ đề`);
+  if (span < VIDEO_MIN_SPAN_SECONDS) reasons.push(`Transcript span dưới ${VIDEO_MIN_SPAN_SECONDS} giây`);
+  return { ready: reasons.length === 0, reasons, span };
+}
+
+function videoVisibilityCell(result) {
+  return el('div', { class: 'visibility-cell' }, [
+    status(result.ready ? 'Hiện trong app' : 'Chưa hiện'),
+    result.ready
+      ? el('small', {}, 'Đủ tiêu chuẩn mobile')
+      : el('small', {}, result.reasons.slice(0, 2).join(' · ')),
+  ]);
+}
+
+function openVideoQa(video) {
+  state.review = mergeReviewIssues(state.review, runQualityChecks().filter((issue) => issue.area === 'Video' && issue.title === video.title));
+  saveState();
+  activeView = 'review';
+  setActiveNav();
+  render();
+}
+
+function youtubeStatusCell(video) {
+  const value = video.youtubeStatus || 'unchecked';
+  const label = {
+    ok: 'OK',
+    dead: 'Dead link',
+    missing: 'Thiếu ID',
+    error: 'Chưa kiểm tra được',
+    unchecked: 'Chưa check',
+  }[value] || value;
+  return el('div', { class: 'youtube-status-cell' }, [
+    el('span', { class: `status ${value}` }, label),
+    video.youtubeCheckedAt
+      ? el('small', {}, new Date(video.youtubeCheckedAt).toLocaleString('vi-VN'))
+      : el('small', {}, 'Bấm Check để kiểm tra'),
+    video.youtubeMessage ? el('small', {}, video.youtubeMessage) : '',
+  ]);
+}
+
+async function checkAllYoutubeVideos() {
+  const videos = state.lessons.filter((lesson) => lesson.type === 'Video');
+  if (!videos.length) {
+    showToast('Chưa có video để kiểm tra.');
+    return;
+  }
+  showToast(`Đang kiểm tra ${videos.length} video YouTube...`);
+  for (const video of videos) {
+    await updateYoutubeStatus(video);
+  }
+  saveState();
+  render();
+  const dead = videos.filter((video) => video.youtubeStatus === 'dead').length;
+  const ok = videos.filter((video) => video.youtubeStatus === 'ok').length;
+  showToast(`Đã kiểm tra video: ${ok} OK, ${dead} dead link.`);
+}
+
+async function checkYoutubeVideo(video) {
+  await updateYoutubeStatus(video);
+  saveState();
+  render();
+  showToast(`${video.title}: ${video.youtubeStatus || 'unchecked'}`);
+}
+
+async function updateYoutubeStatus(video) {
+  const youtubeId = String(video.youtubeId || '').trim();
+  if (!youtubeId) {
+    video.youtubeStatus = 'missing';
+    video.youtubeMessage = 'Video thiếu YouTube ID.';
+    video.youtubeCheckedAt = new Date().toISOString();
+    return video;
+  }
+  try {
+    const url = `https://www.youtube.com/oembed?format=json&url=${encodeURIComponent(`https://www.youtube.com/watch?v=${youtubeId}`)}`;
+    const response = await fetch(url, { method: 'GET' });
+    video.youtubeCheckedAt = new Date().toISOString();
+    if (response.ok) {
+      const data = await response.json().catch(() => ({}));
+      video.youtubeStatus = 'ok';
+      video.youtubeMessage = data.title ? `Tìm thấy: ${data.title}` : 'Video còn khả dụng.';
+      return video;
+    }
+    video.youtubeStatus = response.status === 404 ? 'dead' : 'error';
+    video.youtubeMessage = response.status === 404
+      ? 'YouTube không còn trả metadata cho ID này.'
+      : `YouTube trả HTTP ${response.status}.`;
+  } catch (error) {
+    video.youtubeStatus = 'error';
+    video.youtubeCheckedAt = new Date().toISOString();
+    video.youtubeMessage = error.message || 'Không gọi được YouTube oEmbed.';
+  }
+  return video;
 }
 
 function renderReading() {
@@ -635,15 +1084,44 @@ function renderSpeaking() {
 
 function renderGames() {
   const root = el('div', { class: 'view-root' });
+  const games = state.games || [];
+  const filteredGames = games
+    .filter((game) => gameLevelFilter === 'Tất cả' || gameLevel(game) === gameLevelFilter || String(game.scope || '').includes(gameLevelFilter))
+    .filter((game) => matchesQuery([game.title, game.type, game.scope, gameLevel(game), game.status]));
+  const published = games.filter((game) => game.status === 'published').length;
+  const autoGenerated = games.filter((game) => gameGeneration(game) === 'auto').length;
+  root.appendChild(metricGrid([
+    ['Game template', games.length, 'cấu hình trò chơi'],
+    ['Đang publish', published, 'user có thể chơi'],
+    ['Tự sinh câu hỏi', autoGenerated, 'lấy từ dữ liệu app'],
+    ['Nguồn dữ liệu', countGameSources(games), 'flashcard/từ vựng/ngữ pháp'],
+  ]));
+  root.appendChild(panel(
+    'Cách quiz và trò chơi hoạt động',
+    el('div', { class: 'admin-guide compact-guide' }, [
+      el('div', {}, [el('strong', {}, 'Template'), el('p', {}, 'Admin quản lý loại game, HSK, nguồn dữ liệu và trạng thái. App user sẽ sinh câu hỏi từ dữ liệu đã published.')]),
+      el('div', {}, [el('strong', {}, 'Tự động'), el('p', {}, 'Quiz nghĩa từ, nghe chọn từ, matching có thể lấy câu hỏi từ flashcard/vocabulary theo HSK. Không cần nhập từng câu nếu dữ liệu nguồn sạch.')]),
+      el('div', {}, [el('strong', {}, 'Thủ công'), el('p', {}, 'Khi cần đề cố định, chuyển generation sang manual rồi gắn bộ câu riêng ở bước sau.')]),
+    ]),
+  ));
   root.appendChild(toolbar('Quiz và trò chơi ghi nhớ', [
+    select(['Tất cả', ...hskLevelOptions(games.map((game) => ({ level: gameLevel(game) })))], gameLevelFilter, (value) => {
+      gameLevelFilter = value;
+      render();
+    }),
     button('＋ Thêm trò chơi', 'primary-button', () => openGameEditor()),
   ]));
   root.appendChild(tablePanel(
-    ['Tên', 'Loại', 'Phạm vi dữ liệu', 'Trạng thái', ''],
-    state.games.map((game) => [
-      strongText(game.title),
+    ['Tên', 'Loại', 'HSK', 'Nguồn dữ liệu', 'Cách tạo', 'Trạng thái', ''],
+    filteredGames.map((game) => [
+      el('div', { class: 'lesson-title-cell' }, [
+        strongText(game.title),
+        el('span', {}, game.description || 'Template game trong app user'),
+      ]),
       game.type,
-      game.scope,
+      gameLevel(game),
+      gameSource(game),
+      status(gameGeneration(game) === 'auto' ? 'auto' : 'manual'),
       status(game.status),
       rowActions([
         ['Sửa', () => openGameEditor(game)],
@@ -652,6 +1130,22 @@ function renderGames() {
     ]),
   ));
   return root;
+}
+
+function gameLevel(game) {
+  return String(game?.level || game?.hsk || '').trim() || inferLevelFromText(game?.scope || game?.title || '') || 'HSK 1-4';
+}
+
+function gameSource(game) {
+  return String(game?.source || game?.dataSource || game?.scope || 'Flashcard đã published').trim();
+}
+
+function gameGeneration(game) {
+  return String(game?.generation || game?.mode || 'auto').toLowerCase() === 'manual' ? 'manual' : 'auto';
+}
+
+function countGameSources(games) {
+  return new Set((games || []).map((game) => gameSource(game))).size;
 }
 
 async function loadMobilePronunciation() {
@@ -743,8 +1237,7 @@ function renderUsers() {
 
 async function apiFetch(path, options = {}) {
   if (!adminToken) throw new Error('Chưa đăng nhập admin.');
-  const baseUrl = String(state.settings.apiBaseUrl || '').replace(/\/+$/, '');
-  const response = await fetch(`${baseUrl}${path}`, {
+  const response = await fetchApi(path, {
     ...options,
     headers: {
       ...(options.body ? { 'Content-Type': 'application/json' } : {}),
@@ -865,10 +1358,18 @@ async function publishContentToApi() {
     showToast('Hãy đăng nhập admin trực tuyến để xuất bản nội dung.');
     return;
   }
-  const issues = runQualityChecks().filter((issue) => issue.severity === 'fail');
-  if (issues.length && !confirm(`Nội dung còn ${issues.length} lỗi QA. Vẫn xuất bản?`)) return;
+  const issues = runQualityChecks();
+  const blockingIssues = issues.filter((issue) => issue.severity === 'fail');
+  if (blockingIssues.length) {
+    state.review = mergeReviewIssues(state.review, issues);
+    saveState();
+    activeView = 'review';
+    setActiveNav();
+    render();
+    showToast(`Còn ${blockingIssues.length} lỗi QA cần sửa trước khi xuất bản.`);
+    return;
+  }
 
-  const baseUrl = String(state.settings.apiBaseUrl || '').replace(/\/+$/, '');
   const videos = state.lessons
     .filter((lesson) => lesson.type === 'Video')
     .map((video) => ({
@@ -888,6 +1389,7 @@ async function publishContentToApi() {
     flashcards: state.flashcards.map(topicToFlashcardIndex),
     pronunciation: state.pronunciation,
     videos,
+    lessonMap: buildLessonMapPayload(),
     lessons: state.lessons.filter((lesson) => lesson.type !== 'Video'),
     grammar: state.grammar || [],
     articles: state.articles || [],
@@ -899,7 +1401,7 @@ async function publishContentToApi() {
   publishContentButton.disabled = true;
   publishContentButton.textContent = 'Đang xuất bản...';
   try {
-    const response = await fetch(`${baseUrl}/admin/content`, {
+    const response = await fetchApi('/admin/content', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -925,7 +1427,30 @@ async function publishContentToApi() {
 
 function renderReview() {
   const root = el('div', { class: 'view-root' });
+  const currentIssues = mergeReviewIssues(state.review, runQualityChecks())
+    .filter((item) => !isReviewDismissed(item));
+  const filteredIssues = currentIssues
+    .filter((item) => reviewFilter === 'Tất cả' || item.severity === reviewFilter || item.area === reviewFilter)
+    .filter((item) => matchesQuery([item.area, item.title, item.issue, item.severity]));
+  root.appendChild(metricGrid([
+    ['Fail', currentIssues.filter((item) => item.severity === 'fail').length, 'chặn publish'],
+    ['Pending', currentIssues.filter((item) => item.severity === 'pending').length, 'cần reviewer xem'],
+    ['Khu vực lỗi', new Set(currentIssues.map((item) => item.area)).size, 'module bị ảnh hưởng'],
+    ['Đang hiển thị', filteredIssues.length, 'theo bộ lọc'],
+  ]));
+  root.appendChild(panel(
+    'Kiểm duyệt dùng để làm gì?',
+    el('div', { class: 'admin-guide compact-guide' }, [
+      el('div', {}, [el('strong', {}, 'Chặn lỗi trước publish'), el('p', {}, 'Các lỗi fail như thiếu pinyin, thiếu YouTube ID, ảnh lỗi hoặc timing chồng nhau sẽ không cho xuất bản.')]),
+      el('div', {}, [el('strong', {}, 'Nhắc việc reviewer'), el('p', {}, 'Các mục pending không nhất thiết chặn publish, nhưng cần người quản trị xem lại chất lượng nội dung.')]),
+      el('div', {}, [el('strong', {}, 'Điều hướng sửa'), el('p', {}, 'Bấm "Mở nơi sửa" để chuyển sang đúng module thay vì dò thủ công trong từng menu.')]),
+    ]),
+  ));
   root.appendChild(toolbar('Hàng chờ kiểm duyệt', [
+    select(['Tất cả', 'fail', 'pending', 'Flashcard', 'Từ flashcard', 'Video', 'Từ vựng', 'Ngữ pháp', 'Bài đọc', 'Luyện nói'], reviewFilter, (value) => {
+      reviewFilter = value;
+      render();
+    }),
     button('✓ Duyệt tất cả', 'primary-button', approveAllReview),
     button('↺ Chạy QA', 'ghost-button', () => {
       state.review = mergeReviewIssues(state.review, runQualityChecks());
@@ -935,8 +1460,7 @@ function renderReview() {
   ]));
 
   const list = el('div', { class: 'qa-list' });
-  state.review
-    .filter((item) => matchesQuery([item.area, item.title, item.issue, item.severity]))
+  filteredIssues
     .forEach((item) => {
       list.appendChild(el('div', { class: 'qa-item' }, [
         el('span', { class: `qa-dot ${item.severity === 'fail' ? 'fail' : 'warn'}` }, item.severity === 'fail' ? '!' : '?'),
@@ -945,8 +1469,9 @@ function renderReview() {
           el('p', {}, item.issue),
         ]),
         rowActions([
-          ['Duyệt', () => approveReview(item.id)],
-          ['Ẩn', () => dismissReview(item.id)],
+          ['Mở nơi sửa', () => openReviewTarget(item)],
+          ['Duyệt', () => approveReview(item.id, item)],
+          ['Ẩn', () => dismissReview(item.id, item)],
         ]),
       ]));
     });
@@ -987,13 +1512,8 @@ function renderSettings() {
 }
 
 async function testApiConnection() {
-  const baseUrl = String(state.settings.apiBaseUrl || '').replace(/\/+$/, '');
-  if (!baseUrl) {
-    showToast('Chưa có API base URL.');
-    return;
-  }
   try {
-    const response = await fetch(`${baseUrl}/health`, { method: 'GET' });
+    const response = await fetchApi('/health', { method: 'GET' });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     showToast('API VNChinese đang kết nối được.');
   } catch (error) {
@@ -1002,13 +1522,8 @@ async function testApiConnection() {
 }
 
 async function testGrammarApi() {
-  const baseUrl = String(state.settings.apiBaseUrl || '').replace(/\/+$/, '');
-  if (!baseUrl) {
-    showToast('Chưa có API base URL.');
-    return;
-  }
   try {
-    const response = await fetch(`${baseUrl}/grammar/check`, {
+    const response = await fetchApi('/grammar/check', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text: '我不学校去学习' }),
@@ -1022,9 +1537,8 @@ async function testGrammarApi() {
 }
 
 async function refreshApiStatus() {
-  const baseUrl = String(state.settings.apiBaseUrl || '').replace(/\/+$/, '');
   try {
-    const response = await fetch(`${baseUrl}/health`);
+    const response = await fetchApi('/health');
     const data = await response.json();
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const aiReady = data.ai?.configured && data.ai?.keyFormat === 'valid-pattern';
@@ -1037,9 +1551,8 @@ async function refreshApiStatus() {
 }
 
 async function testReadingApi() {
-  const baseUrl = String(state.settings.apiBaseUrl || '').replace(/\/+$/, '');
   try {
-    const response = await fetch(`${baseUrl}/reading/news`);
+    const response = await fetchApi('/reading/news');
     const data = await response.json();
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     showToast(`Đọc báo trực tuyến hoạt động: ${Array.isArray(data) ? data.length : 0} bài mới.`);
@@ -1049,9 +1562,8 @@ async function testReadingApi() {
 }
 
 async function testChatApi() {
-  const baseUrl = String(state.settings.apiBaseUrl || '').replace(/\/+$/, '');
   try {
-    const response = await fetch(`${baseUrl}/ai/chat`, {
+    const response = await fetchApi('/ai/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: 'Tạo một câu chào hỏi HSK 1.', level: 'HSK 1' }),
@@ -1064,6 +1576,451 @@ async function testChatApi() {
   }
 }
 
+let youtubeApiPromise;
+
+function ensureYoutubeIframeApi() {
+  if (window.YT?.Player) return Promise.resolve(window.YT);
+  if (youtubeApiPromise) return youtubeApiPromise;
+  youtubeApiPromise = new Promise((resolve) => {
+    const previousReady = window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady = () => {
+      if (typeof previousReady === 'function') previousReady();
+      resolve(window.YT);
+    };
+    if (!document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
+      document.head.appendChild(el('script', { src: 'https://www.youtube.com/iframe_api' }));
+    }
+  });
+  return youtubeApiPromise;
+}
+
+function createVideoTranscriptGrid(initialRows, values) {
+  let rows = Array.isArray(initialRows)
+    ? structuredClone(initialRows)
+    : parseTranscript(initialRows);
+  if (!rows.length) rows = [{ start: 0, end: 0, cn: '', py: '', vi: '' }];
+
+  const playerId = `yt-admin-${uid()}`;
+  let player = null;
+  const youtubeId = String(values.youtubeId || '').trim();
+  const playerBox = el('div', { class: 'video-timing-player' }, [
+    youtubeId
+      ? el('div', { id: playerId })
+      : el('div', { class: 'image-placeholder' }, 'Nhập YouTube ID rồi mở lại editor để dùng nút lấy thời gian.'),
+  ]);
+  if (youtubeId) {
+    ensureYoutubeIframeApi().then((YT) => {
+      player = new YT.Player(playerId, {
+        videoId: youtubeId,
+        playerVars: { rel: 0, modestbranding: 1 },
+      });
+    });
+  }
+
+  const tbody = el('tbody');
+  const table = el('table', { class: 'data-grid-table' }, [
+    el('thead', {}, [
+      el('tr', {}, ['Start', 'End', 'Câu Trung', 'Pinyin', 'Nghĩa Việt', ''].map((head) => el('th', {}, head))),
+    ]),
+    tbody,
+  ]);
+  const grid = el('div', { class: 'dynamic-editor' }, [
+    el('div', { class: 'video-timing-layout' }, [
+      playerBox,
+      el('div', { class: 'timing-help' }, [
+        el('strong', {}, 'Video Timing'),
+        el('p', {}, 'Phát video, đặt con trỏ vào dòng cần sửa rồi bấm Start/End để lấy currentTime từ YouTube Player.'),
+      ]),
+    ]),
+    el('div', { class: 'data-grid-wrap' }, table),
+    el('div', { class: 'grid-actions' }, [
+      button('＋ Thêm câu', 'ghost-button', () => {
+        rows = readRows();
+        const lastEnd = rows.at(-1)?.end || 0;
+        rows.push({ start: lastEnd, end: lastEnd + 3, cn: '', py: '', vi: '' });
+        renderRows();
+      }),
+    ]),
+  ]);
+
+  function currentTime() {
+    const value = Number(player?.getCurrentTime?.() || 0);
+    return Number.isFinite(value) ? Number(value.toFixed(2)) : 0;
+  }
+
+  function input(value, attrs = {}) {
+    const node = el('input', { value: value ?? '', ...attrs });
+    if (attrs['data-field'] === 'py') attachPinyinAutoTone(node);
+    return node;
+  }
+
+  function readRows() {
+    return [...tbody.querySelectorAll('tr')].map((tr) => ({
+      start: Number(tr.querySelector('[data-field="start"]').value || 0),
+      end: Number(tr.querySelector('[data-field="end"]').value || 0),
+      cn: tr.querySelector('[data-field="cn"]').value.trim(),
+      py: tr.querySelector('[data-field="py"]').value.trim(),
+      vi: tr.querySelector('[data-field="vi"]').value.trim(),
+    }));
+  }
+
+  function renderRows() {
+    tbody.innerHTML = '';
+    rows.forEach((line, index) => {
+      const startInput = input(line.start, { type: 'number', step: '0.01', min: '0', 'data-field': 'start' });
+      const endInput = input(line.end, { type: 'number', step: '0.01', min: '0', 'data-field': 'end' });
+      tbody.appendChild(el('tr', {}, [
+        el('td', {}, [
+          startInput,
+          button('Start', 'ghost-button mini-button', () => {
+            startInput.value = currentTime();
+          }),
+        ]),
+        el('td', {}, [
+          endInput,
+          button('End', 'ghost-button mini-button', () => {
+            endInput.value = currentTime();
+          }),
+        ]),
+        el('td', {}, input(line.cn, { 'data-field': 'cn' })),
+        el('td', {}, input(line.py, { 'data-field': 'py' })),
+        el('td', {}, input(line.vi, { 'data-field': 'vi' })),
+        el('td', {}, button('Xóa', 'ghost-button mini-button danger-text', () => {
+          rows = readRows();
+          rows.splice(index, 1);
+          if (!rows.length) rows.push({ start: 0, end: 0, cn: '', py: '', vi: '' });
+          renderRows();
+        })),
+      ]));
+    });
+  }
+
+  renderRows();
+  return {
+    node: grid,
+    getValue: () => readRows().filter((line) => line.cn),
+  };
+}
+
+function createFlashcardWordsGrid(initialRows, values = {}) {
+  let rows = Array.isArray(initialRows) ? structuredClone(initialRows) : parseWords(initialRows);
+  if (!rows.length) rows = [word('', '', '', '')];
+  const topicId = slug(values.id || values.name || '');
+  const list = el('div', { class: 'flashcard-word-list' });
+  const grid = el('div', { class: 'dynamic-editor' }, [
+    el('p', { class: 'topic-note' }, 'Flashcard trong app chỉ hiển thị ảnh, Hán tự, pinyin, nghĩa, nghe và ghi âm. Ảnh upload được lưu thành file trên backend; DB lưu đường dẫn ảnh sau khi bấm Lưu thay đổi và Xuất bản.'),
+    list,
+    el('div', { class: 'grid-actions' }, [
+      button('＋ Thêm từ', 'ghost-button', () => {
+        rows = readRows();
+        rows.push(word('', '', '', ''));
+        renderRows();
+      }),
+    ]),
+  ]);
+
+  function input(value, attrs = {}) {
+    const node = el('input', { value: value ?? '', ...attrs });
+    if (attrs['data-field'] === 'pinyin') attachPinyinAutoTone(node);
+    return node;
+  }
+
+  function createWordImageControl(item) {
+    const imageInput = input(wordImageInputValue(item), {
+      'data-field': 'image',
+      placeholder: 'URL anh hoac ten file',
+    });
+    const preview = el('div', { class: 'word-image-preview' });
+    const uploadButton = button('Upload', 'ghost-button mini-button', () => fileInput.click());
+    const fileInput = el('input', {
+      type: 'file',
+      accept: 'image/png,image/jpeg,image/webp',
+      class: 'hidden-file',
+    });
+
+    function renderPreview() {
+      const src = wordImagePreviewSrc(imageInput.value, topicId);
+      preview.innerHTML = '';
+      if (!src) {
+        preview.appendChild(el('span', {}, 'Chua co anh'));
+        return;
+      }
+      const img = el('img', { src, alt: 'Word image preview', loading: 'lazy' });
+      img.addEventListener('error', () => {
+        preview.innerHTML = '';
+        preview.appendChild(el('span', {}, 'Khong xem duoc'));
+      });
+      preview.appendChild(img);
+    }
+
+    fileInput.addEventListener('change', async () => {
+      const file = fileInput.files?.[0];
+      fileInput.value = '';
+      if (!file) return;
+      uploadButton.disabled = true;
+      uploadButton.textContent = 'Dang tai...';
+      try {
+        const data = await uploadAdminImage(file);
+        imageInput.value = data.url;
+        renderPreview();
+      } catch (error) {
+        showToast(`Upload anh tu that bai: ${error.message}`);
+      } finally {
+        uploadButton.disabled = false;
+        uploadButton.textContent = 'Upload';
+      }
+    });
+
+    imageInput.addEventListener('change', renderPreview);
+    imageInput.addEventListener('blur', renderPreview);
+    renderPreview();
+
+    return el('div', { class: 'word-image-control' }, [
+      preview,
+      el('div', { class: 'word-image-fields' }, [
+        imageInput,
+        el('div', { class: 'toolbar-group' }, [uploadButton]),
+      ]),
+      fileInput,
+    ]);
+  }
+
+  function readRows() {
+    return [...list.querySelectorAll('.flashcard-word-row')].map((row) => {
+      const image = row.querySelector('[data-field="image"]').value.trim();
+      const nextWord = word(
+        row.querySelector('[data-field="word"]').value.trim(),
+        row.querySelector('[data-field="pinyin"]').value.trim(),
+        row.querySelector('[data-field="meaning"]').value.trim(),
+        image,
+      );
+      if (isResolvedImagePath(image)) {
+        nextWord.imagePath = image;
+        nextWord.imageUrl = image;
+      }
+      return nextWord;
+    });
+  }
+
+  function renderRows() {
+    list.innerHTML = '';
+    rows.forEach((item, index) => {
+      const removeButton = button('Xóa', 'ghost-button mini-button danger-text', () => {
+        rows = readRows();
+        rows.splice(index, 1);
+        if (!rows.length) rows.push(word('', '', '', ''));
+        renderRows();
+      });
+      list.appendChild(el('section', { class: 'flashcard-word-row' }, [
+        el('div', { class: 'word-index' }, String(index + 1)),
+        el('div', { class: 'word-fields' }, [
+          el('label', {}, [el('span', {}, 'Hán tự'), input(item.word, { 'data-field': 'word' })]),
+          el('label', {}, [el('span', {}, 'Pinyin'), input(item.pinyin, { 'data-field': 'pinyin', placeholder: 'tian1 qi4' })]),
+          el('label', {}, [el('span', {}, 'Nghĩa Việt'), input(item.meaning, { 'data-field': 'meaning' })]),
+        ]),
+        createWordImageControl(item),
+        el('div', { class: 'word-row-actions' }, [removeButton]),
+      ]));
+    });
+  }
+
+  renderRows();
+  return {
+    node: grid,
+    getValue: () => readRows().filter((item) => item.word),
+  };
+}
+
+async function uploadAdminImage(file) {
+  if (!adminToken) {
+    throw new Error('Hay dang nhap admin online truoc khi upload anh.');
+  }
+  const formData = new FormData();
+  formData.append('file', file);
+  const response = await fetchApi('/admin/media/flashcard', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${adminToken}` },
+    body: formData,
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(data.message || `HTTP ${response.status}`);
+  if (!data.url) throw new Error('API upload khong tra ve URL anh.');
+  return data;
+}
+
+function convertToPinyinWithTones(text) {
+  return String(text || '').replace(/([a-züÜv:]+)([0-5])/gi, (_, raw, tone) => {
+    return convertPinyinSyllable(raw, Number(tone));
+  });
+}
+
+function convertPinyinSyllable(raw, tone) {
+  const normalized = String(raw || '')
+    .replace(/u:/gi, (value) => (value[0] === 'U' ? 'Ü' : 'ü'))
+    .replace(/v/g, 'ü')
+    .replace(/V/g, 'Ü');
+  if (!tone || tone === 5) return normalized;
+
+  const marks = {
+    a: ['ā', 'á', 'ǎ', 'à'],
+    e: ['ē', 'é', 'ě', 'è'],
+    i: ['ī', 'í', 'ǐ', 'ì'],
+    o: ['ō', 'ó', 'ǒ', 'ò'],
+    u: ['ū', 'ú', 'ǔ', 'ù'],
+    ü: ['ǖ', 'ǘ', 'ǚ', 'ǜ'],
+    A: ['Ā', 'Á', 'Ǎ', 'À'],
+    E: ['Ē', 'É', 'Ě', 'È'],
+    I: ['Ī', 'Í', 'Ǐ', 'Ì'],
+    O: ['Ō', 'Ó', 'Ǒ', 'Ò'],
+    U: ['Ū', 'Ú', 'Ǔ', 'Ù'],
+    Ü: ['Ǖ', 'Ǘ', 'Ǚ', 'Ǜ'],
+  };
+  const toneIndex = tone - 1;
+  const lower = normalized.toLowerCase();
+  let markIndex = lower.indexOf('a');
+  if (markIndex < 0) markIndex = lower.indexOf('e');
+  if (markIndex < 0) markIndex = lower.indexOf('ou') >= 0 ? lower.indexOf('ou') + 1 : -1;
+  if (markIndex < 0) {
+    for (let index = normalized.length - 1; index >= 0; index -= 1) {
+      if ('aeiouüAEIOUÜ'.includes(normalized[index])) {
+        markIndex = index;
+        break;
+      }
+    }
+  }
+  if (markIndex < 0) return normalized;
+  const char = normalized[markIndex];
+  return `${normalized.slice(0, markIndex)}${marks[char]?.[toneIndex] || char}${normalized.slice(markIndex + 1)}`;
+}
+
+function normalizePinyinControl(control) {
+  const nextValue = convertToPinyinWithTones(control.value);
+  if (nextValue !== control.value) control.value = nextValue;
+}
+
+function attachPinyinAutoTone(control) {
+  if (!control || control.dataset.pinyinAutoTone === 'true') return;
+  control.dataset.pinyinAutoTone = 'true';
+  control.addEventListener('keyup', (event) => {
+    if (event.key === ' ' || event.key === 'Enter') normalizePinyinControl(control);
+  });
+  control.addEventListener('blur', () => normalizePinyinControl(control));
+}
+
+function shouldAutoTonePinyin(key, label, control) {
+  if (!control || !('value' in control)) return false;
+  return /(^|[^a-z])(pinyin|py)([^a-z]|$)/i.test(`${key} ${label}`);
+}
+
+function createImageUploader(initialUrl = '') {
+  let imageUrl = String(initialUrl || '').trim();
+  const preview = el('div', { class: 'image-uploader-preview' });
+  const statusText = el(
+    'p',
+    { class: 'topic-note' },
+    imageUrl || 'Chua co anh. Hay chon file jpg, png hoac webp. DB se luu URL/path sau khi ban Luu thay doi va Xuat ban.',
+  );
+  const fileInput = el('input', {
+    type: 'file',
+    accept: 'image/png,image/jpeg,image/webp',
+    class: 'hidden-file',
+  });
+  const chooseButton = button('Chon anh va upload', 'ghost-button', () => {
+    fileInput.click();
+  });
+
+  function renderPreview() {
+    preview.innerHTML = '';
+    const previewSrc = adminImagePreviewSrc(imageUrl);
+    if (!previewSrc) {
+      preview.appendChild(el('div', { class: 'image-placeholder' }, 'Chua co anh'));
+      return;
+    }
+    const img = el('img', {
+      src: previewSrc,
+      alt: 'Flashcard preview',
+      loading: 'lazy',
+    });
+    img.addEventListener('error', () => {
+      preview.innerHTML = '';
+      preview.appendChild(el('div', { class: 'image-placeholder' }, 'Khong xem duoc anh nay'));
+    });
+    preview.appendChild(img);
+  }
+
+  fileInput.addEventListener('change', async () => {
+    const file = fileInput.files?.[0];
+    fileInput.value = '';
+    if (!file) return;
+    chooseButton.disabled = true;
+    statusText.textContent = 'Dang upload anh len backend...';
+    try {
+      const data = await uploadAdminImage(file);
+      imageUrl = data.url;
+      statusText.textContent = imageUrl;
+      renderPreview();
+    } catch (error) {
+      statusText.textContent = `Upload that bai: ${error.message}`;
+    } finally {
+      chooseButton.disabled = false;
+    }
+  });
+
+  renderPreview();
+  return {
+    node: el('div', { class: 'image-uploader' }, [
+      preview,
+      el('div', { class: 'toolbar-group' }, [chooseButton]),
+      fileInput,
+      statusText,
+    ]),
+    getValue: () => imageUrl,
+  };
+}
+
+function validateTranscriptRows(rows, statusValue) {
+  const statusName = String(statusValue || 'draft').toLowerCase();
+  if (statusName === 'draft') return;
+  const issues = [];
+  if (!rows.length) issues.push('Transcript cần ít nhất 1 câu.');
+  rows.forEach((line, index) => {
+    if (!line.cn) issues.push(`Dòng ${index + 1} thiếu câu tiếng Trung.`);
+    if (!Number.isFinite(line.start) || !Number.isFinite(line.end)) {
+      issues.push(`Dòng ${index + 1} có mốc thời gian không hợp lệ.`);
+    }
+    if (line.end <= line.start) {
+      issues.push(`Dòng ${index + 1} cần end lớn hơn start.`);
+    }
+    const previous = rows[index - 1];
+    if (previous && line.start < previous.end) {
+      issues.push(`Dòng ${index + 1} bị chồng timing với dòng ${index}.`);
+    }
+  });
+  if (issues.length) throw new Error(issues.slice(0, 3).join(' '));
+}
+
+function validateFlashcardWords(rows) {
+  const seen = new Set();
+  const issues = [];
+  rows.forEach((item, index) => {
+    if (!item.word) issues.push(`Dòng ${index + 1} thiếu Hán tự.`);
+    if (!item.pinyin) issues.push(`Dòng ${index + 1} thiếu pinyin.`);
+    if (!item.meaning) issues.push(`Dòng ${index + 1} thiếu nghĩa Việt.`);
+    if (seen.has(item.word)) issues.push(`Từ ${item.word} đang bị trùng trong topic.`);
+    seen.add(item.word);
+  });
+  if (issues.length) throw new Error(issues.slice(0, 3).join(' '));
+}
+
+function isTimedTranscript(rows) {
+  try {
+    validateTranscriptRows(rows, 'published');
+    return true;
+  } catch (_) {
+    return false;
+  }
+}
+
 function openVideoEditor(video) {
   const values = video || {
     title: '',
@@ -1071,15 +2028,9 @@ function openVideoEditor(video) {
     youtubeId: '',
     source: 'YouTube',
     status: 'draft',
-    transcriptText: '',
+    transcript: [],
   };
-  values.transcriptText = (video?.transcript || []).map((line) => [
-    line.start,
-    line.end,
-    line.cn,
-    line.py,
-    line.vi,
-  ].join('|')).join('\n');
+  values.transcript = video?.transcript || [];
   openEditor({
     title: video ? 'Sửa video và transcript' : 'Thêm video shadowing',
     area: 'Video',
@@ -1090,10 +2041,11 @@ function openVideoEditor(video) {
       ['source', 'Nguồn'],
       ['level', 'HSK', 'select', ['HSK 1', 'HSK 2', 'HSK 3', 'HSK 4']],
       ['status', 'Trạng thái', 'select', ['draft', 'review', 'published', 'archived']],
-      ['transcriptText', 'Transcript: start | end | Trung | pinyin | Việt', 'textarea'],
+      ['transcript', 'Transcript theo từng câu', 'custom', createVideoTranscriptGrid],
     ],
     onSave(raw) {
-      const transcript = parseTranscript(raw.transcriptText);
+      const transcript = raw.transcript;
+      validateTranscriptRows(transcript, raw.status);
       upsert('lessons', {
         ...video,
         id: video?.id || uid(),
@@ -1105,9 +2057,7 @@ function openVideoEditor(video) {
         status: raw.status,
         transcript,
         items: transcript.length,
-        transcriptStatus: transcript.length && transcript.every((line) => line.end > line.start)
-          ? 'timed'
-          : 'untimed',
+        transcriptStatus: isTimedTranscript(transcript) ? 'timed' : 'untimed',
       });
     },
   });
@@ -1197,15 +2147,33 @@ function openGameEditor(game) {
   openEditor({
     title: game ? 'Sửa trò chơi' : 'Thêm trò chơi',
     area: 'Game',
-    values: game || { title: '', type: 'multiple_choice', scope: 'Theo chủ đề', status: 'draft' },
+    values: game || {
+      title: '',
+      type: 'multiple_choice',
+      level: 'HSK 1',
+      source: 'Flashcard đã published',
+      scope: 'Theo chủ đề flashcard',
+      generation: 'auto',
+      questionCount: 10,
+      status: 'draft',
+    },
     fields: [
       ['title', 'Tên trò chơi'],
       ['type', 'Kiểu', 'select', ['multiple_choice', 'listening', 'sentence_order', 'matching']],
+      ['level', 'HSK', 'select', ['HSK 1', 'HSK 2', 'HSK 3', 'HSK 4', 'HSK 5', 'HSK 6', 'HSK 1-4']],
+      ['source', 'Nguồn dữ liệu', 'select', ['Flashcard đã published', 'Từ vựng đã published', 'Ngữ pháp đã published', 'Bộ câu thủ công']],
       ['scope', 'Phạm vi dữ liệu'],
+      ['generation', 'Cách tạo câu hỏi', 'select', ['auto', 'manual']],
+      ['questionCount', 'Số câu mỗi lượt', 'number'],
       ['status', 'Trạng thái', 'select', ['draft', 'review', 'published', 'archived']],
     ],
     onSave(values) {
-      upsert('games', { ...values, id: game?.id || uid() });
+      upsert('games', {
+        ...game,
+        ...values,
+        questionCount: Number(values.questionCount || game?.questionCount || 10),
+        id: game?.id || uid(),
+      });
     },
   });
 }
@@ -1293,26 +2261,16 @@ function openGrammarEditor(item) {
 }
 
 function openTopicEditor(topic) {
-  const values = topic || {
+  const values = topic ? { ...topic } : {
     id: slug(`topic-${Date.now()}`),
     name: '',
     level: 'HSK 1',
     status: 'draft',
-    imagePath: assetPath('images/flashcards/family/427034659a.jpg'),
-    wordsText: '',
+    imagePath: '',
+    words: [],
   };
-  values.wordsText = (topic?.words || []).map((item) => {
-    const example = item.examples?.[0] || {};
-    return [
-      item.word,
-      item.pinyin,
-      item.meaning,
-      item.image || '',
-      example.cn || '',
-      example.py || '',
-      example.vi || '',
-    ].join('|');
-  }).join('\n');
+  values.imageUrl = topicImageUrl(values);
+  values.words = topic?.words || [];
   openEditor({
     title: topic ? 'Sửa topic flashcard' : 'Thêm topic flashcard',
     area: 'Flashcard',
@@ -1322,18 +2280,21 @@ function openTopicEditor(topic) {
       ['name', 'Tên topic'],
       ['level', 'Level'],
       ['status', 'Trạng thái', 'select', ['draft', 'review', 'published', 'archived']],
-      ['imagePath', 'Ảnh đại diện'],
-      ['wordsText', 'Từ trong topic: Hán tự | pinyin | nghĩa | ảnh | câu ví dụ | pinyin câu | dịch câu', 'textarea'],
+      ['imageUrl', 'Ảnh đại diện', 'custom', createImageUploader],
+      ['words', 'Từ trong topic', 'custom', createFlashcardWordsGrid],
     ],
     onSave(raw) {
+      validateFlashcardWords(raw.words);
+      const imageUrl = String(raw.imageUrl || '').trim();
       const next = {
         id: slug(raw.id || raw.name),
         name: raw.name,
         level: raw.level,
         status: raw.status,
-        imagePath: raw.imagePath,
-        uploadedImageName: topic?.imagePath === raw.imagePath ? topic.uploadedImageName : '',
-        words: parseWords(raw.wordsText),
+        imagePath: imageUrl,
+        imageUrl,
+        uploadedImageName: imageFileName(imageUrl),
+        words: raw.words,
       };
       upsert('flashcards', next);
     },
@@ -1344,10 +2305,11 @@ function openLessonEditor(lesson) {
   openEditor({
     title: lesson ? 'Sửa bài học' : 'Thêm bài học',
     area: 'Lessons',
-    values: lesson || { type: 'Ngữ pháp', title: '', level: 'HSK 1', items: 1, status: 'draft' },
+    values: lesson || { type: 'Ngữ pháp', title: '', subject: 'Tổng hợp', level: 'HSK 1', items: 1, status: 'draft' },
     fields: [
       ['type', 'Loại', 'select', ['Ngữ pháp', 'Đọc hiểu', 'Video']],
       ['title', 'Tiêu đề'],
+      ['subject', 'Chủ đề'],
       ['level', 'Level'],
       ['items', 'Số mục'],
       ['status', 'Trạng thái', 'select', ['draft', 'review', 'published', 'archived']],
@@ -1382,11 +2344,10 @@ async function saveAdminUser(user, values) {
     upsert('users', { ...user, ...values, id: user?.id || uid() });
     return;
   }
-  const baseUrl = String(state.settings.apiBaseUrl || '').replace(/\/+$/, '');
   const payload = { ...values };
   if (!payload.password) delete payload.password;
-  const response = await fetch(
-    user ? `${baseUrl}/admin/users/${user.id}` : `${baseUrl}/admin/users`,
+  const response = await fetchApi(
+    user ? `/admin/users/${user.id}` : '/admin/users',
     {
       method: user ? 'PATCH' : 'POST',
       headers: {
@@ -1459,15 +2420,25 @@ function openEditor(config) {
   dialogFields.innerHTML = '';
   const controls = {};
   config.fields.forEach(([key, label, type = 'input', options = []]) => {
-    const field = el('label', { class: 'field' }, [el('span', {}, label)]);
+    const field = el(type === 'custom' ? 'div' : 'label', { class: 'field' }, [
+      el('span', {}, label),
+    ]);
     let control;
     if (type === 'select') {
       control = select(options, config.values[key] ?? options[0], null);
     } else if (type === 'textarea') {
       control = el('textarea', {}, config.values[key] ?? '');
+    } else if (type === 'custom' && typeof options === 'function') {
+      control = options(config.values[key], config.values);
+      field.appendChild(control.node || control);
+      dialogFields.appendChild(field);
+      controls[key] = control;
+      return;
     } else {
-      control = el('input', { value: config.values[key] ?? '', type: key === 'password' ? 'password' : 'text' });
+      const inputType = type === 'number' ? 'number' : key === 'password' ? 'password' : 'text';
+      control = el('input', { value: config.values[key] ?? '', type: inputType });
     }
+    if (shouldAutoTonePinyin(key, label, control)) attachPinyinAutoTone(control);
     field.appendChild(control);
     dialogFields.appendChild(field);
     controls[key] = control;
@@ -1476,7 +2447,9 @@ function openEditor(config) {
     event.preventDefault();
     const values = {};
     Object.entries(controls).forEach(([key, control]) => {
-      values[key] = control.value;
+      values[key] = typeof control.getValue === 'function'
+        ? control.getValue()
+        : control.value;
     });
     try {
       await config.onSave(values);
@@ -1526,15 +2499,17 @@ function duplicateTopic(id) {
 
 function topicImage(topic) {
   const wrapper = el('div', { class: 'topic-media' });
-  if (!topic.imagePath) {
-    wrapper.appendChild(el('div', { class: 'image-placeholder' }, 'Chưa có ảnh. Bấm Đăng ảnh để preview trong admin.'));
+  const imageUrl = topicImageUrl(topic);
+  const previewSrc = adminImagePreviewSrc(imageUrl);
+  if (!previewSrc) {
+    wrapper.appendChild(el('div', { class: 'image-placeholder' }, 'Chưa có ảnh. Bấm Đăng ảnh để upload lên backend.'));
     return wrapper;
   }
 
-  const img = el('img', { src: topic.imagePath, alt: topic.name, loading: 'lazy' });
+  const img = el('img', { src: previewSrc, alt: topic.name, loading: 'lazy' });
   img.addEventListener('error', () => {
     wrapper.innerHTML = '';
-    wrapper.appendChild(el('div', { class: 'image-placeholder' }, `Không xem được ảnh: ${imageFileName(topic.imagePath) || 'đường dẫn chưa hợp lệ'}`));
+    wrapper.appendChild(el('div', { class: 'image-placeholder' }, `Không xem được ảnh: ${imageFileName(imageUrl) || 'đường dẫn chưa hợp lệ'}`));
   });
   wrapper.appendChild(img);
   return wrapper;
@@ -1545,20 +2520,22 @@ function uploadTopicImage(topicId) {
   if (!topic || !imageUploadInput) return;
 
   imageUploadInput.value = '';
-  imageUploadInput.onchange = (event) => {
+  imageUploadInput.onchange = async (event) => {
     const file = event.target.files?.[0];
     event.target.value = '';
     if (!file) return;
-    const reader = new FileReader();
-    reader.onload = () => {
-      topic.imagePath = String(reader.result || '');
-      topic.uploadedImageName = sanitizeFileName(file.name);
+    try {
+      showToast('Đang upload ảnh lên backend...');
+      const data = await uploadAdminImage(file);
+      topic.imagePath = data.url;
+      topic.imageUrl = data.url;
+      topic.uploadedImageName = data.filename || imageFileName(data.url);
       saveState();
       render();
-      showToast('Đã đăng ảnh preview cho topic. Khi publish thật, hãy đưa file ảnh vào thư mục assets hoặc backend media.');
-    };
-    reader.onerror = () => showToast('Không đọc được file ảnh.');
-    reader.readAsDataURL(file);
+      showToast('Đã upload ảnh và lưu URL tĩnh cho topic.');
+    } catch (error) {
+      showToast(`Upload ảnh thất bại: ${error.message}`);
+    }
   };
   imageUploadInput.click();
 }
@@ -1573,9 +2550,8 @@ async function toggleUserStatus(id) {
     render();
     return;
   }
-  const baseUrl = String(state.settings.apiBaseUrl || '').replace(/\/+$/, '');
   try {
-    const response = await fetch(`${baseUrl}/admin/users/${id}/status`, {
+    const response = await fetchApi(`/admin/users/${id}/status`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -1591,34 +2567,79 @@ async function toggleUserStatus(id) {
   }
 }
 
-function approveReview(id) {
-  state.review = state.review.filter((item) => item.id !== id);
+function approveReview(id, item = null) {
+  if (item) dismissReviewKey(item);
+  state.review = state.review.filter((entry) => entry.id !== id);
   saveState();
   render();
   showToast('Đã duyệt mục kiểm duyệt.');
 }
 
-function dismissReview(id) {
-  state.review = state.review.filter((item) => item.id !== id);
+function dismissReview(id, item = null) {
+  if (item) dismissReviewKey(item);
+  state.review = state.review.filter((entry) => entry.id !== id);
   saveState();
   render();
 }
 
 function approveAllReview() {
+  state.reviewDismissed = unique([
+    ...(state.reviewDismissed || []),
+    ...mergeReviewIssues(state.review, runQualityChecks()).map(reviewIssueKey),
+  ]);
   state.review = [];
   saveState();
   render();
   showToast('Đã duyệt toàn bộ hàng chờ.');
 }
 
+function reviewIssueKey(item) {
+  return `${item?.area || ''}|${item?.title || ''}|${item?.issue || ''}`;
+}
+
+function isReviewDismissed(item) {
+  return (state.reviewDismissed || []).includes(reviewIssueKey(item));
+}
+
+function dismissReviewKey(item) {
+  state.reviewDismissed = unique([...(state.reviewDismissed || []), reviewIssueKey(item)]);
+}
+
+function openReviewTarget(item) {
+  const area = String(item?.area || '').toLowerCase();
+  if (area.includes('video')) activeView = 'videos';
+  else if (area.includes('flashcard')) activeView = 'flashcards';
+  else if (area.includes('từ vựng') || area.includes('vocabulary')) activeView = 'vocabulary';
+  else if (area.includes('ngữ pháp') || area.includes('grammar')) activeView = 'lessons';
+  else if (area.includes('bài đọc') || area.includes('đọc')) activeView = 'reading';
+  else if (area.includes('luyện nói') || area.includes('nói')) activeView = 'speaking';
+  else activeView = 'dashboard';
+  setActiveNav();
+  render();
+}
+
 function runQualityChecks() {
   const issues = [];
   state.flashcards.forEach((topic) => {
-    if (!topic.imagePath) issues.push(reviewIssue('Flashcard', topic.name, 'Thiếu ảnh đại diện topic', 'fail'));
+    if (!topicImageUrl(topic)) issues.push(reviewIssue('Flashcard', topic.name, 'Thiếu ảnh đại diện topic', 'fail'));
     if (topic.status !== 'published') issues.push(reviewIssue('Flashcard', topic.name, `Topic đang ở trạng thái ${topic.status}`, 'pending'));
+    const seenWords = new Set();
+    const seenImages = new Map();
     topic.words.forEach((item) => {
       if (!item.pinyin || !item.meaning) issues.push(reviewIssue('Từ flashcard', item.word, 'Thiếu pinyin hoặc nghĩa Việt', 'fail'));
       if (looksBroken([item.word, item.pinyin, item.meaning].join(' '))) issues.push(reviewIssue('Từ flashcard', item.word, 'Có dấu hiệu mojibake', 'fail'));
+      if (!wordImageInputValue(item)) issues.push(reviewIssue('Từ flashcard', item.word || topic.name, 'Thiếu ảnh minh họa cho từ', 'pending'));
+      if (seenWords.has(item.word)) issues.push(reviewIssue('Flashcard', topic.name, `Từ ${item.word} bị trùng trong topic`, 'fail'));
+      seenWords.add(item.word);
+      const image = wordImageInputValue(item);
+      if (image) {
+        const previousWord = seenImages.get(image);
+        if (previousWord && previousWord !== item.word) {
+          issues.push(reviewIssue('Flashcard', topic.name, `Ảnh ${image} đang dùng cho cả ${previousWord} và ${item.word}`, 'pending'));
+        } else {
+          seenImages.set(image, item.word);
+        }
+      }
     });
   });
   state.vocabulary.forEach((item) => {
@@ -1654,6 +2675,32 @@ function runQualityChecks() {
   });
   state.lessons.filter((lesson) => lesson.type === 'Video').forEach((video) => {
     if (!video.youtubeId) issues.push(reviewIssue('Video', video.title, 'Thiếu YouTube ID', 'fail'));
+    if (VIDEO_UNAVAILABLE_IDS.has(String(video.youtubeId || '').trim())) {
+      issues.push(reviewIssue('Video', video.title, 'YouTube ID này đang bị mobile chặn vì unavailable, user sẽ không thấy video', 'fail'));
+    }
+    if (video.youtubeStatus === 'dead') issues.push(reviewIssue('Video', video.title, 'YouTube dead link, cần thay video hoặc tắt publish', 'fail'));
+    if (video.youtubeStatus === 'error') issues.push(reviewIssue('Video', video.title, 'Chưa kiểm tra được trạng thái YouTube', 'pending'));
+    const transcript = Array.isArray(video.transcript) ? video.transcript : [];
+    try {
+      validateTranscriptRows(transcript, video.status);
+    } catch (error) {
+      issues.push(reviewIssue('Video', video.title, error.message, 'fail'));
+    }
+    transcript.forEach((line, index) => {
+      if (!line.py || !line.vi) {
+        issues.push(reviewIssue('Video', video.title, `Dòng ${index + 1} thiếu pinyin hoặc nghĩa Việt`, 'fail'));
+      }
+    });
+    const span = transcript.length
+      ? Math.max(...transcript.map((line) => Number(line.end) || 0)) -
+        Math.min(...transcript.map((line) => Number(line.start) || 0))
+      : 0;
+    if (['review', 'published'].includes(String(video.status || '').toLowerCase()) && transcript.length < 8) {
+      issues.push(reviewIssue('Video', video.title, 'Transcript quá ít câu; app sẽ khó tự dừng cho người học', 'pending'));
+    }
+    if (span >= 120 && transcript.length < Math.ceil(span / 20)) {
+      issues.push(reviewIssue('Video', video.title, 'Video dài nhưng mật độ phụ đề quá thưa, cần bổ sung câu', 'pending'));
+    }
     if (video.transcriptStatus !== 'timed') {
       issues.push(reviewIssue('Video', video.title, 'Chưa có start/end đầy đủ nên app không thể tự dừng theo câu', 'pending'));
     }
@@ -1732,8 +2779,16 @@ function hskDistribution(rows) {
 
 function appConnectionSummary() {
   const publishedTopics = state.flashcards.filter((topic) => topic.status === 'published').length;
-  const imageReady = state.flashcards.filter((topic) => Boolean(topic.imagePath)).length;
+  const imageReady = state.flashcards.filter((topic) => Boolean(topicImageUrl(topic))).length;
   const version = state.dashboard?.latestVersion;
+  const modules = [
+    ['Từ vựng', 'vocabulary', state.vocabulary.filter((item) => item.status === 'published').length, state.vocabulary.length, '/content/vocabulary'],
+    ['Flashcard', 'flashcards', publishedTopics, state.flashcards.length, '/content/flashcards'],
+    ['Ngữ pháp', 'lessons', (state.grammar || []).filter((item) => item.status === 'published').length, (state.grammar || []).length, '/content/grammar'],
+    ['Video', 'videos', state.lessons.filter((item) => item.type === 'Video' && videoUserVisibility(item).ready).length, state.lessons.filter((item) => item.type === 'Video').length, '/content/videos'],
+    ['Đọc hiểu', 'reading', (state.articles || []).filter((item) => item.status === 'published').length, (state.articles || []).length, '/reading/news'],
+    ['Luyện nói', 'speaking', state.pronunciation.filter((item) => item.status === 'published').length, state.pronunciation.length, 'mobile reading_hsk.json / admin publish'],
+  ];
   return el('div', { class: 'connection-grid' }, [
     el('div', { class: 'connection-card' }, [
       el('strong', {}, 'Nguồn flashcard mobile'),
@@ -1755,6 +2810,25 @@ function appConnectionSummary() {
       el('strong', {}, 'AI ngữ pháp'),
       el('p', {}, 'POST /grammar/check · Gemini backend · không chấm mặc định ở frontend.'),
     ]),
+    ...modules.map(([label, view, published, total, endpoint]) => syncModuleCard(label, view, published, total, endpoint)),
+  ]);
+}
+
+function syncModuleCard(label, view, published, total, endpoint) {
+  const ratio = total ? published / total : 0;
+  return el('div', { class: 'connection-card sync-card' }, [
+    el('div', { class: 'sync-card-head' }, [
+      el('strong', {}, label),
+      status(total && published === total ? 'approved' : published ? 'review' : 'draft'),
+    ]),
+    el('p', {}, `${published}/${total} mục published`),
+    el('div', { class: 'sync-track' }, [el('span', { style: `width:${Math.round(ratio * 100)}%` })]),
+    el('code', {}, endpoint),
+    button('Mở quản lý', 'ghost-button mini-button', () => {
+      activeView = view;
+      setActiveNav();
+      render();
+    }),
   ]);
 }
 
@@ -1838,6 +2912,7 @@ function exportContentBundle() {
     flashcards: state.flashcards,
     pronunciation: state.pronunciation,
     lessons: state.lessons,
+    lessonMap: buildLessonMapPayload(),
     grammar: state.grammar || [],
     readingSources: state.readingSources,
     articles: state.articles || [],
@@ -1856,6 +2931,32 @@ function exportFlashcardIndex() {
   });
 }
 
+function exportLessonMap() {
+  downloadJson('lesson-map.admin-export.json', buildLessonMapPayload());
+}
+
+function buildLessonMapPayload() {
+  const components = lessonComponentInventory();
+  return {
+    version: state.settings.contentVersion,
+    model: 'lesson-centric-v1',
+    schema: {
+      lesson: 'Container cấp HSK/chủ đề, tham chiếu componentIds thay vì nhúng toàn bộ nội dung.',
+      componentTypes: ['Flashcard', 'Ngữ pháp', 'Đọc hiểu', 'Video', 'Quiz'],
+      lifecycle: ['draft', 'review', 'published', 'archived'],
+    },
+    lessons: components.map((item) => ({
+      lessonId: `${slug(item.level)}-${slug(item.subject)}-${slug(item.type)}-${slug(item.id)}`,
+      level: item.level,
+      subject: item.subject,
+      type: item.type,
+      title: item.title,
+      status: item.status,
+      componentRefs: [{ source: item.source, id: item.id }],
+    })),
+  };
+}
+
 function exportVideoCatalog() {
   downloadJson('video_lessons.admin-export.json', state.lessons
     .filter((lesson) => lesson.type === 'Video' && lesson.status !== 'archived')
@@ -1867,6 +2968,8 @@ function exportVideoCatalog() {
       youtubeId: video.youtubeId,
       source: video.source || 'YouTube',
       transcriptStatus: video.transcriptStatus || 'untimed',
+      youtubeStatus: video.youtubeStatus || 'unchecked',
+      youtubeCheckedAt: video.youtubeCheckedAt || '',
       subtitles: video.transcript || [],
     })));
 }
@@ -1874,22 +2977,29 @@ function exportVideoCatalog() {
 function topicFromFlashcardIndex(topic) {
   const id = String(topic.id || slug(topic.name || 'topic'));
   const words = Array.isArray(topic.words)
-    ? topic.words.map((item) => word(
-        item.word,
-        item.pinyin,
-        item.meaning,
-        item.image || '',
-        item.query || '',
-        item.examples || [],
-      ))
+    ? topic.words.map((item) => {
+        const nextWord = word(
+          item.word,
+          item.pinyin,
+          item.meaning,
+          item.imagePath || item.imageUrl || item.image || '',
+          item.query || '',
+          item.examples || [],
+        );
+        nextWord.imagePath = item.imagePath || item.imageUrl || '';
+        nextWord.imageUrl = item.imageUrl || item.imagePath || '';
+        return nextWord;
+      })
     : [];
-  const firstImage = words.find((item) => item.image)?.image || '';
+  const firstImage = wordImageInputValue(words.find((item) => wordImageInputValue(item)));
+  const topicImage = String(topic.imageUrl || topic.imagePath || '').trim();
   return {
     id,
     name: String(topic.name || id),
     level: topic.level || levelForTopic(id),
     status: topic.status || 'published',
-    imagePath: firstImage ? assetPath(`images/flashcards/${id}/${firstImage}`) : '',
+    imagePath: topicImage || wordImagePreviewSrc(firstImage, id),
+    imageUrl: topicImage || '',
     words,
   };
 }
@@ -1906,16 +3016,21 @@ function levelForTopic(id) {
 }
 
 function topicToFlashcardIndex(topic) {
+  const imageUrl = topicImageUrl(topic);
   return {
     id: topic.id,
     name: topic.name,
     level: topic.level,
     status: topic.status,
+    imagePath: imageUrl,
+    imageUrl,
     words: topic.words.map((item) => ({
       word: item.word,
       pinyin: item.pinyin,
       meaning: item.meaning,
-      image: item.image || topicImageName(topic),
+      image: wordImageFileForExport(item) || topicImageName(topic),
+      imagePath: wordImagePathForPublish(item),
+      imageUrl: wordImagePathForPublish(item),
       query: item.query || `${item.meaning} ${item.word}`.trim(),
       examples: item.examples || [],
     })),
@@ -2053,6 +3168,23 @@ function matchesQuery(values) {
   return values.join(' ').toLowerCase().includes(globalQuery);
 }
 
+function inferLevelFromText(text) {
+  const match = String(text || '').match(/HSK\s*\d(?:\s*-\s*\d)?/i);
+  return match ? match[0].replace(/\s+/g, ' ').toUpperCase() : '';
+}
+
+function hskRank(value) {
+  const match = String(value || '').match(/HSK\s*(\d+)/i);
+  return match ? Number(match[1]) : 99;
+}
+
+function hskLevelOptions(items) {
+  return unique((items || [])
+    .map((item) => (typeof item === 'string' ? item : item?.level))
+    .filter(Boolean))
+    .sort((a, b) => hskRank(a) - hskRank(b) || String(a).localeCompare(String(b), 'vi'));
+}
+
 function looksBroken(text) {
   return /[ÃÄÂ]|ï¿½|�/.test(text);
 }
@@ -2080,8 +3212,60 @@ function imageFileName(path) {
   return value.split(/[\\/]/).pop() || '';
 }
 
+function topicImageUrl(topic) {
+  return String(topic?.imageUrl || topic?.imagePath || '').trim();
+}
+
 function topicImageName(topic) {
-  return topic.uploadedImageName || imageFileName(topic.imagePath);
+  return topic.uploadedImageName || imageFileName(topicImageUrl(topic));
+}
+
+function adminImagePreviewSrc(value) {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+  if (raw.startsWith('assets/')) return assetPath(raw.replace(/^assets[\\/]+/, ''));
+  if (raw.startsWith('/uploads/')) {
+    const baseUrl = normalizeApiBaseUrl(state.settings?.apiBaseUrl);
+    return baseUrl === '/api' ? raw : `${baseUrl}${raw}`;
+  }
+  return raw;
+}
+
+function wordImageInputValue(item) {
+  return String(item?.imageUrl || item?.imagePath || item?.image || '').trim();
+}
+
+function isResolvedImagePath(value) {
+  const raw = String(value || '').trim();
+  return /^(https?:)?\/\//i.test(raw)
+    || raw.startsWith('/uploads/')
+    || raw.startsWith('data:')
+    || raw.startsWith('../')
+    || raw.startsWith('./')
+    || raw.startsWith('assets/');
+}
+
+function wordImagePreviewSrc(value, topicId = '') {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+  if (raw.startsWith('assets/')) return assetPath(raw.replace(/^assets[\\/]+/, ''));
+  if (raw.startsWith('/uploads/')) {
+    const baseUrl = normalizeApiBaseUrl(state.settings?.apiBaseUrl);
+    return baseUrl === '/api' ? raw : `${baseUrl}${raw}`;
+  }
+  if (isResolvedImagePath(raw)) return raw;
+  return topicId ? assetPath(`images/flashcards/${topicId}/${raw}`) : raw;
+}
+
+function wordImagePathForPublish(item) {
+  const raw = wordImageInputValue(item);
+  return raw && isResolvedImagePath(raw) ? raw : '';
+}
+
+function wordImageFileForExport(item) {
+  const raw = wordImageInputValue(item);
+  if (!raw) return '';
+  return isResolvedImagePath(raw) ? imageFileName(raw) : raw;
 }
 
 function assetPath(path) {
@@ -2109,10 +3293,12 @@ function loadState() {
 
 function normalizeState(next) {
   const source = next && typeof next === 'object' ? next : {};
+  const settings = { ...seedState.settings, ...(source.settings || {}) };
+  settings.apiBaseUrl = normalizeApiBaseUrl(settings.apiBaseUrl);
   return {
     ...structuredClone(seedState),
     ...source,
-    settings: { ...seedState.settings, ...(source.settings || {}) },
+    settings,
     vocabulary: Array.isArray(source.vocabulary) ? source.vocabulary : seedState.vocabulary,
     flashcards: Array.isArray(source.flashcards) ? source.flashcards : seedState.flashcards,
     pronunciation: Array.isArray(source.pronunciation) ? source.pronunciation : seedState.pronunciation,
@@ -2124,6 +3310,7 @@ function normalizeState(next) {
     aiSettings: { ...seedState.aiSettings, ...(source.aiSettings || {}) },
     users: Array.isArray(source.users) ? source.users : seedState.users,
     review: Array.isArray(source.review) ? source.review : seedState.review,
+    reviewDismissed: Array.isArray(source.reviewDismissed) ? source.reviewDismissed : [],
     auditLogs: Array.isArray(source.auditLogs) ? source.auditLogs : [],
     dashboard: source.dashboard || null,
   };

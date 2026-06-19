@@ -191,7 +191,7 @@ class _MiniGameScreenState extends State<MiniGameScreen>
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             decoration: BoxDecoration(
-              color: Colors.amber.withOpacity(0.2),
+              color: Colors.amber.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Row(
@@ -224,7 +224,7 @@ class _MiniGameScreenState extends State<MiniGameScreen>
         child: LinearProgressIndicator(
           value: progress,
           minHeight: 8,
-          backgroundColor: Colors.white.withOpacity(0.1),
+          backgroundColor: Colors.white.withValues(alpha: 0.1),
           valueColor: AlwaysStoppedAnimation<Color>(
             progress < 0.5
                 ? const Color(0xFF4CAF50)
@@ -389,7 +389,7 @@ class _MiniGameScreenState extends State<MiniGameScreen>
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(color: gradeColor, width: 4),
-                color: gradeColor.withOpacity(0.1),
+                color: gradeColor.withValues(alpha: 0.1),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -414,7 +414,7 @@ class _MiniGameScreenState extends State<MiniGameScreen>
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.06),
+                color: Colors.white.withValues(alpha: 0.06),
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Row(
@@ -569,7 +569,7 @@ class _MatchingGameWidgetState extends State<_MatchingGameWidget> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             decoration: BoxDecoration(
-              color: Colors.blue.withOpacity(0.2),
+              color: Colors.blue.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(8),
             ),
             child: const Text(
@@ -608,16 +608,16 @@ class _MatchingGameWidgetState extends State<_MatchingGameWidget> {
           ...List.generate(_options.length, (i) {
             final isCorrect = _options[i] == _target.meaning;
             final isSelected = _selected == i;
-            Color bgColor = Colors.white.withOpacity(0.06);
-            Color borderColor = Colors.white.withOpacity(0.15);
+            Color bgColor = Colors.white.withValues(alpha: 0.06);
+            Color borderColor = Colors.white.withValues(alpha: 0.15);
             Color textColor = Colors.white;
 
             if (_answered) {
               if (isCorrect) {
-                bgColor = Colors.green.withOpacity(0.2);
+                bgColor = Colors.green.withValues(alpha: 0.2);
                 borderColor = Colors.green;
               } else if (isSelected) {
-                bgColor = Colors.red.withOpacity(0.2);
+                bgColor = Colors.red.withValues(alpha: 0.2);
                 borderColor = Colors.red;
               }
             }
@@ -662,7 +662,7 @@ class _MatchingGameWidgetState extends State<_MatchingGameWidget> {
                                   size: 16,
                                 )
                               : Text(
-                                  '${String.fromCharCode(65 + i)}',
+                                  String.fromCharCode(65 + i),
                                   style: TextStyle(
                                     color: textColor,
                                     fontWeight: FontWeight.w700,
@@ -784,7 +784,7 @@ class _FillInGameWidgetState extends State<_FillInGameWidget> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             decoration: BoxDecoration(
-              color: Colors.purple.withOpacity(0.2),
+              color: Colors.purple.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(8),
             ),
             child: const Text(
@@ -828,14 +828,14 @@ class _FillInGameWidgetState extends State<_FillInGameWidget> {
             decoration: BoxDecoration(
               color: _answered
                   ? (_isCorrect
-                        ? Colors.green.withOpacity(0.15)
-                        : Colors.red.withOpacity(0.15))
-                  : Colors.white.withOpacity(0.06),
+                        ? Colors.green.withValues(alpha: 0.15)
+                        : Colors.red.withValues(alpha: 0.15))
+                  : Colors.white.withValues(alpha: 0.06),
               borderRadius: BorderRadius.circular(16),
               border: Border.all(
                 color: _answered
                     ? (_isCorrect ? Colors.green : Colors.red)
-                    : Colors.white.withOpacity(0.2),
+                    : Colors.white.withValues(alpha: 0.2),
                 width: 2,
               ),
             ),
@@ -887,10 +887,10 @@ class _FillInGameWidgetState extends State<_FillInGameWidget> {
                   width: 52,
                   height: 52,
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.08),
+                    color: Colors.white.withValues(alpha: 0.08),
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color: Colors.white.withOpacity(0.2),
+                      color: Colors.white.withValues(alpha: 0.2),
                       width: 1,
                     ),
                   ),
@@ -1000,7 +1000,7 @@ class _ListenChooseGameWidgetState extends State<_ListenChooseGameWidget> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             decoration: BoxDecoration(
-              color: Colors.green.withOpacity(0.2),
+              color: Colors.green.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(8),
             ),
             child: const Text(
@@ -1031,7 +1031,7 @@ class _ListenChooseGameWidgetState extends State<_ListenChooseGameWidget> {
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.green.withOpacity(0.3),
+                    color: Colors.green.withValues(alpha: 0.3),
                     blurRadius: 20,
                     spreadRadius: 2,
                   ),
@@ -1065,15 +1065,15 @@ class _ListenChooseGameWidgetState extends State<_ListenChooseGameWidget> {
               final opt = _options[i];
               final isCorrect = opt.simplified == _target.simplified;
               final isSelected = _selected == i;
-              Color bgColor = Colors.white.withOpacity(0.06);
-              Color borderColor = Colors.white.withOpacity(0.15);
+              Color bgColor = Colors.white.withValues(alpha: 0.06);
+              Color borderColor = Colors.white.withValues(alpha: 0.15);
 
               if (_answered) {
                 if (isCorrect) {
-                  bgColor = Colors.green.withOpacity(0.2);
+                  bgColor = Colors.green.withValues(alpha: 0.2);
                   borderColor = Colors.green;
                 } else if (isSelected) {
-                  bgColor = Colors.red.withOpacity(0.2);
+                  bgColor = Colors.red.withValues(alpha: 0.2);
                   borderColor = Colors.red;
                 }
               }
@@ -1218,7 +1218,7 @@ class _SentenceOrderGameWidgetState extends State<_SentenceOrderGameWidget> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             decoration: BoxDecoration(
-              color: Colors.orange.withOpacity(0.2),
+              color: Colors.orange.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(8),
             ),
             child: const Text(
@@ -1263,14 +1263,14 @@ class _SentenceOrderGameWidgetState extends State<_SentenceOrderGameWidget> {
             decoration: BoxDecoration(
               color: _answered
                   ? (_isCorrect
-                        ? Colors.green.withOpacity(0.15)
-                        : Colors.red.withOpacity(0.15))
-                  : Colors.white.withOpacity(0.04),
+                        ? Colors.green.withValues(alpha: 0.15)
+                        : Colors.red.withValues(alpha: 0.15))
+                  : Colors.white.withValues(alpha: 0.04),
               borderRadius: BorderRadius.circular(16),
               border: Border.all(
                 color: _answered
                     ? (_isCorrect ? Colors.green : Colors.red)
-                    : Colors.white.withOpacity(0.15),
+                    : Colors.white.withValues(alpha: 0.15),
                 width: 2,
               ),
             ),
@@ -1283,7 +1283,7 @@ class _SentenceOrderGameWidgetState extends State<_SentenceOrderGameWidget> {
                       Text(
                         'Chạm vào các chữ bên dưới',
                         style: TextStyle(
-                          color: Colors.white.withOpacity(0.3),
+                          color: Colors.white.withValues(alpha: 0.3),
                           fontSize: 14,
                         ),
                       ),
@@ -1295,10 +1295,10 @@ class _SentenceOrderGameWidgetState extends State<_SentenceOrderGameWidget> {
                           width: 50,
                           height: 50,
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.12),
+                            color: Colors.white.withValues(alpha: 0.12),
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
-                              color: Colors.white.withOpacity(0.3),
+                              color: Colors.white.withValues(alpha: 0.3),
                             ),
                           ),
                           child: Center(
@@ -1342,18 +1342,18 @@ class _SentenceOrderGameWidgetState extends State<_SentenceOrderGameWidget> {
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        Colors.white.withOpacity(0.1),
-                        Colors.white.withOpacity(0.05),
+                        Colors.white.withValues(alpha: 0.1),
+                        Colors.white.withValues(alpha: 0.05),
                       ],
                     ),
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color: Colors.white.withOpacity(0.25),
+                      color: Colors.white.withValues(alpha: 0.25),
                       width: 1.5,
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.2),
+                        color: Colors.black.withValues(alpha: 0.2),
                         blurRadius: 4,
                         offset: const Offset(0, 2),
                       ),

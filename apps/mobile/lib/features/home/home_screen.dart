@@ -279,20 +279,14 @@ class _AiTutorScreenState extends State<AiTutorScreen> {
       _sending = true;
     });
     try {
-      final response = await http
-          .post(
-            Uri.parse('${DictionaryRepository.apiBaseUrl}/ai/chat'),
-            headers: const {'Content-Type': 'application/json'},
-            body: jsonEncode({
-              'message': message,
-              'level': widget.level,
-              'history': _messages
-                  .take(_messages.length - 1)
-                  .map((item) => {'role': item.role, 'text': item.text})
-                  .toList(),
-            }),
-          )
-          .timeout(const Duration(seconds: 20));
+      final response = await _postAiChat({
+        'message': message,
+        'level': widget.level,
+        'history': _messages
+            .take(_messages.length - 1)
+            .map((item) => {'role': item.role, 'text': item.text})
+            .toList(),
+      });
       final data = jsonDecode(utf8.decode(response.bodyBytes));
       if (response.statusCode < 200 || response.statusCode >= 300) {
         throw Exception(
@@ -331,6 +325,49 @@ class _AiTutorScreenState extends State<AiTutorScreen> {
         });
       }
     }
+  }
+
+  Future<http.Response> _postAiChat(Map<String, dynamic> payload) async {
+    Object? lastError;
+    for (final endpoint in _aiChatEndpoints()) {
+      try {
+        return await http
+            .post(
+              endpoint,
+              headers: const {'Content-Type': 'application/json'},
+              body: jsonEncode(payload),
+            )
+            .timeout(const Duration(seconds: 20));
+      } catch (error) {
+        lastError = error;
+      }
+    }
+    throw Exception(
+      'Không tìm thấy backend AI tại localhost:3001 hoặc 127.0.0.1:3001. '
+      'Hãy chạy API NestJS trước khi dùng Gia sư AI. Chi tiết: $lastError',
+    );
+  }
+
+  List<Uri> _aiChatEndpoints() {
+    final configured = DictionaryRepository.apiBaseUrl.trim();
+    final candidates = <String>[
+      configured,
+      if (configured.contains('localhost'))
+        configured.replaceFirst('localhost', '127.0.0.1'),
+      if (configured.contains('127.0.0.1'))
+        configured.replaceFirst('127.0.0.1', 'localhost'),
+      'http://127.0.0.1:3001',
+      'http://localhost:3001',
+    ];
+    final seen = <String>{};
+    return candidates
+        .map(
+          (base) =>
+              base.endsWith('/') ? base.substring(0, base.length - 1) : base,
+        )
+        .where((base) => base.isNotEmpty && seen.add(base))
+        .map((base) => Uri.parse('$base/ai/chat'))
+        .toList();
   }
 
   @override

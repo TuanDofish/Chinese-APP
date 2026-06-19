@@ -536,6 +536,183 @@ export class AppService {
     };
   }
 
+  scorePronunciation(
+    target: string,
+    recognized: string,
+    meta: { targetPinyin?: string; lessonId?: string; lineIndex?: number } = {},
+  ) {
+    const requestId = this.newRequestId('pronunciation');
+    const cleanTarget = this.normalizePronunciationText(target);
+    const cleanRecognized = this.normalizePronunciationText(recognized);
+    const targetPinyin = this.normalizePinyinText(meta.targetPinyin ?? '');
+    const recognizedPinyin = this.hanziToPinyin(cleanRecognized);
+
+    let score = 0;
+    let matchedUnits = 0;
+    let hanziSimilarity = 0;
+    let pinyinSimilarity = 0;
+    let lengthRatio = 0;
+    if (cleanTarget && cleanRecognized) {
+      matchedUnits = this.lcsLength(cleanTarget, cleanRecognized);
+      hanziSimilarity = matchedUnits / cleanTarget.length;
+      lengthRatio =
+        Math.min(cleanTarget.length, cleanRecognized.length) /
+        Math.max(cleanTarget.length, cleanRecognized.length);
+      const hanziScore = Math.round(
+        hanziSimilarity * 100 * (0.82 + lengthRatio * 0.18),
+      );
+      if (targetPinyin && recognizedPinyin) {
+        const pinyinMatches = this.lcsLength(targetPinyin, recognizedPinyin);
+        pinyinSimilarity = pinyinMatches / targetPinyin.length;
+      }
+      const phoneticScore = Math.round(
+        pinyinSimilarity * 100 * (0.72 + lengthRatio * 0.18),
+      );
+      score = Math.max(hanziScore, phoneticScore);
+    }
+    score = Math.max(0, Math.min(100, score));
+
+    const result = {
+      score,
+      feedback: this.pronunciationFeedback(score, cleanRecognized.length > 0),
+      target,
+      recognized,
+      source: 'api-local-scorer',
+      requestId,
+      detail: {
+        lessonId: meta.lessonId ?? '',
+        lineIndex: Number.isFinite(meta.lineIndex) ? meta.lineIndex : null,
+        targetUnits: cleanTarget.length,
+        recognizedUnits: cleanRecognized.length,
+        matchedUnits,
+        targetPinyin,
+        recognizedPinyin,
+        hanziSimilarity: Number(hanziSimilarity.toFixed(3)),
+        pinyinSimilarity: Number(pinyinSimilarity.toFixed(3)),
+        lengthRatio: Number(lengthRatio.toFixed(3)),
+        method: 'speech-to-text + hanzi LCS + pinyin similarity',
+      },
+    };
+
+    this.logAction('pronunciation.score.completed', {
+      requestId,
+      score,
+      targetLength: cleanTarget.length,
+      recognizedLength: cleanRecognized.length,
+      lessonId: meta.lessonId ?? '',
+      lineIndex: meta.lineIndex ?? null,
+    });
+    return result;
+  }
+
+  private normalizePronunciationText(value: string) {
+    const normalized = String(value ?? '').normalize('NFKC');
+    const han = normalized.replace(/[^\u4e00-\u9fff]/g, '');
+    if (han) return han;
+    return normalized
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '');
+  }
+
+  private normalizePinyinText(value: string) {
+    return String(value ?? '')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/ü/g, 'v')
+      .replace(/[^a-z0-9]+/g, '');
+  }
+
+  private hanziToPinyin(value: string) {
+    const map: Record<string, string> = {
+      你: 'ni',
+      好: 'hao',
+      谢: 'xie',
+      我: 'wo',
+      是: 'shi',
+      不: 'bu',
+      去: 'qu',
+      学: 'xue',
+      习: 'xi',
+      汉: 'han',
+      语: 'yu',
+      吃: 'chi',
+      饭: 'fan',
+      米: 'mi',
+      饺: 'jiao',
+      叫: 'jiao',
+      咀: 'ju',
+      子: 'zi',
+      者: 'zhe',
+      桌: 'zhuo',
+      椅: 'yi',
+      包: 'bao',
+      水: 'shui',
+      茶: 'cha',
+      苹: 'ping',
+      果: 'guo',
+      老: 'lao',
+      师: 'shi',
+      生: 'sheng',
+      朋: 'peng',
+      友: 'you',
+      天: 'tian',
+      气: 'qi',
+      热: 're',
+      冷: 'leng',
+      雨: 'yu',
+      雪: 'xue',
+      风: 'feng',
+      家: 'jia',
+      爸: 'ba',
+      妈: 'ma',
+      狗: 'gou',
+      猫: 'mao',
+      红: 'hong',
+      色: 'se',
+      飞: 'fei',
+      机: 'ji',
+      眼: 'yan',
+      睛: 'jing',
+      工: 'gong',
+      作: 'zuo',
+      经: 'jing',
+      济: 'ji',
+      喜: 'xi',
+      欢: 'huan',
+      中: 'zhong',
+      国: 'guo',
+    };
+    return [...value].map((char) => map[char] ?? '').join('');
+  }
+
+  private lcsLength(a: string, b: string) {
+    const previous = new Array(b.length + 1).fill(0);
+    const current = new Array(b.length + 1).fill(0);
+    for (let i = 1; i <= a.length; i++) {
+      for (let j = 1; j <= b.length; j++) {
+        current[j] =
+          a[i - 1] === b[j - 1]
+            ? previous[j - 1] + 1
+            : Math.max(previous[j], current[j - 1]);
+      }
+      for (let j = 0; j <= b.length; j++) previous[j] = current[j];
+    }
+    return previous[b.length];
+  }
+
+  private pronunciationFeedback(score: number, hasRecognizedText: boolean) {
+    if (!hasRecognizedText) {
+      return 'Máy chưa nhận được giọng đọc. Hãy đưa micro gần hơn và thử lại.';
+    }
+    if (score >= 90) return 'Rất tốt. Nhịp đọc và âm chính khá sát câu mẫu.';
+    if (score >= 75) return 'Tốt. Hãy đọc chậm hơn một chút để rõ từng âm.';
+    if (score >= 55) return 'Tạm ổn. Nên nghe lại câu mẫu rồi nhại từng cụm.';
+    return 'Cần luyện lại. Hãy bấm nghe câu mẫu trước khi ghi âm lần nữa.';
+  }
+
   private looksLikeGoogleApiKey(value: string) {
     const key = value.trim();
     return (

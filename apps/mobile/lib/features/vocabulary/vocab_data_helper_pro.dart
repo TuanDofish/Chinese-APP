@@ -2,7 +2,7 @@ class VocabDataHelper {
   // ... HSK 1 Data (Keep existing)
 
   // HSK 2 Data (New Expansion)
-  static final Map<String, Map<String, dynamic>> _hsk2Map = {
+  static final Map<String, Map<String, dynamic>> hsk2Map = {
     // Colors
     "颜色": {
       "meaning": "Màu sắc",
@@ -129,7 +129,7 @@ class VocabDataHelper {
   };
 
   // Automated Dictionary for higher levels (Keyword matching)
-  static final Map<String, String> _dictionary = {
+  static final Map<String, String> dictionary = {
     "work": "Làm việc",
     "study": "Học tập",
     "love": "Yêu",

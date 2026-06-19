@@ -4,7 +4,6 @@ import 'package:mobile/features/vocabulary/vocabulary_list_screen.dart';
 import 'package:mobile/core/services/progress_service.dart';
 import 'package:mobile/features/vocabulary/vocab_data_helper.dart';
 import 'package:mobile/features/vocabulary/dictionary_search_tab.dart';
-import 'package:mobile/features/vocabulary/hanzii_detail_panel.dart';
 
 class MagicVocabScreen extends StatefulWidget {
   const MagicVocabScreen({super.key});
@@ -146,7 +145,7 @@ class _MagicVocabScreenState extends State<MagicVocabScreen>
         border: Border.all(color: Colors.grey.shade200),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.03),
+            color: Colors.black.withValues(alpha: 0.03),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),

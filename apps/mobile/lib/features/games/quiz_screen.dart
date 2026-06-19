@@ -27,7 +27,7 @@ class _QuizScreenState extends State<QuizScreen> with TickerProviderStateMixin {
   final ProgressService _progressService = ProgressService();
   final Random _random = Random();
 
-  List<_QuizQuestion> _questions = [];
+  final List<_QuizQuestion> _questions = [];
   int _currentIndex = 0;
   String? _selectedAnswer;
   bool _isAnswered = false;
@@ -215,8 +215,6 @@ class _QuizScreenState extends State<QuizScreen> with TickerProviderStateMixin {
     }
 
     final q = _questions[_currentIndex];
-    final pinyin = PinyinUtils.convertSpaced(q.word['pinyin'] as String? ?? '');
-
     return Container(
       color: _kSurface,
       child: Column(
@@ -279,7 +277,7 @@ class _QuizScreenState extends State<QuizScreen> with TickerProviderStateMixin {
                           Image.asset(
                             'assets/images/mascot_panda.png',
                             height: 80,
-                            errorBuilder: (_, __, ___) =>
+                            errorBuilder: (context, error, stackTrace) =>
                                 const _PandaFallback(),
                           ),
                           const SizedBox(width: 8),
@@ -293,13 +291,13 @@ class _QuizScreenState extends State<QuizScreen> with TickerProviderStateMixin {
                               ),
                               decoration: BoxDecoration(
                                 color: _isCorrect
-                                    ? _kGreen.withOpacity(0.12)
-                                    : _kRed.withOpacity(0.12),
+                                    ? _kGreen.withValues(alpha: 0.12)
+                                    : _kRed.withValues(alpha: 0.12),
                                 borderRadius: BorderRadius.circular(12),
                                 border: Border.all(
                                   color: _isCorrect
-                                      ? _kGreen.withOpacity(0.3)
-                                      : _kRed.withOpacity(0.3),
+                                      ? _kGreen.withValues(alpha: 0.3)
+                                      : _kRed.withValues(alpha: 0.3),
                                 ),
                               ),
                               child: Text(
@@ -464,7 +462,7 @@ class _AnswerTile extends StatelessWidget {
           boxShadow: state == _TileState.idle
               ? [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.06),
+                    color: Colors.black.withValues(alpha: 0.06),
                     blurRadius: 8,
                     offset: const Offset(0, 4),
                   ),
@@ -482,7 +480,7 @@ class _AnswerTile extends StatelessWidget {
                       pinyin,
                       style: TextStyle(
                         fontSize: 14,
-                        color: textColor.withOpacity(0.7),
+                        color: textColor.withValues(alpha: 0.7),
                         letterSpacing: 0.3,
                       ),
                     ),
@@ -545,9 +543,9 @@ class _SpeakerBtn extends StatelessWidget {
         width: 70,
         height: 70,
         decoration: BoxDecoration(
-          color: color.withOpacity(0.12),
+          color: color.withValues(alpha: 0.12),
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: color.withOpacity(0.3), width: 1.5),
+          border: Border.all(color: color.withValues(alpha: 0.3), width: 1.5),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -585,7 +583,7 @@ class _PandaFallback extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         shape: BoxShape.circle,
-        border: Border.all(color: _kAmber.withOpacity(0.3), width: 2),
+        border: Border.all(color: _kAmber.withValues(alpha: 0.3), width: 2),
       ),
       child: const Center(child: Text('🐼', style: TextStyle(fontSize: 42))),
     );
@@ -663,8 +661,8 @@ class _ResultSheet extends StatelessWidget {
             height: 100,
             decoration: BoxDecoration(
               color: isGood
-                  ? _kGreen.withOpacity(0.1)
-                  : _kAmber.withOpacity(0.1),
+                  ? _kGreen.withValues(alpha: 0.1)
+                  : _kAmber.withValues(alpha: 0.1),
               shape: BoxShape.circle,
               border: Border.all(color: isGood ? _kGreen : _kAmber, width: 3),
             ),

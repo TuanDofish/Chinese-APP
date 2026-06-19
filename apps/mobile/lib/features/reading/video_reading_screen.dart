@@ -197,8 +197,8 @@ class _VideoReadingScreenState extends State<VideoReadingScreen> {
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         itemCount: _levels.length,
-        separatorBuilder: (_, __) => const SizedBox(width: 8),
-        itemBuilder: (_, i) {
+        separatorBuilder: (context, index) => const SizedBox(width: 8),
+        itemBuilder: (context, i) {
           final lvl = _levels[i];
           final selected = lvl == _selectedLevel;
           return GestureDetector(
@@ -236,8 +236,8 @@ class _VideoReadingScreenState extends State<VideoReadingScreen> {
     return ListView.separated(
       padding: const EdgeInsets.all(16),
       itemCount: _filtered.length,
-      separatorBuilder: (_, __) => const SizedBox(height: 12),
-      itemBuilder: (_, i) => _buildLessonCard(_filtered[i]),
+      separatorBuilder: (context, index) => const SizedBox(height: 12),
+      itemBuilder: (context, i) => _buildLessonCard(_filtered[i]),
     );
   }
 
@@ -269,7 +269,7 @@ class _VideoReadingScreenState extends State<VideoReadingScreen> {
                     height: 160,
                     width: double.infinity,
                     fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => Container(
+                    errorBuilder: (context, error, stackTrace) => Container(
                       height: 160,
                       color: const Color(0xFF2A2D3E),
                       child: const Center(

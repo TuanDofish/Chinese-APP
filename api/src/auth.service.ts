@@ -4,6 +4,7 @@ import {
   ForbiddenException,
   Injectable,
   OnModuleInit,
+  ServiceUnavailableException,
   UnauthorizedException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -51,6 +52,7 @@ export class AuthService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
+    if (!this.dataSource.isInitialized) return;
     await this.ensureDefaultAdmin();
   }
 
@@ -90,6 +92,11 @@ export class AuthService implements OnModuleInit {
 
     this.assertEmail(email);
     this.assertPassword(password);
+    this.assertDatabaseReady();
+
+    if (email === this.defaultAdminEmail()) {
+      await this.ensureDefaultAdmin();
+    }
 
     const user = await this.users.findOne({ where: { email } });
     if (!user || !this.verifyPassword(password, user.passwordHash)) {
@@ -626,9 +633,7 @@ export class AuthService implements OnModuleInit {
   }
 
   private async ensureDefaultAdmin() {
-    const email = this.normalizeEmail(
-      process.env.ADMIN_EMAIL || 'admin@vnchinese.local',
-    );
+    const email = this.defaultAdminEmail();
     const password = process.env.ADMIN_PASSWORD || 'admin123456';
     const displayName = process.env.ADMIN_NAME || 'VNChinese Admin';
     const existing = await this.users.findOne({ where: { email } });
@@ -636,6 +641,9 @@ export class AuthService implements OnModuleInit {
       existing.role = 'admin';
       existing.status = 'active';
       existing.displayName = displayName;
+      if (!this.verifyPassword(password, existing.passwordHash)) {
+        existing.passwordHash = this.hashPassword(password);
+      }
       await this.users.save(existing);
       await this.syncNormalizedUser(existing);
       return;
@@ -651,6 +659,19 @@ export class AuthService implements OnModuleInit {
     });
     await this.users.save(admin);
     await this.syncNormalizedUser(admin);
+  }
+
+  private assertDatabaseReady() {
+    if (this.dataSource.isInitialized) return;
+    throw new ServiceUnavailableException(
+      'Database chua san sang. Hay bat PostgreSQL/Docker roi thu lai.',
+    );
+  }
+
+  private defaultAdminEmail() {
+    return this.normalizeEmail(
+      process.env.ADMIN_EMAIL || 'admin@vnchinese.local',
+    );
   }
 
   private authResponse(user: User) {
