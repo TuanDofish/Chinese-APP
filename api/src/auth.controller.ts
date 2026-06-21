@@ -18,6 +18,11 @@ type AuthBody = {
   targetLevel?: string;
 };
 
+type GoogleAuthBody = {
+  idToken?: string;
+  targetLevel?: string;
+};
+
 type UserBody = AuthBody & {
   role?: string;
   status?: string;
@@ -36,6 +41,11 @@ export class AuthController {
   @Post('auth/login')
   login(@Body() body: AuthBody) {
     return this.authService.login(body);
+  }
+
+  @Post('auth/google')
+  googleLogin(@Body() body: GoogleAuthBody) {
+    return this.authService.loginWithGoogle(body);
   }
 
   @Get('auth/me')

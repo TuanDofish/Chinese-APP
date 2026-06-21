@@ -14,6 +14,7 @@ import {
   scryptSync,
   timingSafeEqual,
 } from 'node:crypto';
+import { OAuth2Client } from 'google-auth-library';
 import { Repository } from 'typeorm';
 import { DataSource } from 'typeorm';
 import { User } from './entities/user.entity';
@@ -22,6 +23,11 @@ type AuthPayload = {
   email?: string;
   password?: string;
   displayName?: string;
+  targetLevel?: string;
+};
+
+type GoogleAuthPayload = {
+  idToken?: string;
   targetLevel?: string;
 };
 
@@ -45,6 +51,8 @@ type TokenPayload = {
 
 @Injectable()
 export class AuthService implements OnModuleInit {
+  private readonly googleClient = new OAuth2Client();
+
   constructor(
     @InjectRepository(User)
     private readonly users: Repository<User>,
@@ -108,6 +116,71 @@ export class AuthService implements OnModuleInit {
 
     user.lastLoginAt = new Date();
     await this.users.save(user);
+    return this.authResponse(user);
+  }
+
+  async loginWithGoogle(body: GoogleAuthPayload) {
+    this.assertDatabaseReady();
+    const idToken = String(body.idToken || '').trim();
+    if (!idToken) {
+      throw new BadRequestException('Thiếu mã xác thực Google.');
+    }
+    const audiences = this.googleClientIds();
+    if (!audiences.length) {
+      throw new ServiceUnavailableException(
+        'Đăng nhập Google chưa được cấu hình trên máy chủ.',
+      );
+    }
+
+    let payload: Record<string, any> | undefined;
+    try {
+      const ticket = await this.googleClient.verifyIdToken({
+        idToken,
+        audience: audiences,
+      });
+      payload = ticket.getPayload() as Record<string, any> | undefined;
+    } catch (_) {
+      throw new UnauthorizedException(
+        'Không thể xác thực tài khoản Google. Hãy chọn lại tài khoản rồi thử lại.',
+      );
+    }
+
+    const email = this.normalizeEmail(payload?.email);
+    if (!email || payload?.email_verified !== true) {
+      throw new UnauthorizedException(
+        'Google chưa xác nhận email của tài khoản này.',
+      );
+    }
+
+    let user = await this.users.findOne({ where: { email } });
+    if (user?.status === 'blocked') {
+      throw new ForbiddenException('Tài khoản này đang bị khóa.');
+    }
+
+    const displayName = String(
+      payload?.name || email.split('@').at(0) || 'Người học VNChinese',
+    ).trim();
+    const avatarUrl = String(payload?.picture || '').trim();
+    if (!user) {
+      user = this.users.create({
+        email,
+        passwordHash: this.hashPassword(randomBytes(32).toString('hex')),
+        displayName,
+        avatarUrl,
+        role: 'user',
+        status: 'active',
+        targetLevel: this.normalizeLevel(body.targetLevel),
+      });
+    } else {
+      if (displayName) user.displayName = displayName;
+      if (avatarUrl) user.avatarUrl = avatarUrl;
+      if (body.targetLevel) {
+        user.targetLevel = this.normalizeLevel(body.targetLevel);
+      }
+    }
+    user.lastLoginAt = new Date();
+    await this.users.save(user);
+    await this.syncNormalizedUser(user);
     return this.authResponse(user);
   }
 
@@ -674,10 +747,25 @@ export class AuthService implements OnModuleInit {
     );
   }
 
+  private googleClientIds() {
+    return String(
+      process.env.GOOGLE_OAUTH_CLIENT_IDS ||
+        process.env.GOOGLE_WEB_CLIENT_ID ||
+        '',
+    )
+      .split(',')
+      .map((value) => value.trim())
+      .filter(Boolean);
+  }
+
   private authResponse(user: User) {
+    const accessToken = this.signToken(user);
     return {
+      success: true,
       user: this.publicUser(user),
-      token: this.signToken(user),
+      accessToken,
+      // Backward compatibility for existing admin/mobile clients.
+      token: accessToken,
     };
   }
 

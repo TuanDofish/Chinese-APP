@@ -3,6 +3,57 @@ part of '../../main.dart';
 class FlashcardRepository {
   static List<FlashcardTopic>? _cache;
 
+  // Demo topics must remain useful when the API is unavailable. The compact
+  // offline dictionary intentionally contains some English-only entries, so
+  // these learner-facing labels keep the flashcard meanings in Vietnamese.
+  static const _demoTopicText = <String, (String, String)>{
+    '医生': ('yīshēng', 'bác sĩ'),
+    '老师': ('lǎoshī', 'giáo viên'),
+    '学生': ('xuéshēng', 'học sinh'),
+    '工作': ('gōngzuò', 'công việc; làm việc'),
+    '公司': ('gōngsī', 'công ty'),
+    '人': ('rén', 'người'),
+    '朋友': ('péngyou', 'bạn bè'),
+    '名字': ('míngzi', 'tên'),
+    '医院': ('yīyuàn', 'bệnh viện'),
+    '商店': ('shāngdiàn', 'cửa hàng'),
+    '饭馆': ('fànguǎn', 'nhà hàng'),
+    '公园': ('gōngyuán', 'công viên'),
+    '银行': ('yínháng', 'ngân hàng'),
+    '机场': ('jīchǎng', 'sân bay'),
+    '学校': ('xuéxiào', 'trường học'),
+    '家': ('jiā', 'nhà; gia đình'),
+    '喜欢': ('xǐhuan', 'thích'),
+    '音乐': ('yīnyuè', 'âm nhạc'),
+    '电影': ('diànyǐng', 'phim'),
+    '跑步': ('pǎobù', 'chạy bộ'),
+    '游泳': ('yóuyǒng', 'bơi'),
+    '唱歌': ('chànggē', 'hát'),
+    '跳舞': ('tiàowǔ', 'nhảy múa'),
+    '运动': ('yùndòng', 'vận động; thể thao'),
+    '问题': ('wèntí', 'câu hỏi; vấn đề'),
+    '作业': ('zuòyè', 'bài tập về nhà'),
+    '考试': ('kǎoshì', 'kỳ thi; thi'),
+    '学习': ('xuéxí', 'học tập'),
+    '汉语': ('Hànyǔ', 'tiếng Trung'),
+    '书': ('shū', 'sách'),
+    '字': ('zì', 'chữ Hán; ký tự'),
+    '计划': ('jìhuà', 'kế hoạch'),
+    '希望': ('xīwàng', 'hy vọng'),
+    '决定': ('juédìng', 'quyết định; quyết định làm gì'),
+    '准备': ('zhǔnbèi', 'chuẩn bị'),
+    '参加': ('cānjiā', 'tham gia'),
+    '开始': ('kāishǐ', 'bắt đầu'),
+    '结束': ('jiéshù', 'kết thúc'),
+    '明天': ('míngtiān', 'ngày mai'),
+    '帮助': ('bāngzhù', 'giúp đỡ'),
+    '一起': ('yìqǐ', 'cùng nhau'),
+    '认识': ('rènshi', 'biết; làm quen'),
+    '联系': ('liánxì', 'liên lạc'),
+    '关系': ('guānxì', 'mối quan hệ'),
+    '请': ('qǐng', 'mời; xin vui lòng'),
+  };
+
   static List<FlashcardTopic> get fallbackTopics => [
     _topic(
       'hsk1_greeting',
@@ -27,15 +78,15 @@ class FlashcardRepository {
         plan.imagePath,
       );
     }).toList();
-    final plannedIds = plannedTopics.map((topic) => topic.id).toSet();
-    final assetTopics = await _loadAssetTopics(plannedIds);
-    _cache = [...plannedTopics, ...assetTopics];
+    final assetTopics = await _loadAssetTopics();
+    // Backend/asset content comes first so published content wins over plans.
+    // A title-level merge prevents cards such as "Gia đình" from appearing
+    // twice when their ids differ between the catalog and local fallback.
+    _cache = _deduplicateTopics([...assetTopics, ...plannedTopics]);
     return _cache!;
   }
 
-  static Future<List<FlashcardTopic>> _loadAssetTopics(
-    Set<String> skipIds,
-  ) async {
+  static Future<List<FlashcardTopic>> _loadAssetTopics() async {
     try {
       dynamic decoded;
       try {
@@ -63,11 +114,48 @@ class FlashcardRepository {
           .whereType<Map>()
           .map((raw) => _topicFromAsset(Map<String, dynamic>.from(raw)))
           .whereType<FlashcardTopic>()
-          .where((topic) => !skipIds.contains(topic.id))
           .toList();
     } catch (_) {
       return const [];
     }
+  }
+
+  static List<FlashcardTopic> _deduplicateTopics(
+    List<FlashcardTopic> topics,
+  ) {
+    final unique = <String, FlashcardTopic>{};
+    for (final topic in topics) {
+      final key = _topicKey(topic);
+      final existing = unique[key];
+      if (existing == null) {
+        unique[key] = topic;
+        continue;
+      }
+      final knownWords = existing.words.map((word) => word.simplified).toSet();
+      final mergedWords = [
+        ...existing.words,
+        ...topic.words.where((word) => knownWords.add(word.simplified)),
+      ];
+      unique[key] = FlashcardTopic(
+        id: existing.id,
+        level: existing.level,
+        name: existing.name,
+        icon: existing.icon,
+        imagePath: existing.imagePath ?? topic.imagePath,
+        words: mergedWords,
+      );
+    }
+    return unique.values.toList();
+  }
+
+  static String _topicKey(FlashcardTopic topic) {
+    final normalized = topic.name.toLowerCase().replaceAll(
+      RegExp(r'[^a-z0-9À-ỹ]+'),
+      ' ',
+    );
+    final family = normalized.contains('gia đình') ||
+        normalized.contains('family');
+    return '${topic.level}|${family ? 'family' : normalized.trim()}';
   }
 
   static FlashcardTopic? _topicFromAsset(Map<String, dynamic> topic) {
@@ -202,11 +290,20 @@ class FlashcardRepository {
   ) {
     final entries = words
         .map(
-          (word) => DictionaryRepository.forFlashcard(
-            word,
-            level: level,
-            imagePath: imagePath,
-          ),
+          (word) {
+            final entry = DictionaryRepository.forFlashcard(
+              word,
+              level: level,
+              imagePath: imagePath,
+            );
+            final cleanText = _demoTopicText[word];
+            return cleanText == null
+                ? entry
+                : entry.copyWith(
+                    pinyin: cleanText.$1,
+                    meaning: cleanText.$2,
+                  );
+          },
         )
         .toList();
     final resolvedTopicImagePath = entries
@@ -327,6 +424,54 @@ class FlashcardRepository {
       Icons.devices_outlined,
       'assets/images/flashcards/body/bf08c05e00.jpg',
       ['手机', '电脑', '上网', '照片', '消息', '电子邮件', '应用', '检查', '联系', '方便'],
+    ),
+    _FlashcardPlan(
+      'hsk1_people_jobs',
+      'HSK 1',
+      'Nghề nghiệp và con người',
+      Icons.badge_outlined,
+      'assets/images/flashcards/family/033e1fb01c.jpg',
+      ['医生', '老师', '学生', '工作', '公司', '人', '朋友', '名字'],
+    ),
+    _FlashcardPlan(
+      'hsk1_daily_places',
+      'HSK 1',
+      'Địa điểm thường ngày',
+      Icons.place_outlined,
+      'assets/images/flashcards/places/071bd02a36.jpg',
+      ['医院', '商店', '饭馆', '公园', '银行', '机场', '学校', '家'],
+    ),
+    _FlashcardPlan(
+      'hsk2_hobbies',
+      'HSK 2',
+      'Sở thích',
+      Icons.interests_outlined,
+      'assets/images/flashcards/entertainment/2f3703e427.jpg',
+      ['喜欢', '音乐', '电影', '跑步', '游泳', '唱歌', '跳舞', '运动'],
+    ),
+    _FlashcardPlan(
+      'hsk2_study_skills',
+      'HSK 2',
+      'Học tập',
+      Icons.menu_book_outlined,
+      'assets/images/flashcards/school/413b738061.jpg',
+      ['问题', '作业', '考试', '学习', '汉语', '书', '字', '老师'],
+    ),
+    _FlashcardPlan(
+      'hsk3_planning',
+      'HSK 3',
+      'Kế hoạch và mục tiêu',
+      Icons.event_note_outlined,
+      'assets/images/flashcards/daily_life/0068330a10.jpg',
+      ['计划', '希望', '决定', '准备', '参加', '开始', '结束', '明天'],
+    ),
+    _FlashcardPlan(
+      'hsk3_social',
+      'HSK 3',
+      'Giao tiếp xã hội',
+      Icons.groups_outlined,
+      'assets/images/flashcards/city_life/47d68cd0f4.jpg',
+      ['朋友', '帮助', '一起', '认识', '联系', '关系', '请', '名字'],
     ),
     _FlashcardPlan(
       'hsk4_business',

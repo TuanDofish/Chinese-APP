@@ -3,7 +3,7 @@ part of '../main.dart';
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key, required this.onLogout});
 
-  final VoidCallback onLogout;
+  final Future<void> Function() onLogout;
 
   @override
   State<MainScreen> createState() => _MainScreenState();

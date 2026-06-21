@@ -28,7 +28,6 @@ class _ReadingPracticeScreenState extends State<ReadingPracticeScreen> {
   int _tab = 0;
   String _level = 'HSK 1';
   String _speakingTopic = 'Tất cả';
-  String _newsSource = 'Tất cả';
   int _sentenceIndex = 0;
   bool _listening = false;
   String _recognized = '';
@@ -125,8 +124,8 @@ class _ReadingPracticeScreenState extends State<ReadingPracticeScreen> {
   @override
   Widget build(BuildContext context) {
     return ScreenShell(
-      title: 'Luyện đọc và phát âm',
-      subtitle: 'Đọc bài HSK ngắn, click từ chưa biết để xem pinyin và nghĩa.',
+      title: 'Đọc hiểu và phát âm',
+      subtitle: 'Bài học HSK có pinyin, nghĩa Việt, nghe từng câu và tra từ ngay trong bài.',
       trailing: IconButton.filledTonal(
         tooltip: 'Tải nguồn mới',
         onPressed: () {
@@ -240,25 +239,21 @@ class _ReadingPracticeScreenState extends State<ReadingPracticeScreen> {
   }
 
   Widget _buildReadingList() {
-    final levelItems =
-        _articles
-            .where((article) => article.live || article.level == _level)
-            .toList()
-          ..sort((left, right) {
-            if (left.live != right.live) return left.live ? 1 : -1;
-            return right.publishedAt.compareTo(left.publishedAt);
-          });
-    final sources = [
-      'Tất cả',
-      ...levelItems.map((item) => item.source).toSet(),
-    ];
-    if (!sources.contains(_newsSource)) _newsSource = 'Tất cả';
-    final items = levelItems
+    final lessonItems = _articles
         .where(
-          (article) => _newsSource == 'Tất cả' || article.source == _newsSource,
+          (article) =>
+              !article.live &&
+              article.level == _level &&
+              article.sentences.length >= 4,
         )
+        .toList()
+      ..sort(
+        (left, right) => right.sentences.length.compareTo(left.sentences.length),
+      );
+    final liveItems = _articles
+        .where((article) => article.live && article.level == _level)
         .toList();
-    final liveCount = _articles.where((article) => article.live).length;
+    final featured = lessonItems.isEmpty ? null : lessonItems.first;
     return Column(
       children: [
         LevelSelector(
@@ -268,157 +263,137 @@ class _ReadingPracticeScreenState extends State<ReadingPracticeScreen> {
         ),
         const SizedBox(height: 16),
         AppCard(
-          color: const Color(0xFFEAF6F0),
-          child: Row(
+          gradient: const LinearGradient(
+            colors: [Color(0xFFEAF6F0), Color(0xFFFFF7E8)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Icon(Icons.menu_book_outlined, color: AppColors.jade),
-              const SizedBox(width: 10),
-              Expanded(
-                child: Text(
-                  liveCount > 0
-                      ? 'Đang có $liveCount nguồn mới từ RSS/API ở cuối danh sách. Bài HSK vẫn được ưu tiên để học dễ hơn.'
-                      : 'Bài đọc được chia theo HSK, mỗi câu có thể nghe và bấm vào từ Hán để xem pinyin, nghĩa tiếng Việt.',
-                  style: const TextStyle(fontWeight: FontWeight.w700),
-                ),
+              const Row(
+                children: [
+                  Icon(Icons.auto_stories_outlined, color: AppColors.jade),
+                  SizedBox(width: 10),
+                  Text(
+                    'Bài học đọc theo lộ trình',
+                    style: TextStyle(
+                      color: AppColors.ink,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                ],
               ),
-              TextButton.icon(
-                onPressed: () {
-                  setState(() => _contentLoading = true);
-                  _loadContent(includeLiveNews: true);
-                },
-                icon: const Icon(Icons.sync),
-                label: const Text('Nguồn mới'),
+              const SizedBox(height: 8),
+              const Text(
+                'Mỗi bài có câu tiếng Trung, pinyin, nghĩa Việt và tra từ ngay khi chạm vào chữ Hán.',
+                style: TextStyle(
+                  color: AppColors.muted,
+                  height: 1.45,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ],
           ),
         ),
         const SizedBox(height: 14),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: sources.map((source) {
-              return Padding(
-                padding: const EdgeInsets.only(right: 8),
-                child: ChoiceChip(
-                  label: Text(source),
-                  selected: _newsSource == source,
-                  onSelected: (_) => setState(() => _newsSource = source),
-                ),
-              );
-            }).toList(),
-          ),
-        ),
-        const SizedBox(height: 14),
         if (_contentLoading)
           const AppCard(child: Center(child: CircularProgressIndicator())),
-        ...items.asMap().entries.map((entry) {
-          final item = entry.value;
+        if (!_contentLoading && featured != null)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 14),
+            child: _ReadingFeaturedCard(
+              item: featured,
+              onOpen: () => _openReadingLesson(featured),
+            ),
+          ),
+        if (!_contentLoading && lessonItems.length > 1)
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'Các bài cùng cấp',
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+          ),
+        if (!_contentLoading && lessonItems.length > 1)
+          const SizedBox(height: 10),
+        ...lessonItems.skip(featured == null ? 0 : 1).map((item) {
+          final sentenceCount = item.sentences.length;
           return Padding(
             padding: const EdgeInsets.only(bottom: 12),
             child: AppCard(
               child: InkWell(
-                onTap: () {
-                  LearningProgressStore.recordReadingArticle(title: item.title);
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => NewsArticleReaderScreen(article: item),
-                    ),
-                  );
-                },
-                child: Row(
+                borderRadius: BorderRadius.circular(8),
+                onTap: () => _openReadingLesson(item),
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CircleAvatar(
-                      radius: 15,
-                      backgroundColor: AppColors.blue.withValues(alpha: 0.12),
-                      child: Text(
-                        '${entry.key + 1}',
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: [
+                        StatusPill(
+                          label: item.level,
+                          color: _levelColor(item.level),
+                        ),
+                        StatusPill(
+                          icon: Icons.format_list_numbered_outlined,
+                          label: '$sentenceCount câu',
+                          color: AppColors.blue,
+                        ),
+                        StatusPill(
+                          icon: Icons.schedule_outlined,
+                          label: '${max(2, (sentenceCount / 2).ceil())} phút',
+                          color: AppColors.plum,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+                    Text(
+                      item.title,
+                      style: const TextStyle(
+                        fontFamily: 'NotoSansSC',
+                        fontSize: 21,
+                        height: 1.32,
+                        fontWeight: FontWeight.w900,
+                        color: AppColors.ink,
+                      ),
+                    ),
+                    if (item.titleVi.isNotEmpty) ...[
+                      const SizedBox(height: 4),
+                      Text(
+                        item.titleVi,
                         style: const TextStyle(
                           color: AppColors.blue,
-                          fontWeight: FontWeight.w900,
+                          fontWeight: FontWeight.w800,
                         ),
                       ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              StatusPill(
-                                label: item.live ? 'Nguồn mới' : item.level,
-                                color: item.live
-                                    ? AppColors.jade
-                                    : _levelColor(item.level),
-                              ),
-                              const SizedBox(width: 8),
-                              Expanded(
-                                child: Text(
-                                  item.source,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: const TextStyle(
-                                    color: AppColors.muted,
-                                    fontWeight: FontWeight.w800,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          if (item.publishedAt.isNotEmpty) ...[
-                            const SizedBox(height: 6),
-                            Row(
-                              children: [
-                                const Icon(
-                                  Icons.schedule_outlined,
-                                  size: 15,
-                                  color: AppColors.muted,
-                                ),
-                                const SizedBox(width: 5),
-                                Text(
-                                  _formatArticleTime(item.publishedAt),
-                                  style: const TextStyle(
-                                    color: AppColors.muted,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                          const SizedBox(height: 8),
-                          Text(
-                            item.title,
-                            style: const TextStyle(
-                              fontSize: 19,
-                              fontWeight: FontWeight.w900,
-                            ),
-                          ),
-                          if (item.titleVi.isNotEmpty) ...[
-                            const SizedBox(height: 3),
-                            Text(
-                              item.titleVi,
-                              style: const TextStyle(
-                                color: AppColors.blue,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ],
-                          const SizedBox(height: 6),
-                          Text(
-                            item.summaryVi,
-                            style: const TextStyle(
-                              color: AppColors.muted,
-                              fontStyle: FontStyle.italic,
-                            ),
-                          ),
-                        ],
+                    ],
+                    const SizedBox(height: 8),
+                    Text(
+                      item.summaryVi,
+                      style: const TextStyle(
+                        color: AppColors.muted,
+                        height: 1.4,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
-                    IconButton(
-                      tooltip: 'Nghe tiêu đề',
-                      onPressed: () => _tts.speak(item.title),
-                      icon: const Icon(Icons.volume_up_outlined),
+                    const SizedBox(height: 8),
+                    Row(
+                      children: [
+                        TextButton.icon(
+                          onPressed: () => _openReadingLesson(item),
+                          icon: const Icon(Icons.play_arrow_rounded),
+                          label: const Text('Bắt đầu học'),
+                        ),
+                        const Spacer(),
+                        IconButton(
+                          tooltip: 'Nghe tiêu đề',
+                          onPressed: () => _tts.speak(item.title),
+                          icon: const Icon(Icons.volume_up_outlined),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -426,20 +401,64 @@ class _ReadingPracticeScreenState extends State<ReadingPracticeScreen> {
             ),
           );
         }),
-        if (!_contentLoading && items.isEmpty)
+        if (!_contentLoading && liveItems.isNotEmpty) ...[
+          const SizedBox(height: 6),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'Tin đọc thêm',
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+          ),
+          const SizedBox(height: 8),
+          ...liveItems.take(3).map(
+                (item) => ListTile(
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 4),
+                  leading: const Icon(Icons.rss_feed_outlined),
+                  title: Text(
+                    item.title,
+                    style: const TextStyle(
+                      fontFamily: 'NotoSansSC',
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  subtitle: Text(item.source),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () => _openReadingLesson(item),
+                ),
+              ),
+        ],
+        if (!_contentLoading && lessonItems.isEmpty)
           const EmptyState(
             icon: Icons.menu_book_outlined,
-            title: 'Chưa có bài đọc',
-            message: 'Bài đọc cho cấp này đang được cập nhật.',
+            title: 'Bài học đọc đang được chuẩn bị',
+            message: 'Hãy thử một cấp HSK khác hoặc cập nhật nội dung.',
           ),
       ],
+    );
+  }
+
+  void _openReadingLesson(NewsArticleData item) {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) => NewsArticleReaderScreen(article: item)),
     );
   }
 
   Widget _buildVideos() {
     final lessons = _videoLessons
         .where((lesson) => lesson.level == _level)
-        .toList();
+        .where((lesson) => lesson.practiceReady)
+        .toList()
+      ..sort((left, right) {
+        final bySentences = right.subtitles.length.compareTo(
+          left.subtitles.length,
+        );
+        return bySentences != 0
+            ? bySentences
+            : right.transcriptSpanSeconds.compareTo(
+                left.transcriptSpanSeconds,
+              );
+      });
     return Column(
       children: [
         LevelSelector(
@@ -448,13 +467,33 @@ class _ReadingPracticeScreenState extends State<ReadingPracticeScreen> {
           onSelected: (level) => setState(() => _level = level),
         ),
         const SizedBox(height: 16),
+        const AppCard(
+          color: Color(0xFFEAF6F0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(Icons.verified_outlined, color: AppColors.jade),
+              SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  'Chỉ hiển thị video đã có phụ đề theo mốc thời gian, ít nhất 8 câu và đủ thời lượng để luyện shadowing.',
+                  style: TextStyle(
+                    color: AppColors.ink,
+                    height: 1.4,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 14),
         ...lessons.map((lesson) {
           return Padding(
             padding: const EdgeInsets.only(bottom: 14),
             child: VideoLessonCard(
               lesson: lesson,
               onOpen: () {
-                LearningProgressStore.recordStudyMinutes(4);
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (_) => VideoLessonDetailScreen(lesson: lesson),
@@ -467,9 +506,131 @@ class _ReadingPracticeScreenState extends State<ReadingPracticeScreen> {
         if (!_contentLoading && lessons.isEmpty)
           const EmptyState(
             icon: Icons.video_library_outlined,
-            title: 'Chưa có video',
-            message: 'Video cho cấp này đang được cập nhật.',
+            title: 'Chưa có video sẵn sàng luyện',
+            message:
+                'Video cần có phụ đề theo mốc thời gian trước khi xuất hiện tại đây.',
           ),
+      ],
+    );
+  }
+}
+
+class _ReadingFeaturedCard extends StatelessWidget {
+  const _ReadingFeaturedCard({required this.item, required this.onOpen});
+
+  final NewsArticleData item;
+  final VoidCallback onOpen;
+
+  @override
+  Widget build(BuildContext context) {
+    final sentenceCount = item.sentences.length;
+    return AppCard(
+      gradient: const LinearGradient(
+        colors: [Color(0xFF2E5950), Color(0xFF28443E)],
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Row(
+            children: [
+              Icon(Icons.menu_book_outlined, color: Color(0xFFFFE1A8)),
+              SizedBox(width: 8),
+              Text(
+                'Bài học đề xuất',
+                style: TextStyle(
+                  color: Color(0xFFFFE1A8),
+                  fontWeight: FontWeight.w900,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 14),
+          Text(
+            item.title,
+            style: const TextStyle(
+              fontFamily: 'NotoSansSC',
+              color: Colors.white,
+              fontSize: 27,
+              height: 1.25,
+              fontWeight: FontWeight.w900,
+            ),
+          ),
+          if (item.titleVi.isNotEmpty) ...[
+            const SizedBox(height: 5),
+            Text(
+              item.titleVi,
+              style: const TextStyle(
+                color: Color(0xFFEAF6F0),
+                fontSize: 16,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ],
+          const SizedBox(height: 8),
+          Text(
+            item.summaryVi,
+            style: const TextStyle(
+              color: Color(0xFFE0ECE7),
+              height: 1.4,
+            ),
+          ),
+          const SizedBox(height: 16),
+          Wrap(
+            spacing: 12,
+            runSpacing: 8,
+            children: [
+              _ReadingMetric(
+                icon: Icons.format_list_numbered_outlined,
+                label: '$sentenceCount câu',
+              ),
+              _ReadingMetric(
+                icon: Icons.schedule_outlined,
+                label: '${max(2, (sentenceCount / 2).ceil())} phút',
+              ),
+              const _ReadingMetric(
+                icon: Icons.touch_app_outlined,
+                label: 'Tra từ ngay',
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          FilledButton.icon(
+            style: FilledButton.styleFrom(
+              backgroundColor: Colors.white,
+              foregroundColor: AppColors.ink,
+            ),
+            onPressed: onOpen,
+            icon: const Icon(Icons.play_arrow_rounded),
+            label: const Text('Vào bài học'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ReadingMetric extends StatelessWidget {
+  const _ReadingMetric({required this.icon, required this.label});
+
+  final IconData icon;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(icon, color: const Color(0xFFFFE1A8), size: 17),
+        const SizedBox(width: 5),
+        Text(
+          label,
+          style: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w800,
+          ),
+        ),
       ],
     );
   }
@@ -536,7 +697,9 @@ class _PronunciationPracticeCard extends StatelessWidget {
                 current.cn,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
+                  fontFamily: 'NotoSansSC',
                   fontSize: 32,
+                  height: 1.25,
                   fontWeight: FontWeight.w900,
                   color: AppColors.ink,
                 ),
@@ -555,7 +718,10 @@ class _PronunciationPracticeCard extends StatelessWidget {
               Text(
                 current.vi,
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: AppColors.muted),
+                style: const TextStyle(
+                  color: AppColors.muted,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               const SizedBox(height: 26),
               GestureDetector(
@@ -640,14 +806,18 @@ class NewsArticleReaderScreen extends StatefulWidget {
 
 class _NewsArticleReaderScreenState extends State<NewsArticleReaderScreen> {
   final FlutterTts _tts = FlutterTts();
+  late final DateTime _openedAt;
   int _currentSentence = 0;
   late String _content;
   late List<ArticleSentenceData> _lines;
   bool _loadingFullArticle = false;
+  bool _showPinyin = true;
+  bool _showVietnamese = true;
 
   @override
   void initState() {
     super.initState();
+    _openedAt = DateTime.now();
     _content = widget.article.content;
     _lines = widget.article.sentences.isEmpty
         ? ReadingRepository.buildStudyLines(_content)
@@ -662,6 +832,15 @@ class _NewsArticleReaderScreenState extends State<NewsArticleReaderScreen> {
 
   @override
   void dispose() {
+    final elapsedMinutes = DateTime.now().difference(_openedAt).inMinutes;
+    if (elapsedMinutes > 0) {
+      unawaited(
+        LearningProgressStore.recordReadingArticle(
+          title: widget.article.title,
+          minutes: elapsedMinutes.clamp(1, 60).toInt(),
+        ),
+      );
+    }
     _tts.stop();
     super.dispose();
   }
@@ -683,12 +862,9 @@ class _NewsArticleReaderScreenState extends State<NewsArticleReaderScreen> {
               children: [
                 Text(
                   entry.simplified,
-                  style: const TextStyle(
-                    fontFamily: 'NotoSansSC',
+                  style: HanziTextStyles.display.copyWith(
                     fontSize: 42,
                     height: 1.1,
-                    fontWeight: FontWeight.w900,
-                    color: AppColors.ink,
                   ),
                 ),
                 const SizedBox(width: 16),
@@ -778,13 +954,7 @@ class _NewsArticleReaderScreenState extends State<NewsArticleReaderScreen> {
             onTap: () => _showWord(entry),
             child: Text(
               originalText,
-              style: const TextStyle(
-                fontFamily: 'NotoSansSC',
-                fontSize: 22,
-                height: 1.7,
-                color: AppColors.ink,
-                fontWeight: FontWeight.w600,
-              ),
+              style: HanziTextStyles.reading,
             ),
           ),
         ),
@@ -824,7 +994,7 @@ class _NewsArticleReaderScreenState extends State<NewsArticleReaderScreen> {
                     children: [
                       StatusPill(
                         icon: Icons.newspaper_outlined,
-                        label: widget.article.source,
+                        label: widget.article.sourceLabel,
                       ),
                       if (widget.article.live)
                         const StatusPill(
@@ -846,7 +1016,8 @@ class _NewsArticleReaderScreenState extends State<NewsArticleReaderScreen> {
                       fontFamily: 'NotoSansSC',
                       fontSize: 27,
                       height: 1.28,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w900,
+                      color: AppColors.ink,
                     ),
                   ),
                   if (widget.article.titleVi.isNotEmpty &&
@@ -862,13 +1033,91 @@ class _NewsArticleReaderScreenState extends State<NewsArticleReaderScreen> {
                       ),
                     ),
                   ],
-                  const SizedBox(height: 18),
+                  const SizedBox(height: 16),
+                  AppCard(
+                    color: const Color(0xFFF7F2EA),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            const Icon(
+                              Icons.school_outlined,
+                              color: AppColors.cinnabar,
+                            ),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(
+                                'Tiến độ bài đọc: ${_lines.isEmpty ? 0 : _currentSentence + 1}/${_lines.length} câu',
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.w900,
+                                  color: AppColors.ink,
+                                ),
+                              ),
+                            ),
+                            IconButton.filledTonal(
+                              tooltip: 'Nghe toàn bài',
+                              onPressed: () => _tts.speak(_content),
+                              icon: const Icon(Icons.volume_up_outlined),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        LinearProgressIndicator(
+                          value: _lines.isEmpty
+                              ? 0
+                              : (_currentSentence + 1) / _lines.length,
+                          minHeight: 7,
+                          borderRadius: BorderRadius.circular(8),
+                          color: AppColors.cinnabar,
+                          backgroundColor: AppColors.line,
+                        ),
+                        const SizedBox(height: 12),
+                        Wrap(
+                          spacing: 8,
+                          runSpacing: 8,
+                          children: [
+                            FilterChip(
+                              selected: _showPinyin,
+                              showCheckmark: false,
+                              label: const Text('Pinyin'),
+                              onSelected: (value) =>
+                                  setState(() => _showPinyin = value),
+                            ),
+                            FilterChip(
+                              selected: _showVietnamese,
+                              showCheckmark: false,
+                              label: const Text('Nghĩa Việt'),
+                              onSelected: (value) =>
+                                  setState(() => _showVietnamese = value),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 14),
+                  const Text(
+                    'Chạm vào từ tiếng Trung để xem pinyin và nghĩa. Nghe từng câu rồi đọc theo trước khi sang câu tiếp.',
+                    style: TextStyle(
+                      color: AppColors.muted,
+                      height: 1.45,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
                   ..._lines.asMap().entries.map((entry) {
                     final index = entry.key;
                     final line = entry.value;
                     return ArticleSentenceCard(
                       index: index,
                       active: index == _currentSentence,
+                      pinyin: line.py,
+                      translation: line.vi,
+                      showPinyin: _showPinyin,
+                      showVietnamese: _showVietnamese,
+                      onSelect: () =>
+                          setState(() => _currentSentence = index),
                       onSpeak: () {
                         setState(() => _currentSentence = index);
                         _tts.speak(line.cn);
@@ -892,76 +1141,120 @@ class ArticleSentenceCard extends StatelessWidget {
     required this.index,
     required this.active,
     required this.spans,
+    required this.pinyin,
+    required this.translation,
+    required this.showPinyin,
+    required this.showVietnamese,
+    required this.onSelect,
     required this.onSpeak,
   });
 
   final int index;
   final bool active;
   final List<InlineSpan> spans;
+  final String pinyin;
+  final String translation;
+  final bool showPinyin;
+  final bool showVietnamese;
+  final VoidCallback onSelect;
   final VoidCallback onSpeak;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 8),
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 7),
-      decoration: BoxDecoration(
-        color: active
-            ? AppColors.cinnabar.withValues(alpha: 0.06)
-            : Colors.transparent,
-        borderRadius: BorderRadius.circular(8),
-        border: active
-            ? Border.all(
-                color: AppColors.cinnabar.withValues(alpha: 0.38),
-                width: 1.2,
-              )
-            : null,
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: 30,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 7),
-              child: Text(
-                '${index + 1}',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: active ? AppColors.cinnabar : AppColors.muted,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w900,
+    return InkWell(
+      borderRadius: BorderRadius.circular(8),
+      onTap: onSelect,
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 9),
+        decoration: BoxDecoration(
+          color: active
+              ? AppColors.cinnabar.withValues(alpha: 0.06)
+              : Colors.transparent,
+          borderRadius: BorderRadius.circular(8),
+          border: active
+              ? Border.all(
+                  color: AppColors.cinnabar.withValues(alpha: 0.38),
+                  width: 1.2,
+                )
+              : null,
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: 30,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 7),
+                child: Text(
+                  '${index + 1}',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: active ? AppColors.cinnabar : AppColors.muted,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w900,
+                  ),
                 ),
               ),
             ),
-          ),
-          const SizedBox(width: 8),
-          Expanded(
-            child: RichText(
-              text: TextSpan(
-                style: const TextStyle(
-                  fontFamily: 'NotoSansSC',
-                  color: AppColors.ink,
-                  fontSize: 22,
-                  height: 1.72,
-                  fontWeight: FontWeight.w500,
-                ),
-                children: spans,
+            const SizedBox(width: 8),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  RichText(
+                    text: TextSpan(
+                      style: HanziTextStyles.reading,
+                      children: spans,
+                    ),
+                  ),
+                  if (showPinyin && pinyin.isNotEmpty)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 4),
+                      child: Text(
+                        pinyin,
+                        style: HanziTextStyles.pinyin,
+                      ),
+                    ),
+                  if (showVietnamese && translation.isNotEmpty)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 3),
+                      child: Text(
+                        translation,
+                        style: HanziTextStyles.translation.copyWith(
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                    )
+                  else if (showVietnamese)
+                    const Padding(
+                      padding: EdgeInsets.only(top: 3),
+                      child: Text(
+                        'Bản dịch đang được cập nhật.',
+                        style: TextStyle(
+                          color: AppColors.muted,
+                          height: 1.4,
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                ],
               ),
             ),
-          ),
-          const SizedBox(width: 6),
-          IconButton(
-            tooltip: 'Nghe câu',
-            visualDensity: VisualDensity.compact,
-            onPressed: onSpeak,
-            icon: Icon(
-              Icons.volume_up_outlined,
-              color: active ? AppColors.cinnabar : AppColors.muted,
-              size: 22,
+            const SizedBox(width: 6),
+            IconButton(
+              tooltip: 'Nghe câu',
+              visualDensity: VisualDensity.compact,
+              onPressed: onSpeak,
+              icon: Icon(
+                Icons.volume_up_outlined,
+                color: active ? AppColors.cinnabar : AppColors.muted,
+                size: 22,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

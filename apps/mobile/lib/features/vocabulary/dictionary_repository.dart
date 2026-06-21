@@ -1,10 +1,7 @@
 part of '../../main.dart';
 
 class DictionaryRepository {
-  static const String apiBaseUrl = String.fromEnvironment(
-    'API_BASE_URL',
-    defaultValue: 'http://localhost:3001',
-  );
+  static const String apiBaseUrl = AppConfig.apiBaseUrl;
   static final Map<String, VocabEntry> _cache = {};
   static final Map<String, VocabEntry> _exactEntries = {};
   static final Map<String, String> _flashcardImagePaths = {};
@@ -74,8 +71,8 @@ class DictionaryRepository {
             final level = map['hskLevel'] ?? 1;
             final meaningEn = (map['meaningEn'] ?? '').toString().trim();
             final meaning = meaningEn.isEmpty
-                ? 'Nghĩa tiếng Việt đang cập nhật'
-                : 'Nghĩa Việt đang cập nhật · $meaningEn';
+                ? 'Đang cập nhật nghĩa tiếng Việt'
+                : 'Tiếng Anh: $meaningEn';
             return VocabEntry(
               simplified: word,
               pinyin: (map['pinyin'] ?? '').toString(),
@@ -227,7 +224,7 @@ class DictionaryRepository {
     if (value != null) return value;
     return (
       pinyin,
-      meaning.isEmpty ? 'Nghĩa tiếng Việt đang cập nhật' : meaning,
+      meaning.isEmpty ? 'Đang cập nhật nghĩa tiếng Việt' : meaning,
     );
   }
 
@@ -317,7 +314,7 @@ class DictionaryRepository {
       return VocabEntry(
         simplified: found?.simplified ?? word,
         pinyin: found?.pinyin ?? '',
-        meaning: found?.meaning ?? 'Nghĩa tiếng Việt đang cập nhật',
+        meaning: found?.meaning ?? 'Đang cập nhật nghĩa tiếng Việt',
         hanViet: found?.hanViet ?? '',
         level: level,
         wordType: found?.wordType ?? '',
@@ -342,7 +339,7 @@ class DictionaryRepository {
       return VocabEntry(
         simplified: word,
         pinyin: '',
-        meaning: 'Nghĩa tiếng Việt đang cập nhật',
+        meaning: 'Đang cập nhật nghĩa tiếng Việt',
         level: level,
         imagePath: resolvedImagePath,
         examples: [
@@ -383,8 +380,13 @@ class DictionaryRepository {
           .timeout(const Duration(milliseconds: 900));
       if (response.statusCode != 200) return null;
       final decoded = jsonDecode(utf8.decode(response.bodyBytes));
-      if (decoded is! List || decoded.isEmpty) return null;
-      final map = Map<String, dynamic>.from(decoded.first as Map);
+      final values = decoded is List
+          ? decoded
+          : decoded is Map && decoded['value'] is List
+          ? decoded['value'] as List
+          : const <dynamic>[];
+      if (values.isEmpty || values.first is! Map) return null;
+      final map = Map<String, dynamic>.from(values.first as Map);
       final meaningVi = (map['meaningVi'] ?? map['meaning_vi'] ?? '')
           .toString()
           .trim();
@@ -395,7 +397,7 @@ class DictionaryRepository {
           ? meaningVi
           : meaningEn.isEmpty
           ? ''
-          : 'Nghĩa Việt đang cập nhật · $meaningEn';
+          : 'Tiếng Anh: $meaningEn';
       if (meaning.isEmpty) return null;
       final examples = <ExampleSentenceData>[];
       if (map['examples'] is List) {
@@ -629,6 +631,82 @@ class DictionaryRepository {
       imagePath: 'assets/images/flashcards/family/e571dca2d0.jpg',
       examples: const [
         ExampleSentenceData('妈妈做饭。', 'Māma zuò fàn.', 'Mẹ nấu cơm.'),
+      ],
+    ),
+    e(
+      '哥哥',
+      'gēge',
+      'anh trai',
+      imagePath: 'assets/images/flashcards/family/39af35e7b7.jpg',
+      examples: const [
+        ExampleSentenceData(
+          '我哥哥比我大三岁。',
+          'Wǒ gēge bǐ wǒ dà sān suì.',
+          'Anh trai tôi lớn hơn tôi ba tuổi.',
+        ),
+      ],
+    ),
+    e(
+      '姐姐',
+      'jiějie',
+      'chị gái',
+      imagePath: 'assets/images/flashcards/family/033e1fb01c.jpg',
+      examples: const [
+        ExampleSentenceData(
+          '我姐姐在北京工作。',
+          'Wǒ jiějie zài Běijīng gōngzuò.',
+          'Chị gái tôi làm việc ở Bắc Kinh.',
+        ),
+      ],
+    ),
+    e(
+      '弟弟',
+      'dìdi',
+      'em trai',
+      imagePath: 'assets/images/flashcards/family/427034659a.jpg',
+      examples: const [
+        ExampleSentenceData(
+          '弟弟在上小学。',
+          'Dìdi zài shàng xiǎoxué.',
+          'Em trai đang học tiểu học.',
+        ),
+      ],
+    ),
+    e(
+      '妹妹',
+      'mèimei',
+      'em gái',
+      imagePath: 'assets/images/flashcards/family/1c097b12de.jpg',
+      examples: const [
+        ExampleSentenceData(
+          '我妹妹喜欢画画。',
+          'Wǒ mèimei xǐhuan huà huà.',
+          'Em gái tôi thích vẽ tranh.',
+        ),
+      ],
+    ),
+    e(
+      '儿子',
+      'érzi',
+      'con trai',
+      examples: const [
+        ExampleSentenceData(
+          '他有一个儿子。',
+          'Tā yǒu yí ge érzi.',
+          'Anh ấy có một người con trai.',
+        ),
+      ],
+    ),
+    e(
+      '女儿',
+      'nǚ ér',
+      'con gái',
+      examples: const [
+        ExampleSentenceData(
+          '女儿很可爱。',
+          'Nǚ ér hěn kěài.',
+          'Con gái rất đáng yêu.',
+        ),
       ],
     ),
     e(

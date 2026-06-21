@@ -16,6 +16,293 @@ export type ManagedContentBundle = {
   aiSettings: Record<string, unknown>;
 };
 
+const CURATED_VIDEO_LESSONS: Record<string, any>[] = [
+  {
+    id: 'lf_hsk1_i_see',
+    title: 'I See',
+    titleCn: '我看到',
+    level: 'HSK 1',
+    youtubeId: 'VxAImi0LsS8',
+    source: 'Little Fox Chinese',
+    transcriptStatus: 'timed',
+    transcriptSource: 'User supplied timed transcript',
+    reviewStatus: 'reviewed',
+    status: 'published',
+    subtitles: [
+      {
+        start: 0.94,
+        end: 10.28,
+        cn: '小猴子，我看到。',
+        py: 'Xiǎo hóuzi, wǒ kàn dào.',
+        vi: 'Chú khỉ nhỏ, tôi nhìn thấy.',
+      },
+      {
+        start: 24.24,
+        end: 27.76,
+        cn: '我看到石头。',
+        py: 'Wǒ kàn dào shítou.',
+        vi: 'Tôi nhìn thấy hòn đá.',
+      },
+      {
+        start: 32.78,
+        end: 36.34,
+        cn: '我看到蚂蚁。',
+        py: 'Wǒ kàn dào mǎyǐ.',
+        vi: 'Tôi nhìn thấy con kiến.',
+      },
+      {
+        start: 40.78,
+        end: 47.4,
+        cn: '我看到花。',
+        py: 'Wǒ kàn dào huā.',
+        vi: 'Tôi nhìn thấy bông hoa.',
+      },
+      {
+        start: 55.95,
+        end: 58.97,
+        cn: '我看到蝴蝶。',
+        py: 'Wǒ kàn dào húdié.',
+        vi: 'Tôi nhìn thấy con bướm.',
+      },
+      {
+        start: 65.16,
+        end: 68.18,
+        cn: '我看到蜜蜂。',
+        py: 'Wǒ kàn dào mìfēng.',
+        vi: 'Tôi nhìn thấy con ong.',
+      },
+      {
+        start: 73.91,
+        end: 81.68,
+        cn: '我看到树。',
+        py: 'Wǒ kàn dào shù.',
+        vi: 'Tôi nhìn thấy cái cây.',
+      },
+      {
+        start: 89.69,
+        end: 92.67,
+        cn: '我看到猫。',
+        py: 'Wǒ kàn dào māo.',
+        vi: 'Tôi nhìn thấy con mèo.',
+      },
+      {
+        start: 95.31,
+        end: 95.75,
+        cn: '快跑！',
+        py: 'Kuài pǎo!',
+        vi: 'Chạy mau!',
+      },
+      {
+        start: 109,
+        end: 116.68,
+        cn: '石头，我看到石头。',
+        py: 'Shítou, wǒ kàn dào shítou.',
+        vi: 'Hòn đá, tôi nhìn thấy hòn đá.',
+      },
+      {
+        start: 118.86,
+        end: 126.12,
+        cn: '蚂蚁，我看到蚂蚁。',
+        py: 'Mǎyǐ, wǒ kàn dào mǎyǐ.',
+        vi: 'Con kiến, tôi nhìn thấy con kiến.',
+      },
+      {
+        start: 128.7,
+        end: 132.58,
+        cn: '花，我看到花。',
+        py: 'Huā, wǒ kàn dào huā.',
+        vi: 'Bông hoa, tôi nhìn thấy bông hoa.',
+      },
+      {
+        start: 136.4,
+        end: 144.28,
+        cn: '树，我看到树。',
+        py: 'Shù, wǒ kàn dào shù.',
+        vi: 'Cái cây, tôi nhìn thấy cái cây.',
+      },
+    ],
+  },
+];
+
+const foundationReadingArticle = (
+  id: string,
+  level: string,
+  title: string,
+  titleVi: string,
+  summaryVi: string,
+  sentences: Array<{ cn: string; py: string; vi: string }>,
+) => ({
+  id,
+  level,
+  source: 'VNChinese',
+  sourceType: 'seed_hsk',
+  sourceLabel: 'Bài đọc HSK tự biên soạn',
+  title,
+  titleVi,
+  summaryVi,
+  content: sentences.map((sentence) => sentence.cn).join(''),
+  status: 'published',
+  sentences,
+});
+
+const CURATED_FOUNDATION_READING_LESSONS: Record<string, any>[] = [
+  foundationReadingArticle(
+    'seed_hsk1_daily_life',
+    'HSK 1',
+    '每天的生活',
+    'Cuộc sống hằng ngày',
+    'Bài đọc HSK 1 về giờ giấc, bữa sáng và việc học mỗi ngày.',
+    [
+      { cn: '我每天七点起床。', py: 'Wǒ měitiān qī diǎn qǐchuáng.', vi: 'Tôi thức dậy lúc bảy giờ mỗi ngày.' },
+      { cn: '早上我喝一杯牛奶，吃一片面包。', py: 'Zǎoshang wǒ hē yì bēi niúnǎi, chī yí piàn miànbāo.', vi: 'Buổi sáng tôi uống một cốc sữa và ăn một lát bánh mì.' },
+      { cn: '八点我去学校学习汉语。', py: 'Bā diǎn wǒ qù xuéxiào xuéxí Hànyǔ.', vi: 'Tám giờ tôi đến trường học tiếng Trung.' },
+      { cn: '中午我和朋友一起吃饭。', py: 'Zhōngwǔ wǒ hé péngyou yìqǐ chīfàn.', vi: 'Buổi trưa tôi ăn cơm cùng bạn.' },
+      { cn: '下午我回家做作业。', py: 'Xiàwǔ wǒ huí jiā zuò zuòyè.', vi: 'Buổi chiều tôi về nhà làm bài tập.' },
+      { cn: '晚上十点我睡觉。', py: 'Wǎnshang shí diǎn wǒ shuìjiào.', vi: 'Mười giờ tối tôi đi ngủ.' },
+    ],
+  ),
+  foundationReadingArticle(
+    'seed_hsk1_my_family',
+    'HSK 1',
+    '我的家',
+    'Gia đình của tôi',
+    'Bài đọc HSK 1 giới thiệu các thành viên trong gia đình.',
+    [
+      { cn: '我家有四个人。', py: 'Wǒ jiā yǒu sì ge rén.', vi: 'Gia đình tôi có bốn người.' },
+      { cn: '爸爸是医生，妈妈是老师。', py: 'Bàba shì yīshēng, māma shì lǎoshī.', vi: 'Bố là bác sĩ, mẹ là giáo viên.' },
+      { cn: '我有一个姐姐。', py: 'Wǒ yǒu yí ge jiějie.', vi: 'Tôi có một chị gái.' },
+      { cn: '姐姐也喜欢学习汉语。', py: 'Jiějie yě xǐhuan xuéxí Hànyǔ.', vi: 'Chị gái cũng thích học tiếng Trung.' },
+      { cn: '晚上我们一起吃饭，也一起看电视。', py: 'Wǎnshang wǒmen yìqǐ chīfàn, yě yìqǐ kàn diànshì.', vi: 'Buổi tối chúng tôi cùng ăn cơm và xem tivi.' },
+      { cn: '我的家很开心。', py: 'Wǒ de jiā hěn kāixīn.', vi: 'Gia đình tôi rất vui vẻ.' },
+    ],
+  ),
+  foundationReadingArticle(
+    'seed_hsk2_go_to_school',
+    'HSK 2',
+    '去学校',
+    'Đi học',
+    'Bài đọc HSK 2 về phương tiện đi lại và một buổi học ở trường.',
+    [
+      { cn: '我家离学校不远，所以我每天坐公共汽车去学校。', py: 'Wǒ jiā lí xuéxiào bù yuǎn, suǒyǐ wǒ měitiān zuò gōnggòng qìchē qù xuéxiào.', vi: 'Nhà tôi không xa trường nên mỗi ngày tôi đi xe buýt đến trường.' },
+      { cn: '路上常常很忙，但是我不会迟到。', py: 'Lùshang chángcháng hěn máng, dànshì wǒ bú huì chídào.', vi: 'Trên đường thường đông nhưng tôi không bị muộn.' },
+      { cn: '第一节课是汉语课。', py: 'Dì yī jié kè shì Hànyǔ kè.', vi: 'Tiết đầu tiên là tiết tiếng Trung.' },
+      { cn: '老师让我们先复习昨天的生词。', py: 'Lǎoshī ràng wǒmen xiān fùxí zuótiān de shēngcí.', vi: 'Giáo viên bảo chúng tôi ôn từ mới của hôm qua trước.' },
+      { cn: '然后两个人一起练习对话。', py: 'Ránhòu liǎng ge rén yìqǐ liànxí duìhuà.', vi: 'Sau đó hai người cùng luyện hội thoại.' },
+      { cn: '下课以后，我觉得今天学得很好。', py: 'Xiàkè yǐhòu, wǒ juéde jīntiān xué de hěn hǎo.', vi: 'Sau giờ học, tôi thấy hôm nay mình học rất tốt.' },
+    ],
+  ),
+  foundationReadingArticle(
+    'seed_hsk2_shopping',
+    'HSK 2',
+    '买东西',
+    'Mua đồ',
+    'Bài đọc HSK 2 về mua sắm, giá cả và lời cảm ơn.',
+    [
+      { cn: '周末我和妈妈去商店买东西。', py: 'Zhōumò wǒ hé māma qù shāngdiàn mǎi dōngxi.', vi: 'Cuối tuần tôi và mẹ đi cửa hàng mua đồ.' },
+      { cn: '妈妈想买一些水果，我想买一本汉语书。', py: 'Māma xiǎng mǎi yìxiē shuǐguǒ, wǒ xiǎng mǎi yì běn Hànyǔ shū.', vi: 'Mẹ muốn mua trái cây, còn tôi muốn mua một quyển sách tiếng Trung.' },
+      { cn: '苹果很新鲜，也不太贵。', py: 'Píngguǒ hěn xīnxiān, yě bú tài guì.', vi: 'Táo rất tươi và cũng không quá đắt.' },
+      { cn: '书店的店员告诉我，这本书正在打折。', py: 'Shūdiàn de diànyuán gàosu wǒ, zhè běn shū zhèngzài dǎzhé.', vi: 'Nhân viên nhà sách nói với tôi rằng quyển sách này đang giảm giá.' },
+      { cn: '最后我们买了水果、牛奶和一本书。', py: 'Zuìhòu wǒmen mǎi le shuǐguǒ, niúnǎi hé yì běn shū.', vi: 'Cuối cùng chúng tôi mua trái cây, sữa và một quyển sách.' },
+      { cn: '回家的时候，我对妈妈说今天买得很合适。', py: 'Huí jiā de shíhou, wǒ duì māma shuō jīntiān mǎi de hěn héshì.', vi: 'Trên đường về nhà, tôi nói với mẹ rằng hôm nay mua đồ rất hợp lý.' },
+    ],
+  ),
+];
+
+const CURATED_READING_LESSONS: Record<string, any>[] = [
+  {
+    id: 'reading_hsk1_school_day',
+    level: 'HSK 1',
+    source: 'VNChinese Easy News',
+    title: '学校今天有中文活动',
+    titleVi: 'Hôm nay trường có hoạt động tiếng Trung',
+    summaryVi:
+      'Bài học HSK 1 về lớp học, giáo viên và hoạt động nói tiếng Trung.',
+    content:
+      '今天学校有中文活动。早上八点，学生们来到教室。老师先教大家读新词。每个学生说一句中文。有的学生读得很慢。老师说，慢慢读没有关系。下课以后，大家一起唱中文歌。这个活动让学生更喜欢学习中文。',
+    status: 'published',
+    publishedAt: '2026-06-19T00:00:00.000Z',
+    sentences: [
+      { cn: '今天学校有中文活动。', py: 'Jīntiān xuéxiào yǒu Zhōngwén huódòng.', vi: 'Hôm nay trường có hoạt động tiếng Trung.' },
+      { cn: '早上八点，学生们来到教室。', py: 'Zǎoshang bā diǎn, xuéshengmen lái dào jiàoshì.', vi: 'Tám giờ sáng, học sinh đến lớp học.' },
+      { cn: '老师先教大家读新词。', py: 'Lǎoshī xiān jiāo dàjiā dú xīn cí.', vi: 'Giáo viên trước tiên dạy mọi người đọc từ mới.' },
+      { cn: '每个学生说一句中文。', py: 'Měi ge xuésheng shuō yí jù Zhōngwén.', vi: 'Mỗi học sinh nói một câu tiếng Trung.' },
+      { cn: '有的学生读得很慢。', py: 'Yǒu de xuésheng dú de hěn màn.', vi: 'Có học sinh đọc khá chậm.' },
+      { cn: '老师说，慢慢读没有关系。', py: 'Lǎoshī shuō, màn man dú méiyǒu guānxi.', vi: 'Giáo viên nói đọc chậm cũng không sao.' },
+      { cn: '下课以后，大家一起唱中文歌。', py: 'Xiàkè yǐhòu, dàjiā yìqǐ chàng Zhōngwén gē.', vi: 'Sau giờ học, mọi người cùng hát bài tiếng Trung.' },
+      { cn: '这个活动让学生更喜欢学习中文。', py: 'Zhège huódòng ràng xuésheng gèng xǐhuan xuéxí Zhōngwén.', vi: 'Hoạt động này khiến học sinh thích học tiếng Trung hơn.' },
+    ],
+  },
+  {
+    id: 'reading_hsk2_weekend_market',
+    level: 'HSK 2',
+    source: 'VNChinese Life',
+    title: '周末市场和公园都很热闹',
+    titleVi: 'Cuối tuần chợ và công viên đều nhộn nhịp',
+    summaryVi:
+      'Bài học HSK 2 về sinh hoạt cuối tuần, mua sắm, thời tiết và gia đình.',
+    content:
+      '这个周末天气很好。很多人早上去市场买东西。水果比平时便宜一点。一位妈妈买了苹果和蔬菜。她说晚上要给家人做饭。下午，孩子们在公园跑步。老人坐在树下喝茶聊天。大家觉得这样的周末很舒服。',
+    status: 'published',
+    publishedAt: '2026-06-19T00:00:00.000Z',
+    sentences: [
+      { cn: '这个周末天气很好。', py: 'Zhège zhōumò tiānqì hěn hǎo.', vi: 'Cuối tuần này thời tiết rất đẹp.' },
+      { cn: '很多人早上去市场买东西。', py: 'Hěn duō rén zǎoshang qù shìchǎng mǎi dōngxi.', vi: 'Nhiều người buổi sáng đi chợ mua đồ.' },
+      { cn: '水果比平时便宜一点。', py: 'Shuǐguǒ bǐ píngshí piányi yìdiǎn.', vi: 'Trái cây rẻ hơn bình thường một chút.' },
+      { cn: '一位妈妈买了苹果和蔬菜。', py: 'Yí wèi māma mǎi le píngguǒ hé shūcài.', vi: 'Một người mẹ đã mua táo và rau.' },
+      { cn: '她说晚上要给家人做饭。', py: 'Tā shuō wǎnshang yào gěi jiārén zuò fàn.', vi: 'Cô ấy nói tối sẽ nấu cơm cho gia đình.' },
+      { cn: '下午，孩子们在公园跑步。', py: 'Xiàwǔ, háizimen zài gōngyuán pǎobù.', vi: 'Buổi chiều, trẻ em chạy bộ trong công viên.' },
+      { cn: '老人坐在树下喝茶聊天。', py: 'Lǎorén zuò zài shù xià hē chá liáotiān.', vi: 'Người lớn tuổi ngồi dưới cây uống trà nói chuyện.' },
+      { cn: '大家觉得这样的周末很舒服。', py: 'Dàjiā juéde zhèyàng de zhōumò hěn shūfu.', vi: 'Mọi người thấy cuối tuần như vậy rất dễ chịu.' },
+    ],
+  },
+  {
+    id: 'reading_hsk3_library_corner',
+    level: 'HSK 3',
+    source: 'VNChinese Culture',
+    title: '城市图书馆开设中文角',
+    titleVi: 'Thư viện thành phố mở góc tiếng Trung',
+    summaryVi:
+      'Bài học HSK 3 về góc tiếng Trung, luyện nói và cộng đồng học tập.',
+    content:
+      '城市图书馆最近开设了一个中文角。这个活动每个周六下午举行。参加的人有学生，也有上班族。大家先听一段短新闻。然后老师带大家一句一句地读。志愿者会帮助学习者改正发音。很多人说，跟别人一起练习更有动力。图书馆希望以后增加更多语言活动。',
+    status: 'published',
+    publishedAt: '2026-06-19T00:00:00.000Z',
+    sentences: [
+      { cn: '城市图书馆最近开设了一个中文角。', py: 'Chéngshì túshūguǎn zuìjìn kāishè le yí ge Zhōngwén jiǎo.', vi: 'Thư viện thành phố gần đây đã mở một góc tiếng Trung.' },
+      { cn: '这个活动每个周六下午举行。', py: 'Zhège huódòng měi ge zhōuliù xiàwǔ jǔxíng.', vi: 'Hoạt động này diễn ra vào chiều thứ Bảy hằng tuần.' },
+      { cn: '参加的人有学生，也有上班族。', py: 'Cānjiā de rén yǒu xuésheng, yě yǒu shàngbānzú.', vi: 'Người tham gia có học sinh và cả người đi làm.' },
+      { cn: '大家先听一段短新闻。', py: 'Dàjiā xiān tīng yí duàn duǎn xīnwén.', vi: 'Mọi người trước tiên nghe một đoạn tin ngắn.' },
+      { cn: '然后老师带大家一句一句地读。', py: 'Ránhòu lǎoshī dài dàjiā yí jù yí jù de dú.', vi: 'Sau đó giáo viên dẫn mọi người đọc từng câu một.' },
+      { cn: '志愿者会帮助学习者改正发音。', py: 'Zhìyuànzhě huì bāngzhù xuéxízhě gǎizhèng fāyīn.', vi: 'Tình nguyện viên sẽ giúp người học sửa phát âm.' },
+      { cn: '很多人说，跟别人一起练习更有动力。', py: 'Hěn duō rén shuō, gēn biérén yìqǐ liànxí gèng yǒu dònglì.', vi: 'Nhiều người nói luyện cùng người khác có động lực hơn.' },
+      { cn: '图书馆希望以后增加更多语言活动。', py: 'Túshūguǎn xīwàng yǐhòu zēngjiā gèng duō yǔyán huódòng.', vi: 'Thư viện hy vọng sau này tăng thêm nhiều hoạt động ngôn ngữ.' },
+    ],
+  },
+  {
+    id: 'reading_hsk4_online_learning',
+    level: 'HSK 4',
+    source: 'VNChinese Focus',
+    title: '网络课程改变学生的学习方式',
+    titleVi: 'Khóa học trực tuyến thay đổi cách học của học sinh',
+    summaryVi:
+      'Bài học HSK 4 về giáo dục trực tuyến, tính tự giác và hiệu quả học tập.',
+    content:
+      '近年来，网络课程正在改变学生获得知识的方式。学生可以根据自己的时间安排学习计划。有些课程还提供视频、练习题和自动评分。老师认为，这种方式可以帮助学生反复复习。不过，网络学习也需要更强的自律。如果没有计划，学生容易被手机和游戏影响。专家建议每天固定一个时间学习。只要坚持使用正确的方法，学习效果会越来越好。',
+    status: 'published',
+    publishedAt: '2026-06-19T00:00:00.000Z',
+    sentences: [
+      { cn: '近年来，网络课程正在改变学生获得知识的方式。', py: 'Jìnnián lái, wǎngluò kèchéng zhèngzài gǎibiàn xuésheng huòdé zhīshi de fāngshì.', vi: 'Những năm gần đây, khóa học trực tuyến đang thay đổi cách học sinh tiếp nhận kiến thức.' },
+      { cn: '学生可以根据自己的时间安排学习计划。', py: 'Xuésheng kěyǐ gēnjù zìjǐ de shíjiān ānpái xuéxí jìhuà.', vi: 'Học sinh có thể sắp xếp kế hoạch học theo thời gian của mình.' },
+      { cn: '有些课程还提供视频、练习题和自动评分。', py: 'Yǒuxiē kèchéng hái tígōng shìpín, liànxítí hé zìdòng píngfēn.', vi: 'Một số khóa còn cung cấp video, bài tập và chấm điểm tự động.' },
+      { cn: '老师认为，这种方式可以帮助学生反复复习。', py: 'Lǎoshī rènwéi, zhè zhǒng fāngshì kěyǐ bāngzhù xuésheng fǎnfù fùxí.', vi: 'Giáo viên cho rằng cách này có thể giúp học sinh ôn tập nhiều lần.' },
+      { cn: '不过，网络学习也需要更强的自律。', py: 'Búguò, wǎngluò xuéxí yě xūyào gèng qiáng de zìlǜ.', vi: 'Tuy vậy, học trực tuyến cũng cần tính tự giác cao hơn.' },
+      { cn: '如果没有计划，学生容易被手机和游戏影响。', py: 'Rúguǒ méiyǒu jìhuà, xuésheng róngyì bèi shǒujī hé yóuxì yǐngxiǎng.', vi: 'Nếu không có kế hoạch, học sinh dễ bị điện thoại và trò chơi ảnh hưởng.' },
+      { cn: '专家建议每天固定一个时间学习。', py: 'Zhuānjiā jiànyì měitiān gùdìng yí ge shíjiān xuéxí.', vi: 'Chuyên gia khuyên mỗi ngày cố định một thời gian để học.' },
+      { cn: '只要坚持使用正确的方法，学习效果会越来越好。', py: 'Zhǐyào jiānchí shǐyòng zhèngquè de fāngfǎ, xuéxí xiàoguǒ huì yuè lái yuè hǎo.', vi: 'Chỉ cần kiên trì dùng phương pháp đúng, hiệu quả học sẽ ngày càng tốt.' },
+    ],
+  },
+];
+
 @Injectable()
 export class ContentService {
   constructor(private readonly dataSource: DataSource) {}
@@ -190,7 +477,44 @@ export class ContentService {
         vi: row.sentence_vi || '',
       });
     }
-    return [...videos.values()];
+    return this.withCuratedVideoLessons([...videos.values()], publishedOnly);
+  }
+
+  private withCuratedVideoLessons(
+    videos: Record<string, any>[],
+    publishedOnly: boolean,
+  ) {
+    const byYoutubeId = new Map<string, Record<string, any>>();
+    for (const video of videos) {
+      const youtubeId = String(video.youtubeId || '').trim();
+      if (youtubeId) byYoutubeId.set(youtubeId, video);
+    }
+    for (const curated of CURATED_VIDEO_LESSONS) {
+      if (publishedOnly && curated.status !== 'published') continue;
+      const youtubeId = String(curated.youtubeId || '').trim();
+      const current = byYoutubeId.get(youtubeId);
+      if (!current) {
+        videos.push(curated);
+        if (youtubeId) byYoutubeId.set(youtubeId, curated);
+        continue;
+      }
+      if (this.videoQualityScore(curated) > this.videoQualityScore(current)) {
+        Object.assign(current, curated);
+      }
+    }
+    return videos;
+  }
+
+  private videoQualityScore(video: Record<string, any>) {
+    const subtitles = this.arrayValue(video.subtitles);
+    const starts = subtitles
+      .map((line) => Number(line.start))
+      .filter((value) => Number.isFinite(value));
+    const ends = subtitles
+      .map((line) => Number(line.end))
+      .filter((value) => Number.isFinite(value));
+    const span = starts.length && ends.length ? Math.max(...ends) - Math.min(...starts) : 0;
+    return subtitles.length * 1000 + span;
   }
 
   async getPronunciation(publishedOnly = true) {
@@ -267,7 +591,7 @@ export class ContentService {
        ORDER BY a.hsk_level, a.id`,
       [publishedOnly],
     );
-    return rows.map((row: any) => ({
+    const articles = rows.map((row: any) => ({
       id: row.external_id || String(row.id),
       databaseId: row.id,
       level: this.levelLabel(row.hsk_level),
@@ -281,6 +605,22 @@ export class ContentService {
       publishedAt: row.published_at || '',
       status: row.status,
     }));
+    return this.withCuratedReadingLessons(articles, publishedOnly);
+  }
+
+  private withCuratedReadingLessons(
+    articles: Record<string, any>[],
+    publishedOnly: boolean,
+  ) {
+    const known = new Set(articles.map((article) => String(article.id || '')));
+    for (const curated of [
+      ...CURATED_FOUNDATION_READING_LESSONS,
+      ...CURATED_READING_LESSONS,
+    ]) {
+      if (publishedOnly && curated.status !== 'published') continue;
+      if (!known.has(curated.id)) articles.push(curated);
+    }
+    return articles;
   }
 
   async getLessons(publishedOnly = true) {

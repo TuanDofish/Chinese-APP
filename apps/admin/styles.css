@@ -265,6 +265,26 @@ button {
   padding: 20px 28px 32px;
 }
 
+.admin-alert {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+}
+
+.admin-alert.warning {
+  border-color: rgba(217, 146, 30, 0.34);
+  background: #fff7e7;
+}
+
+.admin-alert span {
+  color: var(--muted);
+}
+
 .topbar {
   position: sticky;
   top: 0;
@@ -609,7 +629,7 @@ tr:last-child td {
 
 .image-uploader {
   display: grid;
-  grid-template-columns: 168px minmax(0, 1fr);
+  grid-template-columns: 148px minmax(0, 1fr);
   align-items: center;
   gap: 12px;
 }
@@ -617,7 +637,7 @@ tr:last-child td {
 .image-uploader-preview {
   display: grid;
   place-items: center;
-  width: 168px;
+  width: 148px;
   max-width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;

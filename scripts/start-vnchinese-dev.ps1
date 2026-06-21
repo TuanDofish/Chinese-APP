@@ -11,7 +11,7 @@ function Wait-HttpOk($Url, $Name, $Seconds = 90) {
   do {
     try {
       $response = Invoke-WebRequest -Uri $Url -UseBasicParsing -TimeoutSec 3
-      if ($response.StatusCode -ge 200 -and $response.StatusCode -lt 500) {
+      if ($response.StatusCode -ge 200 -and $response.StatusCode -lt 300) {
         Write-Host "$Name ready: $Url"
         return
       }
@@ -20,6 +20,14 @@ function Wait-HttpOk($Url, $Name, $Seconds = 90) {
     }
   } while ((Get-Date) -lt $deadline)
   throw "$Name did not become ready at $Url"
+}
+
+function Show-RecentLog($Path, $Label) {
+  if (Test-Path $Path) {
+    Write-Host ""
+    Write-Host "Last $Label lines:"
+    Get-Content -Path $Path -Tail 40 -ErrorAction SilentlyContinue
+  }
 }
 
 function Test-DockerReady {
@@ -62,10 +70,16 @@ function Stop-PortOwner($Port) {
 Set-Location $root
 Ensure-DockerReady
 docker compose up -d postgres redis
+Write-Host 'PostgreSQL: localhost:5433'
+Write-Host 'Adminer, if needed: http://127.0.0.1:8081'
 
 Stop-PortOwner $ApiPort
 $apiLog = Join-Path $root 'api\server-prod.log'
 $apiErr = Join-Path $root 'api\server-prod.error.log'
+$apiEntry = Join-Path $root 'api\dist\src\main.js'
+if (-not (Test-Path $apiEntry)) {
+  throw "API build is missing at $apiEntry. Run: cd api; npm install; npm run build"
+}
 $env:PUBLIC_API_URL = "http://localhost:$ApiPort"
 Start-Process -FilePath 'node' `
   -ArgumentList '--enable-source-maps','dist/src/main' `
@@ -73,7 +87,17 @@ Start-Process -FilePath 'node' `
   -RedirectStandardOutput $apiLog `
   -RedirectStandardError $apiErr `
   -WindowStyle Hidden
-Wait-HttpOk "http://localhost:$ApiPort/health" 'VNChinese API'
+try {
+  Wait-HttpOk "http://localhost:$ApiPort/health" 'VNChinese API'
+} catch {
+  Write-Host ""
+  Write-Host "VNChinese API failed to become ready."
+  Write-Host "API stdout log: $apiLog"
+  Write-Host "API stderr log: $apiErr"
+  Show-RecentLog $apiLog 'API stdout'
+  Show-RecentLog $apiErr 'API stderr'
+  throw
+}
 
 Stop-PortOwner $AdminPort
 $env:ADMIN_PORT = "$AdminPort"

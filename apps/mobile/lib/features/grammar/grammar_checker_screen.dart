@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:mobile/core/config/app_config.dart';
+import 'package:mobile/core/theme/hanzi_text_styles.dart';
 import 'package:mobile/features/grammar/grammar_ai_service.dart';
 
 class GrammarCheckerScreen extends StatefulWidget {
@@ -160,17 +161,21 @@ class _GrammarCheckerScreenState extends State<GrammarCheckerScreen>
         });
       }
     } catch (e) {
+      final message = e.toString().contains('AI hiện chưa khả dụng')
+          ? e.toString()
+          : 'AI hiện chưa khả dụng. App vẫn giữ câu của bạn và bạn có thể thử lại sau.';
       if (mounted) {
         setState(() {
           _isAnalyzing = false;
           _result = {
             "score": 0.0,
             "errors": [
-              {"type": "Lỗi", "explanation": e.toString()},
+              {"type": "AI tạm thời chưa khả dụng", "explanation": message},
             ],
             "correction": _textController.text,
             "suggestions": [],
-            "style_tips": "Vui lòng thử lại sau.",
+            "style_tips":
+                "Kiểm tra backend/API_BASE_URL và Gemini key nếu muốn nhận kết quả AI thật.",
           };
         });
       }
@@ -420,25 +425,21 @@ class _GrammarCheckerScreenState extends State<GrammarCheckerScreen>
                         if (cn.isNotEmpty)
                           Text(
                             cn,
-                            style: const TextStyle(
+                            style: HanziTextStyles.reading.copyWith(
                               fontSize: 18,
-                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         if (py.isNotEmpty)
                           Text(
                             py,
-                            style: const TextStyle(
+                            style: HanziTextStyles.pinyin.copyWith(
                               fontSize: 13,
-                              color: Colors.grey,
                             ),
                           ),
                         if (vi.isNotEmpty)
                           Text(
                             vi,
-                            style: const TextStyle(
-                              fontSize: 14,
-                              color: Colors.brown,
+                            style: HanziTextStyles.translation.copyWith(
                               fontStyle: FontStyle.italic,
                             ),
                           ),
@@ -481,6 +482,26 @@ class _GrammarCheckerScreenState extends State<GrammarCheckerScreen>
                 hintStyle: TextStyle(color: Colors.grey),
               ),
             ),
+          ),
+          const SizedBox(height: 16),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              for (final sample in const [
+                '我明天去学校。',
+                '我昨天吃饭了。',
+                '他很喜欢学习中文。',
+              ])
+                ActionChip(
+                  label: Text(sample),
+                  avatar: const Icon(Icons.auto_fix_high, size: 16),
+                  onPressed: () {
+                    _textController.text = sample;
+                    setState(() => _result = null);
+                  },
+                ),
+            ],
           ),
           const SizedBox(height: 16),
           ElevatedButton.icon(
@@ -635,8 +656,11 @@ class _GrammarCheckerScreenState extends State<GrammarCheckerScreen>
                       SelectableText(
                         _result!['correction']['cn'] ?? '',
                         style: const TextStyle(
-                          fontSize: 18,
-                          color: Colors.black87,
+                          fontFamily: 'NotoSansSC',
+                          fontSize: 26,
+                          height: 1.32,
+                          color: Color(0xFF111827),
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                       if ((_result!['correction']['py'] ?? '')
@@ -645,8 +669,10 @@ class _GrammarCheckerScreenState extends State<GrammarCheckerScreen>
                         Text(
                           _result!['correction']['py'],
                           style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.grey,
+                            fontSize: 15,
+                            height: 1.45,
+                            color: Color(0xFF475569),
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       if ((_result!['correction']['vi'] ?? '')
@@ -655,17 +681,20 @@ class _GrammarCheckerScreenState extends State<GrammarCheckerScreen>
                         Text(
                           _result!['correction']['vi'],
                           style: const TextStyle(
-                            fontSize: 14,
+                            fontSize: 15,
                             fontStyle: FontStyle.italic,
-                            color: Colors.brown,
+                            color: Color(0xFF5F4333),
                           ),
                         ),
                     ] else ...[
                       SelectableText(
                         _result!['correction']?.toString() ?? '',
                         style: const TextStyle(
-                          fontSize: 18,
-                          color: Colors.black87,
+                          fontFamily: 'NotoSansSC',
+                          fontSize: 24,
+                          height: 1.32,
+                          color: Color(0xFF111827),
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     ],
@@ -753,11 +782,13 @@ class _GrammarCheckerScreenState extends State<GrammarCheckerScreen>
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               SelectableText(
-                                "â€¢ ${s['cn'] ?? ''}",
+                                "• ${s['cn'] ?? ''}",
                                 style: const TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.black87,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'NotoSansSC',
+                                  fontSize: 20,
+                                  height: 1.32,
+                                  color: Color(0xFF111827),
+                                  fontWeight: FontWeight.w700,
                                 ),
                               ),
                               if ((s['py'] ?? '').toString().isNotEmpty)
@@ -766,8 +797,10 @@ class _GrammarCheckerScreenState extends State<GrammarCheckerScreen>
                                   child: Text(
                                     s['py'],
                                     style: const TextStyle(
-                                      fontSize: 13,
-                                      color: Colors.grey,
+                                      fontSize: 14,
+                                      height: 1.45,
+                                      color: Color(0xFF475569),
+                                      fontWeight: FontWeight.w600,
                                     ),
                                   ),
                                 ),
@@ -779,7 +812,7 @@ class _GrammarCheckerScreenState extends State<GrammarCheckerScreen>
                                     style: const TextStyle(
                                       fontSize: 14,
                                       fontStyle: FontStyle.italic,
-                                      color: Colors.brown,
+                                      color: Color(0xFF5F4333),
                                     ),
                                   ),
                                 ),
@@ -790,10 +823,11 @@ class _GrammarCheckerScreenState extends State<GrammarCheckerScreen>
                         return Padding(
                           padding: const EdgeInsets.only(bottom: 4),
                           child: SelectableText(
-                            "â€¢ $s",
+                            "• $s",
                             style: const TextStyle(
                               fontSize: 15,
-                              color: Colors.black87,
+                              color: Color(0xFF111827),
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         );

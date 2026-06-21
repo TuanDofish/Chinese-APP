@@ -37,6 +37,12 @@ type GrammarResult = {
 @Injectable()
 export class AppService {
   private readonly logger = new Logger(AppService.name);
+  private aiRuntime = {
+    grammarUsable: null as boolean | null,
+    status: 'not_checked',
+    lastCheckedAt: null as string | null,
+    lastErrorCategory: '',
+  };
 
   constructor(private readonly dataSource: DataSource) {}
 
@@ -61,17 +67,25 @@ export class AppService {
   getHealth() {
     const apiKey =
       process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY || '';
+    const hasKey = Boolean(apiKey);
+    const keyLooksValid = this.looksLikeGoogleApiKey(apiKey);
     return {
       status: 'ok',
       service: 'VNChinese API',
       timestamp: new Date().toISOString(),
       ai: {
-        configured: Boolean(apiKey),
-        keyFormat: this.looksLikeGoogleApiKey(apiKey)
-          ? 'valid-pattern'
-          : 'unknown',
+        configured: hasKey,
+        keyFormat: keyLooksValid ? 'valid-pattern' : 'unknown',
         provider: this.geminiProvider(apiKey),
         model: process.env.GEMINI_MODEL || 'automatic',
+        usable: !hasKey || !keyLooksValid ? false : this.aiRuntime.grammarUsable,
+        status: !hasKey
+          ? 'missing_key'
+          : !keyLooksValid
+            ? 'invalid_key_format'
+            : this.aiRuntime.status,
+        lastCheckedAt: this.aiRuntime.lastCheckedAt,
+        lastErrorCategory: this.aiRuntime.lastErrorCategory,
       },
     };
   }
@@ -112,6 +126,7 @@ export class AppService {
 
     const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY;
     if (!apiKey) {
+      this.setAiRuntime(false, 'missing_key', 'missing_api_key');
       this.logAction(
         'ai.grammar.config_error',
         { requestId, reason: 'missing_api_key' },
@@ -122,6 +137,7 @@ export class AppService {
       );
     }
     if (!this.looksLikeGoogleApiKey(apiKey)) {
+      this.setAiRuntime(false, 'invalid_key_format', 'invalid_api_key_pattern');
       this.logAction(
         'ai.grammar.config_error',
         { requestId, reason: 'invalid_api_key_pattern' },
@@ -203,6 +219,11 @@ export class AppService {
         if (!response.ok) {
           const body = await response.text();
           lastError = this.describeGeminiError(response.status, body);
+          this.setAiRuntime(
+            false,
+            this.aiRuntimeStatusFromGemini(response.status, body),
+            this.geminiErrorStatus(body) || `http_${response.status}`,
+          );
           this.logAction(
             'ai.grammar.model_error',
             {
@@ -255,6 +276,7 @@ export class AppService {
           source: result.source,
           durationMs: Date.now() - startedAt,
         });
+        this.setAiRuntime(true, 'usable', '');
         await this.saveAiInteraction({
           type: 'GRAMMAR_CHECK',
           input: sentence,
@@ -272,6 +294,7 @@ export class AppService {
           error instanceof Error
             ? `Không gọi được Gemini: ${error.message}`
             : String(error);
+        this.setAiRuntime(false, 'network_or_runtime_error', 'exception');
         this.logAction(
           'ai.grammar.exception',
           {
@@ -287,6 +310,7 @@ export class AppService {
     }
 
     if (lastRecoveredResult) {
+      this.setAiRuntime(true, 'usable_recovered', '');
       await this.saveAiInteraction({
         type: 'GRAMMAR_CHECK',
         input: sentence,
@@ -321,6 +345,19 @@ export class AppService {
       durationMs: Date.now() - startedAt,
     });
     throw new ServiceUnavailableException(lastError);
+  }
+
+  private setAiRuntime(
+    usable: boolean,
+    status: string,
+    lastErrorCategory: string,
+  ) {
+    this.aiRuntime = {
+      grammarUsable: usable,
+      status,
+      lastCheckedAt: new Date().toISOString(),
+      lastErrorCategory,
+    };
   }
 
   async chat(
@@ -769,6 +806,16 @@ export class AppService {
       return 'Gemini đang quá tải tạm thời (503 UNAVAILABLE). Backend đã thử model dự phòng nếu có; hãy thử lại sau vài phút.';
     }
     return `Gemini API lỗi ${status}: ${body.slice(0, 240)}`;
+  }
+
+  private aiRuntimeStatusFromGemini(status: number, body: string) {
+    const geminiStatus = this.geminiErrorStatus(body);
+    if (geminiStatus === 'SERVICE_DISABLED') return 'service_disabled';
+    if (status === 401 || status === 403) return 'permission_error';
+    if (status === 429) return 'quota_error';
+    if (status === 404) return 'model_unavailable';
+    if (status === 503) return 'provider_unavailable';
+    return `gemini_http_${status}`;
   }
 
   private geminiErrorStatus(body: string) {

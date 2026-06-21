@@ -149,23 +149,13 @@ class FlashcardView extends StatelessWidget {
         Text(
           entry.pinyin,
           textAlign: TextAlign.center,
-          style: const TextStyle(
-            fontSize: 22,
-            color: AppColors.muted,
-            fontWeight: FontWeight.w900,
-          ),
+          style: HanziTextStyles.pinyin.copyWith(fontSize: 20),
         ),
         const SizedBox(height: 14),
         Text(
           entry.simplified,
           textAlign: TextAlign.center,
-          style: const TextStyle(
-            fontFamily: 'NotoSansSC',
-            fontSize: 76,
-            fontWeight: FontWeight.w900,
-            color: AppColors.ink,
-            height: 1.0,
-          ),
+          style: HanziTextStyles.display.copyWith(fontSize: 76, height: 1.0),
         ),
         const SizedBox(height: 14),
         Text(
@@ -301,7 +291,10 @@ class FlashcardView extends StatelessWidget {
                         Text(
                           score.feedback,
                           textAlign: TextAlign.center,
-                          style: const TextStyle(color: AppColors.muted),
+                          style: const TextStyle(
+                            color: AppColors.muted,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ],
                     ],

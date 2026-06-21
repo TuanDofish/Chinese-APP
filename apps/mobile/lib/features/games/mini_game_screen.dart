@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:mobile/core/theme/hanzi_text_styles.dart';
 
 // ─── Models ──────────────────────────────────────────────────────────────────
 
@@ -589,10 +590,8 @@ class _MatchingGameWidgetState extends State<_MatchingGameWidget> {
           const SizedBox(height: 16),
           Text(
             _target.simplified,
-            style: const TextStyle(
+            style: HanziTextStyles.gameAnswer.copyWith(
               fontSize: 64,
-              fontWeight: FontWeight.w900,
-              color: Colors.white,
             ),
           ),
           if (_target.pinyin.isNotEmpty)
@@ -844,9 +843,8 @@ class _FillInGameWidgetState extends State<_FillInGameWidget> {
               children: [
                 Text(
                   _answer.isEmpty ? '_ ' * _target.simplified.length : _answer,
-                  style: TextStyle(
+                  style: HanziTextStyles.gameAnswer.copyWith(
                     fontSize: 40,
-                    fontWeight: FontWeight.w900,
                     color: _answer.isEmpty ? Colors.white24 : Colors.white,
                     letterSpacing: 8,
                   ),
@@ -897,10 +895,8 @@ class _FillInGameWidgetState extends State<_FillInGameWidget> {
                   child: Center(
                     child: Text(
                       ch,
-                      style: const TextStyle(
+                      style: HanziTextStyles.gameAnswer.copyWith(
                         fontSize: 24,
-                        fontWeight: FontWeight.w800,
-                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -942,13 +938,39 @@ class _ListenChooseGameWidgetState extends State<_ListenChooseGameWidget> {
   late List<GameWord> _options;
   int? _selected;
   bool _answered = false;
+  bool _isSpeaking = false;
+  bool _needsTapToPlay = true;
+  String? _audioError;
 
   @override
   void initState() {
     super.initState();
-    _tts.setLanguage('zh-CN');
-    _tts.setSpeechRate(0.45);
+    unawaited(_configureTts());
     _setup();
+  }
+
+  @override
+  void didUpdateWidget(covariant _ListenChooseGameWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.questionIndex != widget.questionIndex ||
+        oldWidget.words != widget.words) {
+      _setup();
+    }
+  }
+
+  Future<void> _configureTts() async {
+    try {
+      await _tts.setLanguage('zh-CN');
+      await _tts.setSpeechRate(0.42);
+      await _tts.setPitch(1.0);
+      await _tts.awaitSpeakCompletion(true);
+    } catch (_) {
+      if (mounted) {
+        setState(() {
+          _audioError = 'Không phát được âm thanh. Hãy thử lại.';
+        });
+      }
+    }
   }
 
   void _setup() {
@@ -962,10 +984,36 @@ class _ListenChooseGameWidgetState extends State<_ListenChooseGameWidget> {
     _options.shuffle(Random());
     _selected = null;
     _answered = false;
+    _isSpeaking = false;
+    _needsTapToPlay = true;
+    _audioError = null;
 
-    Future.delayed(const Duration(milliseconds: 500), () {
-      _tts.speak(_target.simplified);
+    Future.delayed(const Duration(milliseconds: 600), () {
+      if (mounted) unawaited(_speakTarget());
     });
+  }
+
+  Future<void> _speakTarget({bool triggeredByUser = false}) async {
+    if (_isSpeaking || _target.simplified.trim().isEmpty) return;
+    setState(() {
+      _isSpeaking = true;
+      _audioError = null;
+      if (triggeredByUser) _needsTapToPlay = false;
+    });
+    try {
+      await _tts.stop();
+      await _tts.setLanguage('zh-CN');
+      await _tts.setSpeechRate(0.42);
+      await _tts.speak(_target.simplified);
+    } catch (_) {
+      if (mounted) {
+        setState(() {
+          _audioError = 'Không phát được âm thanh. Hãy thử lại.';
+        });
+      }
+    } finally {
+      if (mounted) setState(() => _isSpeaking = false);
+    }
   }
 
   void _select(int i) {
@@ -1019,8 +1067,11 @@ class _ListenChooseGameWidgetState extends State<_ListenChooseGameWidget> {
           ),
           const SizedBox(height: 24),
           // Play button
-          GestureDetector(
-            onTap: () => _tts.speak(_target.simplified),
+          Semantics(
+            button: true,
+            label: 'Nghe lại từ ${_target.simplified}',
+            child: GestureDetector(
+            onTap: () => _speakTarget(triggeredByUser: true),
             child: Container(
               width: 100,
               height: 100,
@@ -1037,21 +1088,50 @@ class _ListenChooseGameWidgetState extends State<_ListenChooseGameWidget> {
                   ),
                 ],
               ),
-              child: const Icon(
-                Icons.volume_up_rounded,
-                color: Colors.white,
-                size: 44,
+              child: _isSpeaking
+                  ? const Padding(
+                      padding: EdgeInsets.all(30),
+                      child: CircularProgressIndicator(
+                        color: Colors.white,
+                        strokeWidth: 3,
+                      ),
+                    )
+                  : const Icon(
+                      Icons.volume_up_rounded,
+                      color: Colors.white,
+                      size: 44,
+                    ),
               ),
             ),
           ),
           const SizedBox(height: 8),
           TextButton(
-            onPressed: () => _tts.speak(_target.simplified),
+            onPressed: _isSpeaking
+                ? null
+                : () => _speakTarget(triggeredByUser: true),
             child: const Text(
               'Nghe lại',
               style: TextStyle(color: Colors.green),
             ),
           ),
+          if (_needsTapToPlay)
+            const Text(
+              'Nếu trình duyệt chặn tự phát, hãy bấm Nghe lại.',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.white70, fontSize: 12),
+            ),
+          if (_audioError != null)
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Text(
+                _audioError!,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Color(0xFFFFB4AB),
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
           const SizedBox(height: 20),
           // Options grid
           GridView.count(
@@ -1092,17 +1172,13 @@ class _ListenChooseGameWidgetState extends State<_ListenChooseGameWidget> {
                     children: [
                       Text(
                         opt.simplified,
-                        style: const TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.w900,
-                          color: Colors.white,
-                        ),
+                        style: HanziTextStyles.gameAnswer,
                       ),
                       Text(
                         opt.meaning,
-                        style: const TextStyle(
+                        style: HanziTextStyles.translation.copyWith(
                           fontSize: 12,
-                          color: Colors.white54,
+                          color: Colors.white70,
                         ),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
@@ -1304,10 +1380,8 @@ class _SentenceOrderGameWidgetState extends State<_SentenceOrderGameWidget> {
                           child: Center(
                             child: Text(
                               _arranged[i],
-                              style: const TextStyle(
+                              style: HanziTextStyles.gameAnswer.copyWith(
                                 fontSize: 26,
-                                fontWeight: FontWeight.w900,
-                                color: Colors.white,
                               ),
                             ),
                           ),

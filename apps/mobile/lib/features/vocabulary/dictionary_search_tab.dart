@@ -247,13 +247,19 @@ class _DictionarySearchTabState extends State<DictionarySearchTab> {
           .map((e) => Map<String, dynamic>.from(e as Map))
           .toList();
     }
-    String meaning =
+    final meaningVi =
         (item['meaningVi']?.isNotEmpty == true ? item['meaningVi'] : null) ??
         (item['meaning_vi']?.isNotEmpty == true ? item['meaning_vi'] : null) ??
+        '';
+    final meaningEn =
         (item['meaningEn']?.isNotEmpty == true ? item['meaningEn'] : null) ??
         (item['meaning_en']?.isNotEmpty == true ? item['meaning_en'] : null) ??
-        item['meaning'] ??
         '';
+    String meaning = meaningVi.toString().trim().isNotEmpty
+        ? meaningVi.toString()
+        : meaningEn.toString().trim().isNotEmpty
+        ? 'Tiếng Anh: $meaningEn'
+        : item['meaning'] ?? '';
 
     String pinyin = item['pinyin'] ?? '';
     final simplified = TextSanitizer.clean(
@@ -366,7 +372,10 @@ class _DictionarySearchTabState extends State<DictionarySearchTab> {
                   const SizedBox(height: 12),
                   Text(
                     _errorMessage,
-                    style: const TextStyle(color: Colors.grey),
+                    style: const TextStyle(
+                      color: Color(0xFF374151),
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ],
               ),
@@ -406,9 +415,9 @@ class _DictionarySearchTabState extends State<DictionarySearchTab> {
             decoration: InputDecoration(
               hintText: 'Hãy gõ từ',
               hintStyle: TextStyle(
-                color: Colors.grey[400],
+                color: const Color(0xFF4B5563),
                 fontSize: 14,
-                fontWeight: FontWeight.normal,
+                fontWeight: FontWeight.w600,
               ),
               prefixIcon: const Padding(
                 padding: EdgeInsets.only(left: 12, right: 8),
@@ -515,7 +524,8 @@ class _DictionarySearchTabState extends State<DictionarySearchTab> {
           );
           String vi = TextSanitizer.clean(s['meaningVi'] as String? ?? '');
           if (vi.isEmpty) {
-            vi = TextSanitizer.clean(s['meaningEn'] as String? ?? '');
+            final en = TextSanitizer.clean(s['meaningEn'] as String? ?? '');
+            vi = en.isEmpty ? '' : 'Tiếng Anh: $en';
           }
           if (vi.isEmpty) {
             vi = TextSanitizer.clean(s['meaning'] as String? ?? '');
@@ -564,7 +574,10 @@ class _DictionarySearchTabState extends State<DictionarySearchTab> {
                           if (traditional.isNotEmpty && traditional != hz)
                             TextSpan(
                               text: ' / $traditional',
-                              style: const TextStyle(color: Color(0xFF667085)),
+                              style: const TextStyle(
+                                color: Color(0xFF475569),
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           if (py.isNotEmpty)
                             TextSpan(
@@ -576,7 +589,10 @@ class _DictionarySearchTabState extends State<DictionarySearchTab> {
                           if (vi.isNotEmpty)
                             TextSpan(
                               text: vi,
-                              style: const TextStyle(color: Color(0xFF667085)),
+                              style: const TextStyle(
+                                color: Color(0xFF475569),
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                         ],
                       ),
@@ -664,7 +680,7 @@ class _DictionarySearchTabState extends State<DictionarySearchTab> {
           style: const TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.w800,
-            color: Color(0xFF667085),
+            color: Color(0xFF475569),
           ),
         ),
       ],

@@ -531,6 +531,8 @@ class NewsArticleData {
     required this.titleVi,
     required this.content,
     required this.summaryVi,
+    this.sourceType = 'seed_hsk',
+    this.sourceLabel = 'Bài đọc HSK tự biên soạn',
     this.link,
     this.sentences = const [],
     this.live = false,
@@ -544,6 +546,8 @@ class NewsArticleData {
   final String titleVi;
   final String content;
   final String summaryVi;
+  final String sourceType;
+  final String sourceLabel;
   final String? link;
   final List<ArticleSentenceData> sentences;
   final bool live;
@@ -595,6 +599,24 @@ class VideoLessonData {
   bool get hasTimedSubtitles =>
       subtitles.isNotEmpty &&
       subtitles.every((subtitle) => subtitle.end > subtitle.start);
+  double get transcriptSpanSeconds {
+    if (subtitles.isEmpty) return 0;
+    final starts = subtitles.map((subtitle) => subtitle.start);
+    final ends = subtitles.map((subtitle) => subtitle.end);
+    return ends.reduce(max) - starts.reduce(min);
+  }
+
+  bool get practiceReady =>
+      hasTimedSubtitles &&
+      subtitles.length >= 8 &&
+      transcriptSpanSeconds >= 20;
+
+  String get durationLabel {
+    final seconds = transcriptSpanSeconds.round();
+    if (seconds < 60) return '${max(1, (seconds / 10).round())} phút luyện';
+    return '${(seconds / 60).ceil()} phút luyện';
+  }
+
   String get thumbnail => 'https://img.youtube.com/vi/$youtubeId/mqdefault.jpg';
   String get youtubeUrl => 'https://www.youtube.com/watch?v=$youtubeId';
 }

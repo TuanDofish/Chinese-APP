@@ -549,13 +549,13 @@ class VocabDataHelper {
         },
       ],
     },
-    // === HSK 1: ThÃ¡Â»ï¿½i gian ===
+    // === HSK 1: Thời gian ===
     "今天": {
       "meaning": "Hôm nay",
       "examples": [
         {
           "cn": "今天星期一。",
-          "py": "JÃ„Â«ntiÃ„ï¿½n xÃ„Â«ngqÃ„Â«yÃ„Â«.",
+          "py": "Jīntiān xīngqīyī.",
           "vi": "Hôm nay thứ hai.",
         },
       ],
@@ -564,8 +564,8 @@ class VocabDataHelper {
       "meaning": "Ngày mai",
       "examples": [
         {
-          "cn": "Ã¦ËœÅ½Ã¥Â¤Â©Ã¨Â§ï¿½Ã¯Â¼ï¿½",
-          "py": "MÃƒÂ­ngtiÃ„ï¿½n jiÃƒÂ n!",
+          "cn": "明天见！",
+          "py": "Míngtiān jiàn!",
           "vi": "Ngày mai gặp!",
         },
       ],
@@ -575,38 +575,38 @@ class VocabDataHelper {
       "examples": [
         {
           "cn": "昨天下雨了。",
-          "py": "ZuÃƒÂ³tiÃ„ï¿½n xiÃƒÂ yÃ‡â€ le.",
-          "vi": "HÃƒÂ´m qua trÃ¡Â»ï¿½i mÃ†Â°a.",
+          "py": "Zuótiān xiàyǔ le.",
+          "vi": "Hôm qua trời mưa.",
         },
       ],
     },
-    "Ã¤Â¸Å Ã¥ï¿½Ë†": {
+    "上午": {
       "meaning": "Buổi sáng",
       "examples": [
         {
-          "cn": "Ã¤Â¸Å Ã¥ï¿½Ë†Ã¥Â¥Â½Ã¯Â¼ï¿½",
+          "cn": "上午好！",
           "py": "Shàngwǔ hǎo!",
           "vi": "Chào buổi sáng!",
         },
       ],
     },
-    "Ã¤Â¸Â­Ã¥ï¿½Ë†": {
+    "中午": {
       "meaning": "Buổi trưa",
       "examples": [
         {
-          "cn": "Ã¤Â¸Â­Ã¥ï¿½Ë†Ã¥ï¿½Æ’Ã©Â¥Â­Ã£â‚¬â€š",
-          "py": "ZhÃ…ï¿½ngwÃ‡â€ chÃ„Â«fÃƒÂ n.",
+          "cn": "中午吃饭。",
+          "py": "Zhōngwǔ chīfàn.",
           "vi": "Trưa ăn cơm.",
         },
       ],
     },
-    "Ã¤Â¸â€¹Ã¥ï¿½Ë†": {
-      "meaning": "BuÃ¡Â»â€¢i chiÃ¡Â»ï¿½u",
+    "下午": {
+      "meaning": "Buổi chiều",
       "examples": [
         {
-          "cn": "Ã¤Â¸â€¹Ã¥ï¿½Ë†Ã¦Å“â€°Ã¨Â¯Â¾Ã£â‚¬â€š",
+          "cn": "下午有课。",
           "py": "Xiàwǔ yǒu kè.",
-          "vi": "ChiÃ¡Â»ï¿½u cÃƒÂ³ tiÃ¡ÂºÂ¿t hÃ¡Â»ï¿½c.",
+          "vi": "Buổi chiều có tiết học.",
         },
       ],
     },
@@ -1482,6 +1482,8 @@ class VocabDataHelper {
         cleaned == '...' ||
         cleaned == '' ||
         cleaned.startsWith('dang cap nhat') ||
+        cleaned.startsWith('đang cập nhật') ||
+        cleaned.startsWith('tiếng anh:') ||
         cleaned.startsWith('đang tải')) {
       return false;
     }
@@ -1566,8 +1568,12 @@ class VocabDataHelper {
 
     final bundle = _bundleEntry(simplified);
     if (bundle != null) {
-      final m = _cleanText((bundle['meaningEn'] ?? '').toString());
-      if (m.isNotEmpty && !_isBrokenText(m)) return m;
+      final vi = _cleanText(
+        (bundle['meaningVi'] ?? bundle['meaning_vi'] ?? '').toString(),
+      );
+      if (vi.isNotEmpty && !_isBrokenText(vi)) return vi;
+      final en = _cleanText((bundle['meaningEn'] ?? '').toString());
+      if (en.isNotEmpty && !_isBrokenText(en)) return 'Tiếng Anh: $en';
     }
     return '';
   }
@@ -1696,7 +1702,7 @@ class VocabDataHelper {
             final bundle = _bundleEntry(simplified);
             final en = _cleanText((bundle?['meaningEn'] ?? '').toString());
             if (en.isNotEmpty && !_isBrokenText(en)) {
-              meaning = en;
+              meaning = 'Tiếng Anh: $en';
             }
           }
         }());
@@ -1744,7 +1750,9 @@ class VocabDataHelper {
     return {
       "simplified": simplified,
       "pinyin": pinyin,
-      "meaning": meaning.isNotEmpty ? meaning : "Dang cap nhat nghia...",
+      "meaning": meaning.isNotEmpty
+          ? meaning
+          : "Đang cập nhật nghĩa tiếng Việt",
       "examples": examples,
     };
   }
@@ -1803,7 +1811,10 @@ class VocabDataHelper {
     String pinyin = _extractBestPinyin(simplified, originalJson);
     final extractedMeaning = _extractBestMeaning(simplified, originalJson);
     final bundle = _bundleEntry(simplified);
-    final bundleMeaning = _cleanText((bundle?['meaningEn'] ?? '').toString());
+    final bundleMeaningEn = _cleanText((bundle?['meaningEn'] ?? '').toString());
+    final bundleMeaning = bundleMeaningEn.isEmpty
+        ? ''
+        : 'Tiếng Anh: $bundleMeaningEn';
     final bundlePinyin = _cleanText((bundle?['pinyin'] ?? '').toString());
     if (pinyin.isEmpty && bundlePinyin.isNotEmpty) {
       pinyin = bundlePinyin;
@@ -1818,7 +1829,7 @@ class VocabDataHelper {
         "meaning": _isBrokenText((manualEntry['meaning'] ?? '').toString())
             ? (extractedMeaning.isNotEmpty
                   ? extractedMeaning
-                  : "Dang cap nhat nghia...")
+                  : "Đang cập nhật nghĩa tiếng Việt")
             : manualEntry['meaning'],
         "examples": _normalizeExamples(
           manualEntry['examples'],
@@ -1836,7 +1847,7 @@ class VocabDataHelper {
           ? extractedMeaning
           : (bundleMeaning.isNotEmpty
                 ? bundleMeaning
-                : "Dang cap nhat nghia..."),
+                : "Đang cập nhật nghĩa tiếng Việt"),
       "examples": _buildTemplateExamples(
         simplified,
         pinyin,

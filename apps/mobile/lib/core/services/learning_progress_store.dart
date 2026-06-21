@@ -564,17 +564,27 @@ class LearningProgressStore {
     final isNew = cleanWord.isEmpty || learnedWords.add(cleanWord);
     if (!isNew) return;
     await _touchStudy(prefs);
-    await prefs.setInt(_todayWordsKey, (prefs.getInt(_todayWordsKey) ?? 0) + 1);
-    await prefs.setInt(
-      _todayMinutesKey,
-      (prefs.getInt(_todayMinutesKey) ?? 0) + 2,
-    );
+    final nextWordsToday = (prefs.getInt(_todayWordsKey) ?? 0) + 1;
+    // Marking a word as learned is not automatically two minutes of study.
+    // Award one minute only after every five distinct words completed.
+    final studyMinutes = nextWordsToday % 5 == 0 ? 1 : 0;
+    await prefs.setInt(_todayWordsKey, nextWordsToday);
+    if (studyMinutes > 0) {
+      await prefs.setInt(
+        _todayMinutesKey,
+        (prefs.getInt(_todayMinutesKey) ?? 0) + studyMinutes,
+      );
+    }
     if (cleanWord.isNotEmpty) {
       await prefs.setStringList(learnedKey, learnedWords.toList()..sort());
     }
     final levelKey = '$_learnedLevelPrefix$safeLevel';
     await prefs.setInt(levelKey, (prefs.getInt(levelKey) ?? 0) + 1);
-    await _recordDaily(prefs, learnedWords: 1, studyMinutes: 2);
+    await _recordDaily(
+      prefs,
+      learnedWords: 1,
+      studyMinutes: studyMinutes,
+    );
     await _addActivity(
       prefs,
       LearningActivityItem(
@@ -618,7 +628,7 @@ class LearningProgressStore {
     );
     await prefs.setInt(
       _todayMinutesKey,
-      (prefs.getInt(_todayMinutesKey) ?? 0) + 3,
+      (prefs.getInt(_todayMinutesKey) ?? 0) + 1,
     );
 
     final history = prefs.getStringList(_grammarHistoryKey) ?? <String>[];
@@ -633,7 +643,7 @@ class LearningProgressStore {
     await prefs.setStringList(_grammarHistoryKey, history.take(20).toList());
     await _recordDaily(
       prefs,
-      studyMinutes: 3,
+      studyMinutes: 1,
       grammarChecks: 1,
       scoreTotal: result.score,
       scoreCount: 1,
@@ -656,7 +666,7 @@ class LearningProgressStore {
       'score': result.score,
       'correctCount': result.score >= 70 ? 1 : 0,
       'totalCount': 1,
-      'durationSeconds': 180,
+      'durationSeconds': 60,
     });
   }
 
@@ -678,7 +688,7 @@ class LearningProgressStore {
   }
 
   static Future<void> recordReadingArticle({
-    int minutes = 4,
+    required int minutes,
     String? title,
   }) async {
     final prefs = await SharedPreferences.getInstance();
@@ -689,10 +699,12 @@ class LearningProgressStore {
       _readingWeekCountKey,
       (prefs.getInt(_readingWeekCountKey) ?? 0) + 1,
     );
-    await prefs.setInt(
-      _todayMinutesKey,
-      (prefs.getInt(_todayMinutesKey) ?? 0) + minutes,
-    );
+    if (minutes > 0) {
+      await prefs.setInt(
+        _todayMinutesKey,
+        (prefs.getInt(_todayMinutesKey) ?? 0) + minutes,
+      );
+    }
     await _recordDaily(prefs, studyMinutes: minutes, reading: 1);
     await _addActivity(
       prefs,
@@ -728,11 +740,11 @@ class LearningProgressStore {
     await prefs.setInt(_speakingScoreKey, nextScore.clamp(0, 100));
     await prefs.setInt(
       _todayMinutesKey,
-      (prefs.getInt(_todayMinutesKey) ?? 0) + 3,
+      (prefs.getInt(_todayMinutesKey) ?? 0) + 1,
     );
     await _recordDaily(
       prefs,
-      studyMinutes: 3,
+      studyMinutes: 1,
       speaking: 1,
       scoreTotal: score,
       scoreCount: 1,
@@ -751,7 +763,7 @@ class LearningProgressStore {
       'score': score,
       'correctCount': score >= 70 ? 1 : 0,
       'totalCount': 1,
-      'durationSeconds': 180,
+      'durationSeconds': 60,
     });
   }
 
@@ -759,7 +771,7 @@ class LearningProgressStore {
     required int score,
     required int correctCount,
     required int totalCount,
-    int minutes = 5,
+    int minutes = 2,
   }) async {
     final prefs = await SharedPreferences.getInstance();
     await _resetDailyIfNeeded(prefs);

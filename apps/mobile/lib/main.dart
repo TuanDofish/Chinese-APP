@@ -11,6 +11,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
+import 'package:mobile/core/config/app_config.dart';
+import 'package:mobile/core/theme/hanzi_text_styles.dart';
+import 'package:mobile/features/auth/google_oauth_client.dart';
+import 'package:mobile/features/auth/google_sign_in_web_button.dart';
 import 'package:mobile/features/auth/auth_service.dart';
 import 'package:mobile/features/grammar/grammar_ai_service.dart';
 import 'package:mobile/features/games/mini_game_screen.dart';
@@ -49,7 +53,9 @@ void main() {
 
 class AppColors {
   static const ink = Color(0xFF151922);
-  static const muted = Color(0xFF596275);
+  // Secondary text stays readable on warm paper and white card surfaces.
+  static const muted = Color(0xFF374151);
+  static const subtle = Color(0xFF4B5563);
   static const paper = Color(0xFFFAF7F2);
   static const surface = Color(0xFFFFFFFF);
   static const line = Color(0xFFE4D9CC);
@@ -70,8 +76,19 @@ class VNChineseApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        fontFamily: 'Segoe UI',
-        fontFamilyFallback: const ['Roboto', 'Arial', 'NotoSansSC'],
+        // Noto Sans SC is bundled with the app, so Vietnamese, pinyin and
+        // Hanzi are rendered by one high-contrast font on every platform.
+        fontFamily: 'NotoSansSC',
+        fontFamilyFallback: const [
+          'Microsoft YaHei',
+          'SimSun',
+          'PingFang SC',
+          'Hiragino Sans GB',
+          'SimHei',
+          'Arial Unicode MS',
+          'Roboto',
+          'Arial',
+        ],
         visualDensity: VisualDensity.standard,
         scaffoldBackgroundColor: AppColors.paper,
         colorScheme: ColorScheme.fromSeed(
@@ -79,6 +96,10 @@ class VNChineseApp extends StatelessWidget {
           primary: AppColors.cinnabar,
           secondary: AppColors.jade,
           surface: AppColors.surface,
+        ).copyWith(
+          onSurface: AppColors.ink,
+          onSurfaceVariant: AppColors.muted,
+          outline: const Color(0xFF8A7565),
         ),
         textTheme: const TextTheme(
           headlineLarge: TextStyle(
@@ -102,20 +123,43 @@ class VNChineseApp extends StatelessWidget {
           titleMedium: TextStyle(
             fontSize: 16,
             height: 1.35,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w800,
+            color: AppColors.ink,
+          ),
+          titleSmall: TextStyle(
+            fontSize: 14.5,
+            height: 1.35,
+            fontWeight: FontWeight.w800,
             color: AppColors.ink,
           ),
           bodyLarge: TextStyle(
             fontSize: 15.5,
             height: 1.55,
+            fontWeight: FontWeight.w600,
             color: AppColors.ink,
           ),
           bodyMedium: TextStyle(
-            fontSize: 14.5,
-            height: 1.55,
+            fontSize: 15,
+            height: 1.5,
+            fontWeight: FontWeight.w600,
             color: AppColors.muted,
           ),
-          labelLarge: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
+          bodySmall: TextStyle(
+            fontSize: 13,
+            height: 1.45,
+            fontWeight: FontWeight.w600,
+            color: AppColors.muted,
+          ),
+          labelLarge: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w800,
+            color: AppColors.ink,
+          ),
+          labelMedium: TextStyle(
+            fontSize: 12.5,
+            fontWeight: FontWeight.w700,
+            color: AppColors.muted,
+          ),
         ),
         appBarTheme: const AppBarTheme(
           elevation: 0,
@@ -144,9 +188,9 @@ class VNChineseApp extends StatelessWidget {
             final selected = states.contains(WidgetState.selected);
             return TextStyle(
               color: selected ? AppColors.ink : AppColors.muted,
-              fontSize: 12,
+              fontSize: 12.5,
               height: 1.15,
-              fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
+              fontWeight: selected ? FontWeight.w800 : FontWeight.w700,
             );
           }),
         ),
@@ -156,6 +200,14 @@ class VNChineseApp extends StatelessWidget {
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 14,
             vertical: 14,
+          ),
+          hintStyle: const TextStyle(
+            color: AppColors.subtle,
+            fontWeight: FontWeight.w600,
+          ),
+          labelStyle: const TextStyle(
+            color: AppColors.muted,
+            fontWeight: FontWeight.w700,
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),

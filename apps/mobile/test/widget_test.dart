@@ -80,7 +80,6 @@ void main() {
           body: SingleChildScrollView(
             child: LearningJourneyDashboard(
               progress: progress,
-              onOpenVocabulary: () {},
               onOpenPractice: () {},
             ),
           ),
@@ -90,7 +89,9 @@ void main() {
     await tester.pump();
 
     expect(find.text('7 ngày gần nhất'), findsOneWidget);
-    expect(find.text('Lộ trình HSK'), findsOneWidget);
+    expect(find.text('Năng lực hiện tại'), findsOneWidget);
+    expect(find.text('Hoạt động gần đây'), findsOneWidget);
+    expect(find.text('Lộ trình HSK'), findsNothing);
     expect(tester.takeException(), isNull);
   });
 }

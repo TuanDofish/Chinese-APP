@@ -1,0 +1,82 @@
+[
+  {
+    "id": "seed_hsk1_daily_life",
+    "level": "HSK 1",
+    "source": "VNChinese",
+    "sourceType": "seed_hsk",
+    "sourceLabel": "Bài đọc HSK tự biên soạn",
+    "title": "每天的生活",
+    "titleVi": "Cuộc sống hằng ngày",
+    "summaryVi": "Bài đọc HSK 1 về giờ giấc, bữa sáng và việc học mỗi ngày.",
+    "keywords": ["每天", "起床", "学习"],
+    "content": "我每天七点起床。早上我喝一杯牛奶，吃一片面包。八点我去学校学习汉语。中午我和朋友一起吃饭。下午我回家做作业。晚上十点我睡觉。",
+    "sentences": [
+      {"cn": "我每天七点起床。", "py": "Wǒ měitiān qī diǎn qǐchuáng.", "vi": "Tôi thức dậy lúc bảy giờ mỗi ngày."},
+      {"cn": "早上我喝一杯牛奶，吃一片面包。", "py": "Zǎoshang wǒ hē yì bēi niúnǎi, chī yí piàn miànbāo.", "vi": "Buổi sáng tôi uống một cốc sữa và ăn một lát bánh mì."},
+      {"cn": "八点我去学校学习汉语。", "py": "Bā diǎn wǒ qù xuéxiào xuéxí Hànyǔ.", "vi": "Tám giờ tôi đến trường học tiếng Trung."},
+      {"cn": "中午我和朋友一起吃饭。", "py": "Zhōngwǔ wǒ hé péngyou yìqǐ chīfàn.", "vi": "Buổi trưa tôi ăn cơm cùng bạn."},
+      {"cn": "下午我回家做作业。", "py": "Xiàwǔ wǒ huí jiā zuò zuòyè.", "vi": "Buổi chiều tôi về nhà làm bài tập."},
+      {"cn": "晚上十点我睡觉。", "py": "Wǎnshang shí diǎn wǒ shuìjiào.", "vi": "Mười giờ tối tôi đi ngủ."}
+    ]
+  },
+  {
+    "id": "seed_hsk1_my_family",
+    "level": "HSK 1",
+    "source": "VNChinese",
+    "sourceType": "seed_hsk",
+    "sourceLabel": "Bài đọc HSK tự biên soạn",
+    "title": "我的家",
+    "titleVi": "Gia đình của tôi",
+    "summaryVi": "Bài đọc HSK 1 giới thiệu các thành viên trong gia đình.",
+    "keywords": ["家", "爸爸", "妈妈"],
+    "content": "我家有四个人。爸爸是医生，妈妈是老师。我有一个姐姐。姐姐也喜欢学习汉语。晚上我们一起吃饭，也一起看电视。我的家很开心。",
+    "sentences": [
+      {"cn": "我家有四个人。", "py": "Wǒ jiā yǒu sì ge rén.", "vi": "Gia đình tôi có bốn người."},
+      {"cn": "爸爸是医生，妈妈是老师。", "py": "Bàba shì yīshēng, māma shì lǎoshī.", "vi": "Bố là bác sĩ, mẹ là giáo viên."},
+      {"cn": "我有一个姐姐。", "py": "Wǒ yǒu yí ge jiějie.", "vi": "Tôi có một chị gái."},
+      {"cn": "姐姐也喜欢学习汉语。", "py": "Jiějie yě xǐhuan xuéxí Hànyǔ.", "vi": "Chị gái cũng thích học tiếng Trung."},
+      {"cn": "晚上我们一起吃饭，也一起看电视。", "py": "Wǎnshang wǒmen yìqǐ chīfàn, yě yìqǐ kàn diànshì.", "vi": "Buổi tối chúng tôi cùng ăn cơm và xem tivi."},
+      {"cn": "我的家很开心。", "py": "Wǒ de jiā hěn kāixīn.", "vi": "Gia đình tôi rất vui vẻ."}
+    ]
+  },
+  {
+    "id": "seed_hsk2_go_to_school",
+    "level": "HSK 2",
+    "source": "VNChinese",
+    "sourceType": "seed_hsk",
+    "sourceLabel": "Bài đọc HSK tự biên soạn",
+    "title": "去学校",
+    "titleVi": "Đi học",
+    "summaryVi": "Bài đọc HSK 2 về phương tiện đi lại và một buổi học ở trường.",
+    "keywords": ["学校", "公共汽车", "老师"],
+    "content": "我家离学校不远，所以我每天坐公共汽车去学校。路上常常很忙，但是我不会迟到。第一节课是汉语课。老师让我们先复习昨天的生词，然后两个人一起练习对话。下课以后，我觉得今天学得很好。",
+    "sentences": [
+      {"cn": "我家离学校不远，所以我每天坐公共汽车去学校。", "py": "Wǒ jiā lí xuéxiào bù yuǎn, suǒyǐ wǒ měitiān zuò gōnggòng qìchē qù xuéxiào.", "vi": "Nhà tôi không xa trường nên mỗi ngày tôi đi xe buýt đến trường."},
+      {"cn": "路上常常很忙，但是我不会迟到。", "py": "Lùshang chángcháng hěn máng, dànshì wǒ bú huì chídào.", "vi": "Trên đường thường đông nhưng tôi không bị muộn."},
+      {"cn": "第一节课是汉语课。", "py": "Dì yī jié kè shì Hànyǔ kè.", "vi": "Tiết đầu tiên là tiết tiếng Trung."},
+      {"cn": "老师让我们先复习昨天的生词。", "py": "Lǎoshī ràng wǒmen xiān fùxí zuótiān de shēngcí.", "vi": "Giáo viên bảo chúng tôi ôn từ mới của hôm qua trước."},
+      {"cn": "然后两个人一起练习对话。", "py": "Ránhòu liǎng ge rén yìqǐ liànxí duìhuà.", "vi": "Sau đó hai người cùng luyện hội thoại."},
+      {"cn": "下课以后，我觉得今天学得很好。", "py": "Xiàkè yǐhòu, wǒ juéde jīntiān xué de hěn hǎo.", "vi": "Sau giờ học, tôi thấy hôm nay mình học rất tốt."}
+    ]
+  },
+  {
+    "id": "seed_hsk2_shopping",
+    "level": "HSK 2",
+    "source": "VNChinese",
+    "sourceType": "seed_hsk",
+    "sourceLabel": "Bài đọc HSK tự biên soạn",
+    "title": "买东西",
+    "titleVi": "Mua đồ",
+    "summaryVi": "Bài đọc HSK 2 về mua sắm, giá cả và lời cảm ơn.",
+    "keywords": ["商店", "多少钱", "便宜"],
+    "content": "周末我和妈妈去商店买东西。妈妈想买一些水果，我想买一本汉语书。苹果很新鲜，也不太贵。书店的店员告诉我，这本书正在打折。最后我们买了水果、牛奶和一本书。回家的时候，我对妈妈说今天买得很合适。",
+    "sentences": [
+      {"cn": "周末我和妈妈去商店买东西。", "py": "Zhōumò wǒ hé māma qù shāngdiàn mǎi dōngxi.", "vi": "Cuối tuần tôi và mẹ đi cửa hàng mua đồ."},
+      {"cn": "妈妈想买一些水果，我想买一本汉语书。", "py": "Māma xiǎng mǎi yìxiē shuǐguǒ, wǒ xiǎng mǎi yì běn Hànyǔ shū.", "vi": "Mẹ muốn mua trái cây, còn tôi muốn mua một quyển sách tiếng Trung."},
+      {"cn": "苹果很新鲜，也不太贵。", "py": "Píngguǒ hěn xīnxiān, yě bú tài guì.", "vi": "Táo rất tươi và cũng không quá đắt."},
+      {"cn": "书店的店员告诉我，这本书正在打折。", "py": "Shūdiàn de diànyuán gàosu wǒ, zhè běn shū zhèngzài dǎzhé.", "vi": "Nhân viên nhà sách nói với tôi rằng quyển sách này đang giảm giá."},
+      {"cn": "最后我们买了水果、牛奶和一本书。", "py": "Zuìhòu wǒmen mǎi le shuǐguǒ, niúnǎi hé yì běn shū.", "vi": "Cuối cùng chúng tôi mua trái cây, sữa và một quyển sách."},
+      {"cn": "回家的时候，我对妈妈说今天买得很合适。", "py": "Huí jiā de shíhou, wǒ duì māma shuō jīntiān mǎi de hěn héshì.", "vi": "Trên đường về nhà, tôi nói với mẹ rằng hôm nay mua đồ rất hợp lý."}
+    ]
+  }
+]

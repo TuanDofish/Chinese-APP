@@ -7,18 +7,42 @@ bool _isRemoteFlashcardImagePath(String value) {
       path.startsWith('//');
 }
 
+String _normalizeFlashcardAssetPath(String value) {
+  var path = value.trim().replaceAll('\\', '/');
+  if (path.startsWith('/mobile/assets/')) {
+    return 'assets/${path.substring('/mobile/assets/'.length)}';
+  }
+  if (path.startsWith('mobile/assets/')) {
+    return 'assets/${path.substring('mobile/assets/'.length)}';
+  }
+  if (path.startsWith('../mobile/assets/')) {
+    return 'assets/${path.substring('../mobile/assets/'.length)}';
+  }
+  if (path.startsWith('./mobile/assets/')) {
+    return 'assets/${path.substring('./mobile/assets/'.length)}';
+  }
+  if (path.startsWith('apps/mobile/assets/')) {
+    return 'assets/${path.substring('apps/mobile/assets/'.length)}';
+  }
+  if (path.startsWith('./apps/mobile/assets/')) {
+    return 'assets/${path.substring('./apps/mobile/assets/'.length)}';
+  }
+  return path;
+}
+
 String? _resolveFlashcardImagePath(String topicId, Map raw) {
   final explicitPath = (raw['imagePath'] ?? raw['imageUrl'] ?? '')
       .toString()
       .trim();
-  if (explicitPath.isNotEmpty) return explicitPath;
+  if (explicitPath.isNotEmpty) return _normalizeFlashcardAssetPath(explicitPath);
 
   final image = (raw['image'] ?? '').toString().trim();
   if (image.isEmpty) return null;
+  final normalized = _normalizeFlashcardAssetPath(image);
   if (_isRemoteFlashcardImagePath(image) ||
       image.startsWith('/uploads/') ||
-      image.startsWith('assets/')) {
-    return image;
+      normalized.startsWith('assets/')) {
+    return normalized;
   }
   return 'assets/images/flashcards/$topicId/$image';
 }
@@ -28,7 +52,7 @@ Widget _flashcardImage(
   required BoxFit fit,
   required Widget fallback,
 }) {
-  final path = imagePath.trim();
+  final path = _normalizeFlashcardAssetPath(imagePath);
   if (path.isEmpty) return fallback;
   if (_isRemoteFlashcardImagePath(path) || path.startsWith('/uploads/')) {
     final url = path.startsWith('/uploads/')
@@ -155,10 +179,9 @@ class FlashcardWordArt extends StatelessWidget {
             children: [
               Text(
                 entry.simplified,
-                style: const TextStyle(
+                style: HanziTextStyles.display.copyWith(
                   color: Colors.white,
                   fontSize: 46,
-                  fontWeight: FontWeight.w900,
                   height: 1,
                   shadows: [Shadow(blurRadius: 12, color: Colors.black87)],
                 ),
@@ -269,10 +292,9 @@ class FlashcardWordArt extends StatelessWidget {
               children: [
                 Text(
                   entry.simplified,
-                  style: const TextStyle(
+                  style: HanziTextStyles.display.copyWith(
                     color: Colors.white,
                     fontSize: 46,
-                    fontWeight: FontWeight.w900,
                     height: 1,
                   ),
                 ),
@@ -364,6 +386,7 @@ class TopicCard extends StatelessWidget {
                     style: const TextStyle(
                       color: AppColors.muted,
                       fontSize: 12,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                 ],

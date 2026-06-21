@@ -11,29 +11,37 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late Future<LearningProgressSnapshot> _snapshotFuture;
-  Timer? _studyTimer;
 
   @override
   void initState() {
     super.initState();
     _snapshotFuture = LearningProgressStore.loadSnapshot();
-    _studyTimer = Timer.periodic(const Duration(minutes: 1), (_) {
-      LearningProgressStore.recordStudyMinutes(1).then((_) {
-        if (mounted) _refresh();
-      });
-    });
-  }
-
-  @override
-  void dispose() {
-    _studyTimer?.cancel();
-    super.dispose();
   }
 
   void _refresh() {
     setState(() {
       _snapshotFuture = LearningProgressStore.loadSnapshot();
     });
+  }
+
+  void _openMiniGame(String level) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => MiniGameScreen(
+          level: level,
+          vocabList: List.generate(30, (i) {
+            final items = DictionaryRepository.allEntries;
+            if (items.isEmpty) return {};
+            final item = items[i % items.length];
+            return {
+              'simplified': item.simplified,
+              'pinyin': item.pinyin,
+              'meaning': item.meaning,
+            };
+          }),
+        ),
+      ),
+    );
   }
 
   @override
@@ -112,31 +120,12 @@ class _HomeScreenState extends State<HomeScreen> {
                             label: const Text('Kiểm tra câu'),
                           ),
                           FilledButton.icon(
-                            onPressed: () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (_) => MiniGameScreen(
-                                    level: progress.targetLevel,
-                                    vocabList: List.generate(30, (i) {
-                                      final items =
-                                          DictionaryRepository.allEntries;
-                                      if (items.isEmpty) return {};
-                                      final item = items[i % items.length];
-                                      return {
-                                        'simplified': item.simplified,
-                                        'pinyin': item.pinyin,
-                                        'meaning': item.meaning,
-                                      };
-                                    }),
-                                  ),
-                                ),
-                              );
-                            },
+                            onPressed: () => _openMiniGame(progress.targetLevel),
                             style: FilledButton.styleFrom(
                               backgroundColor: const Color(0xFFF0932B),
                             ),
                             icon: const Icon(Icons.sports_esports),
-                            label: const Text('Chơi Mini Game'),
+                            label: const Text('Chơi 4 mini game'),
                           ),
                         ],
                       ),
@@ -211,6 +200,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   () => widget.onOpenTab(3),
                 ),
                 FeatureItem(
+                  'Trò chơi ghi nhớ',
+                  'Ôn từ bằng chọn nghĩa, nghe và sắp xếp trong một phiên ngắn.',
+                  Icons.extension_outlined,
+                  AppColors.amber,
+                  () => _openMiniGame(progress.targetLevel),
+                ),
+                FeatureItem(
                   'Gia sư AI',
                   'Hỏi đáp, sửa câu và tạo hội thoại theo trình độ.',
                   Icons.forum_outlined,
@@ -228,11 +224,10 @@ class _HomeScreenState extends State<HomeScreen> {
             const SectionHeader(
               title: 'Tiến độ học tập',
               subtitle:
-                  'Theo dõi nhịp học 7 ngày, kỹ năng và lộ trình HSK của bạn.',
+                  'Theo dõi nhịp học 7 ngày, kỹ năng và hoạt động gần đây.',
             ),
             LearningJourneyDashboard(
               progress: progress,
-              onOpenVocabulary: () => widget.onOpenTab(1),
               onOpenPractice: () => widget.onOpenTab(2),
             ),
           ],

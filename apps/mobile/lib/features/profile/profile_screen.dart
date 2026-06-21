@@ -3,7 +3,7 @@ part of '../../main.dart';
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key, required this.onLogout});
 
-  final VoidCallback onLogout;
+  final Future<void> Function() onLogout;
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -12,6 +12,7 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   late Future<ProfileData> _profileFuture;
   ProfileData _profile = ProfileData.fallback;
+  bool _loggingOut = false;
 
   @override
   void initState() {
@@ -31,6 +32,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   void _refreshProfile() {
     setState(() => _profileFuture = _loadProfile());
+  }
+
+  Future<void> _confirmLogout() async {
+    if (_loggingOut) return;
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: const Text('Đăng xuất?'),
+        content: const Text(
+          'Phiên học trên thiết bị này sẽ được kết thúc. Tiến độ đã đồng bộ vẫn được giữ lại.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(false),
+            child: const Text('Ở lại'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(dialogContext).pop(true),
+            child: const Text('Đăng xuất'),
+          ),
+        ],
+      ),
+    );
+    if (confirmed != true || !mounted) return;
+    setState(() => _loggingOut = true);
+    try {
+      await widget.onLogout();
+    } finally {
+      if (mounted) setState(() => _loggingOut = false);
+    }
   }
 
   Future<void> _saveGoal(String level, int words, int minutes) async {
@@ -263,8 +294,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   IconButton(
                     tooltip: 'Đăng xuất',
-                    onPressed: widget.onLogout,
-                    icon: const Icon(Icons.logout),
+                    onPressed: _loggingOut ? null : _confirmLogout,
+                    icon: _loggingOut
+                        ? const SizedBox.square(
+                            dimension: 18,
+                            child: CircularProgressIndicator(strokeWidth: 2),
+                          )
+                        : const Icon(Icons.logout),
                   ),
                 ],
               ),
@@ -427,8 +463,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             const SizedBox(height: 18),
             FilledButton.icon(
-              onPressed: widget.onLogout,
-              icon: const Icon(Icons.logout),
+              onPressed: _loggingOut ? null : _confirmLogout,
+              icon: _loggingOut
+                  ? const SizedBox.square(
+                      dimension: 18,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    )
+                  : const Icon(Icons.logout),
               label: const Text('Đăng xuất'),
             ),
           ],

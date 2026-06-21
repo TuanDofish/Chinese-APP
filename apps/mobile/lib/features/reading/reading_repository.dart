@@ -72,6 +72,7 @@ class ReadingRepository {
   }
 
   static Future<List<NewsArticleData>> _loadSeedArticles() async {
+    final foundation = await _loadFoundationArticles();
     try {
       dynamic decoded;
       try {
@@ -88,6 +89,24 @@ class ReadingRepository {
       decoded ??= jsonDecode(
         await rootBundle.loadString('assets/data/reading_news_seed.json'),
       );
+      if (decoded is! List) return foundation;
+      final articles = decoded
+          .whereType<Map>()
+          .map((raw) => _articleFromMap(Map<String, dynamic>.from(raw)))
+          .whereType<NewsArticleData>()
+          .toList();
+      return _mergeArticles([...foundation, ...articles]);
+    } catch (_) {
+      return foundation;
+    }
+  }
+
+  static Future<List<NewsArticleData>> _loadFoundationArticles() async {
+    try {
+      final raw = await rootBundle.loadString(
+        'assets/data/reading_hsk_foundation.json',
+      );
+      final decoded = jsonDecode(raw);
       if (decoded is! List) return const [];
       return decoded
           .whereType<Map>()
@@ -97,6 +116,14 @@ class ReadingRepository {
     } catch (_) {
       return const [];
     }
+  }
+
+  static List<NewsArticleData> _mergeArticles(List<NewsArticleData> articles) {
+    final unique = <String, NewsArticleData>{};
+    for (final article in articles) {
+      unique.putIfAbsent(article.id, () => article);
+    }
+    return unique.values.toList();
   }
 
   static NewsArticleData? _articleFromMap(Map<String, dynamic> map) {
@@ -123,8 +150,18 @@ class ReadingRepository {
         }
       }
     }
-    final source = (map['source'] ?? 'Chinese RSS').toString();
+    final source = (map['source'] ?? 'VNChinese').toString();
     final link = (map['link'] ?? '').toString();
+    final sourceType = (map['sourceType'] ?? map['source_type'] ?? '')
+        .toString()
+        .trim();
+    final isLive =
+        map['live'] == true || sourceType == 'rss' || link.startsWith('http');
+    final resolvedSourceType = sourceType.isEmpty
+        ? (isLive ? 'rss' : 'seed_hsk')
+        : sourceType;
+    final sourceLabel =
+        (map['sourceLabel'] ?? map['source_label'] ?? '').toString().trim();
     final summaryVi = (map['summaryVi'] ?? map['summary_vi'] ?? '').toString();
     return NewsArticleData(
       id: (map['id'] ?? title).toString(),
@@ -136,8 +173,12 @@ class ReadingRepository {
       summaryVi: summaryVi.isEmpty ? source : summaryVi,
       link: link,
       sentences: lines.isEmpty ? buildStudyLines(content) : lines,
-      live: map['live'] == true || link.startsWith('http'),
+      live: isLive,
       publishedAt: (map['publishedAt'] ?? map['published_at'] ?? '').toString(),
+      sourceType: resolvedSourceType,
+      sourceLabel: sourceLabel.isNotEmpty
+          ? sourceLabel
+          : (isLive ? 'Bài đọc từ nguồn RSS' : 'Bài đọc HSK tự biên soạn'),
     );
   }
 
@@ -212,14 +253,16 @@ class ReadingRepository {
       }
       i += max(1, word.length);
     }
-    if (terms.isEmpty) return 'Dịch nhanh đang cập nhật.';
-    return 'Dịch nhanh theo từ khóa: ${terms.join('; ')}.';
+    if (terms.isEmpty) return 'Bản dịch đang được cập nhật.';
+    return 'Gợi ý từ vựng: ${terms.join('; ')}.';
   }
 
   static String _shortMeaning(String meaning) {
     final cleaned = meaning
         .replaceFirst('Nghĩa Việt đang cập nhật · ', '')
         .replaceFirst('Nghĩa tiếng Việt đang cập nhật', 'đang cập nhật')
+        .replaceFirst('Đang cập nhật nghĩa tiếng Việt', 'đang cập nhật')
+        .replaceFirst('Tiếng Anh: ', 'EN: ')
         .trim();
     final first = cleaned.split(RegExp(r'[;,/]')).first.trim();
     return first.isEmpty ? cleaned : first;

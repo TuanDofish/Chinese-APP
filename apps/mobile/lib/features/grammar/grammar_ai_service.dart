@@ -4,9 +4,10 @@ import 'package:http/http.dart' as http;
 import 'package:mobile/core/config/app_config.dart';
 
 class GrammarAiException implements Exception {
-  const GrammarAiException(this.message);
+  const GrammarAiException(this.message, {this.technicalDetail = ''});
 
   final String message;
+  final String technicalDetail;
 
   @override
   String toString() => message;
@@ -52,7 +53,10 @@ class GrammarAiService {
     } catch (e) {
       debugPrint('GrammarAiService error: $e');
       if (e is GrammarAiException) rethrow;
-      throw GrammarAiException('Không thể kết nối AI backend: $e');
+      throw GrammarAiException(
+        'AI hiện chưa khả dụng. Vui lòng kiểm tra backend đang chạy rồi thử lại.',
+        technicalDetail: e.toString(),
+      );
     }
   }
 
@@ -63,6 +67,7 @@ class GrammarAiService {
 
   static String _errorMessage(int statusCode, List<int> bodyBytes) {
     var message = 'Backend AI không phản hồi.';
+    var rawMessage = '';
     if (bodyBytes.isNotEmpty) {
       final body = utf8.decode(bodyBytes);
       try {
@@ -74,6 +79,7 @@ class GrammarAiService {
           } else if (raw != null && raw.toString().trim().isNotEmpty) {
             message = raw.toString().trim();
           }
+          rawMessage = message;
         }
       } catch (_) {
         final compact = body.replaceAll(RegExp(r'\s+'), ' ').trim();
@@ -81,10 +87,18 @@ class GrammarAiService {
           message = compact.length > 180
               ? '${compact.substring(0, 180)}...'
               : compact;
+          rawMessage = message;
         }
       }
     }
-    return 'Backend $statusCode: $message';
+    if (statusCode == 503 ||
+        RegExp(
+          r'(gemini|api key|GEMINI_API_KEY|GOOGLE_API_KEY|khóa|key|quyền|quota|hạn mức|quá tải)',
+          caseSensitive: false,
+        ).hasMatch(rawMessage)) {
+      return 'AI hiện chưa khả dụng. Có thể Gemini API key chưa đúng, chưa được cấp quyền hoặc dịch vụ đang quá tải. Vui lòng thử lại sau.';
+    }
+    return 'Backend AI lỗi $statusCode: $message';
   }
 
   static Future<List<Map<String, String>>> generateExamples(

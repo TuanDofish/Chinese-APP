@@ -1026,7 +1026,7 @@ class _NewsReaderScreenState extends State<NewsReaderScreen>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      "â€¢ ",
+                      "• ",
                       style: TextStyle(color: Color(0xFFD32F2F)),
                     ),
                     Expanded(

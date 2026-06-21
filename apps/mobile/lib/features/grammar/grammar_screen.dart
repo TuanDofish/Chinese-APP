@@ -46,22 +46,37 @@ class _GrammarScreenState extends State<GrammarScreen> {
 
   GrammarCheckResult _aiUnavailableResult(String text, Object error) {
     final local = GrammarChecker.check(text);
+    final friendlyError = _friendlyAiError(error);
     return GrammarCheckResult(
       score: 0,
-      title: 'Chưa chấm được bằng AI',
+      title: 'AI tạm thời chưa khả dụng',
       summary:
-          'Backend AI chưa phản hồi nên app không tự cho điểm thay Gemini.',
+          'App vẫn hiển thị gợi ý nội bộ để bạn tiếp tục học, nhưng điểm AI thật chưa được tính.',
       correction: local.correction,
       explanation:
-          'Gợi ý nội bộ: ${local.summary} Cấu hình và chạy backend port 3001 với GEMINI_API_KEY để nhận điểm AI thật.',
+          'Gợi ý nội bộ: ${local.summary} Khi backend có Gemini key hợp lệ, kết quả AI sẽ tự hoạt động lại.',
       errors: [
-        'Lỗi kết nối AI: $error',
+        friendlyError,
         ...local.errors.map((item) => 'Gợi ý nội bộ: $item'),
       ],
       source: 'local',
       provider: 'Bộ quy tắc nội bộ',
       suggestions: local.correction.isEmpty ? const [] : [local.correction],
     );
+  }
+
+  String _friendlyAiError(Object error) {
+    final text = error.toString();
+    if (RegExp(
+      r'(Gemini|API key|GEMINI_API_KEY|GOOGLE_API_KEY|khóa|key|quyền|quota|503|Service Unavailable)',
+      caseSensitive: false,
+    ).hasMatch(text)) {
+      return 'AI hiện chưa khả dụng. Có thể Gemini API key chưa đúng, chưa được cấp quyền hoặc dịch vụ đang quá tải.';
+    }
+    if (RegExp(r'(SocketException|Failed host lookup|Connection|Timeout|kết nối)', caseSensitive: false).hasMatch(text)) {
+      return 'Không kết nối được AI backend. Hãy kiểm tra API đang chạy và API_BASE_URL đúng với thiết bị.';
+    }
+    return 'AI hiện chưa phản hồi. Vui lòng thử lại sau.';
   }
 
   GrammarCheckResult _grammarResultFromAi(

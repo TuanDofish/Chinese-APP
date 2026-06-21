@@ -518,12 +518,10 @@ class LearningJourneyDashboard extends StatelessWidget {
   const LearningJourneyDashboard({
     super.key,
     required this.progress,
-    required this.onOpenVocabulary,
     required this.onOpenPractice,
   });
 
   final LearningProgressSnapshot progress;
-  final VoidCallback onOpenVocabulary;
   final VoidCallback onOpenPractice;
 
   @override
@@ -667,39 +665,6 @@ class LearningJourneyDashboard extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const Icon(Icons.route_outlined, color: AppColors.cinnabar),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      'Lộ trình HSK',
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ),
-                  ),
-                  TextButton.icon(
-                    onPressed: onOpenVocabulary,
-                    icon: const Icon(Icons.menu_book_outlined),
-                    label: const Text('Học từ'),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 8),
-              ..._visibleRoadmap(progress).map(
-                (item) => _HskProgressRow(
-                  item: item,
-                  isCurrent: item.level == progress.targetLevel,
-                  onTap: onOpenVocabulary,
-                ),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 16),
-        AppCard(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
                   const Icon(Icons.history, color: AppColors.amber),
                   const SizedBox(width: 8),
                   Expanded(
@@ -730,12 +695,6 @@ class LearningJourneyDashboard extends StatelessWidget {
         ),
       ],
     );
-  }
-
-  List<HskLevelProgress> _visibleRoadmap(LearningProgressSnapshot snapshot) {
-    final target =
-        int.tryParse(snapshot.targetLevel.replaceAll(RegExp(r'\D'), '')) ?? 2;
-    return snapshot.roadmap.take(max(4, min(6, target + 1))).toList();
   }
 }
 
@@ -953,111 +912,6 @@ class _SkillProgress extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class _HskProgressRow extends StatelessWidget {
-  const _HskProgressRow({
-    required this.item,
-    required this.isCurrent,
-    required this.onTap,
-  });
-
-  final HskLevelProgress item;
-  final bool isCurrent;
-  final VoidCallback onTap;
-
-  Color get color {
-    return switch (item.level) {
-      'HSK 1' => AppColors.jade,
-      'HSK 2' => AppColors.cinnabar,
-      'HSK 3' => AppColors.blue,
-      'HSK 4' => AppColors.plum,
-      'HSK 5' => AppColors.amber,
-      _ => AppColors.ink,
-    };
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final percent = (item.progress * 100).round();
-    return Material(
-      color: isCurrent ? color.withValues(alpha: 0.06) : Colors.transparent,
-      borderRadius: BorderRadius.circular(6),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(6),
-        onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 11, horizontal: 8),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Icon(Icons.school_outlined, color: color, size: 21),
-                  const SizedBox(width: 8),
-                  Text(
-                    item.level,
-                    style: const TextStyle(fontWeight: FontWeight.w900),
-                  ),
-                  if (isCurrent) ...[
-                    const SizedBox(width: 8),
-                    StatusPill(label: 'Đang học', color: color),
-                  ],
-                  const Spacer(),
-                  Flexible(
-                    child: Text(
-                      '${item.learnedWords}/${item.totalWords} · $percent%',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.end,
-                      style: TextStyle(
-                        color: color,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 8),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(5),
-                child: LinearProgressIndicator(
-                  value: item.progress,
-                  minHeight: 8,
-                  backgroundColor: AppColors.line,
-                  color: color,
-                ),
-              ),
-              if (item.masteredWords > 0 || item.dueReview > 0) ...[
-                const SizedBox(height: 6),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        '${item.masteredWords} từ đã vững',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    Flexible(
-                      child: Text(
-                        '${item.dueReview} cần ôn',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.end,
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ],
-          ),
-        ),
       ),
     );
   }

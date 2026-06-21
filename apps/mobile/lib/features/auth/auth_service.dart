@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:mobile/core/config/app_config.dart';
+import 'package:mobile/features/auth/google_oauth_client.dart';
 
 class AuthSession {
   const AuthSession({
@@ -47,12 +48,13 @@ class AuthSession {
 
   factory AuthSession.fromApi(Map<String, dynamic> json, String targetLevel) {
     final user = (json['user'] as Map?)?.cast<String, dynamic>() ?? {};
+    final accessToken = '${json['accessToken'] ?? json['token'] ?? ''}';
     return AuthSession(
       id: '${user['id'] ?? 'api'}',
       email: '${user['email'] ?? ''}',
       displayName: _cleanName(user['displayName']),
       role: '${user['role'] ?? 'user'}',
-      token: '${json['token'] ?? ''}',
+      token: accessToken,
       isGuest: false,
       targetLevel: '${user['targetLevel'] ?? targetLevel}',
     );
@@ -206,9 +208,78 @@ class AuthService {
     return session;
   }
 
+  Future<AuthSession> signInWithGoogle({
+    required bool remember,
+    String targetLevel = 'HSK 2',
+  }) async {
+    final identityResult = googleAuthenticationEvents.first.timeout(
+      const Duration(seconds: 45),
+      onTimeout: () => throw const GoogleOAuthException(
+        'Google chưa trả về kết quả. Hãy chọn lại tài khoản rồi thử lại.',
+      ),
+    );
+    await GoogleOAuthClient.instance.authenticate();
+    final identity = await identityResult;
+    return completeGoogleSignIn(
+      identity: identity,
+      remember: remember,
+      targetLevel: targetLevel,
+    );
+  }
+
+  Stream<GoogleIdentity> get googleAuthenticationEvents =>
+      GoogleOAuthClient.instance.authenticationEvents;
+
+  bool get requiresOfficialGoogleWebButton =>
+      GoogleOAuthClient.instance.requiresRenderedWebButton;
+
+  Future<void> prepareGoogleSignIn() =>
+      GoogleOAuthClient.instance.initialize();
+
+  Future<AuthSession> completeGoogleSignIn({
+    required GoogleIdentity identity,
+    required bool remember,
+    String targetLevel = 'HSK 2',
+  }) async {
+    final apiSession = await _postAuth(
+      path: '/auth/google',
+      body: {
+        'idToken': identity.idToken,
+        'targetLevel': targetLevel,
+      },
+      targetLevel: targetLevel,
+    );
+    if (apiSession == null) {
+      throw const AuthException(
+        'Không thể kết nối máy chủ để hoàn tất đăng nhập Google. Hãy kiểm tra mạng và thử lại.',
+      );
+    }
+    await _persist(apiSession, remember);
+    return apiSession;
+  }
+
   Future<void> logout() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.remove(_sessionKey);
+    // Local logout must never wait for an external Google session. Removing
+    // the app session first guarantees that the UI can always return to login.
+    try {
+      final prefs = await SharedPreferences.getInstance().timeout(
+        const Duration(seconds: 2),
+      );
+      await prefs.remove(_sessionKey).timeout(const Duration(seconds: 2));
+    } catch (_) {
+      // AuthGate still clears its in-memory session as a final fallback.
+    }
+    unawaited(_signOutGoogleQuietly());
+  }
+
+  Future<void> _signOutGoogleQuietly() async {
+    try {
+      await GoogleOAuthClient.instance.signOut().timeout(
+        const Duration(seconds: 2),
+      );
+    } catch (_) {
+      // Google sign-out is best effort and must not block device logout.
+    }
   }
 
   Future<AuthSession?> _postAuth({

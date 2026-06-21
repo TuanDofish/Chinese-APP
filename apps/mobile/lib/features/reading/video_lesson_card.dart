@@ -79,7 +79,7 @@ class VideoLessonCard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(6),
                       ),
                       child: Text(
-                        '${lesson.subtitles.length} câu',
+                        '${lesson.subtitles.length} câu · ${lesson.durationLabel}',
                         style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w800,
@@ -102,7 +102,12 @@ class VideoLessonCard extends StatelessWidget {
                   const SizedBox(height: 3),
                   Text(
                     lesson.titleCn,
-                    style: const TextStyle(color: AppColors.muted),
+                    style: const TextStyle(
+                      fontFamily: 'NotoSansSC',
+                      color: AppColors.muted,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                   const SizedBox(height: 8),
                   Wrap(
@@ -115,23 +120,41 @@ class VideoLessonCard extends StatelessWidget {
                         color: AppColors.cinnabar,
                       ),
                       StatusPill(
-                        icon: lesson.hasTimedSubtitles
-                            ? Icons.sync
+                        icon: lesson.practiceReady
+                            ? Icons.verified_outlined
                             : Icons.edit_note,
-                        label: lesson.hasTimedSubtitles
-                            ? 'Phụ đề đã khớp'
-                            : 'Luyện câu thủ công',
-                        color: lesson.hasTimedSubtitles
+                        label: lesson.practiceReady
+                            ? 'Sẵn sàng shadowing'
+                            : 'Cần bổ sung phụ đề',
+                        color: lesson.practiceReady
                             ? AppColors.jade
                             : AppColors.amber,
                       ),
                     ],
                   ),
                   const SizedBox(height: 8),
-                  Text(
-                    lesson.youtubeUrl,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(color: AppColors.blue, fontSize: 12),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.play_lesson_outlined,
+                        color: AppColors.cinnabar,
+                        size: 18,
+                      ),
+                      const SizedBox(width: 6),
+                      Text(
+                        'Bắt đầu học chủ động',
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: AppColors.cinnabar,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                      const Spacer(),
+                      const Icon(
+                        Icons.arrow_forward,
+                        size: 18,
+                        color: AppColors.cinnabar,
+                      ),
+                    ],
                   ),
                 ],
               ),

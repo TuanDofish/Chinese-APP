@@ -248,7 +248,7 @@ class _FlashcardLessonScreenState extends State<FlashcardLessonScreen> {
                     child: FilledButton.icon(
                       onPressed: _index == total - 1
                           ? () {
-                              LearningProgressStore.recordStudyMinutes(5);
+                              LearningProgressStore.recordStudyMinutes(1);
                               Navigator.pop(context);
                             }
                           : () => _pageController.nextPage(

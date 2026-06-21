@@ -1,4 +1,5 @@
-gradle-wrapper.jar
+# The Gradle wrapper jar is required to run gradlew on every developer machine.
+# Keep it under version control with gradle-wrapper.properties.
 /.gradle
 /captures/
 /gradlew

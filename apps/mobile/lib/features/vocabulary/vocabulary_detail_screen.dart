@@ -10,7 +10,7 @@ const _kAmberDeep = Color(0xFFEF6C00);
 const _kSurface = Color(0xFFF8F0E8); // warm cream background
 const _kCard = Color(0xFFFFFFFF);
 const _kInk = Color(0xFF1A1A2E);
-const _kMuted = Color(0xFF94A3B8);
+const _kMuted = Color(0xFF475569);
 const _kCinnabar = Color(0xFFC83E35);
 
 // ─── Pexels keyword mapping for common Chinese words ────────────────────────

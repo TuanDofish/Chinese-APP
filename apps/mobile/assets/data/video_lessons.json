@@ -77,6 +77,111 @@
     "status": "published"
   },
   {
+    "id": "lf_hsk1_i_see",
+    "title": "I See",
+    "titleCn": "我看到",
+    "level": "HSK 1",
+    "youtubeId": "VxAImi0LsS8",
+    "source": "Little Fox Chinese",
+    "subtitles": [
+      {
+        "start": 0.94,
+        "end": 10.28,
+        "cn": "小猴子，我看到。",
+        "py": "Xiǎo hóuzi, wǒ kàn dào.",
+        "vi": "Chú khỉ nhỏ, tôi nhìn thấy."
+      },
+      {
+        "start": 24.24,
+        "end": 27.76,
+        "cn": "我看到石头。",
+        "py": "Wǒ kàn dào shítou.",
+        "vi": "Tôi nhìn thấy hòn đá."
+      },
+      {
+        "start": 32.78,
+        "end": 36.34,
+        "cn": "我看到蚂蚁。",
+        "py": "Wǒ kàn dào mǎyǐ.",
+        "vi": "Tôi nhìn thấy con kiến."
+      },
+      {
+        "start": 40.78,
+        "end": 47.4,
+        "cn": "我看到花。",
+        "py": "Wǒ kàn dào huā.",
+        "vi": "Tôi nhìn thấy bông hoa."
+      },
+      {
+        "start": 55.95,
+        "end": 58.97,
+        "cn": "我看到蝴蝶。",
+        "py": "Wǒ kàn dào húdié.",
+        "vi": "Tôi nhìn thấy con bướm."
+      },
+      {
+        "start": 65.16,
+        "end": 68.18,
+        "cn": "我看到蜜蜂。",
+        "py": "Wǒ kàn dào mìfēng.",
+        "vi": "Tôi nhìn thấy con ong."
+      },
+      {
+        "start": 73.91,
+        "end": 81.68,
+        "cn": "我看到树。",
+        "py": "Wǒ kàn dào shù.",
+        "vi": "Tôi nhìn thấy cái cây."
+      },
+      {
+        "start": 89.69,
+        "end": 92.67,
+        "cn": "我看到猫。",
+        "py": "Wǒ kàn dào māo.",
+        "vi": "Tôi nhìn thấy con mèo."
+      },
+      {
+        "start": 95.31,
+        "end": 95.75,
+        "cn": "快跑！",
+        "py": "Kuài pǎo!",
+        "vi": "Chạy mau!"
+      },
+      {
+        "start": 109.0,
+        "end": 116.68,
+        "cn": "石头，我看到石头。",
+        "py": "Shítou, wǒ kàn dào shítou.",
+        "vi": "Hòn đá, tôi nhìn thấy hòn đá."
+      },
+      {
+        "start": 118.86,
+        "end": 126.12,
+        "cn": "蚂蚁，我看到蚂蚁。",
+        "py": "Mǎyǐ, wǒ kàn dào mǎyǐ.",
+        "vi": "Con kiến, tôi nhìn thấy con kiến."
+      },
+      {
+        "start": 128.7,
+        "end": 132.58,
+        "cn": "花，我看到花。",
+        "py": "Huā, wǒ kàn dào huā.",
+        "vi": "Bông hoa, tôi nhìn thấy bông hoa."
+      },
+      {
+        "start": 136.4,
+        "end": 144.28,
+        "cn": "树，我看到树。",
+        "py": "Shù, wǒ kàn dào shù.",
+        "vi": "Cái cây, tôi nhìn thấy cái cây."
+      }
+    ],
+    "transcriptStatus": "timed",
+    "transcriptSource": "User supplied timed transcript",
+    "reviewStatus": "reviewed",
+    "status": "published"
+  },
+  {
     "id": "lf_hsk1_my_day",
     "title": "My Day",
     "titleCn": "我的一天",

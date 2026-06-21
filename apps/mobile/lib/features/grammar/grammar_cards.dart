@@ -134,7 +134,10 @@ class GrammarResultCard extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 4),
-                    Text(result.summary),
+                    Text(
+                      result.summary,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
                     const SizedBox(height: 8),
                     StatusPill(
                       icon: result.isAi
@@ -173,7 +176,10 @@ class GrammarResultCard extends StatelessWidget {
               const SizedBox(height: 8),
               Text(
                 result.explanation,
-                style: const TextStyle(color: AppColors.muted),
+                style: const TextStyle(
+                  color: AppColors.muted,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ],
           ),
@@ -196,7 +202,14 @@ class GrammarResultCard extends StatelessWidget {
                 ...result.suggestions.map(
                   (item) => Padding(
                     padding: const EdgeInsets.only(bottom: 8),
-                    child: SelectableText(item),
+                    child: SelectableText(
+                      item,
+                      style: const TextStyle(
+                        color: AppColors.ink,
+                        fontWeight: FontWeight.w600,
+                        height: 1.5,
+                      ),
+                    ),
                   ),
                 ),
               ],

@@ -34,7 +34,7 @@ class _HanziiDetailPanelState extends State<HanziiDetailPanel> {
   static const _jade = Color(0xFF1F7A63);
   static const _amber = Color(0xFFE1A326);
   static const _ink = Color(0xFF18202A);
-  static const _muted = Color(0xFF667085);
+  static const _muted = Color(0xFF475569);
   static const _surface = Color(0xFFF7F4EF);
 
   @override
@@ -530,7 +530,7 @@ class _HanziiDetailPanelState extends State<HanziiDetailPanel> {
                         'Nguồn: ${ex['source']}',
                         style: const TextStyle(
                           fontSize: 11,
-                          color: Color(0xFF98A2B3),
+                          color: Color(0xFF475569),
                         ),
                       ),
                     ],

@@ -5,6 +5,17 @@ import { Vocabulary } from './entities/vocabulary.entity';
 import { ExampleSentence } from './entities/example-sentence.entity';
 import { cleanText } from './utils/text-normalizer';
 
+const CURATED_MEANING_VI: Record<string, string> = {
+  爸爸: 'bố, ba',
+  妈妈: 'mẹ',
+  哥哥: 'anh trai',
+  姐姐: 'chị gái',
+  弟弟: 'em trai',
+  妹妹: 'em gái',
+  儿子: 'con trai',
+  女儿: 'con gái',
+};
+
 @Injectable()
 export class DictionaryService {
   constructor(
@@ -69,12 +80,15 @@ export class DictionaryService {
       .take(8)
       .getMany();
 
-    return results.map((v) => ({
-      simplified: cleanText(v.simplified),
-      pinyin: cleanText(v.pinyin),
-      meaningVi: cleanText(v.meaningVi || ''),
-      meaningEn: cleanText(v.meaningEn || ''),
-    }));
+    return results.map((v) => {
+      const simplified = cleanText(v.simplified);
+      return {
+        simplified,
+        pinyin: cleanText(v.pinyin),
+        meaningVi: cleanText(v.meaningVi || CURATED_MEANING_VI[simplified] || ''),
+        meaningEn: cleanText(v.meaningEn || ''),
+      };
+    });
   }
 
   /**
@@ -226,6 +240,8 @@ export class DictionaryService {
         cleaned === '...' ||
         cleaned === '' ||
         cleaned.startsWith('dang cap nhat') ||
+        cleaned.startsWith('đang cập nhật') ||
+        cleaned.startsWith('tiếng anh:') ||
         cleaned.startsWith('đang tải')
       );
     };
@@ -275,6 +291,9 @@ export class DictionaryService {
     v.pinyin = cleanText(v.pinyin);
     v.meaningVi = cleanText(v.meaningVi);
     v.meaningEn = cleanText(v.meaningEn);
+    if (!v.meaningVi && CURATED_MEANING_VI[v.simplified]) {
+      v.meaningVi = CURATED_MEANING_VI[v.simplified];
+    }
     v.hanViet = cleanText(v.hanViet);
     v.wordType = cleanText(v.wordType);
     v.radical = cleanText(v.radical);
